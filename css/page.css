@@ -11,7 +11,6 @@ html {
 
 body {
   width: var(--width);
-  font-size: 0.9em;
   margin: auto;
   visibility: hidden;
 }
@@ -38,7 +37,7 @@ h1 {
 
 p,
 a {
-  font: 400 1.25em "Open sans", sans-serif;
+  font: 400 1.125em "Open sans", sans-serif;
 }
 
 #about > p {

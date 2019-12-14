@@ -59,7 +59,7 @@ a:hover:after {
 .line:before {
   content: "";
   position: absolute;
-  left: calc(-1 / 2 * var(--dot-size) - 4px);
+  left: calc(-1 / 2 * var(--dot-size) - 1.5 * var(--line-width));
   background: var(--bg-color);
   top: 33%;
   width: var(--dot-size);
