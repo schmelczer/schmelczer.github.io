@@ -2,16 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/og-image.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/static/og.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content-en.json" beforeDir="false" afterPath="$PROJECT_DIR$/content-en.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/elements.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/elements.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/page.css" beforeDir="false" afterPath="$PROJECT_DIR$/css/page.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/my-notes.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-en.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/content-hu.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/elements.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/css/page.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/content.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/avoid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/forex.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/led.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/led720.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/me.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/my-notes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/og-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/og.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/photos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/platform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/process-simulator-input.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/process-simulator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/static/simulation.jpg" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +37,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -35,13 +50,22 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="/usr/local/lib/node_modules/prettier" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="ts.external.directory.path" value="C:\Projects\portfolio\CompiledCV\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\portfolio\CompiledCV\src\content" />
+      <recent name="C:\Projects\portfolio\CompiledCV\dist" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -72,7 +96,8 @@
       <workItem from="1576164066512" duration="3000" />
       <workItem from="1576250286627" duration="24922000" />
       <workItem from="1576342852221" duration="24000" />
-      <workItem from="1576352253939" duration="106000" />
+      <workItem from="1576352253939" duration="353000" />
+      <workItem from="1576748546157" duration="8755000" />
     </task>
     <servers />
   </component>
