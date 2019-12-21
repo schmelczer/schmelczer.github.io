@@ -1,0 +1,8 @@
+@import "../../style/vars";
+
+.content {
+  margin-top: $small-margin;
+  * {
+    margin-top: 1ch;
+  }
+}

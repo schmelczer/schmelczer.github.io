@@ -1,0 +1,74 @@
+@import "style/vars";
+
+* {
+  margin: 0;
+  box-sizing: content-box;
+  color: $normal-text-color;
+  hyphens: auto;
+}
+
+::-moz-selection {
+  background: $accent-color;
+  color: $inverse-text-color;
+}
+::selection {
+  background: $accent-color;
+  color: $inverse-text-color;
+}
+
+html {
+  background-color: $normal-text-color;
+  color: $inverse-text-color;
+}
+
+@supports (background: $background) {
+  html {
+    background: $background;
+    color: $normal-text-color;
+  }
+}
+
+body {
+  width: $body-width;
+  margin: auto;
+  font: $text-font;
+
+  &::-webkit-scrollbar-track,
+  &::-webkit-scrollbar {
+    background-color: $scrollbar-color;
+    width: 12px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: $accent-color;
+    border-radius: $border-radius;
+  }
+}
+
+img,
+video {
+  width: 100%;
+  height: auto;
+}
+
+a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  cursor: pointer;
+  border-bottom: solid $line-width $light-accent-color;
+
+  &:after {
+    content: "";
+    width: 0;
+    height: $line-width;
+    position: absolute;
+    left: 0;
+    bottom: -$line-width;
+    background-color: $accent-color;
+    transition: width $transition-time;
+
+    &:hover {
+      width: 100%;
+    }
+  }
+}

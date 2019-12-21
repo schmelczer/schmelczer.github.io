@@ -1,0 +1,35 @@
+@import "fonts";
+
+$background: linear-gradient(90deg, #fff9e0 0, #ffd6d6 100vw);
+
+$normal-text-color: #31343f;
+$light-text-color: #7a7d8e;
+$inverse-text-color: #ffffff;
+
+$card-color: #ffffff;
+$accent-color: #5264bf;
+$light-accent-color: #e5e5ff;
+$scrollbar-color: #ffd6d6;
+
+$transition-time: 220ms;
+$line-width: 3px;
+$border-radius: 5px;
+$breakpoint-width: 900px;
+
+$normal-margin: 35px;
+$small-margin: 25px;
+
+$icon-size: 25px;
+$body-width: 765px;
+
+$title-font: 400 3.33rem "Raleway", sans-serif;
+$sub-title-font: 400 2rem "Raleway", sans-serif;
+$text-font: 400 18px "Open sans", sans-serif;
+
+@media (max-width: $breakpoint-width) {
+  $line-width: 2px;
+  $normal-margin: 25px;
+  $small-margin: 20px;
+  $icon-size: 20px;
+  $body-width: 85%;
+}

@@ -3,8 +3,9 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
-  devtool: "inline-source-map",
+  watchOptions: {
+    ignored: /node_modules/
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -14,32 +15,61 @@ module.exports = {
     })
   ],
   entry: {
-    index: "./src/ts/index.ts"
+    index: "./src/index.ts"
   },
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i,
-        use: ["style-loader", "css-loader", "sass-loader"]
-      },
-      {
-        test: /\.tsx?$/,
-        use: "ts-loader",
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(png|svg|jpe?g|gif)$/,
+        test: /\.(png|svg|jpe?g|gif|mp4)$/,
         use: {
           loader: "file-loader",
           query: {
-            outputPath: "images"
+            outputPath: "static/"
           }
         }
+      },
+      {
+        test: /\.scss$/i,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader"
+          },
+          {
+            loader: "resolve-url-loader",
+            options: {
+              keepQuery: true
+            }
+          },
+          {
+            loader: "sass-loader",
+            options: {
+              sourceMap: true
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff2?|ttf|eot|svg)(?:[?#].+)?$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "static/fonts/"
+          }
+        }
+      },
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/
       }
     ]
   },
   resolve: {
-    extensions: [".ts"]
+    extensions: [".ts", ".js"]
   },
   output: {
     filename: "[name].bundle.js",

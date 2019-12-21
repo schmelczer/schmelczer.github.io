@@ -2,30 +2,64 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/element-factory.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/page-element.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/content.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/misc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/model/portfolio.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/content/content.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/content/content.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/footer/footer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/timeline/timeline.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/timeline/timeline.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.eot" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.ttf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.woff" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.woff2" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/icons/cancel.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/static/icons/cv.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/fonts.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/mixins.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/style/vars.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/content-en.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/content-hu.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/elements.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/main.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/css/page.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/content.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/js/main.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/avoid.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/color.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/forex.gif" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/led.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/led720.mp4" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/me.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/my-notes.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/og-image.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/og.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/photos.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/platform.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/process-simulator-input.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/process-simulator.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/simulation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/custom.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/content/en.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/en.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/avoid.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/color.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/forex.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/led.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/led720.mp4" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/me.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/my-notes.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/og-image.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/og.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/photos.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/platform.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/process-simulator-input.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/process-simulator.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/simulation.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/elements.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/elements.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/index.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/main.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/page.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/page.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/parser.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/parser.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -38,6 +72,7 @@
       <list>
         <option value="JavaScript File" />
         <option value="HTML File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -54,7 +89,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/static/icons" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="/usr/local/lib/node_modules/prettier" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
@@ -62,11 +97,14 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\portfolio\CompiledCV\src\content" />
-      <recent name="C:\Projects\portfolio\CompiledCV\dist" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\footer" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\timeline\timeline-element" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\timeline" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\content" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -97,7 +135,11 @@
       <workItem from="1576250286627" duration="24922000" />
       <workItem from="1576342852221" duration="24000" />
       <workItem from="1576352253939" duration="353000" />
-      <workItem from="1576748546157" duration="8755000" />
+      <workItem from="1576748546157" duration="9887000" />
+      <workItem from="1576834875857" duration="16037000" />
+      <workItem from="1576871267880" duration="2613000" />
+      <workItem from="1576914921042" duration="13644000" />
+      <workItem from="1576958819998" duration="2591000" />
     </task>
     <servers />
   </component>

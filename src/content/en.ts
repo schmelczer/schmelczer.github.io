@@ -1,34 +1,41 @@
-import me from "../static/me.jpg";
-import forex from "../static/forex.gif";
-import myNotes from "../static/my-notes.jpg";
-import processSimulator from "../static/process-simulator.jpg";
-import processSimulatorInput from "../static/process-simulator-input.jpg";
-import citySimulation from "../static/simulation.jpg";
-import color from "../static/color.jpg";
-import platform from "../static/platform.png";
-import photos from "../static/photos.jpg";
-import led from "../static/led.jpg";
+import { Portfolio } from "../model/portfolio";
+import me from "../static/media/me.jpg";
+import forex from "../static/media/forex.gif";
+import myNotes from "../static/media/my-notes.jpg";
+import processSimulator from "../static/media/process-simulator.jpg";
+import processSimulatorInput from "../static/media/process-simulator-input.jpg";
+import citySimulation from "../static/media/simulation.jpg";
+import color from "../static/media/color.jpg";
+import platform from "../static/media/platform.png";
+import photos from "../static/media/photos.jpg";
+import led from "../static/media/led.jpg";
+import ledVideo from "../static/media/led720.mp4";
 
-export const content = {
+export const portfolio: Portfolio = {
   config: {
     showMore: "Show details",
-    showLess: "Show less"
+    showLess: "Show less",
+    aPictureOf: "a picture of",
+    cvName: "Curriculum vitae"
   },
   header: {
     name: "András Schmelczer",
     picture: me,
     about: [
-      "I have always been fascinated by the engineering feats that surround us. When I realized that someday I might be able to contribute to these achievements, I knew that is what I need to aim for. As I am finishing my fifth semester at the Budapest University of Technology and Economics, I feel I am getting closer to it every day.",
-      "You can see some of the more interesting projects I have worked on below."
+      `I have always been fascinated by the engineering feats that surround us. 
+       When I realized that someday I might be able to contribute to these achievements, 
+       I knew that is what I need to aim for. As I am finishing my fifth semester at the 
+       Budapest University of Technology and Economics, I feel I am getting closer to it every day.`,
+      `You can see some of the more interesting projects I have worked on below.`
     ]
   },
   timeline: [
     {
-      date: "2019 Autumn",
       title: "Predicting foreign exchange rates",
+      date: "2019 Autumn",
       picture: forex,
-      description:
-        "From the animation we can see that my algorithm does a somewhat acceptable job at predicting (blue graph) the EUR/USD rates (green graph).",
+      description: `From the animation we can see that my algorithm does a somewhat acceptable job at
+       predicting (blue graph) the EUR/USD rates (green graph).`,
       more: [
         "In a nutshell, the algorithm (written with Python - NumPy, SciPy, Flask), extrapolates in the frequency domain. The steps are the following: smoothing the input values, differentiating, applying a short-time Fourier-transformation with overlapped (and Hanning-windowed) windows, extrapolating and then applying the inverse of these transformations to the extrapolated values.",
         "Of course, there is still plenty of room for improvement, but even with this simple algorithm a mostly profitable trading strategy is viable. In my free time I may put more work into it."
@@ -127,12 +134,12 @@ export const content = {
         "This was my first non-trivial project which got finished. Obviously, it is rather far from perfect, but I am still proud that I was able to build it on my own.",
         "The backend logic is written in Python the FFT is provided by NumPy. A quite simple frontend for accessing the music player and changing the settings also got built using vanilla web development technologies.",
         "Below is a video showing the system in work.",
-        { type: "video", src: "static/led720.mp4" }
+        { type: "video", src: ledVideo }
       ]
     }
   ],
   footer: {
     email: "andras.schmelczer@schdesign.hu",
-    cv: "/static/andras_schmelczer_cv.pdf"
+    cv: "/static/media/andras_schmelczer_cv.pdf"
   }
 };

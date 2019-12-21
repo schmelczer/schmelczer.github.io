@@ -1,0 +1,28 @@
+@import "../../style/mixins";
+@import "../../style/vars";
+
+#about {
+  header {
+    @include center-children();
+    margin-top: $normal-margin;
+
+    h1,
+    img {
+      font: $title-font;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    img {
+      @include square(4ch);
+      border-radius: 100%;
+      margin-right: 1.5ex;
+    }
+  }
+
+  * {
+    text-align: justify;
+  }
+}

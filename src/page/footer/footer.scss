@@ -1,0 +1,7 @@
+@import "../../style/mixins";
+
+footer {
+  @include card();
+  @include center-children();
+  margin-top: $normal-margin;
+}

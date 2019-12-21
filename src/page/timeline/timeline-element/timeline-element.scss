@@ -1,0 +1,80 @@
+@import "../../../style/mixins";
+@import "../../../style/vars";
+
+.timeline-element {
+  display: flex;
+
+  .date-narrow-screen,
+  .date-wide-screen {
+    font: $text-font;
+  }
+
+  .line {
+    @media (max-width: $breakpoint-width) {
+      display: none;
+    }
+
+    position: relative;
+    margin: 0 $small-margin 0 $icon-size / 2;
+    border-left: $line-width solid $normal-text-color;
+
+    &:before {
+      content: "";
+      @include square($icon-size);
+      position: absolute;
+      top: 33%;
+      left: -0.5 * $icon-size - (1.5 * $line-width);
+      border: $line-width solid $normal-text-color;
+      border-radius: 100%;
+      background: $background;
+    }
+
+    .date-wide-screen {
+      position: relative;
+      top: calc(33% + #{$icon-size} + 1ch);
+      margin: 0 $normal-margin 0 calc(#{$line-width} + 1ex);
+      width: 100px;
+    }
+  }
+
+  &:not(:first-of-type) .card {
+    margin-top: $normal-margin;
+  }
+
+  .card {
+    @include card();
+
+    h2 {
+      font: $sub-title-font;
+    }
+
+    .date-narrow-screen {
+      @media (min-width: $breakpoint-width) {
+        display: none;
+      }
+
+      margin: $small-margin 0 0 0;
+      color: $light-text-color;
+    }
+
+    #more {
+      overflow: hidden;
+      height: 0;
+      transition: height $transition-time;
+    }
+
+    .buttons {
+      position: relative;
+      * {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: opacity $transition-time;
+      }
+
+      #show-less {
+        opacity: 0;
+      }
+    }
+  }
+}

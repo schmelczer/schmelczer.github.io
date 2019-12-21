@@ -1,0 +1,30 @@
+@import "vars";
+
+@mixin center-children() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin card() {
+  text-align: center;
+  border-radius: $border-radius;
+  padding: $normal-margin;
+  background-color: $card-color;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.125);
+
+  @media (max-width: $breakpoint-width) {
+    & {
+      transition: box-shadow $transition-time;
+
+      &:hover {
+        box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
+
+@mixin square($size) {
+  width: $size;
+  height: $size;
+}
