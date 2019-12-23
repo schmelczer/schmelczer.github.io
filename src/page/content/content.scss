@@ -2,7 +2,12 @@
 
 .content {
   margin-top: $small-margin;
+
   * {
-    margin-top: 1ch;
+    margin-top: $line-height;
+  }
+
+  p {
+    text-align: left;
   }
 }

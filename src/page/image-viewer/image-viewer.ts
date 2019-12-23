@@ -1,27 +1,23 @@
-import "./image-viewer.scss";
-import cancel from "../../static/icons/cancel.svg";
-import { html } from "../../model/misc";
 import { createElement } from "../../framework/element-factory";
 import { PageElement } from "../../framework/page-element";
-import { hide, show } from "../../framework/helpers";
+
+import "./image-viewer.scss";
+import { generate } from "./image-viewer.html";
+import { mixColorsToRGB } from "../../framework/helper";
 
 export class PageImageViewer extends PageElement {
-  private static template: html = `
-        <section class="photo-viewer">
-            <img id="photo" alt="currently opened photo"/>
-            <img id="cancel" src="${cancel}" alt="cancel"/>
-        </section>
-    `;
-
   public constructor() {
     super();
-    const root = createElement(PageImageViewer.template);
-    (root.querySelector("#cancel") as HTMLElement).onclick = () => hide(root);
+    const root = createElement(generate());
+    (root.querySelector("#cancel") as HTMLElement).onclick = () =>
+      PageImageViewer.hide(root);
     this.setElement(root);
   }
 
   public onAfterLoad(parent: HTMLElement) {
     super.onAfterLoad(parent);
+
+    document.body.addEventListener("keydown", this.handleKeydown.bind(this));
 
     const images = Array.prototype.slice.call(parent.querySelectorAll("img"));
     images
@@ -38,6 +34,22 @@ export class PageImageViewer extends PageElement {
       "#photo"
     ) as HTMLImageElement).src = (event.target as HTMLImageElement).src;
 
-    show(this.getElement());
+    PageImageViewer.show(this.getElement());
+  }
+
+  private handleKeydown(event: KeyboardEvent) {
+    if (event.key === "Escape") {
+      PageImageViewer.hide(this.getElement());
+    }
+  }
+
+  private static show(e: HTMLElement) {
+    e.style.display = "flex";
+    console.log("#" + mixColorsToRGB("00000", "ffd6d6", 0.75));
+    document.body.parentElement.style.backgroundColor =
+      "#" + mixColorsToRGB("00000", "ffd6d6", 0.75);
+  }
+  private static hide(e: HTMLElement) {
+    e.style.display = "none";
   }
 }

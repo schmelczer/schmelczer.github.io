@@ -13,6 +13,7 @@ export interface Config {
   showLess: string;
   aPictureOf: string;
   cvName: string;
+  lastEdit: Date;
 }
 
 export interface Header {

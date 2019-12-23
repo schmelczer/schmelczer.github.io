@@ -3,6 +3,7 @@ import "./timeline.scss";
 import { PageElement } from "../../framework/page-element";
 import { createElement } from "../../framework/element-factory";
 import { PageTimelineElement } from "./timeline-element/timeline-element";
+import { generate } from "./timeline.html";
 
 export class PageTimeline extends PageElement {
   public constructor(
@@ -10,7 +11,7 @@ export class PageTimeline extends PageElement {
     showMore: string,
     showLess: string
   ) {
-    const root = createElement(`<main id="timeline"></main>`);
+    const root = createElement(generate());
     const elements = timeline.map(
       e => new PageTimelineElement(e, showMore, showLess)
     );

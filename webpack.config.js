@@ -20,7 +20,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpe?g|gif|mp4)$/,
+        test: /\.(png|svg|jpe?g|gif|mp4)$/i,
         use: {
           loader: "file-loader",
           query: {
@@ -59,7 +59,8 @@ module.exports = {
             name: "[name].[ext]",
             outputPath: "static/fonts/"
           }
-        }
+        },
+        include: /fonts/
       },
       {
         test: /\.ts$/,

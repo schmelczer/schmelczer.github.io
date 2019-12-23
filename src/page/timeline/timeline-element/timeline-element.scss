@@ -6,7 +6,7 @@
 
   .date-narrow-screen,
   .date-wide-screen {
-    font: $text-font;
+    @include insignificant-font();
   }
 
   .line {
@@ -31,7 +31,8 @@
 
     .date-wide-screen {
       position: relative;
-      top: calc(33% + #{$icon-size} + 1ch);
+      top: calc(33% + #{$icon-size} + 2ch);
+      transform: rotate(30deg);
       margin: 0 $normal-margin 0 calc(#{$line-width} + 1ex);
       width: 100px;
     }
@@ -43,9 +44,14 @@
 
   .card {
     @include card();
+    overflow: hidden;
+
+    & > *:not(:first-child) {
+      margin-top: $line-height;
+    }
 
     h2 {
-      font: $sub-title-font;
+      @include sub-title-font();
     }
 
     .date-narrow-screen {
@@ -57,23 +63,40 @@
       color: $light-text-color;
     }
 
+    img {
+      cursor: pointer;
+    }
+
+    .description {
+      font-style: italic;
+    }
+
     #more {
       overflow: hidden;
       height: 0;
-      transition: height $transition-time;
+      margin-top: 0;
+      transition: height $slow-transition-time;
     }
 
     .buttons {
       position: relative;
+      margin-top: $small-margin;
+
       * {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        transition: opacity $transition-time;
+        transition: opacity $slow-transition-time;
+      }
+
+      #show-more {
+        opacity: 1;
       }
 
       #show-less {
         opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translateX(-50%) translateY(-50%);
       }
     }
   }

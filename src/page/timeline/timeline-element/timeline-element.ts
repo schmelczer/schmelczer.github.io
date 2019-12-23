@@ -3,49 +3,21 @@ import { PageContent } from "../../content/content";
 import "./timeline-element.scss";
 import { PageElement } from "../../../framework/page-element";
 import { createElement } from "../../../framework/element-factory";
+import { generate } from "./timeline-element.html";
 
 export class PageTimelineElement extends PageElement {
   private isOpen;
   private more: HTMLElement;
 
   public constructor(
-    { date, title, picture, description, more, link }: TimelineElement,
+    timelineElement: TimelineElement,
     showMore: string,
     showLess: string
   ) {
-    const root = createElement(`
-        <section class="timeline-element">
-            <div class="line">
-                <p class="date-wide-screen">${date}</p>
-            </div>
-            <div class="card">
-                <h2>${title}</h2>
-                <p class="date-narrow-screen">${date}</p>
-                <img src="${picture}" alt="${picture}"/>
-                <p class="description">${description}</p>
-                ${
-                  more
-                    ? `
-                    <div id="more"></div>
-                    <div class="buttons">
-                        <a id="show-more">${showMore}</a>
-                        <a id="show-less">${showLess}</a>
-                    </div>
-                    `
-                    : ""
-                }
-                ${
-                  link
-                    ? `
-                    <a href="${link}" target="_blank">${link}</a>`
-                    : ""
-                }
-            </div>
-        </section>
-    `);
+    const root = createElement(generate(timelineElement, showMore, showLess));
 
-    if (more) {
-      const content = new PageContent(more);
+    if (timelineElement.more) {
+      const content = new PageContent(timelineElement.more);
       super([content]);
       this.isOpen = false;
       this.more = root.querySelector("#more");
@@ -67,15 +39,25 @@ export class PageTimelineElement extends PageElement {
     ) as HTMLElement;
     if (this.isOpen) {
       this.more.style.height = "0";
-      showMore.style.opacity = "1";
-      showLess.style.opacity = "0";
+      PageTimelineElement.show(showMore);
+      PageTimelineElement.hide(showLess);
     } else {
       this.openMoreToFullHeight();
-      showMore.style.opacity = "0";
-      showLess.style.opacity = "1";
+      PageTimelineElement.hide(showMore);
+      PageTimelineElement.show(showLess);
     }
 
     this.isOpen = !this.isOpen;
+  }
+
+  private static hide(element: HTMLElement) {
+    element.style.opacity = "0";
+    setTimeout(() => (element.style.visibility = "hidden"), 350);
+  }
+
+  private static show(element: HTMLElement) {
+    element.style.visibility = "visible";
+    element.style.opacity = "1";
   }
 
   private openMoreToFullHeight() {

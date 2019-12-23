@@ -15,7 +15,7 @@
 
   @media (max-width: $breakpoint-width) {
     & {
-      transition: box-shadow $transition-time;
+      transition: box-shadow $fast-transition-time;
 
       &:hover {
         box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
@@ -27,4 +27,22 @@
 @mixin square($size) {
   width: $size;
   height: $size;
+}
+
+@mixin title-font() {
+  font: 400 3.33rem "Raleway", serif;
+}
+
+@mixin sub-title-font() {
+  font: 400 2rem "Raleway", serif;
+}
+
+@mixin main-font() {
+  font: 400 18px "Open sans", sans-serif;
+  line-height: 1.5;
+}
+
+@mixin insignificant-font() {
+  font: 400 16px "Open sans", sans-serif;
+  font-style: italic;
 }
