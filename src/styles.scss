@@ -19,15 +19,25 @@
 
 html {
   background-color: $background;
+  height: 100%;
 }
 
 body {
-  width: $body-width;
-  margin: auto;
   @include main-font();
+  margin: auto;
+  height: 100%;
+  width: 100%;
 
-  & > * {
-    margin-top: $normal-margin;
+  & > main {
+    height: 100%;
+    overflow-y: auto;
+    perspective-origin: 0 0;
+    overflow-x: hidden;
+
+    perspective: 5px;
+    & > * {
+      margin-top: $normal-margin;
+    }
   }
 
   &::-webkit-scrollbar-track,

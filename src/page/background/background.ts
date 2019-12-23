@@ -8,17 +8,12 @@ export class PageBackground extends PageElement {
     count: number,
     width: number,
     probability: number,
-    color: string
+    color: string,
+    translateZ: number
   ) {
     super();
-    this.setElement(createElement(generate(count, probability, width, color)));
-  }
-
-  public onAfterLoad(parent: HTMLElement) {
-    window.addEventListener("scroll", () => {
-      this.getElement().style.transform = `translateY(-${window.scrollY *
-        this.speed}px)`;
-    });
-    super.onAfterLoad(parent);
+    this.setElement(
+      createElement(generate(count, probability, width, color, translateZ))
+    );
   }
 }

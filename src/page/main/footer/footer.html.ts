@@ -1,5 +1,5 @@
-import { Footer } from "../../model/portfolio";
-import { html } from "../../model/misc";
+import { Footer } from "../../../model/portfolio";
+import { html } from "../../../model/misc";
 import "./footer.scss";
 
 export const generate = ({ email, cv }: Footer, cvName: string): html => `

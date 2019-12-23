@@ -1,8 +1,7 @@
-import { createElement } from "../../framework/element-factory";
-import { PageElement } from "../../framework/page-element";
+import { createElement } from "../../../framework/element-factory";
+import { PageElement } from "../../../framework/page-element";
 
 import { generate } from "./image-viewer.html";
-import { mixColorsToRGB } from "../../framework/helper";
 
 export class PageImageViewer extends PageElement {
   public constructor() {

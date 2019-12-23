@@ -1,7 +1,7 @@
-import { TimelineElement } from "../../../model/portfolio";
+import { TimelineElement } from "../../../../model/portfolio";
 import { PageContent } from "../../content/content";
-import { PageElement } from "../../../framework/page-element";
-import { createElement } from "../../../framework/element-factory";
+import { PageElement } from "../../../../framework/page-element";
+import { createElement } from "../../../../framework/element-factory";
 import { generate } from "./timeline-element.html";
 
 export class PageTimelineElement extends PageElement {

@@ -6,7 +6,8 @@ export const generate = (
   count: number,
   probability: number,
   width: number,
-  color: string
+  color: string,
+  translateZ: number
 ): html => `
     <section class="background">
         ${new Array(count)
@@ -15,7 +16,8 @@ export const generate = (
             fixedSeedRandom() < probability
               ? `<div style="width: ${width}px; height: ${width *
                   (fixedSeedRandom() + 0.1) *
-                  10}px; background-color: ${color}"></div>`
+                  10}px; background-color: ${color}; transform: translateZ(${translateZ}px) rotate(-20deg);"
+                ></div>`
               : `<div class="gap"></div>`
           )
           .join("")}

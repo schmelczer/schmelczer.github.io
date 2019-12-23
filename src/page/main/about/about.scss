@@ -1,7 +1,9 @@
-@import "../../style/mixins";
-@import "../../style/vars";
+@import "../../../style/mixins";
+@import "../../../style/vars";
 
 #about {
+  margin-top: $normal-margin;
+
   header {
     @include center-children();
 

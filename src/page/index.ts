@@ -1,24 +1,18 @@
 import { Portfolio } from "../model/portfolio";
-import { PageHeader } from "./about/about";
-import { PageTimeline } from "./timeline/timeline";
 import { PageElement } from "../framework/page-element";
-import { PageImageViewer } from "./image-viewer/image-viewer";
-import { PageFooter } from "./footer/footer";
 import { PageBackground } from "./background/background";
+import { PageMain } from "./main/main";
 
 export const create = (portfolio: Portfolio) => {
-  const { config, header, timeline, footer } = portfolio;
-
-  document.title = header.name;
+  document.title = portfolio.header.name;
 
   const pageElements: Array<PageElement> = [
-    new PageBackground(0.1, 10, 70, 0.6, "#fff9e0aa"),
-    new PageBackground(0.15, 15, 40, 0.5, "#ffd6d6aa"),
-    new PageHeader(header, config.aPictureOf),
-    new PageTimeline(timeline, config.showMore, config.showLess),
-    new PageFooter(footer, config.cvName),
-    new PageImageViewer()
+    new PageBackground(0.1, 200, 140, 0.4, "#fff9e0aa", -15),
+    new PageBackground(0.15, 300, 80, 0.3, "#ffd6d6aa", -10),
+    new PageMain(portfolio)
   ];
-  document.body.append(...pageElements.map(e => e.getElement()));
-  pageElements.forEach(e => e.onAfterLoad(document.body));
+
+  const root = document.body.querySelector("main");
+  root.append(...pageElements.map(e => e.getElement()));
+  pageElements.forEach(e => e.onAfterLoad(root));
 };
