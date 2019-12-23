@@ -29,6 +29,16 @@ module.exports = {
         }
       },
       {
+        test: /\.ico$/i,
+        use: {
+          loader: "file-loader",
+          query: {
+            outputPath: "/",
+            name: "[name].[ext]"
+          }
+        }
+      },
+      {
         test: /\.scss$/i,
         use: [
           {

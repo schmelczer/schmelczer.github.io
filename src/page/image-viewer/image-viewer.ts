@@ -1,5 +1,5 @@
-import { createElement } from "../../../framework/element-factory";
-import { PageElement } from "../../../framework/page-element";
+import { createElement } from "../../framework/element-factory";
+import { PageElement } from "../../framework/page-element";
 
 import { generate } from "./image-viewer.html";
 

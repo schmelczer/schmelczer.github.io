@@ -1,5 +1,5 @@
-import { TimelineElement } from "../../../../model/portfolio";
-import { html } from "../../../../model/misc";
+import { TimelineElement } from "../../../model/portfolio";
+import { html } from "../../../model/misc";
 import "./timeline-element.scss";
 
 export const generate = (

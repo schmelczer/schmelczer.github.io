@@ -36,7 +36,8 @@ body {
 
     perspective: 5px;
     & > * {
-      margin-top: $normal-margin;
+      width: $body-width;
+      margin: $normal-margin auto 0 auto;
     }
   }
 

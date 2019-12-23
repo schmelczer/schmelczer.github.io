@@ -1,5 +1,5 @@
-import { html } from "../../../model/misc";
-import cancel from "../../../static/icons/cancel.svg";
+import { html } from "../../model/misc";
+import cancel from "../../static/icons/cancel.svg";
 import "./image-viewer.scss";
 
 export const generate = (): html => `
