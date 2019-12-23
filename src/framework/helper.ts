@@ -25,3 +25,8 @@ const hexToRGB = (hex: string): [number, number, number] => {
 
 const RGBToHex = (rgb: [number, number, number]): string =>
   rgb.map(n => Math.round(n).toString(16)).join("");
+
+export const randomFactory = seed => () =>
+  ((2 ** 31 - 1) & (seed = Math.imul(48271, seed))) / 2 ** 31;
+
+export const fixedSeedRandom = randomFactory(42);

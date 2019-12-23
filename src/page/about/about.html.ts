@@ -1,5 +1,6 @@
 import { Header } from "../../model/portfolio";
 import { html } from "../../model/misc";
+import "./about.scss";
 
 export const generate = (
   { name, picture, about }: Header,

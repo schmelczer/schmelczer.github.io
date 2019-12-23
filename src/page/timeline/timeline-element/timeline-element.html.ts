@@ -1,5 +1,6 @@
 import { TimelineElement } from "../../../model/portfolio";
 import { html } from "../../../model/misc";
+import "./timeline-element.scss";
 
 export const generate = (
   { date, title, picture, description, more, link }: TimelineElement,

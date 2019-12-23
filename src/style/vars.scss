@@ -1,7 +1,7 @@
 @import "fonts";
-$background-start: #fff9e0;
-$background-end: #ffd6d6;
-$background: linear-gradient(90deg, $background-start 0, $background-end 100vw);
+$background-start: white;
+$background-end: white;
+$background: white;
 
 $normal-text-color: #31343f;
 $light-text-color: #7a7d8e;
@@ -17,7 +17,7 @@ $line-width: 3px;
 $border-radius: 5px;
 $breakpoint-width: 900px;
 
-$normal-margin: 35px;
+$normal-margin: 45px;
 $small-margin: 25px;
 $line-height: 2ch;
 

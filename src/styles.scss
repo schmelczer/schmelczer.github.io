@@ -18,19 +18,7 @@
 }
 
 html {
-  background-color: $normal-text-color;
-  color: $inverse-text-color;
-}
-
-@supports (background: $background) {
-  html {
-    background: $background;
-    color: $normal-text-color;
-  }
-}
-
-html {
-  background-color: $background-end;
+  background-color: $background;
 }
 
 body {

@@ -4,7 +4,6 @@ import { PageElement } from "../../framework/page-element";
 import { createElement } from "../../framework/element-factory";
 
 import { generate } from "./about.html";
-import "./about.scss";
 
 export class PageHeader extends PageElement {
   public constructor(header: Header, aPictureOf: string) {

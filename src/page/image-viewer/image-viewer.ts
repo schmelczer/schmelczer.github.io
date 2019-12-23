@@ -1,7 +1,6 @@
 import { createElement } from "../../framework/element-factory";
 import { PageElement } from "../../framework/page-element";
 
-import "./image-viewer.scss";
 import { generate } from "./image-viewer.html";
 import { mixColorsToRGB } from "../../framework/helper";
 
@@ -45,9 +44,6 @@ export class PageImageViewer extends PageElement {
 
   private static show(e: HTMLElement) {
     e.style.display = "flex";
-    console.log("#" + mixColorsToRGB("00000", "ffd6d6", 0.75));
-    document.body.parentElement.style.backgroundColor =
-      "#" + mixColorsToRGB("00000", "ffd6d6", 0.75);
   }
   private static hide(e: HTMLElement) {
     e.style.display = "none";
