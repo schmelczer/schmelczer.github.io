@@ -1,8 +1,8 @@
 @import "../../style/mixins";
 @import "../../style/vars";
 
-footer {
+footer#page-footer {
   @include card();
   @include center-children();
-  margin: $normal-margin 0;
+  margin: $normal-margin auto;
 }

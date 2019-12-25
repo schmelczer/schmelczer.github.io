@@ -12,7 +12,7 @@ export class Page extends PageElement {
       { type: PageEventType.eventGeneratorChanged, data: this },
       this
     );
-    rootElement.append(...children.map(e => e.getElement()));
+    rootElement.append(...children.map(e => e.getElement()).filter(e => e));
     this.giveEvent({ type: PageEventType.onLoad }, this);
   }
 }

@@ -9,6 +9,7 @@ export abstract class PageElement {
   }
 
   protected setElement(value: HTMLElement) {
+    this.getElement()?.parentElement?.replaceChild(value, this.getElement());
     this.element = value;
   }
 

@@ -1,16 +1,16 @@
-import { Portfolio } from "../model/portfolio";
+import { Portfolio } from "./model/portfolio";
 
-import me from "../static/media/me-2.jpg";
-import forex from "../static/media/forex.gif";
-import myNotes from "../static/media/my-notes.jpg";
-import processSimulator from "../static/media/process-simulator.jpg";
-import processSimulatorInput from "../static/media/process-simulator-input.jpg";
-import citySimulation from "../static/media/simulation.jpg";
-import color from "../static/media/color.jpg";
-import platform from "../static/media/platform.png";
-import photos from "../static/media/photos.jpg";
-import led from "../static/media/led.jpg";
-import ledVideo from "../static/media/led720.mp4";
+import me from "./static/media/me-2.jpg";
+import forex from "./static/media/forex.gif";
+import myNotes from "./static/media/my-notes.jpg";
+import processSimulator from "./static/media/process-simulator.jpg";
+import processSimulatorInput from "./static/media/process-simulator-input.jpg";
+import citySimulation from "./static/media/simulation.jpg";
+import color from "./static/media/color.jpg";
+import platform from "./static/media/platform.png";
+import photos from "./static/media/photos.jpg";
+import led from "./static/media/led.jpg";
+import ledVideo from "./static/media/led720.mp4";
 
 export const portfolio: Portfolio = {
   config: {

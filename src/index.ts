@@ -4,6 +4,6 @@ import "./static/no-change/og-image.jpg";
 import "./styles.scss";
 
 import { create } from "./page/index";
-import { portfolio } from "./content/en";
+import { portfolio } from "./portfolio";
 
 create(portfolio);

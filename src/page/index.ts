@@ -11,8 +11,7 @@ export const create = ({ config, header, timeline, footer }: Portfolio) => {
 
   new Page(
     [
-      new PageBackground(0.1, 200, 140, 0.4, "#fff9e0aa", -15),
-      new PageBackground(0.15, 300, 80, 0.3, "#ffd6d6aa", -10),
+      new PageBackground(),
       new PageHeader(header, config.aPictureOf),
       new PageTimeline(timeline, config.showMore, config.showLess),
       new PageFooter(footer, config.cvName),
