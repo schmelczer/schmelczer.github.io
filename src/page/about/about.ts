@@ -1,9 +1,9 @@
 import { PageContent } from "../content/content";
 import { Header } from "../../model/portfolio";
 import { PageElement } from "../../framework/page-element";
-import { createElement } from "../../framework/element-factory";
 
 import { generate } from "./about.html";
+import { createElement } from "../../framework/helper";
 
 export class PageHeader extends PageElement {
   public constructor(header: Header, aPictureOf: string) {

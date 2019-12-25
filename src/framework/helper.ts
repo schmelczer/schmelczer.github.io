@@ -1,30 +1,10 @@
-export const mixColorsToRGB = (
-  hexColorA: string,
-  hexColorB: string,
-  qA: number
-): string => {
-  const colorA = hexToRGB(hexColorA);
-  const colorB = hexToRGB(hexColorB);
-  const mixedColor: [number, number, number] = [
-    colorA[0] * qA + colorB[0] * (1 - qA),
-    colorA[1] * qA + colorB[1] * (1 - qA),
-    colorA[2] * qA + colorB[2] * (1 - qA)
-  ];
+import { html } from "../model/misc";
 
-  return RGBToHex(mixedColor);
+export const createElement = (from: html): HTMLElement => {
+  const element: HTMLElement = document.createElement("div");
+  element.innerHTML = from;
+  return element.firstElementChild as HTMLElement;
 };
-
-const hexToRGB = (hex: string): [number, number, number] => {
-  const [r1, r2, g1, g2, b1, b2] = hex;
-  return [
-    Number.parseInt(r1 + r2, 16),
-    Number.parseInt(g1 + g2, 16),
-    Number.parseInt(b1 + b2, 16)
-  ];
-};
-
-const RGBToHex = (rgb: [number, number, number]): string =>
-  rgb.map(n => Math.round(n).toString(16)).join("");
 
 export const randomFactory = seed => () =>
   ((2 ** 31 - 1) & (seed = Math.imul(48271, seed))) / 2 ** 31;

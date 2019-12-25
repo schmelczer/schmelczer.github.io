@@ -1,8 +1,9 @@
 import { TimelineElement } from "../../../model/portfolio";
 import { PageContent } from "../../content/content";
 import { PageElement } from "../../../framework/page-element";
-import { createElement } from "../../../framework/element-factory";
 import { generate } from "./timeline-element.html";
+import { createElement } from "../../../framework/helper";
+import { PageEventType } from "../../../framework/page-event";
 
 export class PageTimelineElement extends PageElement {
   private isOpen;
@@ -30,12 +31,8 @@ export class PageTimelineElement extends PageElement {
   }
 
   private toggleOpen() {
-    const showMore = this.getElement().querySelector(
-      "#show-more"
-    ) as HTMLElement;
-    const showLess = this.getElement().querySelector(
-      "#show-less"
-    ) as HTMLElement;
+    const showMore = this.query("#show-more") as HTMLElement;
+    const showLess = this.query("#show-less") as HTMLElement;
     if (this.isOpen) {
       this.more.style.height = "0";
       PageTimelineElement.show(showMore);
@@ -47,6 +44,9 @@ export class PageTimelineElement extends PageElement {
     }
 
     this.isOpen = !this.isOpen;
+    this.eventGenerator?.giveEvent({
+      type: PageEventType.onBodyDimensionsChanged
+    });
   }
 
   private static hide(element: HTMLElement) {

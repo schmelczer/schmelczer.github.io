@@ -2,33 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/framework/page-event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/element-factory.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/page-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/page-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/about/about.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/about/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/content/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/content/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/footer/footer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/image-viewer/image-viewer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/image-viewer/image-viewer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/main.html.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/main.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/main.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/timeline/timeline-element/timeline-element.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/timeline/timeline.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/timeline/timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/main/timeline/timeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/no-change/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/static/og-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/no-change/og-image.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -115,6 +103,7 @@
       <workItem from="1577001408085" duration="15739000" />
       <workItem from="1577040021962" duration="1657000" />
       <workItem from="1577088438195" duration="19038000" />
+      <workItem from="1577271824791" duration="6178000" />
     </task>
     <servers />
   </component>

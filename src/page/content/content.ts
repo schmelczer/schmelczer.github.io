@@ -1,7 +1,7 @@
 import { Content, TypedContent } from "../../model/content";
 import "./content.scss";
 import { PageElement } from "../../framework/page-element";
-import { createElement } from "../../framework/element-factory";
+import { createElement } from "../../framework/helper";
 
 export class PageContent extends PageElement {
   private static isTyped(content): content is TypedContent {

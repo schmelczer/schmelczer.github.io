@@ -1,7 +1,8 @@
-import { createElement } from "../../framework/element-factory";
 import { PageElement } from "../../framework/page-element";
 
 import { generate } from "./image-viewer.html";
+import { createElement } from "../../framework/helper";
+import { PageEvent, PageEventType } from "../../framework/page-event";
 
 export class PageImageViewer extends PageElement {
   public constructor() {
@@ -12,12 +13,16 @@ export class PageImageViewer extends PageElement {
     this.setElement(root);
   }
 
-  public onAfterLoad(parent: HTMLElement) {
-    super.onAfterLoad(parent);
+  protected handleEvent(event: PageEvent, parent: PageElement) {
+    if (event.type !== PageEventType.onLoad) {
+      return;
+    }
 
     document.body.addEventListener("keydown", this.handleKeydown.bind(this));
 
-    const images = Array.prototype.slice.call(parent.querySelectorAll("img"));
+    const images = Array.prototype.slice.call(
+      parent.getElement().querySelectorAll("img")
+    );
     images
       .filter(
         (img: HTMLImageElement) => img.parentElement !== this.getElement()
@@ -28,7 +33,7 @@ export class PageImageViewer extends PageElement {
   }
 
   private handleClick(event: Event) {
-    (this.getElement().querySelector(
+    (this.query(
       "#photo"
     ) as HTMLImageElement).src = (event.target as HTMLImageElement).src;
 
