@@ -13,6 +13,9 @@ export class PageBackground extends PageElement {
   private colors = ["#fff9e077", "#ffd6d677"];
   private blobSize = 150; // with margin
   private perspective = 5;
+  private currentRealHeight = 0;
+  private currentRealWidth = 0;
+  private currentBlobCount = 0;
 
   public constructor() {
     super();
@@ -39,6 +42,7 @@ export class PageBackground extends PageElement {
       siblings.map(c => {
         const computedStyle = window.getComputedStyle(c);
         return (
+          // ignores margin collapse
           c.clientHeight +
           parseInt(computedStyle.marginTop) +
           parseInt(computedStyle.marginBottom) +
@@ -48,34 +52,45 @@ export class PageBackground extends PageElement {
       })
     );
 
-    const random = randomFactory(42);
+    if (height > this.currentRealHeight || width > this.currentRealWidth) {
+      this.currentRealHeight = height;
+      this.currentRealWidth = width;
 
-    const count = Math.round((width * height) / this.blobSize ** 2);
+      const random = randomFactory(44);
 
-    const randomWithKnownZ = (z: number, bound: number): number => {
-      const l = (bound * (this.perspective + z)) / this.perspective;
-      return randomInInterval(-(l / 2 - bound / 2), l / 2 + bound / 2, random);
-    };
+      const count = Math.round((width * height) / this.blobSize ** 2);
 
-    this.setElement(
-      createElement(
-        generate(
-          count,
-          () => choose(this.colors, random),
-          () => randomInInterval(160, 750, random),
-          () => {
-            const z = randomInInterval(-12, -25, random);
-            return `
+      const randomWithKnownZ = (z: number, bound: number): number => {
+        const l = (bound * (this.perspective + z)) / this.perspective;
+        return randomInInterval(
+          -(l / 2 - bound / 2),
+          l / 2 + bound / 2,
+          random
+        );
+      };
+
+      this.setElement(
+        createElement(
+          generate(
+            count,
+            () => choose(this.colors, random),
+            () => randomInInterval(160, 750, random),
+            i => i >= this.currentBlobCount,
+            () => {
+              const z = randomInInterval(-12, -25, random);
+              return `
               translateX(${randomWithKnownZ(-z, width)}px)
               translateY(${randomWithKnownZ(-z, height)}px)
               translateZ(${z}px)
               rotate(-20deg)
             `;
-          }
+            }
+          )
         )
-      )
-    );
+      );
 
+      this.currentBlobCount = count;
+    }
     this.getElement().style.width = `${width}px`;
     this.getElement().style.height = `${height}px`;
   }

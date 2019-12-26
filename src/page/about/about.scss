@@ -2,26 +2,42 @@
 @import "../../style/vars";
 
 #about {
-  margin-top: $normal-margin - $small-margin;
-  padding: $small-margin;
+  width: 100%;
+  backdrop-filter: blur($blur-radius);
+  padding: $normal-margin;
 
-  header {
-    @include center-children();
+  .container {
+    width: $body-width;
+    margin: auto;
 
-    h1,
-    img {
-      @include title-font();
+    header {
+      @include center-children();
+
+      h1,
+      img {
+        @include title-font();
+      }
+
+      img {
+        @include square(4ch);
+        border-radius: 100%;
+        margin-right: 1.5ex;
+        cursor: pointer;
+      }
+
+      @media (max-width: $breakpoint-width) {
+        flex-direction: column;
+        img {
+          margin: 0 0 $small-margin 0;
+        }
+        h1 {
+          text-align: center;
+        }
+      }
     }
 
-    img {
-      @include square(4ch);
-      border-radius: 100%;
-      margin-right: 1.5ex;
-      cursor: pointer;
+    * {
+      text-align: justify;
     }
-  }
-
-  * {
-    text-align: justify;
   }
 }

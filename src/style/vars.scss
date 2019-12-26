@@ -13,21 +13,30 @@ $scrollbar-color: #ffd6d6;
 
 $fast-transition-time: 220ms;
 $slow-transition-time: 350ms;
-$line-width: 3px;
+$line-width: var(--line-width);
 $border-radius: 5px;
 $breakpoint-width: 900px;
 
-$normal-margin: 45px;
-$small-margin: 25px;
+$normal-margin: var(--normal-margin);
+$small-margin: var(--small-margin);
 $line-height: 2ch;
 
-$icon-size: 25px;
-$body-width: 765px;
+$blur-radius: 6px;
+$icon-size: var(--icon-size);
+$body-width: var(--body-width);
 
-@media (max-width: $breakpoint-width) {
-  $line-width: 2px;
-  $normal-margin: 25px;
-  $small-margin: 20px;
-  $icon-size: 20px;
-  $body-width: 85%;
+:root {
+  --line-width: 3px;
+  --normal-margin: 45px;
+  --small-margin: 25px;
+  --icon-size: 25px;
+  --body-width: 765px;
+
+  @media (max-width: $breakpoint-width) {
+    --line-width: 2px;
+    --normal-margin: 35px;
+    --small-margin: 15px;
+    --icon-size: 20px;
+    --body-width: 85%;
+  }
 }

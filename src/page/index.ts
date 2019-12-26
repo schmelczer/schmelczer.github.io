@@ -8,15 +8,21 @@ import { Page } from "../framework/page";
 
 export const create = ({ config, header, timeline, footer }: Portfolio) => {
   document.title = header.name;
-
   new Page(
     [
-      new PageBackground(),
-      new PageHeader(header, config.aPictureOf),
-      new PageTimeline(timeline, config.showMore, config.showLess),
-      new PageFooter(footer),
-      new PageImageViewer()
+      new PageImageViewer(),
+      new Page(
+        [
+          new PageBackground(),
+          new PageHeader(header, config.aPictureOf),
+          new PageTimeline(timeline, config.showMore, config.showLess),
+          new PageFooter(footer)
+        ],
+        document.body.querySelector("main"),
+        false
+      )
     ],
-    document.body.querySelector("main")
+    document.body,
+    true
   );
 };

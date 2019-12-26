@@ -10,8 +10,8 @@ export class PageHeader extends PageElement {
     const root = createElement(generate(header, aPictureOf));
     const content = new PageContent(header.about);
 
-    root.appendChild(content.getElement());
     super([content]);
     this.setElement(root);
+    this.query(".container").appendChild(content.getElement());
   }
 }

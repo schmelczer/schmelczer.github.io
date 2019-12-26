@@ -7,7 +7,7 @@ footer#page-footer {
   margin: $small-margin auto 0 auto;
   padding: $normal-margin $normal-margin $line-height $normal-margin;
   width: 100%;
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur($blur-radius);
 
   h2 {
     @include title-font();

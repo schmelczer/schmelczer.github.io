@@ -7,8 +7,10 @@ export const generate = (
   aPictureOf: string
 ): html => `
     <section id="about">
-        <header>
-            <img alt="${aPictureOf} ${name}" src="${picture}"/>
-            <h1>${name}</h1>
-        </header>
+        <div class="container">
+            <header>
+                <img alt="${aPictureOf} ${name}" src="${picture}"/>
+                <h1>${name}</h1>
+            </header>
+        </div>
     </section>`;

@@ -8,9 +8,8 @@ export class PageImageViewer extends PageElement {
   public constructor() {
     super();
     const root = createElement(generate());
-    (root.querySelector("#cancel") as HTMLElement).onclick = () =>
-      PageImageViewer.hide(root);
     this.setElement(root);
+    this.query("#cancel").onclick = () => PageImageViewer.hide(root);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {

@@ -37,21 +37,31 @@ export class PageTimelineElement extends PageElement {
       this.more.style.height = "0";
       PageTimelineElement.show(showMore);
       PageTimelineElement.hide(showLess);
+      this.notifyOfHeightChange();
     } else {
-      this.openMoreToFullHeight();
       PageTimelineElement.hide(showMore);
       PageTimelineElement.show(showLess);
+      this.openMoreToFullHeight();
     }
 
     this.isOpen = !this.isOpen;
-    this.eventBroadcaster?.broadcastEvent({
-      type: PageEventType.onBodyDimensionsChanged
-    });
+  }
+
+  private notifyOfHeightChange(change: number = null) {
+    const notify = () =>
+      this.eventBroadcaster?.broadcastEvent({
+        type: PageEventType.onBodyDimensionsChanged,
+        data: change
+      });
+    notify();
+    setTimeout(notify, 350);
   }
 
   private static hide(element: HTMLElement) {
     element.style.opacity = "0";
-    setTimeout(() => (element.style.visibility = "hidden"), 350);
+    setTimeout(() => {
+      element.style.visibility = "hidden";
+    }, 350);
   }
 
   private static show(element: HTMLElement) {
@@ -61,6 +71,7 @@ export class PageTimelineElement extends PageElement {
 
   private openMoreToFullHeight() {
     this.more.style.height = `${this.more.scrollHeight.toString()}px`;
+    this.notifyOfHeightChange();
   }
 
   private handleResize() {

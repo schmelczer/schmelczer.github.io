@@ -1,10 +1,10 @@
-@import "../../style/vars";
+@use "../../style/vars";
 
 .content {
-  margin-top: $small-margin;
+  margin-top: vars.$small-margin;
 
   * {
-    margin-top: $line-height;
+    margin-top: vars.$line-height;
   }
 
   p {

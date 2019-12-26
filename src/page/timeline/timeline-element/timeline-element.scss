@@ -23,7 +23,7 @@
       @include square($icon-size);
       position: absolute;
       top: 33%;
-      left: -0.5 * $icon-size - (1.5 * $line-width);
+      left: calc(-0.5 * #{$icon-size} - (1.5 * #{$line-width}));
       border: $line-width solid $normal-text-color;
       border-radius: 100%;
       background: $background;
