@@ -12,8 +12,6 @@ export interface Config {
   showMore: string;
   showLess: string;
   aPictureOf: string;
-  cvName: string;
-  lastEdit: Date;
 }
 
 export interface Header {
@@ -32,6 +30,12 @@ export interface TimelineElement {
 }
 
 export interface Footer {
+  title: string;
   email: string;
   cv: url;
+  cvName: string;
+  githubLinkName: string;
+  githubLink: url;
+  lastEditName: string;
+  lastEdit: Date;
 }

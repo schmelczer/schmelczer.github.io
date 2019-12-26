@@ -5,8 +5,8 @@ import { generate } from "./footer.html";
 import { createElement } from "../../framework/helper";
 
 export class PageFooter extends PageElement {
-  constructor(footer: Footer, cvName: string) {
+  constructor(footer: Footer) {
     super();
-    this.setElement(createElement(generate(footer, cvName)));
+    this.setElement(createElement(generate(footer)));
   }
 }

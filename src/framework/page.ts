@@ -8,11 +8,11 @@ export class Page extends PageElement {
   ) {
     super(children);
     this.setElement(rootElement);
-    this.giveEvent(
-      { type: PageEventType.eventGeneratorChanged, data: this },
+    this.broadcastEvent(
+      { type: PageEventType.eventBroadcasterChanged, data: this },
       this
     );
     rootElement.append(...children.map(e => e.getElement()).filter(e => e));
-    this.giveEvent({ type: PageEventType.onLoad }, this);
+    this.broadcastEvent({ type: PageEventType.onLoad }, this);
   }
 }

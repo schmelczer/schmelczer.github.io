@@ -44,7 +44,7 @@ export class PageTimelineElement extends PageElement {
     }
 
     this.isOpen = !this.isOpen;
-    this.eventGenerator?.giveEvent({
+    this.eventBroadcaster?.broadcastEvent({
       type: PageEventType.onBodyDimensionsChanged
     });
   }

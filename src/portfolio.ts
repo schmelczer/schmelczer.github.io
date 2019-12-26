@@ -10,15 +10,14 @@ import color from "./static/media/color.jpg";
 import platform from "./static/media/platform.png";
 import photos from "./static/media/photos.jpg";
 import led from "./static/media/led.jpg";
+import cv from "./static/cv/andras_schmelczer_cv_2020_01.pdf";
 import ledVideo from "./static/media/led720.mp4";
 
 export const portfolio: Portfolio = {
   config: {
     showMore: `Show details`,
     showLess: `Show less`,
-    aPictureOf: `a picture of`,
-    cvName: `Curriculum vitae`,
-    lastEdit: new Date(2019, 12, 22)
+    aPictureOf: `a picture of`
   },
   header: {
     name: `András Schmelczer`,
@@ -160,7 +159,13 @@ export const portfolio: Portfolio = {
     }
   ],
   footer: {
-    email: `andras.schmelczer@schdesign.hu`,
-    cv: `/static/media/andras_schmelczer_cv.pdf`
+    title: `Learn more`,
+    cv,
+    email: `andras@schmelczer.dev`,
+    cvName: `Curriculum vitae`,
+    githubLinkName: `view source`,
+    githubLink: `https://github.com/schmelczerandras/timeline`,
+    lastEditName: `Last modified on `,
+    lastEdit: new Date(2019, 11, 27) // months are 0 indexed
   }
 };

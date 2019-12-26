@@ -13,16 +13,16 @@ export abstract class PageElement {
     this.element = value;
   }
 
-  protected eventGenerator: PageElement;
+  protected eventBroadcaster: PageElement;
 
   protected constructor(private children: Array<PageElement> = []) {}
 
-  public giveEvent(event: PageEvent, parent: PageElement = null) {
-    if (event.type === PageEventType.eventGeneratorChanged) {
-      this.eventGenerator = event.data;
+  public broadcastEvent(event: PageEvent, parent: PageElement = null) {
+    if (event.type === PageEventType.eventBroadcasterChanged) {
+      this.eventBroadcaster = event.data;
     }
     this.handleEvent(event, parent);
-    this.children.forEach(c => c.giveEvent(event, this));
+    this.children.forEach(c => c.broadcastEvent(event, this));
   }
 
   protected query(query: string): HTMLElement | null {

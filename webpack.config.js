@@ -29,6 +29,16 @@ module.exports = {
         }
       },
       {
+        test: /\.(pdf)$/i,
+        use: {
+          loader: "file-loader",
+          query: {
+            outputPath: "static/",
+            name: "[name].[ext]"
+          }
+        }
+      },
+      {
         test: /\.ico$/i,
         use: {
           loader: "file-loader",

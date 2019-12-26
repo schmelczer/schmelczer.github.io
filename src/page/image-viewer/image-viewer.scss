@@ -1,7 +1,7 @@
 @import "../../style/vars";
 @import "../../style/mixins";
 
-.photo-viewer {
+#image-viewer {
   @include center-children();
   display: none;
 

@@ -29,6 +29,11 @@
   height: $size;
 }
 
+@mixin max-square($size) {
+  max-width: $size;
+  max-height: $size;
+}
+
 @mixin title-font() {
   font: 400 3.33rem "Raleway", serif;
 }

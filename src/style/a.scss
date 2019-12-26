@@ -1,0 +1,48 @@
+@import "vars";
+@import "mixins";
+
+a {
+  @include insignificant-font();
+  text-decoration: none;
+  position: relative;
+  cursor: pointer;
+  color: $accent-color;
+  display: inline-block;
+  overflow: hidden;
+
+  $border-shift: 10px;
+
+  transition: transform $slow-transition-time;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: $line-width;
+    bottom: 0;
+    z-index: 1;
+    background: linear-gradient(
+      90deg,
+      $card-color 0,
+      transparentize($card-color, 1) 4px,
+      transparentize($card-color, 1) calc(100% - 4px),
+      $card-color 100%
+    );
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    width: calc(100% + #{$border-shift});
+    z-index: 0;
+    border-bottom: $line-width dotted $accent-color;
+    transition: transform $slow-transition-time;
+  }
+
+  &:hover {
+    &:after {
+      transform: translateX(-$border-shift);
+    }
+  }
+}

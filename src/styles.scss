@@ -1,8 +1,10 @@
 @import "style/vars";
 @import "style/mixins";
+@import "style/a";
 
 * {
   margin: 0;
+  padding: 0;
   box-sizing: border-box;
   color: $normal-text-color;
   hyphens: auto;
@@ -32,22 +34,22 @@ body {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
-
     perspective: 5px;
+
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 12px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: $accent-color;
+      border-radius: $border-radius;
+    }
+
     & > * {
       width: $body-width;
       margin: auto;
     }
-  }
-
-  &::-webkit-scrollbar-track,
-  &::-webkit-scrollbar {
-    background-color: transparent;
-    width: 12px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: $accent-color;
-    border-radius: $border-radius;
   }
 }
 
@@ -57,51 +59,4 @@ video {
   height: auto;
   object-fit: contain;
   border-radius: $border-radius;
-}
-
-a {
-  @include insignificant-font();
-  text-decoration: none;
-  position: relative;
-  cursor: pointer;
-  color: $accent-color;
-  display: inline-block;
-  overflow: hidden;
-
-  $border-shift: 10px;
-
-  transition: transform $slow-transition-time;
-
-  &:before {
-    content: "";
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: $line-width;
-    bottom: 0;
-    z-index: 1;
-    background: linear-gradient(
-      90deg,
-      $card-color 0,
-      transparentize($card-color, 1) 4px,
-      transparentize($card-color, 1) calc(100% - 4px),
-      $card-color 100%
-    );
-  }
-
-  &:after {
-    content: "";
-    display: block;
-    width: calc(100% + #{$border-shift});
-    height: 100%;
-    z-index: 0;
-    border-bottom: $line-width dotted $accent-color;
-    transition: transform $slow-transition-time;
-  }
-
-  &:hover {
-    &:after {
-      transform: translateX(-$border-shift);
-    }
-  }
 }

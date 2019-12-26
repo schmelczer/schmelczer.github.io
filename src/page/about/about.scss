@@ -2,7 +2,8 @@
 @import "../../style/vars";
 
 #about {
-  margin-top: $normal-margin;
+  margin-top: $normal-margin - $small-margin;
+  padding: $small-margin;
 
   header {
     @include center-children();

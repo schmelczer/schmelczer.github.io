@@ -62,9 +62,9 @@ export class PageBackground extends PageElement {
         generate(
           count,
           () => choose(this.colors, random),
-          () => randomInInterval(150, 750, random),
+          () => randomInInterval(160, 750, random),
           () => {
-            const z = randomInInterval(-5, -15, random);
+            const z = randomInInterval(-12, -25, random);
             return `
               translateX(${randomWithKnownZ(-z, width)}px)
               translateY(${randomWithKnownZ(-z, height)}px)

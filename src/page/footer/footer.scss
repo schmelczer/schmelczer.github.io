@@ -2,7 +2,50 @@
 @import "../../style/vars";
 
 footer#page-footer {
-  @include card();
-  @include center-children();
-  margin: $normal-margin auto;
+  text-align: center;
+
+  margin: $small-margin auto 0 auto;
+  padding: $normal-margin $normal-margin $line-height $normal-margin;
+  width: 100%;
+  backdrop-filter: blur(5px);
+
+  h2 {
+    @include title-font();
+  }
+
+  ul {
+    list-style: none;
+    display: inline-block;
+    margin-top: $normal-margin;
+    text-align: left;
+
+    li {
+      @include center-children();
+      justify-content: flex-start;
+
+      &:not(:first-child) {
+        padding-top: $line-height;
+      }
+
+      img {
+        @include max-square($icon-size);
+        margin-right: $small-margin;
+      }
+
+      a {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  aside.other {
+    @include center-children();
+    margin: $normal-margin auto 0 auto;
+    width: $body-width;
+
+    h6 {
+      @include insignificant-font();
+      opacity: 0.4;
+    }
+  }
 }
