@@ -1,6 +1,6 @@
 import { Portfolio } from "./model/portfolio";
 
-import me from "./static/media/me-2.jpg";
+import me from "./static/media/me.jpg";
 import forex from "./static/media/forex.gif";
 import myNotes from "./static/media/my-notes.jpg";
 import processSimulator from "./static/media/process-simulator.jpg";

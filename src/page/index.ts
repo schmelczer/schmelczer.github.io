@@ -8,15 +8,19 @@ import { Page } from "../framework/page";
 
 export const create = ({ config, header, timeline, footer }: Portfolio) => {
   document.title = header.name;
+  const pageHeader = new PageHeader(header, config.aPictureOf);
+  const pageFooter = new PageFooter(footer);
+
+  const bg = new PageBackground(pageHeader, pageFooter);
   new Page(
     [
       new PageImageViewer(),
       new Page(
         [
-          new PageBackground(),
-          new PageHeader(header, config.aPictureOf),
+          pageHeader,
           new PageTimeline(timeline, config.showMore, config.showLess),
-          new PageFooter(footer)
+          pageFooter,
+          bg
         ],
         document.body.querySelector("main"),
         false

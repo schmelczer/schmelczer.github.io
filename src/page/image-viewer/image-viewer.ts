@@ -9,7 +9,7 @@ export class PageImageViewer extends PageElement {
     super();
     const root = createElement(generate());
     this.setElement(root);
-    this.query("#cancel").onclick = () => PageImageViewer.hide(root);
+    root.onclick = () => PageImageViewer.hide(root);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {

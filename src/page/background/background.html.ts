@@ -3,21 +3,26 @@ import "./background.scss";
 
 export const generate = (
   count: number,
-  color?: () => string,
+  z?: () => number,
+  color?: (z) => string,
   height?: () => number,
   isAnimated?: (index) => boolean,
-  transform?: () => string
-): html => `
+  transform?: (z) => string
+): html => {
+  return `
     <section class="background">
         ${
           count > 0
             ? new Array(count)
                 .fill(0, 0, count)
+                .map(_ => z())
                 .map(
-                  (_, i) => `
-                    <div class="${
-                      isAnimated(i) ? "animated" : ""
-                    }" style="background-color: ${color()}; height: ${height()}px; transform: ${transform()}"
+                  (zValue, i) => `
+                    <div class="${isAnimated(i) ? "animated" : ""}" style="
+                        background-color: ${color(zValue)};
+                        height: ${height()}px;
+                        z-index: ${-zValue};
+                        transform: ${transform(zValue)}"
                     ></div>
                 `
                 )
@@ -26,3 +31,4 @@ export const generate = (
         }
     </section>
 `;
+};

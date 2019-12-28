@@ -12,6 +12,6 @@ export class PageHeader extends PageElement {
 
     super([content]);
     this.setElement(root);
-    this.query(".container").appendChild(content.getElement());
+    root.appendChild(content.getElement());
   }
 }

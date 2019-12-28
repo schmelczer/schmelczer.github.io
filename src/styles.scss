@@ -7,6 +7,9 @@
   padding: 0;
   box-sizing: border-box;
   color: $normal-text-color;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  -ms-hyphens: auto;
   hyphens: auto;
 }
 
@@ -20,7 +23,7 @@
 }
 
 html {
-  background-color: $background;
+  background-color: white;
   height: 100%;
 }
 
@@ -34,16 +37,19 @@ body {
     height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
+    perspective-origin: center center;
     perspective: 5px;
 
-    &::-webkit-scrollbar-track,
-    &::-webkit-scrollbar {
-      background-color: transparent;
-      width: 12px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: $accent-color;
-      border-radius: $border-radius;
+    @media (min-width: $breakpoint-width) {
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 12px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: $accent-color;
+        border-radius: $border-radius;
+      }
     }
 
     & > * {

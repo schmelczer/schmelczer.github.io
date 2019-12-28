@@ -2,6 +2,7 @@
 $background-start: white;
 $background-end: white;
 $background: white;
+$background-gradient: linear-gradient(90deg, #fff9e0 0, #ffd6d6 100%);
 
 $normal-text-color: #31343f;
 $light-text-color: #7a7d8e;
@@ -21,7 +22,7 @@ $normal-margin: var(--normal-margin);
 $small-margin: var(--small-margin);
 $line-height: 2ch;
 
-$blur-radius: 6px;
+$blur-radius: 9px;
 $icon-size: var(--icon-size);
 $body-width: var(--body-width);
 
@@ -29,7 +30,7 @@ $body-width: var(--body-width);
   --line-width: 3px;
   --normal-margin: 45px;
   --small-margin: 25px;
-  --icon-size: 25px;
+  --icon-size: 35px;
   --body-width: 765px;
 
   @media (max-width: $breakpoint-width) {

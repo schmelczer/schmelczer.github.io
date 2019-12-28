@@ -35,19 +35,20 @@
 }
 
 @mixin title-font() {
-  font: 400 3.33rem "Raleway", serif;
+  font: 400 3.5rem "Montserrat", serif;
 }
 
 @mixin sub-title-font() {
-  font: 400 2rem "Raleway", serif;
+  font: 400 1.9rem "Montserrat", serif;
 }
 
 @mixin main-font() {
-  font: 400 18px "Open sans", sans-serif;
-  line-height: 1.5;
+  font: 400 1.25rem "Lato", sans-serif;
+  line-height: 1.6;
+  text-align: justify;
 }
 
 @mixin insignificant-font() {
-  font: 400 16px "Open sans", sans-serif;
+  font: 400 1rem "Lato", sans-serif;
   font-style: italic;
 }

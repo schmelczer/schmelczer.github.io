@@ -18,6 +18,8 @@
     top: 0;
     width: 160px;
 
+    transition: transform $slow-transition-time;
+
     &.animated {
       animation: fade-in 1s linear forwards;
       @keyframes fade-in {
