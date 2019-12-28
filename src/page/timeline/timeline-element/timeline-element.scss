@@ -9,6 +9,10 @@
     @include insignificant-font();
   }
 
+  .date-wide-screen {
+    color: $accent-color;
+  }
+
   .line {
     @media (max-width: $breakpoint-width) {
       display: none;
@@ -16,7 +20,7 @@
 
     position: relative;
     margin: 0 $small-margin 0 $icon-size / 2;
-    border-left: $line-width solid $normal-text-color;
+    border-left: $line-width solid $accent-color;
 
     &:before {
       content: "";
@@ -24,7 +28,7 @@
       position: absolute;
       top: 33%;
       left: calc(-0.5 * #{$icon-size} - (1.5 * #{$line-width}));
-      border: $line-width solid $normal-text-color;
+      border: $line-width solid $accent-color;
       border-radius: 100%;
       background: $background;
     }
@@ -63,8 +67,16 @@
       color: $light-text-color;
     }
 
-    img {
-      cursor: pointer;
+    .image-container {
+      font-size: 0;
+      box-shadow: inset $shadow;
+      pointer-events: none;
+      img {
+        pointer-events: all;
+        cursor: pointer;
+        position: relative;
+        z-index: -2;
+      }
     }
 
     .description {

@@ -2,29 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Schme.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Schme.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.stylelintrc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dummy.scss" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/framework/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/about/about.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/about/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/content/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans/open-sans-v17-latin_latin-ext-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans/open-sans-v17-latin_latin-ext-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans/open-sans-v17-latin_latin-ext-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans/open-sans-v17-latin_latin-ext-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans/open-sans-v17-latin_latin-ext-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans_italic/open-sans-v17-latin-ext_latin-italic.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans_italic/open-sans-v17-latin-ext_latin-italic.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans_italic/open-sans-v17-latin-ext_latin-italic.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans_italic/open-sans-v17-latin-ext_latin-italic.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/open_sans_italic/open-sans-v17-latin-ext_latin-italic.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.eot" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/raleway/raleway-v14-latin_latin-ext-regular.woff2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/a.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/a.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/fonts.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/mixins.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/vars.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -68,11 +79,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="C:\Projects\portfolio\CompiledCV\src" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\no-change" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\page\timeline" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
@@ -120,7 +131,7 @@
       <workItem from="1577348003642" duration="4876000" />
       <workItem from="1577451432189" duration="11000" />
       <workItem from="1577469180612" duration="18000" />
-      <workItem from="1577526744211" duration="14260000" />
+      <workItem from="1577526744211" duration="24077000" />
     </task>
     <servers />
   </component>

@@ -1,120 +1,82 @@
 import { PageElement } from "../../framework/page-element";
-import { generate } from "./background.html";
 import {
-  choose,
   getHeight,
   createElement,
   randomFactory,
-  randomInInterval,
-  sum,
-  mixColors
+  sum
 } from "../../framework/helper";
 import { PageEvent, PageEventType } from "../../framework/page-event";
+import { Blob } from "./blob";
+import { generate } from "./background.html";
 
 export class PageBackground extends PageElement {
-  private colors = ["#fff9e0", "#ffd6d6"];
-  private blobSpacing = 200;
-  private perspective = 5;
-  private currentRealHeight = 0;
-  private currentRealWidth = 0;
-  private currentBlobCount = 0;
+  private blobs: Array<Blob> = [];
+  private blobSpacing = 300;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
-    this.setElement(createElement(generate(0)));
+    this.setElement(createElement(generate()));
+    Blob.initialize(20, 40, 5);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
     if (event.type === PageEventType.onLoad) {
       this.bindListeners(parent);
-    } else if (event.type === PageEventType.onBodyDimensionsChanged) {
       this.resize(parent);
+    } else if (event.type === PageEventType.onBodyDimensionsChanged) {
+      this.resize(parent, event.data.deltaHeight);
     }
   }
 
   private bindListeners(parent: PageElement) {
-    window.addEventListener("resize", this.resize.bind(this, parent));
-    window.addEventListener("load", this.resize.bind(this, parent));
+    window.addEventListener("resize", () => this.resize(parent));
+    window.addEventListener("load", () => this.resize(parent));
   }
 
-  private resize(parent: PageElement) {
-    const siblings: Array<HTMLElement> = Array.prototype.slice
-      .call(parent.getElement().children)
-      .filter(e => e !== this.getElement());
+  private resize(parent: PageElement, heightChange?: number) {
+    const siblings: Array<HTMLElement> = this.getSiblings(parent);
 
     const width = parent.getElement().clientWidth;
-    const height = sum(siblings.map(getHeight));
-
-    if (height > this.currentRealHeight || width > this.currentRealWidth) {
-      this.currentRealHeight = height;
-      this.currentRealWidth = width;
-
-      const random = randomFactory(46);
-
-      const zMin = 20;
-      const zMax = 40;
-
-      const count = Math.round((width * height) / this.blobSpacing ** 2);
-
-      const randomWithKnownZ = (
-        z: number,
-        viewportSize: number,
-        scrollSize: number,
-        startOffset = 0,
-        endOffset = 0
-      ): number => {
-        const m = 1 + z / this.perspective;
-
-        const variableOffset = (offset, q) =>
-          offset - ((z - zMin) / (zMax - zMin)) * (offset * q);
-
-        startOffset = variableOffset(startOffset, 0.6);
-        endOffset = variableOffset(endOffset, 0.2);
-
-        const lowerBound =
-          viewportSize / 2 - (viewportSize / 2 - startOffset) * m;
-        const l =
-          scrollSize -
-          viewportSize +
-          (viewportSize - startOffset - endOffset) * m;
-
-        return randomInInterval(lowerBound, lowerBound + l, random);
-      };
-
-      this.setElement(
-        createElement(
-          generate(
-            count,
-            () => randomInInterval(zMin, zMax, random),
-            z =>
-              "#" +
-              mixColors(
-                "#ffffff",
-                choose(this.colors, random),
-                (z - zMin) / (zMax - zMin)
-              ),
-            () => randomInInterval(160, 750, random),
-            i => i >= this.currentBlobCount,
-            z => `
-              translateX(${randomWithKnownZ(z, width, width)}px)
-              translateY(${randomWithKnownZ(
-                z,
-                parent.getElement().clientHeight,
-                height,
-                getHeight(this.start.getElement()),
-                getHeight(this.end.getElement())
-              )}px)
-              translateZ(${-z}px)
-              rotate(-20deg)
-            `
-          )
-        )
-      );
-
-      this.currentBlobCount = count;
-      console.log(count);
+    let height = sum(siblings.map(getHeight));
+    if (heightChange) {
+      height += heightChange;
     }
     this.getElement().style.width = `${width}px`;
     this.getElement().style.height = `${height}px`;
+
+    const requiredBlobCount =
+      width > 900 ? Math.round((width * height) / this.blobSpacing ** 2) : 0;
+
+    console.log(requiredBlobCount);
+
+    while (requiredBlobCount > this.blobs.length) {
+      const blob = new Blob();
+      this.getElement().appendChild(blob.htmlElement);
+      this.blobs.push(blob);
+    }
+
+    const random = randomFactory(2322);
+
+    this.blobs.forEach((b, i) => {
+      if (i >= requiredBlobCount) {
+        b.hide();
+      } else {
+        b.transform(
+          random,
+          width,
+          parent.getElement().clientHeight,
+          height,
+          getHeight(this.start.getElement()),
+          getHeight(this.end.getElement())
+        );
+        b.show();
+      }
+    });
+  }
+
+  private getSiblings(parent: PageElement): Array<HTMLElement> {
+    return Array.prototype.slice
+      .call(parent.getElement().children)
+      .filter(e => e !== this.getElement());
   }
 }

@@ -8,5 +8,6 @@ export const generate = (
 ): html => `
     <section id="about">
         <img alt="${aPictureOf} ${name}" src="${picture}"/>
+        <div class="placeholder"></div>
         <h1>${name}</h1>
     </section>`;

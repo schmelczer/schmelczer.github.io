@@ -1,7 +1,7 @@
 @import "../../style/vars";
 @import "../../style/mixins";
 
-.background {
+#background {
   position: absolute;
   left: 0;
   top: 0;
@@ -18,17 +18,15 @@
     top: 0;
     width: 160px;
 
-    transition: transform $slow-transition-time;
+    transition: transform $slow-transition-time, opacity $slow-transition-time;
 
-    &.animated {
-      animation: fade-in 1s linear forwards;
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+    animation: fade-in 1s linear;
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   }

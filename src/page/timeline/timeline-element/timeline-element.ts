@@ -34,27 +34,23 @@ export class PageTimelineElement extends PageElement {
     const showMore = this.query("#show-more") as HTMLElement;
     const showLess = this.query("#show-less") as HTMLElement;
     if (this.isOpen) {
-      this.more.style.height = "0";
       PageTimelineElement.show(showMore);
       PageTimelineElement.hide(showLess);
-      this.notifyOfHeightChange();
+      this.closeMore();
     } else {
       PageTimelineElement.hide(showMore);
       PageTimelineElement.show(showLess);
-      this.openMoreToFullHeight();
+      this.openMore();
     }
 
     this.isOpen = !this.isOpen;
   }
 
-  private notifyOfHeightChange(change: number = null) {
-    const notify = () =>
-      this.eventBroadcaster?.broadcastEvent({
-        type: PageEventType.onBodyDimensionsChanged,
-        data: change
-      });
-    notify();
-    setTimeout(notify, 350);
+  private notifyOfHeightChange(deltaHeight: number = undefined) {
+    this.eventBroadcaster?.broadcastEvent({
+      type: PageEventType.onBodyDimensionsChanged,
+      data: { deltaHeight }
+    });
   }
 
   private static hide(element: HTMLElement) {
@@ -69,15 +65,22 @@ export class PageTimelineElement extends PageElement {
     element.style.opacity = "1";
   }
 
-  private openMoreToFullHeight() {
-    this.more.style.height = `${this.more.scrollHeight.toString()}px`;
-    this.notifyOfHeightChange();
+  private openMore() {
+    const deltaHeight = this.more.scrollHeight;
+    this.more.style.height = `${deltaHeight.toString()}px`;
+    this.notifyOfHeightChange(deltaHeight);
+  }
+
+  private closeMore() {
+    const deltaHeight = this.more.scrollHeight;
+    this.more.style.height = "0";
+    this.notifyOfHeightChange(-deltaHeight);
   }
 
   private handleResize() {
     if (this.isOpen) {
       this.more.style.height = "auto";
-      setTimeout(this.openMoreToFullHeight.bind(this), 200);
+      setTimeout(this.openMore.bind(this), 200);
     }
   }
 }

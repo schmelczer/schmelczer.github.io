@@ -14,27 +14,27 @@ $scrollbar-color: #ffd6d6;
 
 $fast-transition-time: 220ms;
 $slow-transition-time: 350ms;
-$line-width: var(--line-width);
-$border-radius: 5px;
+$line-width: 3px;
+$border-radius: 25px;
 $breakpoint-width: 900px;
 
 $normal-margin: var(--normal-margin);
 $small-margin: var(--small-margin);
-$line-height: 2ch;
+$line-height: 18px;
+
+$shadow: 0 0 5px rgba(0, 0, 0, 0.125);
 
 $blur-radius: 9px;
 $icon-size: var(--icon-size);
 $body-width: var(--body-width);
 
 :root {
-  --line-width: 3px;
   --normal-margin: 45px;
   --small-margin: 25px;
   --icon-size: 35px;
   --body-width: 765px;
 
   @media (max-width: $breakpoint-width) {
-    --line-width: 2px;
     --normal-margin: 35px;
     --small-margin: 15px;
     --icon-size: 20px;

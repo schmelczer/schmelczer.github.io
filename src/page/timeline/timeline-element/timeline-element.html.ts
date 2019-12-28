@@ -14,7 +14,9 @@ export const generate = (
         <div class="card">
             <h2>${title}</h2>
             <p class="date-narrow-screen">${date}</p>
-            <img src="${picture}" alt="${picture}"/>
+            <div class="image-container">
+                <img src="${picture}" alt="${picture}"/>
+            </div>
             <p class="description">${description}</p>
             ${
               more

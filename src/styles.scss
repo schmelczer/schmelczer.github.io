@@ -7,9 +7,6 @@
   padding: 0;
   box-sizing: border-box;
   color: $normal-text-color;
-  -webkit-hyphens: auto;
-  -moz-hyphens: auto;
-  -ms-hyphens: auto;
   hyphens: auto;
 }
 
@@ -64,5 +61,4 @@ video {
   width: 100%;
   height: auto;
   object-fit: contain;
-  border-radius: $border-radius;
 }

@@ -13,13 +13,14 @@ a {
   $border-shift: 10px;
 
   transition: transform $slow-transition-time;
+  $dot-size: 4px;
 
   &:before {
     content: "";
     display: block;
     position: absolute;
     width: 100%;
-    height: $line-width;
+    height: $dot-size;
     bottom: 0;
     z-index: 1;
     background: linear-gradient(
@@ -36,7 +37,7 @@ a {
     display: block;
     width: calc(100% + #{$border-shift});
     z-index: 0;
-    border-bottom: $line-width dotted $accent-color;
+    border-bottom: $dot-size dotted $accent-color;
     transition: transform $slow-transition-time;
   }
 
