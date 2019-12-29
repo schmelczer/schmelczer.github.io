@@ -11,12 +11,12 @@ import { generate } from "./background.html";
 
 export class PageBackground extends PageElement {
   private blobs: Array<Blob> = [];
-  private blobSpacing = 300;
+  private blobSpacing = 350;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
     this.setElement(createElement(generate()));
-    Blob.initialize(20, 40, 5);
+    Blob.initialize(10, 30, 5);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
@@ -24,7 +24,7 @@ export class PageBackground extends PageElement {
       this.bindListeners(parent);
       this.resize(parent);
     } else if (event.type === PageEventType.onBodyDimensionsChanged) {
-      this.resize(parent, event.data.deltaHeight);
+      this.resize(parent, event.data?.deltaHeight);
     }
   }
 
@@ -44,10 +44,9 @@ export class PageBackground extends PageElement {
     this.getElement().style.width = `${width}px`;
     this.getElement().style.height = `${height}px`;
 
-    const requiredBlobCount =
-      width > 900 ? Math.round((width * height) / this.blobSpacing ** 2) : 0;
-
-    console.log(requiredBlobCount);
+    const requiredBlobCount = Math.round(
+      (width * height) / this.blobSpacing ** 2
+    );
 
     while (requiredBlobCount > this.blobs.length) {
       const blob = new Blob();
@@ -55,7 +54,7 @@ export class PageBackground extends PageElement {
       this.blobs.push(blob);
     }
 
-    const random = randomFactory(2322);
+    const random = randomFactory(2662);
 
     this.blobs.forEach((b, i) => {
       if (i >= requiredBlobCount) {

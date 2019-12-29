@@ -4,46 +4,63 @@
 .timeline-element {
   display: flex;
 
-  .date-narrow-screen,
-  .date-wide-screen {
-    @include insignificant-font();
-  }
-
-  .date-wide-screen {
-    color: $accent-color;
-  }
-
   .line {
-    @media (max-width: $breakpoint-width) {
-      display: none;
-    }
-
     position: relative;
-    margin: 0 $small-margin 0 $icon-size / 2;
     border-left: $line-width solid $accent-color;
 
     &:before {
       content: "";
       @include square($icon-size);
       position: absolute;
-      top: 33%;
       left: calc(-0.5 * #{$icon-size} - (1.5 * #{$line-width}));
       border: $line-width solid $accent-color;
       border-radius: 100%;
       background: $background;
     }
 
-    .date-wide-screen {
-      position: relative;
-      top: calc(33% + #{$icon-size} + 2ch);
-      transform: rotate(30deg);
-      margin: 0 $normal-margin 0 calc(#{$line-width} + 1ex);
-      width: 100px;
+    .date {
+      @include insignificant-font();
     }
   }
 
-  &:not(:first-of-type) .card {
-    margin-top: $normal-margin;
+  @media (min-width: $breakpoint-width) {
+    &:not(:first-of-type) .card {
+      margin-top: $large-margin;
+    }
+
+    .line {
+      &:before {
+        top: calc(33% - #{$icon-size} / 2);
+      }
+
+      .date {
+        position: relative;
+        top: calc(33% + #{$icon-size} / 2 + 1ch);
+        transform: rotate(30deg);
+        margin: 0 $normal-margin 0 calc(#{$line-width} + 1ex);
+        width: 100px;
+      }
+    }
+  }
+
+  @media (max-width: $breakpoint-width) {
+    flex-direction: column;
+    align-items: center;
+
+    &:before {
+      top: calc(50% - #{$icon-size} / 2);
+    }
+
+    .line {
+      @include center-children();
+      height: 150px;
+      width: 50%;
+
+      .date {
+        margin-left: calc(#{$icon-size} / 2 + #{$small-margin});
+        width: 200px;
+      }
+    }
   }
 
   .card {
@@ -58,18 +75,9 @@
       @include sub-title-font();
     }
 
-    .date-narrow-screen {
-      @media (min-width: $breakpoint-width) {
-        display: none;
-      }
-
-      margin: $small-margin 0 0 0;
-      color: $light-text-color;
-    }
-
     .image-container {
       font-size: 0;
-      box-shadow: inset $shadow;
+      box-shadow: inset $shadow1, inset $shadow2;
       pointer-events: none;
       img {
         pointer-events: all;
@@ -83,11 +91,11 @@
       font-style: italic;
     }
 
-    #more {
+    .more {
       overflow: hidden;
       height: 0;
       margin-top: 0;
-      transition: height $slow-transition-time;
+      transition: height $long-transition-time;
     }
 
     .buttons {
@@ -95,14 +103,14 @@
       margin-top: $small-margin;
 
       * {
-        transition: opacity $slow-transition-time;
+        transition: opacity $long-transition-time;
       }
 
-      #show-more {
+      .show-more {
         opacity: 1;
       }
 
-      #show-less {
+      .show-less {
         opacity: 0;
         visibility: hidden;
         position: absolute;

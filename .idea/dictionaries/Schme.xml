@@ -1,11 +1,20 @@
 <component name="ProjectDictionaryState">
   <dictionary name="Schme">
     <words>
+      <w>contenthash</w>
       <w>ffffff</w>
+      <w>gifsicle</w>
+      <w>imagemin</w>
+      <w>jpegtran</w>
       <w>lato</w>
+      <w>mozjpeg</w>
+      <w>noquotes</w>
       <w>opacify</w>
+      <w>optipng</w>
+      <w>pngquant</w>
       <w>raleway</w>
       <w>transparentize</w>
+      <w>webp</w>
     </words>
   </dictionary>
 </component>

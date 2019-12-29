@@ -7,7 +7,7 @@ import {
 } from "../../framework/helper";
 
 export class Blob {
-  private static readonly creatorRandom = randomFactory(42);
+  private static readonly creatorRandom = randomFactory(44);
   private static readonly colors = ["#fff9e0", "#ffd6d6"];
   private static zMin: number;
   private static zMax: number;

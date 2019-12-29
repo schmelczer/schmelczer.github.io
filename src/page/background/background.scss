@@ -9,16 +9,16 @@
   transform-style: preserve-3d;
   overflow: hidden;
 
-  transition: height $slow-transition-time, width $slow-transition-time;
+  transition: height $long-transition-time, width $long-transition-time;
 
   div {
     border-radius: 10000px;
     position: absolute;
     left: 0;
     top: 0;
-    width: 160px;
+    width: 130px;
 
-    transition: transform $slow-transition-time, opacity $slow-transition-time;
+    transition: transform $long-transition-time, opacity $long-transition-time;
 
     animation: fade-in 1s linear;
     @keyframes fade-in {

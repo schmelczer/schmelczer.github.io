@@ -12,7 +12,7 @@ a {
 
   $border-shift: 10px;
 
-  transition: transform $slow-transition-time;
+  transition: transform $long-transition-time;
   $dot-size: 4px;
 
   &:before {
@@ -38,7 +38,7 @@ a {
     width: calc(100% + #{$border-shift});
     z-index: 0;
     border-bottom: $dot-size dotted $accent-color;
-    transition: transform $slow-transition-time;
+    transition: transform $long-transition-time;
   }
 
   &:hover {

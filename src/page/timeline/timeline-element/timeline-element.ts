@@ -20,7 +20,7 @@ export class PageTimelineElement extends PageElement {
       const content = new PageContent(timelineElement.more);
       super([content]);
       this.isOpen = false;
-      this.more = root.querySelector("#more");
+      this.more = root.querySelector(".more");
       this.more.appendChild(content.getElement());
       window.addEventListener("resize", this.handleResize.bind(this));
       root
@@ -31,8 +31,8 @@ export class PageTimelineElement extends PageElement {
   }
 
   private toggleOpen() {
-    const showMore = this.query("#show-more") as HTMLElement;
-    const showLess = this.query("#show-less") as HTMLElement;
+    const showMore = this.query(".show-more") as HTMLElement;
+    const showLess = this.query(".show-less") as HTMLElement;
     if (this.isOpen) {
       PageTimelineElement.show(showMore);
       PageTimelineElement.hide(showLess);
@@ -51,6 +51,14 @@ export class PageTimelineElement extends PageElement {
       type: PageEventType.onBodyDimensionsChanged,
       data: { deltaHeight }
     });
+
+    setTimeout(
+      () =>
+        this.eventBroadcaster?.broadcastEvent({
+          type: PageEventType.onBodyDimensionsChanged
+        }),
+      350
+    );
   }
 
   private static hide(element: HTMLElement) {

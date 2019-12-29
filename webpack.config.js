@@ -1,7 +1,11 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TerserJSPlugin = require("terser-webpack-plugin");
+const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+const isProduction = process.env.NODE_ENV === "production";
 
 module.exports = {
   watchOptions: {
@@ -10,6 +14,9 @@ module.exports = {
   devServer: {
     host: "0.0.0.0"
   },
+  optimization: {
+    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})]
+  },
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
@@ -17,7 +24,10 @@ module.exports = {
       xhtml: true,
       template: "./src/index.html"
     }),
-    new MiniCssExtractPlugin()
+    new MiniCssExtractPlugin({
+      filename: "[name].[contenthash].css",
+      chunkFilename: "[id].[contenthash].css"
+    })
   ],
   entry: {
     index: "./src/index.ts"
@@ -25,12 +35,46 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|svg|jpe?g|gif|mp4)$/i,
-        use: {
-          loader: "file-loader",
-          query: {
-            outputPath: "static/"
+        test: /\.(png|jpe?g|gif|mp4)$/i,
+        use: [
+          {
+            loader: "file-loader",
+            query: {
+              outputPath: "static/"
+            }
+          },
+          {
+            loader: "image-webpack-loader",
+            options: {
+              disable: !isProduction,
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              optipng: {
+                enabled: true
+              },
+              pngquant: {
+                quality: [0.65, 0.9],
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
           }
+        ]
+      },
+      {
+        test: /\.svg$/,
+        loader: "svg-url-loader",
+        options: {
+          limit: 10 * 1024,
+          noquotes: true
         }
       },
       {
@@ -98,7 +142,7 @@ module.exports = {
     extensions: [".ts", ".js"]
   },
   output: {
-    filename: "[name].bundle.js",
+    filename: "[name].[contenthash].js",
     path: path.resolve(__dirname, "dist")
   }
 };

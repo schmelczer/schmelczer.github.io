@@ -18,7 +18,7 @@ export class PageContent extends PageElement {
               .map(element => {
                 if (PageContent.isTyped(element)) {
                   if (element.type === "a") {
-                    return `<a href="${element.href}" target="_blank"> ${element.text} </a>`;
+                    return `<a href="${element.href}" rel="noreferrer" target="_blank"> ${element.text} </a>`;
                   }
                   if (element.type === "video") {
                     return `<video controls><source src="${element.src}" /></video>`;

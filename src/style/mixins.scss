@@ -8,30 +8,27 @@
 
 %card {
   text-align: center;
-  border-radius: $border-radius;
   padding: $normal-margin;
-  box-shadow: $shadow;
+  box-shadow: $shadow1, $shadow2;
   z-index: 1;
 
-  @media (max-width: $breakpoint-width) {
-    & {
-      transition: box-shadow $fast-transition-time;
+  @media (min-width: $breakpoint-width) {
+    transition: box-shadow $long-transition-time;
 
-      &:hover {
-        box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
-      }
+    &:hover {
+      box-shadow: $shadow3, $shadow2;
     }
   }
 }
 
 @mixin card() {
   @extend %card;
+  border-radius: $border-radius;
   background-color: $card-color;
 }
 
 @mixin important-card() {
   @extend %card;
-
   background-color: $accent-color;
 
   * {
@@ -53,6 +50,11 @@
   font: 400 3.5rem "Montserrat", serif;
   font-style: normal;
   line-height: 1;
+
+  @media (max-width: $breakpoint-width) {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
 }
 
 @mixin sub-title-font() {

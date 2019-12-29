@@ -4,10 +4,8 @@
 footer#page-footer {
   text-align: center;
 
-  margin: $normal-margin auto 0 auto;
-  padding: $normal-margin $normal-margin $line-height $normal-margin;
+  margin: $large-margin auto 0 auto;
   width: 100%;
-  // backdrop-filter: blur($blur-radius);
 
   h2 {
     @include title-font();
@@ -16,7 +14,7 @@ footer#page-footer {
   ul {
     list-style: none;
     display: inline-block;
-    margin-top: calc(#{$small-margin} / 2 + #{$normal-margin} / 2);
+    margin-top: $normal-margin;
     text-align: left;
 
     li {
@@ -40,7 +38,7 @@ footer#page-footer {
 
   aside.other {
     @include center-children();
-    margin: calc(2 * #{$normal-margin}) auto 0 auto;
+    margin: $large-margin auto $line-height auto;
     width: $body-width;
 
     h6 {

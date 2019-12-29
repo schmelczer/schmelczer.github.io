@@ -9,11 +9,10 @@ export const generate = (
 ): html => `
     <section class="timeline-element">
         <div class="line">
-            <p class="date-wide-screen">${date}</p>
+            <p class="date">${date}</p>
         </div>
         <div class="card">
             <h2>${title}</h2>
-            <p class="date-narrow-screen">${date}</p>
             <div class="image-container">
                 <img src="${picture}" alt="${picture}"/>
             </div>
@@ -21,10 +20,10 @@ export const generate = (
             ${
               more
                 ? `
-                <div id="more"></div>
+                <div class="more"></div>
                 <div class="buttons">
-                    <a id="show-more">${showMore}</a>
-                    <a id="show-less">${showLess}</a>
+                    <a class="show-more">${showMore}</a>
+                    <a class="show-less">${showLess}</a>
                 </div>
                 `
                 : ""

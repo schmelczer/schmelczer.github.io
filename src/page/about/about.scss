@@ -4,15 +4,7 @@
 #about {
   @include important-card();
 
-  $img-size: 190px;
-
-  position: relative;
-  width: $body-width;
-  margin-top: calc(#{$normal-margin} + #{$img-size} * 1 / 3);
-
-  h1 {
-    text-align: left;
-  }
+  $img-size: 125px;
 
   h1,
   img,
@@ -21,29 +13,49 @@
     @include title-font();
   }
 
-  .placeholder {
-    @include square(calc(#{$img-size} * 2 / 3 - #{$normal-margin}));
-    box-sizing: content-box;
-    float: left;
-    margin: 0 0.75ex 0.75ex 0;
-  }
-
   img {
     @include square($img-size);
-    position: absolute;
-    left: 0;
-    top: 0;
-    transform: translateY(-$img-size * 1/3) translateX(-$img-size * 1/3);
     border-radius: 100%;
     cursor: pointer;
-  }
-
-  @media (max-width: $breakpoint-width) {
   }
 
   p {
     @include main-font();
     text-align: justify;
     margin-top: $small-margin;
+  }
+
+  @media (max-width: $breakpoint-width) {
+    h1 {
+      margin-top: $small-margin;
+    }
+  }
+
+  @media (min-width: $breakpoint-width) {
+    $img-size: 190px;
+
+    width: $body-width;
+    margin: calc(#{$normal-margin} + #{$img-size} * 1 / 3) auto 0 auto;
+    position: relative;
+    border-radius: $border-radius;
+
+    img {
+      @include square($img-size);
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(-$img-size * 1/3) translateX(-$img-size * 1/3);
+    }
+
+    .placeholder {
+      @include square(calc(#{$img-size} * 2 / 3 - #{$normal-margin}));
+      box-sizing: content-box;
+      float: left;
+      margin: 0 0.75ex 0.75ex 0;
+    }
+
+    h1 {
+      text-align: left;
+    }
   }
 }

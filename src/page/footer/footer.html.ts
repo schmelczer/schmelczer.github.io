@@ -19,11 +19,11 @@ export const generate = ({
         <h2>${title}</h2>
         <ul>
             <li>
-                <img src="${cvIcon}" alt="CV" />
-                <a id="cv" target="_blank">${cvName}</a>
+                <img src="${cvIcon}" alt="CV" class="no-open" />
+                <a id="cv" href="${cv}" target="_blank">${cvName}</a>
             </li>
             <li>
-                <img src="${emailIcon}" alt="email" />
+                <img src="${emailIcon}" alt="email" class="no-open"/>
                 <a id="email" href="mailto:${email}">${email}</a>
             </li>
         </ul>

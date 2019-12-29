@@ -12,8 +12,13 @@
     "type": "git",
     "url": "git+https://github.com/schmelczerandras/timeline.git"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "CV",
+    "portfolio",
+    "resume",
+    "resumé"
+  ],
+  "author": "András Schmelczer",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/schmelczerandras/timeline/issues"
@@ -24,12 +29,16 @@
     "css-loader": "^3.4.0",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
+    "image-webpack-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "^1.19.1",
     "resolve-url-loader": "^3.1.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.2",
+    "svg-url-loader": "^3.0.3",
+    "terser-webpack-plugin": "^2.3.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.7.3",
     "webpack": "^4.41.4",

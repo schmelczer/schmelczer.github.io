@@ -1,5 +1,10 @@
 @import "../../style/vars";
 
-main#timeline {
-  margin-top: $normal-margin;
+#timeline {
+  width: $body-width;
+  margin: $large-margin auto 0 auto;
+
+  @media (max-width: $breakpoint-width) {
+    margin: auto;
+  }
 }

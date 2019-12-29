@@ -24,7 +24,9 @@ export class PageImageViewer extends PageElement {
     );
     images
       .filter(
-        (img: HTMLImageElement) => img.parentElement !== this.getElement()
+        (img: HTMLImageElement) =>
+          img.parentElement !== this.getElement() &&
+          !img.classList.contains("no-open")
       )
       .forEach(
         (img: HTMLImageElement) => (img.onclick = this.handleClick.bind(this))

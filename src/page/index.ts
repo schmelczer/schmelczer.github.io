@@ -7,7 +7,6 @@ import { PageImageViewer } from "./image-viewer/image-viewer";
 import { Page } from "../framework/page";
 
 export const create = ({ config, header, timeline, footer }: Portfolio) => {
-  document.title = header.name;
   const pageHeader = new PageHeader(header, config.aPictureOf);
   const pageFooter = new PageFooter(footer);
 
