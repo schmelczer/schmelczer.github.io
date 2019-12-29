@@ -59,7 +59,7 @@ module.exports = {
               disable: !isProduction,
               mozjpeg: {
                 progressive: true,
-                quality: 45
+                quality: 65
               },
               optipng: {
                 enabled: true

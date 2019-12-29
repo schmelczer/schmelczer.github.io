@@ -16,9 +16,9 @@
   font-size: 0;
   box-shadow: inset $shadow1, inset $shadow2;
   pointer-events: none;
+  cursor: pointer;
   img {
     pointer-events: all;
-    cursor: pointer;
     position: relative;
     z-index: -2;
   }

@@ -6,8 +6,9 @@
   left: 0;
   top: 0;
   z-index: -1;
-  transform-style: preserve-3d;
   overflow: hidden;
+
+  will-change: width, height;
 
   transition: height $long-transition-time, width $long-transition-time;
 
