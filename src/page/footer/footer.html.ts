@@ -1,9 +1,9 @@
 import { Footer } from "../../model/portfolio";
-import { html, url } from "../../model/misc";
+import { html } from "../../model/misc";
+import emailIcon from "../../static/icons/at.svg";
+import cvIcon from "../../static/icons/cv.svg";
 
 import "./footer.scss";
-import cvIcon from "../../static/icons/cv.svg";
-import emailIcon from "../../static/icons/at.svg";
 
 export const generate = ({
   title,
@@ -11,9 +11,7 @@ export const generate = ({
   cv,
   cvName,
   lastEditName,
-  lastEdit,
-  githubLinkName,
-  githubLink
+  lastEdit
 }: Footer): html => `
     <footer id="page-footer">
         <h2>${title}</h2>

@@ -1,34 +1,47 @@
 declare module "*.svg" {
-  const content: string;
+  import { url } from "src/model/misc";
+  const content: url;
   export default content;
 }
 
 declare module "*.png" {
-  const content: string;
+  import { ResponsiveImage } from "src/model/misc";
+  const content: ResponsiveImage;
   export default content;
 }
 
 declare module "*.jpg" {
-  const content: string;
+  import { ResponsiveImage } from "src/model/misc";
+  const content: ResponsiveImage;
   export default content;
 }
 
 declare module "*.jpeg" {
-  const content: string;
+  import { ResponsiveImage } from "src/model/misc";
+  const content: ResponsiveImage;
   export default content;
 }
 
 declare module "*.gif" {
-  const content: string;
+  import { url } from "src/model/misc";
+  const content: url;
   export default content;
 }
 
 declare module "*.mp4" {
-  const content: string;
+  import { url } from "src/model/misc";
+  const content: url;
+  export default content;
+}
+
+declare module "*.webm" {
+  import { url } from "src/model/misc";
+  const content: url;
   export default content;
 }
 
 declare module "*.pdf" {
-  const content: string;
+  import { url } from "src/model/misc";
+  const content: url;
   export default content;
 }

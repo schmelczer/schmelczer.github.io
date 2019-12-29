@@ -1,7 +1,8 @@
 import { Portfolio } from "./model/portfolio";
 
 import me from "./static/media/me.jpg";
-import forex from "./static/media/forex.gif";
+import forexMP4 from "./static/media/forex.mp4";
+import forexWEBM from "./static/media/forex.webm";
 import myNotes from "./static/media/my-notes.jpg";
 import processSimulator from "./static/media/process-simulator.jpg";
 import processSimulatorInput from "./static/media/process-simulator-input.jpg";
@@ -11,17 +12,21 @@ import platform from "./static/media/platform.png";
 import photos from "./static/media/photos.jpg";
 import led from "./static/media/led.jpg";
 import cv from "./static/cv/andras_schmelczer_cv_2020_01.pdf";
-import ledVideo from "./static/media/led720.mp4";
+import ledMP4 from "./static/media/led.mp4";
+import ledWEBM from "./static/media/led.webm";
 
 export const portfolio: Portfolio = {
   config: {
     showMore: `Show details`,
-    showLess: `Show less`,
-    aPictureOf: `a picture of`
+    showLess: `Show less`
   },
   header: {
     name: `András Schmelczer`,
-    picture: me,
+    picture: {
+      type: `img`,
+      image: me,
+      alt: `a picture of me`
+    },
     about: [
       `I have always been fascinated by the engineering feats that surround us. 
        When I realized that someday I might be able to contribute to these achievements, 
@@ -34,7 +39,12 @@ export const portfolio: Portfolio = {
     {
       title: `Predicting foreign exchange rates`,
       date: `2019 Autumn`,
-      picture: forex,
+      figure: {
+        type: `video`,
+        options: `autoplay loop muted playsinline`,
+        webm: forexWEBM,
+        mp4: forexMP4
+      },
       description: `From the animation we can see that my algorithm does a somewhat acceptable job at
        predicting (blue graph) the EUR/USD rates (green graph).`,
       more: [
@@ -49,7 +59,11 @@ export const portfolio: Portfolio = {
     {
       date: `2019 November`,
       title: `My Notes`,
-      picture: myNotes,
+      figure: {
+        type: `img`,
+        image: myNotes,
+        alt: `two screenshots of the application`
+      },
       description: `A minimalist note organizer and editor powered by Markwon.`,
       more: [
         {
@@ -65,7 +79,11 @@ export const portfolio: Portfolio = {
     {
       date: `2018 October - November`,
       title: `Simulating the cooling system of a nuclear facility`,
-      picture: processSimulator,
+      figure: {
+        type: `img`,
+        image: processSimulator,
+        alt: `a screenshot of the simulator`
+      },
       description: `Dynamically calculating the temperatures and flow velocities
        in a fluid based cooling system based on a simple model.`,
       more: [
@@ -79,7 +97,11 @@ export const portfolio: Portfolio = {
     {
       date: `2018 October - November`,
       title: `Graph editing application`,
-      picture: processSimulatorInput,
+      figure: {
+        type: `img`,
+        image: processSimulatorInput,
+        alt: `a picture of the simulator's UI`
+      },
       description: `An intuitive editor to create and edit input files for the nuclear facility simulator.`,
       more: [
         `Nodes can be moved with drag&drop gestures. Editing the parameters of elements 
@@ -91,7 +113,11 @@ export const portfolio: Portfolio = {
     {
       date: `2018 July - August`,
       title: `City simulation`,
-      picture: citySimulation,
+      figure: {
+        type: `img`,
+        image: citySimulation,
+        alt: `a picture of a low-poly city`
+      },
       description: `Simulating a city where car crashes are more frequent than usual.`,
       more: [
         `Through a REST API the state of the traffic lights can be changed. 
@@ -109,7 +135,11 @@ export const portfolio: Portfolio = {
     {
       date: `2018 June`,
       title: `Photo color grader`,
-      picture: color,
+      figure: {
+        type: `img`,
+        image: color,
+        alt: `a picture of the app`
+      },
       description: `An innovative (at least I thought so) color grader web application.`,
       more: [
         `The most noteworthy feature of this application is the color selector UI. 
@@ -126,7 +156,11 @@ export const portfolio: Portfolio = {
       date: `2017 autumn`,
 
       title: `Platform game`,
-      picture: platform,
+      figure: {
+        type: `img`,
+        image: platform,
+        alt: `a picture of the app`
+      },
       description: `A 3D game written in C with the help of SDL 1.2 (I haven't heard of GPU programming at the time).`,
       more: [
         `The maps are randomly generated and fully destroyable. 
@@ -137,14 +171,22 @@ export const portfolio: Portfolio = {
     {
       date: `2016 summer`,
       title: `Photos`,
-      picture: photos,
+      figure: {
+        type: `img`,
+        image: photos,
+        alt: `a picture of the website`
+      },
       description: `A simple web page where you can view my photos.`,
       link: `schmelczer.dev/photos`
     },
     {
       date: `2016 spring`,
       title: `Lights synchronised to music`,
-      picture: led,
+      figure: {
+        type: `img`,
+        image: led,
+        alt: `a picture from the video`
+      },
       description: `A full stack application with a built-in 
       music player which music controls the color of some RGB LED strips.`,
       more: [
@@ -154,7 +196,7 @@ export const portfolio: Portfolio = {
         A quite simple frontend for accessing the music player and changing 
         the settings also got built using vanilla web development technologies.`,
         `Below is a video showing the system in work.`,
-        { type: `video`, src: ledVideo }
+        { type: `video`, mp4: ledMP4, webm: ledWEBM, options: "controls" }
       ]
     }
   ],
@@ -163,9 +205,7 @@ export const portfolio: Portfolio = {
     cv,
     email: `andras@schmelczer.dev`,
     cvName: `Curriculum vitae`,
-    githubLinkName: `view source`,
-    githubLink: `https://github.com/schmelczerandras/timeline`,
     lastEditName: `Last modified on `,
-    lastEdit: new Date(2019, 11, 27) // months are 0 indexed
+    lastEdit: new Date(2019, 11, 29) // months are 0 indexed
   }
 };

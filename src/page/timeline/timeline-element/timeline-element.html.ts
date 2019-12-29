@@ -1,9 +1,11 @@
 import { TimelineElement } from "../../../model/portfolio";
 import { html } from "../../../model/misc";
+import { PageContent } from "../../content/content";
+
 import "./timeline-element.scss";
 
 export const generate = (
-  { date, title, picture, description, more, link }: TimelineElement,
+  { date, title, figure, description, more, link }: TimelineElement,
   showMore: string,
   showLess: string
 ): html => `
@@ -13,9 +15,7 @@ export const generate = (
         </div>
         <div class="card">
             <h2>${title}</h2>
-            <div class="image-container">
-                <img src="${picture}" alt="${picture}"/>
-            </div>
+            ${PageContent.parseTypedContent(figure)}
             <p class="description">${description}</p>
             ${
               more

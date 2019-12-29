@@ -2,18 +2,22 @@
   <dictionary name="Schme">
     <words>
       <w>contenthash</w>
+      <w>cybersecurity</w>
       <w>ffffff</w>
       <w>gifsicle</w>
       <w>imagemin</w>
       <w>jpegtran</w>
       <w>lato</w>
+      <w>markwon</w>
       <w>mozjpeg</w>
       <w>noquotes</w>
       <w>opacify</w>
       <w>optipng</w>
       <w>pngquant</w>
       <w>raleway</w>
+      <w>screenshot</w>
       <w>transparentize</w>
+      <w>webm</w>
       <w>webp</w>
     </words>
   </dictionary>

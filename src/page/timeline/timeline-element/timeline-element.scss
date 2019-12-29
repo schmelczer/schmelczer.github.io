@@ -75,18 +75,6 @@
       @include sub-title-font();
     }
 
-    .image-container {
-      font-size: 0;
-      box-shadow: inset $shadow1, inset $shadow2;
-      pointer-events: none;
-      img {
-        pointer-events: all;
-        cursor: pointer;
-        position: relative;
-        z-index: -2;
-      }
-    }
-
     .description {
       font-style: italic;
     }

@@ -35,7 +35,17 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(png|jpe?g|gif|mp4)$/i,
+        test: /\.(jpe?g|png)$/i,
+        loader: "responsive-loader",
+        options: {
+          adapter: require("responsive-loader/sharp"),
+          outputPath: "static/",
+          sizes: [300, 600, 1200, 2000],
+          placeholder: false
+        }
+      },
+      {
+        test: /\.(webm|mp4)$/i,
         use: [
           {
             loader: "file-loader",
@@ -49,7 +59,7 @@ module.exports = {
               disable: !isProduction,
               mozjpeg: {
                 progressive: true,
-                quality: 65
+                quality: 45
               },
               optipng: {
                 enabled: true
@@ -61,9 +71,8 @@ module.exports = {
               gifsicle: {
                 interlaced: false
               },
-              // the webp option will enable WEBP
               webp: {
-                quality: 75
+                quality: 65
               }
             }
           }

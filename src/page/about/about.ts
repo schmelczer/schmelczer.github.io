@@ -6,8 +6,8 @@ import { generate } from "./about.html";
 import { createElement } from "../../framework/helper";
 
 export class PageHeader extends PageElement {
-  public constructor(header: Header, aPictureOf: string) {
-    const root = createElement(generate(header, aPictureOf));
+  public constructor(header: Header) {
+    const root = createElement(generate(header));
     const content = new PageContent(header.about);
 
     super([content]);

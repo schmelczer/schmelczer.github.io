@@ -1,5 +1,5 @@
 import { url } from "./misc";
-import { Content } from "./content";
+import { Content, Image, Video } from "./content";
 
 export interface Portfolio {
   config: Config;
@@ -11,19 +11,18 @@ export interface Portfolio {
 export interface Config {
   showMore: string;
   showLess: string;
-  aPictureOf: string;
 }
 
 export interface Header {
   name: string;
-  picture: url;
+  picture: Image;
   about: Content;
 }
 
 export interface TimelineElement {
   title: string;
   date: string;
-  picture: url;
+  figure: Image | Video;
   description: string;
   more?: Content;
   link?: url;
@@ -34,8 +33,6 @@ export interface Footer {
   email: string;
   cv: url;
   cvName: string;
-  githubLinkName: string;
-  githubLink: url;
   lastEditName: string;
   lastEdit: Date;
 }

@@ -1,4 +1,4 @@
-import { url } from "./misc";
+import { ResponsiveImage, url } from "./misc";
 
 interface Anchor {
   type: "a";
@@ -6,11 +6,19 @@ interface Anchor {
   text: string;
 }
 
-interface Video {
+export type Video = {
   type: "video";
-  src: url;
-}
+  mp4: url;
+  webm: url;
+  options?: string;
+};
 
-export type TypedContent = Anchor | Video;
+export type Image = {
+  type: "img";
+  alt: string;
+  image: ResponsiveImage;
+};
+
+export type TypedContent = Anchor | Video | Image;
 
 export type Content = Array<String | TypedContent>;
