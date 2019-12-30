@@ -12,6 +12,8 @@ import { generate } from "./background.html";
 export class PageBackground extends PageElement {
   private blobs: Array<Blob> = [];
   private blobSpacing = 350;
+  private previousWidth: number;
+  private previousHeight: number;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
@@ -41,6 +43,13 @@ export class PageBackground extends PageElement {
     if (heightChange) {
       height += heightChange;
     }
+
+    if (this.previousHeight === height && this.previousWidth === width) {
+      return;
+    }
+    this.previousHeight = height;
+    this.previousWidth = width;
+
     this.getElement().style.width = `${width}px`;
     this.getElement().style.height = `${height}px`;
 

@@ -35,8 +35,8 @@ export class Blob {
       );
     this.element.style.zIndex = (-this.z).toString();
     this.element.style.height = `${randomInInterval(
-      160,
-      750,
+      8,
+      37,
       Blob.creatorRandom
     )}px`;
   }
@@ -95,6 +95,7 @@ export class Blob {
         startOffset,
         endOffset
       )}px)
+      scale(20)
       translateZ(${-this.z}px)
       rotate(-20deg)
     `;

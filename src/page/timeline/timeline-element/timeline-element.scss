@@ -53,6 +53,7 @@
 
     .line {
       @include center-children();
+      justify-content: flex-start;
       height: 150px;
       width: 50%;
 
