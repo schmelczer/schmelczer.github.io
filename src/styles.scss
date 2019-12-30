@@ -30,11 +30,8 @@ body {
 
   & > main {
     height: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
-    perspective-origin: center center;
-    perspective: 5px;
-    will-change: scroll-position, transform;
 
     noscript {
       @include square(100%);

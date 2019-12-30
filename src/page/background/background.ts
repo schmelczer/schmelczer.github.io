@@ -14,6 +14,7 @@ export class PageBackground extends PageElement {
   private blobSpacing = 350;
   private previousWidth: number;
   private previousHeight: number;
+  private scrollPositionToSet: number = null;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
@@ -33,6 +34,23 @@ export class PageBackground extends PageElement {
   private bindListeners(parent: PageElement) {
     window.addEventListener("resize", () => this.resize(parent));
     window.addEventListener("load", () => this.resize(parent));
+    parent
+      .getElement()
+      .addEventListener("scroll", () => this.saveScrollPosition(parent));
+    window.requestAnimationFrame(() => this.scrollContainer(parent));
+  }
+
+  private saveScrollPosition(parent: PageElement) {
+    this.scrollPositionToSet = parent.getElement().scrollTop;
+  }
+
+  private scrollContainer(parent: PageElement) {
+    if (this.scrollPositionToSet !== null) {
+      this.getElement().scrollTo(0, this.scrollPositionToSet);
+      this.scrollPositionToSet = null;
+    }
+
+    window.requestAnimationFrame(() => this.scrollContainer(parent));
   }
 
   private resize(parent: PageElement, heightChange?: number) {
@@ -50,8 +68,8 @@ export class PageBackground extends PageElement {
     this.previousHeight = height;
     this.previousWidth = width;
 
-    this.getElement().style.width = `${width}px`;
-    this.getElement().style.height = `${height}px`;
+    this.query("#background").style.width = `${width}px`;
+    this.query("#background").style.height = `${height}px`;
 
     const requiredBlobCount = Math.round(
       (width * height) / this.blobSpacing ** 2
@@ -59,7 +77,7 @@ export class PageBackground extends PageElement {
 
     while (requiredBlobCount > this.blobs.length) {
       const blob = new Blob();
-      this.getElement().appendChild(blob.htmlElement);
+      this.query("#background").appendChild(blob.htmlElement);
       this.blobs.push(blob);
     }
 

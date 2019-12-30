@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,7 +39,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/static" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/page/background" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
@@ -50,17 +49,18 @@
     <property name="ts.external.directory.path" value="C:\Projects\portfolio\CompiledCV\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="C:\Projects\portfolio\CompiledCV\src" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\no-change" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -105,7 +105,8 @@
       <workItem from="1577469180612" duration="18000" />
       <workItem from="1577526744211" duration="46374000" />
       <workItem from="1577639259221" duration="3798000" />
-      <workItem from="1577662869335" duration="4081000" />
+      <workItem from="1577662869335" duration="6536000" />
+      <workItem from="1577702567470" duration="3227000" />
     </task>
     <servers />
   </component>
