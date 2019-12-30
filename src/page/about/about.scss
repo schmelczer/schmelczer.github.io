@@ -25,6 +25,10 @@
     margin-top: $small-margin;
   }
 
+  h1 {
+    hyphens: none;
+  }
+
   @media (max-width: $breakpoint-width) {
     h1 {
       margin-top: $small-margin;

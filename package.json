@@ -18,12 +18,24 @@
     "resumé"
   ],
   "author": "András Schmelczer",
-  "license": "ISC",
+  "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/schmelczerandras/timeline/issues"
   },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "last 2 version",
+    "not dead",
+    "iOS >= 9",
+    "> 0.2%"
+  ],
   "homepage": "https://github.com/schmelczerandras/timeline#readme",
   "devDependencies": {
+    "autoprefixer": "^9.7.3",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.0",
     "file-loader": "^5.0.2",
@@ -32,6 +44,7 @@
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^3.0.0",
     "prettier": "^1.19.1",
     "resolve-url-loader": "^3.1.1",
     "responsive-loader": "^1.2.0",

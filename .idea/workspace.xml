@@ -3,10 +3,15 @@
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />

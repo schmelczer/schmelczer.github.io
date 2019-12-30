@@ -22,6 +22,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       hash: true,
       xhtml: true,
+      minify: true,
       template: "./src/index.html"
     }),
     new MiniCssExtractPlugin({
@@ -109,12 +110,9 @@ module.exports = {
       {
         test: /\.scss$/i,
         use: [
-          {
-            loader: MiniCssExtractPlugin.loader
-          },
-          {
-            loader: "css-loader"
-          },
+          MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
           {
             loader: "resolve-url-loader",
             options: {

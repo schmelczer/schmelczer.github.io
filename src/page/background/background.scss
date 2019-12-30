@@ -18,15 +18,15 @@
     overflow: hidden;
     will-change: width, height;
     transition: height $long-transition-time, width $long-transition-time;
-    transform-style: preserve-3d; // really important for performance on mobile devices
+    transform-style: flat;
 
     div {
       position: -webkit-sticky;
-      border-radius: 100px;
       position: absolute;
       left: 0;
       top: 0;
-      width: 7px;
+      border-radius: 100px;
+      width: 140px;
 
       transition: transform $long-transition-time, opacity $long-transition-time;
       will-change: transform, opacity;
@@ -41,4 +41,8 @@
       }
     }
   }
+}
+
+#edge-hack {
+  position: fixed;
 }

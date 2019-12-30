@@ -35,8 +35,8 @@ export class Blob {
       );
     this.element.style.zIndex = (-this.z).toString();
     this.element.style.height = `${randomInInterval(
-      8,
-      37,
+      160,
+      740,
       Blob.creatorRandom
     )}px`;
   }
@@ -86,7 +86,7 @@ export class Blob {
     startOffset: number,
     endOffset: number
   ) {
-    this.element.style.transform = `
+    const value = `
       translateX(${this.randomWithKnownZ(random, width, width)}px)
       translateY(${this.randomWithKnownZ(
         random,
@@ -95,9 +95,10 @@ export class Blob {
         startOffset,
         endOffset
       )}px)
-      scale(20)
       translateZ(${-this.z}px)
       rotate(-20deg)
     `;
+    this.element.style["-webkit-transform"] = value;
+    this.element.style.transform = value;
   }
 }

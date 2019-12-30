@@ -1,4 +1,4 @@
-import { html, ResponsiveImage } from "../model/misc";
+import { html } from "../model/misc";
 
 export const createElement = (from: html): HTMLElement => {
   const element: HTMLElement = document.createElement("div");
@@ -91,3 +91,5 @@ export const range = ({
 
 export const last = <T>(list: Array<T>): T =>
   list.length > 0 ? list[list.length - 1] : undefined;
+
+export const isChrome = (): boolean => !!navigator.appVersion.match(/chrome/i);

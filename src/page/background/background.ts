@@ -3,22 +3,29 @@ import {
   getHeight,
   createElement,
   randomFactory,
-  sum
+  sum,
+  isChrome
 } from "../../framework/helper";
 import { PageEvent, PageEventType } from "../../framework/page-event";
 import { Blob } from "./blob";
 import { generate } from "./background.html";
 
 export class PageBackground extends PageElement {
-  private blobs: Array<Blob> = [];
-  private blobSpacing = 350;
+  private readonly blobs: Array<Blob> = [];
+  private readonly blobSpacing = 350;
   private previousWidth: number;
   private previousHeight: number;
-  private scrollPositionToSet: number = null;
+  private previousScrollPositionToSet: number = 0;
+  private previousTimestamp: DOMHighResTimeStamp = null;
+  private readonly baseDeltaTime = (1 / 30) * 1000;
+  private readonly maxBaseSpeedInPixels = 20;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
     this.setElement(createElement(generate()));
+    if (isChrome()) {
+      this.query("#background").style.transformStyle = "preserve-3d";
+    }
     Blob.initialize(10, 30, 5);
   }
 
@@ -34,23 +41,44 @@ export class PageBackground extends PageElement {
   private bindListeners(parent: PageElement) {
     window.addEventListener("resize", () => this.resize(parent));
     window.addEventListener("load", () => this.resize(parent));
-    parent
-      .getElement()
-      .addEventListener("scroll", () => this.saveScrollPosition(parent));
-    window.requestAnimationFrame(() => this.scrollContainer(parent));
+    window.requestAnimationFrame(timestamp =>
+      this.scrollContainer(timestamp, parent)
+    );
   }
 
-  private saveScrollPosition(parent: PageElement) {
-    this.scrollPositionToSet = parent.getElement().scrollTop;
-  }
+  private scrollContainer(timestamp: DOMHighResTimeStamp, parent: PageElement) {
+    const deltaTime = this.getDeltaTime(timestamp);
+    const scrollPositionToSet = parent.getElement().scrollTop;
+    const deltaScroll = scrollPositionToSet - this.previousScrollPositionToSet;
+    this.previousScrollPositionToSet = scrollPositionToSet;
 
-  private scrollContainer(parent: PageElement) {
-    if (this.scrollPositionToSet !== null) {
-      this.getElement().scrollTo(0, this.scrollPositionToSet);
-      this.scrollPositionToSet = null;
+    const threshold = 2;
+    if (deltaScroll > threshold) {
+      const smoothDeltaScroll =
+        (deltaScroll / deltaTime) * Math.min(deltaTime, this.baseDeltaTime);
+      this.getElement().scrollTop += smoothDeltaScroll;
+    } else {
+      const error = scrollPositionToSet - this.getElement().scrollTop;
+      if (Math.abs(error) > threshold) {
+        this.getElement().scrollTop += Math.min(
+          error / 4,
+          this.maxBaseSpeedInPixels,
+          error
+        );
+      }
     }
 
-    window.requestAnimationFrame(() => this.scrollContainer(parent));
+    window.requestAnimationFrame(timestamp =>
+      this.scrollContainer(timestamp, parent)
+    );
+  }
+
+  private getDeltaTime(timestamp: DOMHighResTimeStamp): number {
+    const deltaTime = this.previousTimestamp
+      ? timestamp - this.previousTimestamp
+      : 0;
+    this.previousTimestamp = timestamp;
+    return deltaTime;
   }
 
   private resize(parent: PageElement, heightChange?: number) {
