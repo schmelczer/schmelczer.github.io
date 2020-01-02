@@ -1,6 +1,5 @@
 import {
   choose,
-  createElement,
   mixColors,
   randomFactory,
   randomInInterval
@@ -9,96 +8,52 @@ import {
 export class Blob {
   private static readonly creatorRandom = randomFactory(44);
   private static readonly colors = ["#fff9e0", "#ffd6d6"];
-  private static zMin: number;
-  private static zMax: number;
-  private static perspective: number;
-  public static initialize(zMin: number, zMax: number, perspective: number) {
-    Blob.zMin = zMin;
-    Blob.zMax = zMax;
-    Blob.perspective = perspective;
-  }
 
-  private readonly z = randomInInterval(
-    Blob.zMin,
-    Blob.zMax,
-    Blob.creatorRandom
-  );
+  private readonly x = Blob.creatorRandom();
+  private readonly y = Blob.creatorRandom();
+  private readonly z = Blob.creatorRandom();
+  private readonly rotation = 20;
+  private readonly width = 140;
+  private readonly height = randomInInterval(160, 740, Blob.creatorRandom);
+  private readonly color: string;
 
-  private readonly element: HTMLElement = createElement("<div></div>");
   constructor() {
-    this.element.style.backgroundColor =
+    this.color =
       "#" +
-      mixColors(
-        "#ffffff",
-        choose(Blob.colors, Blob.creatorRandom),
-        (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
-      );
-    this.element.style.zIndex = (-this.z).toString();
-    this.element.style.height = `${randomInInterval(
-      160,
-      740,
-      Blob.creatorRandom
-    )}px`;
+      mixColors("#ffffff", choose(Blob.colors, Blob.creatorRandom), this.z);
   }
 
-  get htmlElement(): HTMLElement {
-    return this.element;
+  public get topLeft(): [number, number, number] {
+    return [this.x, this.y, this.z];
   }
 
-  private randomWithKnownZ(
-    random: () => number,
-    viewportSize: number,
-    scrollSize: number,
-    startOffset = 0,
-    endOffset = 0
-  ): number {
-    const m = 1 + this.z / Blob.perspective;
-
-    const variableOffset = (offset, q) =>
-      Math.max(
-        0,
-        offset - ((this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)) * (offset * q)
-      );
-
-    startOffset = variableOffset(startOffset, 1);
-    endOffset = variableOffset(endOffset, 0.2);
-
-    const lowerBound = viewportSize / 2 - (viewportSize / 2 - startOffset) * m;
-    const l =
-      scrollSize - viewportSize + (viewportSize - startOffset - endOffset) * m;
-
-    return randomInInterval(lowerBound, lowerBound + l, random);
+  public get bottomRight(): [number, number, number] {
+    return [this.x + this.width, this.y + this.height, this.z];
   }
 
-  public show() {
-    this.element.style.opacity = "1";
-  }
-
-  public hide() {
-    this.element.style.opacity = "0";
-  }
-
-  public transform(
-    random: () => number,
-    width: number,
-    viewportHeight: number,
-    scrollHeight: number,
-    startOffset: number,
-    endOffset: number
+  public draw(
+    ctx: CanvasRenderingContext2D,
+    position: [number, number],
+    size: [number, number]
   ) {
-    const value = `
-      translateX(${this.randomWithKnownZ(random, width, width)}px)
-      translateY(${this.randomWithKnownZ(
-        random,
-        viewportHeight,
-        scrollHeight,
-        startOffset,
-        endOffset
-      )}px)
-      translateZ(${-this.z}px)
-      rotate(-20deg)
-    `;
-    this.element.style["-webkit-transform"] = value;
-    this.element.style.transform = value;
+    const [x, y] = position;
+    const [width, height] = size;
+    const radius = Math.min(width, height) / 2;
+
+    ctx.save();
+    ctx.translate(-x, -y);
+    ctx.rotate(this.rotation);
+    ctx.fillStyle = this.color;
+
+    ctx.beginPath();
+    ctx.moveTo(x + radius, y);
+    ctx.arcTo(x + width, y, x + width, y + height, radius);
+    ctx.arcTo(x + width, y + height, x, y + height, radius);
+    ctx.arcTo(x, y + height, x, y, radius);
+    ctx.arcTo(x, y, x + width, y, radius);
+    ctx.closePath();
+    ctx.fill();
+
+    ctx.restore();
   }
 }

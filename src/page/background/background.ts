@@ -4,7 +4,7 @@ import {
   createElement,
   randomFactory,
   sum,
-  isChrome
+  randomInInterval
 } from "../../framework/helper";
 import { PageEvent, PageEventType } from "../../framework/page-event";
 import { Blob } from "./blob";
@@ -13,20 +13,21 @@ import { generate } from "./background.html";
 export class PageBackground extends PageElement {
   private readonly blobs: Array<Blob> = [];
   private readonly blobSpacing = 350;
-  private previousWidth: number;
-  private previousHeight: number;
-  private previousScrollPositionToSet: number = 0;
-  private previousTimestamp: DOMHighResTimeStamp = null;
   private readonly baseDeltaTime = (1 / 30) * 1000;
-  private readonly maxBaseSpeedInPixels = 20;
+  private readonly perspective = 5;
+  private readonly zMin = 10;
+  private readonly zMax = 30;
+  private width: number;
+  private height: number;
+  private scrollPosition: number = 0;
+  private previousTimestamp: DOMHighResTimeStamp = null;
+  private readonly ctx: RenderingContext;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
-    this.setElement(createElement(generate()));
-    if (isChrome()) {
-      this.query("#background").style.transformStyle = "preserve-3d";
-    }
-    Blob.initialize(10, 30, 5);
+    const canvas = createElement(generate()) as HTMLCanvasElement;
+    this.ctx = canvas.getContext("2d");
+    this.setElement(canvas);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
@@ -46,8 +47,46 @@ export class PageBackground extends PageElement {
     );
   }
 
+  public drawBlob(blob: Blob) {
+    const topLeft = this.convertFrom3Dto2D(blob.topLeft);
+    const bottomRight = this.convertFrom3Dto2D(blob.bottomRight);
+  }
+
+  private convertFrom3Dto2D(point: [number, number, number]): [number, number] {
+    let [x, y, z] = point;
+    return [
+      (z / this.perspective) * (this.width / 2 - x) + x,
+      (z / this.perspective) * (this.height / 2 - y) + y - this.scrollPosition
+    ];
+  }
+
+  private randomWithKnownZ(
+    random: () => number,
+    viewportSize: number,
+    scrollSize: number,
+    startOffset = 0,
+    endOffset = 0
+  ): number {
+    const m = 1 + this.z / Blob.perspective;
+
+    const variableOffset = (offset, q) =>
+      Math.max(
+        0,
+        offset - ((this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)) * (offset * q)
+      );
+
+    startOffset = variableOffset(startOffset, 1);
+    endOffset = variableOffset(endOffset, 0.2);
+
+    const lowerBound = viewportSize / 2 - (viewportSize / 2 - startOffset) * m;
+    const l =
+      scrollSize - viewportSize + (viewportSize - startOffset - endOffset) * m;
+
+    return randomInInterval(lowerBound, lowerBound + l, random);
+  }
+
   private scrollContainer(timestamp: DOMHighResTimeStamp, parent: PageElement) {
-    const deltaTime = this.getDeltaTime(timestamp);
+    /*const deltaTime = this.getDeltaTime(timestamp);
     const scrollPositionToSet = parent.getElement().scrollTop;
     const deltaScroll = scrollPositionToSet - this.previousScrollPositionToSet;
     this.previousScrollPositionToSet = scrollPositionToSet;
@@ -70,7 +109,7 @@ export class PageBackground extends PageElement {
 
     window.requestAnimationFrame(timestamp =>
       this.scrollContainer(timestamp, parent)
-    );
+    );*/
   }
 
   private getDeltaTime(timestamp: DOMHighResTimeStamp): number {
@@ -105,14 +144,14 @@ export class PageBackground extends PageElement {
 
     while (requiredBlobCount > this.blobs.length) {
       const blob = new Blob();
-      this.query("#background").appendChild(blob.htmlElement);
+      // this.query("#background").appendChild(blob.htmlElement);
       this.blobs.push(blob);
     }
 
     const random = randomFactory(2662);
 
     this.blobs.forEach((b, i) => {
-      if (i >= requiredBlobCount) {
+      /*if (i >= requiredBlobCount) {
         b.hide();
       } else {
         b.transform(
@@ -124,7 +163,7 @@ export class PageBackground extends PageElement {
           getHeight(this.end.getElement())
         );
         b.show();
-      }
+      }*/
     });
   }
 
