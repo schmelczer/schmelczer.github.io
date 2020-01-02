@@ -28,10 +28,7 @@
     }
   },
   "browserslist": [
-    "last 2 version",
-    "not dead",
-    "iOS >= 9",
-    "> 0.2%"
+    "defaults"
   ],
   "homepage": "https://github.com/schmelczerandras/timeline#readme",
   "devDependencies": {
@@ -39,6 +36,7 @@
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.4.0",
     "file-loader": "^5.0.2",
+    "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
     "image-webpack-loader": "^6.0.0",
     "mini-css-extract-plugin": "^0.9.0",
@@ -57,6 +55,7 @@
     "typescript": "^3.7.3",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "workbox-webpack-plugin": "^4.3.1"
   }
 }

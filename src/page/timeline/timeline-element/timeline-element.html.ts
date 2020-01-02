@@ -28,12 +28,7 @@ export const generate = (
                 `
                 : ""
             }
-            ${
-              link
-                ? `
-                <a href="${link}" target="_blank">${link}</a>`
-                : ""
-            }
+            ${link ? PageContent.parseTypedContent(link) : ""}
         </div>
     </section>
 `;

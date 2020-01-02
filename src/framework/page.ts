@@ -16,7 +16,10 @@ export class Page extends PageElement {
       );
     }
 
-    rootElement.append(...children.map(e => e.getElement()).filter(e => e));
+    children
+      .map(e => e.getElement())
+      .filter(e => e)
+      .forEach(e => rootElement.appendChild(e));
 
     if (isRootPage) {
       this.broadcastEvent({ type: PageEventType.onLoad }, this);

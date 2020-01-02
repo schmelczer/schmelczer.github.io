@@ -1,10 +1,10 @@
 import { ResponsiveImage, url } from "./misc";
 
-interface Anchor {
+export type Anchor = {
   type: "a";
   href: url;
   text: string;
-}
+};
 
 export type Video = {
   type: "video";

@@ -1,5 +1,5 @@
 import { url } from "./misc";
-import { Content, Image, Video } from "./content";
+import { Anchor, Content, Image, Video } from "./content";
 
 export interface Portfolio {
   config: Config;
@@ -25,7 +25,7 @@ export interface TimelineElement {
   figure: Image | Video;
   description: string;
   more?: Content;
-  link?: url;
+  link?: Anchor;
 }
 
 export interface Footer {
