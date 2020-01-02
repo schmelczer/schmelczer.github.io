@@ -4,6 +4,7 @@ const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const TerserJSPlugin = require("terser-webpack-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const HtmlWebpackInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -20,11 +21,12 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      hash: true,
       xhtml: true,
       minify: true,
-      template: "./src/index.html"
+      template: "./src/index.html",
+      inlineSource: ".(js|css)$"
     }),
+    new HtmlWebpackInlineSourcePlugin(),
     new MiniCssExtractPlugin({
       filename: "[name].[contenthash].css",
       chunkFilename: "[id].[contenthash].css"

@@ -14,7 +14,7 @@ export class PageTimeline extends PageElement {
     const elements = timeline.map(
       e => new PageTimelineElement(e, showMore, showLess)
     );
-    root.append(...elements.map(e => e.getElement()));
+    elements.map(e => e.getElement()).forEach(e => root.appendChild(e));
     super(elements);
     this.setElement(root);
   }

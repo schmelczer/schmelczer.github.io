@@ -32,7 +32,6 @@ export class PageBackground extends PageElement {
   protected handleEvent(event: PageEvent, parent: PageElement) {
     if (event.type === PageEventType.onLoad) {
       this.bindListeners(parent);
-      this.resize(parent);
     } else if (event.type === PageEventType.onBodyDimensionsChanged) {
       this.resize(parent, event.data?.deltaHeight);
     }

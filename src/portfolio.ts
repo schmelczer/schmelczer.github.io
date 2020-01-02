@@ -177,7 +177,7 @@ export const portfolio: Portfolio = {
         alt: `a picture of the website`
       },
       description: `A simple web page where you can view my photos.`,
-      link: `schmelczer.dev/photos`
+      link: { type: `a`, href: `photos`, text: `schmelczer.dev/photos` }
     },
     {
       date: `2016 spring`,
@@ -203,7 +203,7 @@ export const portfolio: Portfolio = {
   footer: {
     title: `Learn more`,
     cv,
-    email: `andras@schmelczer.dev`,
+    email: `schmelczerandras@gmail.com`,
     cvName: `Curriculum vitae`,
     lastEditName: `Last modified on `,
     lastEdit: new Date(2019, 11, 29) // months are 0 indexed
