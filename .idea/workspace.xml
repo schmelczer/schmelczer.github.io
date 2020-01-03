@@ -2,12 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/page/background/animation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/background/vec2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/background/vec3.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/andras.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/andras.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/helper.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,18 +50,18 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="C:\Projects\portfolio\CompiledCV\src" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\no-change" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -106,6 +109,7 @@
       <workItem from="1577662869335" duration="6536000" />
       <workItem from="1577702567470" duration="3227000" />
       <workItem from="1577955137825" duration="6471000" />
+      <workItem from="1578037890102" duration="19519000" />
     </task>
     <servers />
   </component>

@@ -206,6 +206,6 @@ export const portfolio: Portfolio = {
     email: `schmelczerandras@gmail.com`,
     cvName: `Curriculum vitae`,
     lastEditName: `Last modified on `,
-    lastEdit: new Date(2019, 11, 29) // months are 0 indexed
+    lastEdit: new Date(2020, 0, 2) // months are 0 indexed
   }
 };

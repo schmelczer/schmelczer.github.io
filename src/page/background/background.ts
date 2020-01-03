@@ -1,33 +1,31 @@
 import { PageElement } from "../../framework/page-element";
-import {
-  getHeight,
-  createElement,
-  randomFactory,
-  sum,
-  randomInInterval
-} from "../../framework/helper";
+import { getHeight, createElement, sum } from "../../framework/helper";
 import { PageEvent, PageEventType } from "../../framework/page-event";
 import { Blob } from "./blob";
 import { generate } from "./background.html";
+import { Animation } from "./animation";
+import { Vec3 } from "./vec3";
+import { Vec2 } from "./vec2";
 
 export class PageBackground extends PageElement {
   private readonly blobs: Array<Blob> = [];
-  private readonly blobSpacing = 350;
-  private readonly baseDeltaTime = (1 / 30) * 1000;
+  private readonly blobSpacing = 140;
   private readonly perspective = 5;
   private readonly zMin = 10;
   private readonly zMax = 30;
-  private width: number;
-  private height: number;
+  private readonly animationTime = 350;
+  private backgroundSize: Animation;
   private scrollPosition: number = 0;
   private previousTimestamp: DOMHighResTimeStamp = null;
-  private readonly ctx: RenderingContext;
+  private readonly canvas: HTMLCanvasElement;
+  private readonly ctx: CanvasRenderingContext2D;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
-    const canvas = createElement(generate()) as HTMLCanvasElement;
-    this.ctx = canvas.getContext("2d");
-    this.setElement(canvas);
+    this.canvas = createElement(generate()) as HTMLCanvasElement;
+    this.ctx = this.canvas.getContext("2d");
+    this.setElement(this.canvas);
+    Blob.initialize(this.zMin, this.zMax);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
@@ -40,75 +38,86 @@ export class PageBackground extends PageElement {
 
   private bindListeners(parent: PageElement) {
     window.addEventListener("resize", () => this.resize(parent));
-    window.addEventListener("load", () => this.resize(parent));
-    window.requestAnimationFrame(timestamp =>
-      this.scrollContainer(timestamp, parent)
+    window.addEventListener("load", e => {
+      this.resize(parent);
+      this.redraw(e.timeStamp, parent);
+    });
+  }
+
+  private resize(parent: PageElement, heightChange?: number) {
+    this.resizeCanvas();
+    this.resizeBackground(parent, heightChange);
+  }
+
+  private resizeCanvas() {
+    this.canvas.width = this.canvas.clientWidth;
+    this.canvas.height = this.canvas.clientHeight;
+  }
+
+  private resizeBackground(parent: PageElement, heightChange?: number) {
+    const targetWidth = parent.getElement().clientWidth;
+
+    const siblings: Array<HTMLElement> = this.getSiblings(parent);
+    let targetHeight = sum(siblings.map(getHeight));
+    if (heightChange) {
+      targetHeight += heightChange;
+    }
+
+    const targetSize = new Vec2(targetWidth, targetHeight);
+
+    this.backgroundSize = new Animation(
+      this.backgroundSize ? this.backgroundSize.value : targetSize,
+      targetSize,
+      this.animationTime,
+      backgroundSize =>
+        this.blobs.forEach(blob => {
+          const topLeft = this.convertFrom2Dto3D(Vec2.Zero, blob.z);
+          const bottomRight = this.convertFrom2Dto3D(
+            backgroundSize,
+            blob.z,
+            backgroundSize.y - this.canvas.height
+          );
+          blob.positionScale = bottomRight.subtract(topLeft);
+        })
     );
   }
 
-  public drawBlob(blob: Blob) {
-    const topLeft = this.convertFrom3Dto2D(blob.topLeft);
-    const bottomRight = this.convertFrom3Dto2D(blob.bottomRight);
+  private getSiblings(parent: PageElement): Array<HTMLElement> {
+    return Array.prototype.slice
+      .call(parent.getElement().children)
+      .filter(e => e !== this.getElement());
   }
 
-  private convertFrom3Dto2D(point: [number, number, number]): [number, number] {
-    let [x, y, z] = point;
-    return [
-      (z / this.perspective) * (this.width / 2 - x) + x,
-      (z / this.perspective) * (this.height / 2 - y) + y - this.scrollPosition
-    ];
-  }
+  private redraw(timestamp: DOMHighResTimeStamp, parent: PageElement) {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
-  private randomWithKnownZ(
-    random: () => number,
-    viewportSize: number,
-    scrollSize: number,
-    startOffset = 0,
-    endOffset = 0
-  ): number {
-    const m = 1 + this.z / Blob.perspective;
+    const deltaTime = this.getDeltaTime(timestamp);
+    this.backgroundSize.step(deltaTime);
+    this.scrollPosition = parent.getElement().scrollTop;
+    const requiredBlobCount = this.requiredBlobCount;
 
-    const variableOffset = (offset, q) =>
-      Math.max(
-        0,
-        offset - ((this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)) * (offset * q)
-      );
-
-    startOffset = variableOffset(startOffset, 1);
-    endOffset = variableOffset(endOffset, 0.2);
-
-    const lowerBound = viewportSize / 2 - (viewportSize / 2 - startOffset) * m;
-    const l =
-      scrollSize - viewportSize + (viewportSize - startOffset - endOffset) * m;
-
-    return randomInInterval(lowerBound, lowerBound + l, random);
-  }
-
-  private scrollContainer(timestamp: DOMHighResTimeStamp, parent: PageElement) {
-    /*const deltaTime = this.getDeltaTime(timestamp);
-    const scrollPositionToSet = parent.getElement().scrollTop;
-    const deltaScroll = scrollPositionToSet - this.previousScrollPositionToSet;
-    this.previousScrollPositionToSet = scrollPositionToSet;
-
-    const threshold = 2;
-    if (deltaScroll > threshold) {
-      const smoothDeltaScroll =
-        (deltaScroll / deltaTime) * Math.min(deltaTime, this.baseDeltaTime);
-      this.getElement().scrollTop += smoothDeltaScroll;
-    } else {
-      const error = scrollPositionToSet - this.getElement().scrollTop;
-      if (Math.abs(error) > threshold) {
-        this.getElement().scrollTop += Math.min(
-          error / 4,
-          this.maxBaseSpeedInPixels,
-          error
-        );
-      }
+    while (requiredBlobCount > this.blobs.length) {
+      this.blobs.push(new Blob());
     }
 
-    window.requestAnimationFrame(timestamp =>
-      this.scrollContainer(timestamp, parent)
-    );*/
+    this.blobs.sort((b1, b2) => b2.z - b1.z);
+
+    this.blobs.forEach((blob, i) => {
+      if (i >= requiredBlobCount) {
+        return;
+      }
+
+      const topLeft = this.convertFrom3Dto2D(blob.topLeft);
+      const bottomRight = this.convertFrom3Dto2D(
+        blob.topLeft.add(Vec3.from(blob.size, 0))
+      );
+
+      if (this.isInView(topLeft) || this.isInView(bottomRight)) {
+        blob.draw(this.ctx, topLeft, bottomRight.subtract(topLeft));
+      }
+    });
+
+    window.requestAnimationFrame(timestamp => this.redraw(timestamp, parent));
   }
 
   private getDeltaTime(timestamp: DOMHighResTimeStamp): number {
@@ -116,59 +125,39 @@ export class PageBackground extends PageElement {
       ? timestamp - this.previousTimestamp
       : 0;
     this.previousTimestamp = timestamp;
-    return deltaTime;
+    return Math.max(0, deltaTime);
   }
 
-  private resize(parent: PageElement, heightChange?: number) {
-    const siblings: Array<HTMLElement> = this.getSiblings(parent);
-
-    const width = parent.getElement().clientWidth;
-    let height = sum(siblings.map(getHeight));
-    if (heightChange) {
-      height += heightChange;
-    }
-
-    if (this.previousHeight === height && this.previousWidth === width) {
-      return;
-    }
-    this.previousHeight = height;
-    this.previousWidth = width;
-
-    this.query("#background").style.width = `${width}px`;
-    this.query("#background").style.height = `${height}px`;
-
-    const requiredBlobCount = Math.round(
-      (width * height) / this.blobSpacing ** 2
+  private convertFrom3Dto2D(p: Vec3): Vec2 {
+    const m = this.perspective / (this.perspective + p.z);
+    return new Vec2(
+      m * (p.z / 2 + p.x),
+      m * (p.z / 2 + p.y - this.scrollPosition)
     );
-
-    while (requiredBlobCount > this.blobs.length) {
-      const blob = new Blob();
-      // this.query("#background").appendChild(blob.htmlElement);
-      this.blobs.push(blob);
-    }
-
-    const random = randomFactory(2662);
-
-    this.blobs.forEach((b, i) => {
-      /*if (i >= requiredBlobCount) {
-        b.hide();
-      } else {
-        b.transform(
-          random,
-          width,
-          parent.getElement().clientHeight,
-          height,
-          getHeight(this.start.getElement()),
-          getHeight(this.end.getElement())
-        );
-        b.show();
-      }*/
-    });
   }
 
-  private getSiblings(parent: PageElement): Array<HTMLElement> {
-    return Array.prototype.slice
-      .call(parent.getElement().children)
-      .filter(e => e !== this.getElement());
+  private convertFrom2Dto3D(
+    p: Vec2,
+    z: number,
+    scrollPosition: number = 0
+  ): Vec2 {
+    const m = 1 + z / this.perspective;
+    return new Vec2(p.x * m - z / 2, p.y * m - z / 2 + scrollPosition);
+  }
+
+  private isInView(p: Vec2): boolean {
+    return (
+      0 <= p.x &&
+      p.x <= this.canvas.width &&
+      0 <= p.y &&
+      p.y <= this.canvas.height
+    );
+  }
+
+  private get requiredBlobCount(): number {
+    return Math.round(
+      (this.backgroundSize.value.x * this.backgroundSize.value.y) /
+        this.blobSpacing ** 2
+    );
   }
 }
