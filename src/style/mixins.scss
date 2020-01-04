@@ -1,4 +1,4 @@
-@import "vars";
+@import 'vars';
 
 @mixin center-children() {
   display: flex;
@@ -47,7 +47,7 @@
 }
 
 @mixin title-font() {
-  font: 400 3.5rem "Montserrat", serif;
+  font: 400 3.5rem 'Montserrat', serif;
   font-style: normal;
   line-height: 1;
 
@@ -58,16 +58,16 @@
 }
 
 @mixin sub-title-font() {
-  font: 400 2rem "Montserrat", serif;
+  font: 400 2rem 'Montserrat', serif;
   font-style: normal;
 }
 
 @mixin main-font() {
-  font: 400 1.25rem "Lato", sans-serif;
+  font: 400 1.25rem 'Lato', sans-serif;
   line-height: 1.6;
 }
 
 @mixin insignificant-font() {
-  font: 400 1.1rem "Lato", sans-serif;
+  font: 400 1.1rem 'Lato', sans-serif;
   font-style: italic;
 }

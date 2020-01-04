@@ -1,4 +1,4 @@
-import { Vec2 } from "./vec2";
+import { Vec2 } from './vec2';
 
 export class Vec3 {
   public static readonly Zero = new Vec3(0, 0, 0);

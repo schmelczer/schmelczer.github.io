@@ -1,74 +1,96 @@
-import {
-  choose,
-  mixColors,
-  randomFactory,
-  randomInInterval
-} from "../../framework/helper";
-import { Vec2 } from "./vec2";
-import { Vec3 } from "./vec3";
+import { mixColors } from '../../framework/helper/color-mixer';
+import { createElement } from '../../framework/helper/create-element';
+import { Random } from '../../framework/helper/random';
 
 export class Blob {
-  private static readonly creatorRandom = randomFactory(44);
-  private static readonly colors = ["#fff9e0", "#ffd6d6"];
-  private static readonly rotation = (-20 / 180) * Math.PI;
-
+  private static readonly creatorRandom = new Random(44);
+  private static readonly colors = ['#fff9e0', '#ffd6d6'];
   private static zMin: number;
   private static zMax: number;
-  public static initialize(zMin: number, zMax: number) {
+  private static perspective: number;
+  public static initialize(zMin: number, zMax: number, perspective: number) {
     Blob.zMin = zMin;
     Blob.zMax = zMax;
+    Blob.perspective = perspective;
   }
 
-  public readonly z = randomInInterval(
+  private readonly z = Blob.creatorRandom.randomInInterval(
     Blob.zMin,
-    Blob.zMax,
-    Blob.creatorRandom
+    Blob.zMax
   );
 
-  private readonly positionQ = new Vec2(
-    Blob.creatorRandom(),
-    Blob.creatorRandom()
-  );
-  private _positionScale = new Vec2(0, 0);
-
-  private readonly _size = new Vec2(
-    140,
-    randomInInterval(160, 740, Blob.creatorRandom)
-  );
-  private readonly color =
-    "#" +
-    mixColors(
-      "#ffffff",
-      choose(Blob.colors, Blob.creatorRandom),
+  private readonly element: HTMLElement = createElement('<div></div>');
+  constructor() {
+    this.element.style.backgroundColor = mixColors(
+      '#ffffff',
+      Blob.creatorRandom.choose(Blob.colors),
       (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
     );
-
-  public get topLeft(): Vec3 {
-    return Vec3.from(this.positionQ.multiply(this._positionScale), this.z);
+    this.element.style.zIndex = (-this.z).toString();
+    this.element.style.height = `${Blob.creatorRandom.randomInInterval(
+      160,
+      740
+    )}px`;
   }
 
-  public get size(): Vec2 {
-    return this._size;
+  get htmlElement(): HTMLElement {
+    return this.element;
   }
 
-  public set positionScale(value: Vec2) {
-    this._positionScale = value;
+  private randomWithKnownZ(
+    random: Random,
+    viewportSize: number,
+    scrollSize: number,
+    startOffset = 0,
+    endOffset = 0
+  ): number {
+    const m = 1 + this.z / Blob.perspective;
+
+    const variableOffset = (offset, q) =>
+      Math.max(
+        0,
+        offset - ((this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)) * (offset * q)
+      );
+
+    startOffset = variableOffset(startOffset, 1);
+    endOffset = variableOffset(endOffset, 0.2);
+
+    const lowerBound = viewportSize / 2 - (viewportSize / 2 - startOffset) * m;
+    const l =
+      scrollSize - viewportSize + (viewportSize - startOffset - endOffset) * m;
+
+    return random.randomInInterval(lowerBound, lowerBound + l);
   }
 
-  public draw(ctx: CanvasRenderingContext2D, position: Vec2, size: Vec2) {
-    ctx.save();
+  public show() {
+    this.element.style.opacity = '1';
+  }
 
-    ctx.translate(position.x, position.y);
-    ctx.rotate(Blob.rotation);
+  public hide() {
+    this.element.style.opacity = '0';
+  }
 
-    ctx.beginPath();
-    ctx.arc(0, size.x / 2 - size.y / 2, size.x / 2, Math.PI, 0);
-    ctx.arc(0, size.y / 2 - size.x / 2, size.x / 2, 0, Math.PI);
-    ctx.closePath();
-
-    ctx.fillStyle = this.color;
-    ctx.fill();
-
-    ctx.restore();
+  public transform(
+    random: Random,
+    width: number,
+    viewportHeight: number,
+    scrollHeight: number,
+    startOffset: number,
+    endOffset: number
+  ) {
+    const value = `
+      translateX(${this.randomWithKnownZ(random, width, width)}px)
+      translateY(${this.randomWithKnownZ(
+        random,
+        viewportHeight,
+        scrollHeight,
+        startOffset,
+        endOffset
+      )}px)
+      translateZ(${-this.z}px)
+      rotate(-20deg)
+    `;
+    this.element.style['-webkit-transform'] = value;
+    this.element.style.transform = value;
   }
 }

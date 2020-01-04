@@ -1,5 +1,5 @@
-@import "vars";
-@import "mixins";
+@import 'vars';
+@import 'mixins';
 
 a {
   @include insignificant-font();
@@ -13,14 +13,13 @@ a {
   $border-shift: 10px;
 
   transition: transform $long-transition-time;
-  $dot-size: 4px;
 
   &:before {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
     width: 100%;
-    height: $dot-size;
+    height: $line-width;
     bottom: 0;
     z-index: 1;
     background: linear-gradient(
@@ -33,11 +32,11 @@ a {
   }
 
   &:after {
-    content: "";
+    content: '';
     display: block;
     width: calc(100% + #{$border-shift});
     z-index: 0;
-    border-bottom: $dot-size dotted $accent-color;
+    border-bottom: $line-width dashed $accent-color;
     transition: transform $long-transition-time;
   }
 
