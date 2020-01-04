@@ -1,8 +1,9 @@
-import { Content, TypedContent } from "../../model/content";
-import "./content.scss";
-import { PageElement } from "../../framework/page-element";
-import { createElement, last } from "../../framework/helper";
-import { html } from "../../model/misc";
+import { Content, TypedContent } from '../../model/content';
+import './content.scss';
+import { PageElement } from '../../framework/page-element';
+import { createElement } from '../../framework/helper/create-element';
+import { html } from '../../model/misc';
+import { last } from '../../framework/helper/last';
 
 export class PageContent extends PageElement {
   private static isTyped(content): content is TypedContent {
@@ -13,10 +14,10 @@ export class PageContent extends PageElement {
     element: TypedContent,
     disableInnerShadow?: boolean
   ): html {
-    if (element.type === "a") {
+    if (element.type === 'a') {
       return `<a href="${element.href}" rel="noreferrer" target="_blank"> ${element.text} </a>`;
     }
-    if (element.type === "video") {
+    if (element.type === 'video') {
       return `
           <video ${element.options}>
               <source src="${element.webm}" type="video/webm"/>
@@ -24,19 +25,19 @@ export class PageContent extends PageElement {
           </video>
       `;
     }
-    if (element.type === "img") {
+    if (element.type === 'img') {
       return `
-            ${!disableInnerShadow ? `<div class="image-container">` : ""}
+            ${!disableInnerShadow ? `<div class="image-container">` : ''}
                 <img 
                     srcset="${element.image.srcSet}" 
                     src="${last(element.image.images).path}" 
                     alt="${element.alt}"
                 />
-            ${!disableInnerShadow ? `</div>` : ""}
+            ${!disableInnerShadow ? `</div>` : ''}
       `;
     }
 
-    throw new Error("Unhandled type.");
+    throw new Error('Unhandled type.');
   }
 
   public constructor(content: Content) {
@@ -51,7 +52,7 @@ export class PageContent extends PageElement {
                   ? PageContent.parseTypedContent(element)
                   : `<p>${element}</p>`
               )
-              .join("\n")}
+              .join('\n')}
         </div>
       `)
     );

@@ -1,14 +1,10 @@
-import {
-  choose,
-  createElement,
-  mixColors,
-  randomFactory,
-  randomInInterval
-} from "../../framework/helper";
+import { mixColors } from '../../framework/helper/color-mixer';
+import { createElement } from '../../framework/helper/create-element';
+import { Random } from '../../framework/helper/random';
 
 export class Blob {
-  private static readonly creatorRandom = randomFactory(44);
-  private static readonly colors = ["#fff9e0", "#ffd6d6"];
+  private static readonly creatorRandom = new Random(44);
+  private static readonly colors = ['#fff9e0', '#ffd6d6'];
   private static zMin: number;
   private static zMax: number;
   private static perspective: number;
@@ -18,26 +14,22 @@ export class Blob {
     Blob.perspective = perspective;
   }
 
-  private readonly z = randomInInterval(
+  private readonly z = Blob.creatorRandom.randomInInterval(
     Blob.zMin,
-    Blob.zMax,
-    Blob.creatorRandom
+    Blob.zMax
   );
 
-  private readonly element: HTMLElement = createElement("<div></div>");
+  private readonly element: HTMLElement = createElement('<div></div>');
   constructor() {
-    this.element.style.backgroundColor =
-      "#" +
-      mixColors(
-        "#ffffff",
-        choose(Blob.colors, Blob.creatorRandom),
-        (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
-      );
+    this.element.style.backgroundColor = mixColors(
+      '#ffffff',
+      Blob.creatorRandom.choose(Blob.colors),
+      (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
+    );
     this.element.style.zIndex = (-this.z).toString();
-    this.element.style.height = `${randomInInterval(
+    this.element.style.height = `${Blob.creatorRandom.randomInInterval(
       160,
-      740,
-      Blob.creatorRandom
+      740
     )}px`;
   }
 
@@ -46,7 +38,7 @@ export class Blob {
   }
 
   private randomWithKnownZ(
-    random: () => number,
+    random: Random,
     viewportSize: number,
     scrollSize: number,
     startOffset = 0,
@@ -67,19 +59,19 @@ export class Blob {
     const l =
       scrollSize - viewportSize + (viewportSize - startOffset - endOffset) * m;
 
-    return randomInInterval(lowerBound, lowerBound + l, random);
+    return random.randomInInterval(lowerBound, lowerBound + l);
   }
 
   public show() {
-    this.element.style.opacity = "1";
+    this.element.style.opacity = '1';
   }
 
   public hide() {
-    this.element.style.opacity = "0";
+    this.element.style.opacity = '0';
   }
 
   public transform(
-    random: () => number,
+    random: Random,
     width: number,
     viewportHeight: number,
     scrollHeight: number,
@@ -98,7 +90,7 @@ export class Blob {
       translateZ(${-this.z}px)
       rotate(-20deg)
     `;
-    this.element.style["-webkit-transform"] = value;
+    this.element.style['-webkit-transform'] = value;
     this.element.style.transform = value;
   }
 }

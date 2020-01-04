@@ -1,8 +1,8 @@
-import { TimelineElement } from "../../model/portfolio";
-import { PageElement } from "../../framework/page-element";
-import { PageTimelineElement } from "./timeline-element/timeline-element";
-import { generate } from "./timeline.html";
-import { createElement } from "../../framework/helper";
+import { TimelineElement } from '../../model/portfolio';
+import { PageElement } from '../../framework/page-element';
+import { PageTimelineElement } from './timeline-element/timeline-element';
+import { generate } from './timeline.html';
+import { createElement } from '../../framework/helper/create-element';
 
 export class PageTimeline extends PageElement {
   public constructor(

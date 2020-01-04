@@ -1,9 +1,9 @@
-import { TimelineElement } from "../../../model/portfolio";
-import { PageContent } from "../../content/content";
-import { PageElement } from "../../../framework/page-element";
-import { generate } from "./timeline-element.html";
-import { createElement } from "../../../framework/helper";
-import { PageEventType } from "../../../framework/page-event";
+import { TimelineElement } from '../../../model/portfolio';
+import { PageContent } from '../../content/content';
+import { PageElement } from '../../../framework/page-element';
+import { generate } from './timeline-element.html';
+import { PageEventType } from '../../../framework/page-event';
+import { createElement } from '../../../framework/helper/create-element';
 
 export class PageTimelineElement extends PageElement {
   private isOpen;
@@ -20,19 +20,19 @@ export class PageTimelineElement extends PageElement {
       const content = new PageContent(timelineElement.more);
       super([content]);
       this.isOpen = false;
-      this.more = root.querySelector(".more");
+      this.more = root.querySelector('.more');
       this.more.appendChild(content.getElement());
-      window.addEventListener("resize", this.handleResize.bind(this));
+      window.addEventListener('resize', this.handleResize.bind(this));
       root
-        .querySelector(".buttons")
-        .addEventListener("click", this.toggleOpen.bind(this));
+        .querySelector('.buttons')
+        .addEventListener('click', this.toggleOpen.bind(this));
     } else super();
     this.setElement(root);
   }
 
   private toggleOpen() {
-    const showMore = this.query(".show-more") as HTMLElement;
-    const showLess = this.query(".show-less") as HTMLElement;
+    const showMore = this.query('.show-more') as HTMLElement;
+    const showLess = this.query('.show-less') as HTMLElement;
     if (this.isOpen) {
       PageTimelineElement.show(showMore);
       PageTimelineElement.hide(showLess);
@@ -49,28 +49,28 @@ export class PageTimelineElement extends PageElement {
   private notifyOfHeightChange(deltaHeight: number = undefined) {
     this.eventBroadcaster?.broadcastEvent({
       type: PageEventType.onBodyDimensionsChanged,
-      data: { deltaHeight }
+      data: { deltaHeight },
     });
 
     setTimeout(
       () =>
         this.eventBroadcaster?.broadcastEvent({
-          type: PageEventType.onBodyDimensionsChanged
+          type: PageEventType.onBodyDimensionsChanged,
         }),
       350
     );
   }
 
   private static hide(element: HTMLElement) {
-    element.style.opacity = "0";
+    element.style.opacity = '0';
     setTimeout(() => {
-      element.style.visibility = "hidden";
+      element.style.visibility = 'hidden';
     }, 350);
   }
 
   private static show(element: HTMLElement) {
-    element.style.visibility = "visible";
-    element.style.opacity = "1";
+    element.style.visibility = 'visible';
+    element.style.opacity = '1';
   }
 
   private openMore() {
@@ -81,13 +81,13 @@ export class PageTimelineElement extends PageElement {
 
   private closeMore() {
     const deltaHeight = this.more.scrollHeight;
-    this.more.style.height = "0";
+    this.more.style.height = '0';
     this.notifyOfHeightChange(-deltaHeight);
   }
 
   private handleResize() {
     if (this.isOpen) {
-      this.more.style.height = "auto";
+      this.more.style.height = 'auto';
       setTimeout(this.openMore.bind(this), 200);
     }
   }

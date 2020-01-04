@@ -1,31 +1,19 @@
-import { PageElement } from "../../framework/page-element";
-import {
-  getHeight,
-  createElement,
-  randomFactory,
-  sum,
-  isChrome
-} from "../../framework/helper";
-import { PageEvent, PageEventType } from "../../framework/page-event";
-import { Blob } from "./blob";
-import { generate } from "./background.html";
+import { PageElement } from '../../framework/page-element';
+import { PageEvent, PageEventType } from '../../framework/page-event';
+import { createElement } from '../../framework/helper/create-element';
+import { Blob } from './blob';
+import { generate } from './background.html';
+import { Random } from '../../framework/helper/random';
+import { getHeight } from '../../framework/helper/get-height';
+import { sum } from '../../framework/helper/sum';
 
 export class PageBackground extends PageElement {
   private readonly blobs: Array<Blob> = [];
   private readonly blobSpacing = 350;
-  private previousWidth: number;
-  private previousHeight: number;
-  private previousScrollPositionToSet: number = 0;
-  private previousTimestamp: DOMHighResTimeStamp = null;
-  private readonly baseDeltaTime = (1 / 30) * 1000;
-  private readonly maxBaseSpeedInPixels = 20;
 
   public constructor(private start: PageElement, private end: PageElement) {
     super();
     this.setElement(createElement(generate()));
-    if (isChrome()) {
-      this.query("#background").style.transformStyle = "preserve-3d";
-    }
     Blob.initialize(10, 30, 5);
   }
 
@@ -38,46 +26,14 @@ export class PageBackground extends PageElement {
   }
 
   private bindListeners(parent: PageElement) {
-    window.addEventListener("resize", () => this.resize(parent));
-    window.addEventListener("load", () => this.resize(parent));
-    window.requestAnimationFrame(timestamp =>
-      this.scrollContainer(timestamp, parent)
-    );
-  }
-
-  private scrollContainer(timestamp: DOMHighResTimeStamp, parent: PageElement) {
-    const deltaTime = this.getDeltaTime(timestamp);
-    const scrollPositionToSet = parent.getElement().scrollTop;
-    const deltaScroll = scrollPositionToSet - this.previousScrollPositionToSet;
-    this.previousScrollPositionToSet = scrollPositionToSet;
-
-    const threshold = 2;
-    if (deltaScroll > threshold) {
-      const smoothDeltaScroll =
-        (deltaScroll / deltaTime) * Math.min(deltaTime, this.baseDeltaTime);
-      this.getElement().scrollTop += smoothDeltaScroll;
-    } else {
-      const error = scrollPositionToSet - this.getElement().scrollTop;
-      if (Math.abs(error) > threshold) {
-        this.getElement().scrollTop += Math.min(
-          error / 4,
-          this.maxBaseSpeedInPixels,
-          error
-        );
-      }
-    }
-
-    window.requestAnimationFrame(timestamp =>
-      this.scrollContainer(timestamp, parent)
-    );
-  }
-
-  private getDeltaTime(timestamp: DOMHighResTimeStamp): number {
-    const deltaTime = this.previousTimestamp
-      ? timestamp - this.previousTimestamp
-      : 0;
-    this.previousTimestamp = timestamp;
-    return deltaTime;
+    window.addEventListener('resize', () => this.resize(parent));
+    window.addEventListener('load', () => this.resize(parent));
+    parent
+      .getElement()
+      .addEventListener(
+        'scroll',
+        () => (this.getElement().scrollTop = parent.getElement().scrollTop)
+      );
   }
 
   private resize(parent: PageElement, heightChange?: number) {
@@ -89,14 +45,8 @@ export class PageBackground extends PageElement {
       height += heightChange;
     }
 
-    if (this.previousHeight === height && this.previousWidth === width) {
-      return;
-    }
-    this.previousHeight = height;
-    this.previousWidth = width;
-
-    this.query("#background").style.width = `${width}px`;
-    this.query("#background").style.height = `${height}px`;
+    this.query('#background').style.width = `${width}px`;
+    this.query('#background').style.height = `${height}px`;
 
     const requiredBlobCount = Math.round(
       (width * height) / this.blobSpacing ** 2
@@ -104,11 +54,11 @@ export class PageBackground extends PageElement {
 
     while (requiredBlobCount > this.blobs.length) {
       const blob = new Blob();
-      this.query("#background").appendChild(blob.htmlElement);
+      this.query('#background').appendChild(blob.htmlElement);
       this.blobs.push(blob);
     }
 
-    const random = randomFactory(2662);
+    const random = new Random(2662);
 
     this.blobs.forEach((b, i) => {
       if (i >= requiredBlobCount) {
