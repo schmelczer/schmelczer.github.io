@@ -6,10 +6,9 @@ import { createElement } from '../../framework/helper/create-element';
 
 export class PageImageViewer extends PageElement {
   public constructor() {
-    super();
     const root = createElement(generate());
-    this.setElement(root);
     root.onclick = () => PageImageViewer.hide(root);
+    super(root);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
@@ -20,12 +19,12 @@ export class PageImageViewer extends PageElement {
     document.body.addEventListener('keydown', this.handleKeydown.bind(this));
 
     const images = Array.prototype.slice.call(
-      parent.getElement().querySelectorAll('img')
+      parent.element.querySelectorAll('img')
     );
     images
       .filter(
         (img: HTMLImageElement) =>
-          img.parentElement !== this.getElement() &&
+          img.parentElement !== this.element &&
           !img.classList.contains('no-open')
       )
       .forEach(
@@ -38,12 +37,12 @@ export class PageImageViewer extends PageElement {
       '#photo'
     ) as HTMLImageElement).src = (event.target as HTMLImageElement).src;
 
-    PageImageViewer.show(this.getElement());
+    PageImageViewer.show(this.element);
   }
 
   private handleKeydown(event: KeyboardEvent) {
     if (event.key === 'Escape') {
-      PageImageViewer.hide(this.getElement());
+      PageImageViewer.hide(this.element);
     }
   }
 

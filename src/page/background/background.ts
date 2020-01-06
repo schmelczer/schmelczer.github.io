@@ -12,8 +12,7 @@ export class PageBackground extends PageElement {
   private readonly blobSpacing = 350;
 
   public constructor(private start: PageElement, private end: PageElement) {
-    super();
-    this.setElement(createElement(generate()));
+    super(createElement(generate()));
     Blob.initialize(10, 30, 5);
   }
 
@@ -28,18 +27,16 @@ export class PageBackground extends PageElement {
   private bindListeners(parent: PageElement) {
     window.addEventListener('resize', () => this.resize(parent));
     window.addEventListener('load', () => this.resize(parent));
-    parent
-      .getElement()
-      .addEventListener(
-        'scroll',
-        () => (this.getElement().scrollTop = parent.getElement().scrollTop)
-      );
+    parent.element.addEventListener(
+      'scroll',
+      () => (this.element.scrollTop = parent.element.scrollTop)
+    );
   }
 
   private resize(parent: PageElement, heightChange?: number) {
     const siblings: Array<HTMLElement> = this.getSiblings(parent);
 
-    const width = parent.getElement().clientWidth;
+    const width = parent.element.clientWidth;
     let height = sum(siblings.map(getHeight));
     if (heightChange) {
       height += heightChange;
@@ -67,10 +64,10 @@ export class PageBackground extends PageElement {
         b.transform(
           random,
           width,
-          parent.getElement().clientHeight,
+          parent.element.clientHeight,
           height,
-          getHeight(this.start.getElement()),
-          getHeight(this.end.getElement())
+          getHeight(this.start.element),
+          getHeight(this.end.element)
         );
         b.show();
       }
@@ -79,7 +76,7 @@ export class PageBackground extends PageElement {
 
   private getSiblings(parent: PageElement): Array<HTMLElement> {
     return Array.prototype.slice
-      .call(parent.getElement().children)
-      .filter(e => e !== this.getElement());
+      .call(parent.element.children)
+      .filter(e => e !== this.element);
   }
 }

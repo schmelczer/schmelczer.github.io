@@ -18,16 +18,15 @@ export class PageTimelineElement extends PageElement {
 
     if (timelineElement.more) {
       const content = new PageContent(timelineElement.more);
-      super([content]);
+      super(root, [content]);
       this.isOpen = false;
       this.more = root.querySelector('.more');
-      this.more.appendChild(content.getElement());
+      this.more.appendChild(content.element);
       window.addEventListener('resize', this.handleResize.bind(this));
       root
         .querySelector('.buttons')
         .addEventListener('click', this.toggleOpen.bind(this));
-    } else super();
-    this.setElement(root);
+    } else super(root);
   }
 
   private toggleOpen() {
@@ -38,8 +37,8 @@ export class PageTimelineElement extends PageElement {
       PageTimelineElement.hide(showLess);
       this.closeMore();
     } else {
-      PageTimelineElement.hide(showMore);
       PageTimelineElement.show(showLess);
+      PageTimelineElement.hide(showMore);
       this.openMore();
     }
 

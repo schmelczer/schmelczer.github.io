@@ -1,16 +1,14 @@
-import { url } from "./misc";
-import { Anchor, Content, Image, Video } from "./content";
+import { url } from './misc';
+import { Primitive } from '../framework/primitives/primitive';
+import { Image } from '../framework/primitives/implementations/image';
+import { Anchor } from '../framework/primitives/implementations/anchor';
+import { Video } from '../framework/primitives/implementations/video';
+import { Text } from '../framework/primitives/implementations/text';
 
 export interface Portfolio {
-  config: Config;
   header: Header;
-  timeline: Array<TimelineElement>;
+  timeline: Timeline;
   footer: Footer;
-}
-
-export interface Config {
-  showMore: string;
-  showLess: string;
 }
 
 export interface Header {
@@ -19,11 +17,17 @@ export interface Header {
   about: Content;
 }
 
+export interface Timeline {
+  showMoreText: string;
+  showLessText: string;
+  elements: Array<TimelineElement>;
+}
+
 export interface TimelineElement {
   title: string;
   date: string;
   figure: Image | Video;
-  description: string;
+  description: Text;
   more?: Content;
   link?: Anchor;
 }
@@ -31,8 +35,15 @@ export interface TimelineElement {
 export interface Footer {
   title: string;
   email: string;
-  cv: url;
-  cvName: string;
-  lastEditName: string;
+  curiumVitaes: Array<CV>;
+  lastEditText: string;
   lastEdit: Date;
+  gitHub: Anchor;
 }
+
+export interface CV {
+  name: string;
+  url: url;
+}
+
+export type Content = Array<Primitive>;

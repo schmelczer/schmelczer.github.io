@@ -2,29 +2,56 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/color-mixer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/create-element.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/get-height.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/last.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/random.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/range.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/framework/helper/sum.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/cache.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/container-page.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/event-broadcaster.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/text.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/primitives/primitive.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/primitives/primitives.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/andras.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/andras.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/helper.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/color-mixer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/mix-colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/create-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/create-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/get-height.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/get-height.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/last.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/last.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/random.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/random.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/range.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/page-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/page-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/page.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/content.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/animation.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/vec2.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/vec3.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/content/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/a.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/a.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -61,22 +88,23 @@
     <property name="node.js.selected.package.stylelint" value="" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="/usr/local/lib/node_modules/prettier" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="watcher.settings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\no-change" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/framework/primitives/implementations" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -126,6 +154,9 @@
       <workItem from="1577786195424" duration="4310000" />
       <workItem from="1578128234878" duration="396000" />
       <workItem from="1578128641780" duration="1136000" />
+      <workItem from="1578140662891" duration="4319000" />
+      <workItem from="1578213355277" duration="599000" />
+      <workItem from="1578327147961" duration="14056000" />
     </task>
     <servers />
   </component>

@@ -2,24 +2,4 @@
 
 .content {
   margin-top: $small-margin;
-
-  * {
-    margin-top: $line-height;
-  }
-
-  p {
-    text-align: left;
-  }
-}
-
-.image-container {
-  font-size: 0;
-  box-shadow: inset $shadow1, inset $shadow2;
-  pointer-events: none;
-  cursor: pointer;
-  img {
-    pointer-events: all;
-    position: relative;
-    z-index: -2;
-  }
 }

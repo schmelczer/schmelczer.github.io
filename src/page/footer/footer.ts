@@ -6,7 +6,6 @@ import { createElement } from '../../framework/helper/create-element';
 
 export class PageFooter extends PageElement {
   constructor(footer: Footer) {
-    super();
-    this.setElement(createElement(generate(footer)));
+    super(createElement(generate(footer)));
   }
 }

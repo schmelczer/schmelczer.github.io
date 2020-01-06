@@ -4,14 +4,10 @@ import { PageElement } from '../../framework/page-element';
 
 import { generate } from './about.html';
 import { createElement } from '../../framework/helper/create-element';
+import { ContainerPage } from '../../framework/container-page';
 
-export class PageHeader extends PageElement {
+export class PageHeader extends ContainerPage {
   public constructor(header: Header) {
-    const root = createElement(generate(header));
-    const content = new PageContent(header.about);
-
-    super([content]);
-    this.setElement(root);
-    root.appendChild(content.getElement());
+    super(createElement(generate(header)), [new PageContent(header.about)]);
   }
 }

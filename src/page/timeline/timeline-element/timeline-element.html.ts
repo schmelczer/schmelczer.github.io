@@ -1,8 +1,7 @@
-import { TimelineElement } from "../../../model/portfolio";
-import { html } from "../../../model/misc";
-import { PageContent } from "../../content/content";
+import { TimelineElement } from '../../../model/portfolio';
+import { html } from '../../../model/misc';
 
-import "./timeline-element.scss";
+import './timeline-element.scss';
 
 export const generate = (
   { date, title, figure, description, more, link }: TimelineElement,
@@ -15,8 +14,8 @@ export const generate = (
         </div>
         <div class="card">
             <h2>${title}</h2>
-            ${PageContent.parseTypedContent(figure)}
-            <p class="description">${description}</p>
+            ${figure.toHTML()}
+            ${description.toHTML()}
             ${
               more
                 ? `
@@ -26,9 +25,9 @@ export const generate = (
                     <a class="show-less">${showLess}</a>
                 </div>
                 `
-                : ""
+                : ''
             }
-            ${link ? PageContent.parseTypedContent(link) : ""}
+            ${link ? link.toHTML() : ''}
         </div>
     </section>
 `;

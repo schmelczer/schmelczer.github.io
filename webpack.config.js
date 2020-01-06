@@ -5,6 +5,7 @@ const TerserJSPlugin = require('terser-webpack-plugin');
 const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const Sharp = require('responsive-loader/sharp');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -14,7 +15,7 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0',
-    // disableHostCheck: true
+    // disableHostCheck: true,
   },
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -23,8 +24,15 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       xhtml: true,
-      minify: true,
       template: './src/index.html',
+      minify: {
+        collapseWhitespace: true,
+        removeComments: true,
+        removeRedundantAttributes: true,
+        removeScriptTypeAttributes: true,
+        removeStyleLinkTypeAttributes: true,
+        useShortDoctype: true,
+      },
       inlineSource: '.(js|css)$',
     }),
     new HtmlWebpackInlineSourcePlugin(),
@@ -42,14 +50,14 @@ module.exports = {
         test: /\.(jpe?g|png)$/i,
         loader: 'responsive-loader',
         options: {
-          adapter: require('responsive-loader/sharp'),
+          adapter: Sharp,
           outputPath: 'static/',
-          sizes: [300, 600, 1200, 2000],
+          sizes: [200, 400, 800, 1200, 2000],
           placeholder: false,
         },
       },
       {
-        test: /\.(webm|mp4)$/i,
+        test: /\.(webm|mp4|gif)$/i,
         use: [
           {
             loader: 'file-loader',

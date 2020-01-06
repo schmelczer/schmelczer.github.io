@@ -1,6 +1,7 @@
 @import 'style/vars';
 @import 'style/mixins';
 @import 'style/a';
+@import 'framework/primitives/primitives';
 
 * {
   margin: 0;
@@ -27,6 +28,7 @@ html {
 body {
   @include main-font();
   height: 100%;
+  //noinspection CssInvalidFunction
   padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
     env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
 

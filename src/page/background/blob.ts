@@ -1,4 +1,4 @@
-import { mixColors } from '../../framework/helper/color-mixer';
+import { mixColors } from '../../framework/helper/mix-colors';
 import { createElement } from '../../framework/helper/create-element';
 import { Random } from '../../framework/helper/random';
 

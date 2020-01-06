@@ -76,8 +76,9 @@
       @include sub-title-font();
     }
 
-    .description {
+    & > p {
       font-style: italic;
+      text-align: center;
     }
 
     .more {
