@@ -1,43 +1,39 @@
 @import '../../style/vars';
 @import '../../style/mixins';
 
-#background-container {
-  position: fixed;
-  left: 0;
-  top: 0;
-  height: 100vh;
-  width: 100%;
+@include responsive() using ($vars) {
+  div.background-element {
+    position: -webkit-sticky;
+    position: absolute;
+    left: 0;
+    top: 0;
+    border-radius: 100px;
+    width: 140px;
 
-  z-index: -1;
-  -webkit-overflow-scrolling: touch;
-  perspective: 5px;
-  perspective-origin: center center;
-  overflow: hidden;
+    overflow: visible !important; // IE11 fix for disappearing elements
 
-  #background {
-    overflow: hidden;
-    will-change: width, height;
-    transition: height $long-transition-time, width $long-transition-time;
-    transform-style: flat;
+    @media (prefers-reduced-motion: reduce) {
+      & {
+        display: none;
+      }
+    }
 
-    div {
-      position: -webkit-sticky;
-      position: absolute;
-      left: 0;
-      top: 0;
-      border-radius: 100px;
-      width: 140px;
+    @media print {
+      & {
+        display: none;
+      }
+    }
 
-      transition: transform $long-transition-time, opacity $long-transition-time;
-      will-change: transform, opacity;
-      animation: fade-in 1s linear;
-      @keyframes fade-in {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
+    transition: transform map_get($vars, $long-transition-time),
+      opacity map_get($vars, $long-transition-time);
+    will-change: transform, opacity;
+    animation: fade-in 1s linear;
+    @keyframes fade-in {
+      from {
+        opacity: 0;
+      }
+      to {
+        opacity: 1;
       }
     }
   }

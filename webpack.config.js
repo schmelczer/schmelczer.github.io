@@ -6,6 +6,7 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const Sharp = require('responsive-loader/sharp');
+const Sass = require('sass');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -15,7 +16,7 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0',
-    // disableHostCheck: true,
+    //disableHostCheck: true,
   },
   optimization: {
     minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
@@ -134,6 +135,7 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: true,
+              implementation: Sass,
             },
           },
         ],

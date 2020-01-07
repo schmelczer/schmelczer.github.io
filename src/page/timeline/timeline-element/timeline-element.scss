@@ -1,112 +1,126 @@
 @import '../../../style/mixins';
 @import '../../../style/vars';
 
-.timeline-element {
-  display: flex;
-
-  .line {
-    position: relative;
-    border-left: $line-width solid $accent-color;
-
-    &:before {
-      content: '';
-      @include square($icon-size);
-      position: absolute;
-      left: calc(-0.5 * #{$icon-size} - (1.5 * #{$line-width}));
-      border: $line-width solid $accent-color;
-      border-radius: 100%;
-      background: $background;
-    }
-
-    .date {
-      @include insignificant-font();
-    }
-  }
-
-  @media (min-width: $breakpoint-width) {
-    &:not(:first-of-type) .card {
-      margin-top: $large-margin;
-    }
+@include responsive() using ($vars) {
+  .timeline-element {
+    display: flex;
+    width: map_get($vars, $body-width);
+    margin: auto;
 
     .line {
-      &:before {
-        top: calc(33% - #{$icon-size} / 2);
-      }
-
-      .date {
-        position: relative;
-        top: calc(33% + #{$icon-size} / 2 + 1ch);
-        transform: rotate(30deg);
-        margin: 0 $normal-margin 0 calc(#{$line-width} + 1ex);
-        width: 100px;
-      }
-    }
-  }
-
-  @media (max-width: $breakpoint-width) {
-    flex-direction: column;
-    align-items: center;
-
-    &:before {
-      top: calc(50% - #{$icon-size} / 2);
-    }
-
-    .line {
-      @include center-children();
-      justify-content: flex-start;
-      height: 150px;
-      width: 50%;
-
-      .date {
-        margin-left: calc(#{$icon-size} / 2 + #{$small-margin});
-        width: 200px;
-      }
-    }
-  }
-
-  .card {
-    @include card();
-    overflow: hidden;
-
-    & > *:not(:first-child) {
-      margin-top: $line-height;
-    }
-
-    h2 {
-      @include sub-title-font();
-    }
-
-    & > p {
-      font-style: italic;
-      text-align: center;
-    }
-
-    .more {
-      overflow: hidden;
-      height: 0;
-      margin-top: 0;
-      transition: height $long-transition-time;
-    }
-
-    .buttons {
       position: relative;
-      margin-top: $small-margin;
+      border-left: map_get($vars, $line-width) solid
+        map_get($vars, $accent-color);
 
-      * {
-        transition: opacity $long-transition-time;
-      }
-
-      .show-more {
-        opacity: 1;
-      }
-
-      .show-less {
-        opacity: 0;
-        visibility: hidden;
+      &:before {
+        content: '';
+        @include square(map_get($vars, $icon-size));
         position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translateX(-50%) translateY(-50%);
+        left: calc(
+          -0.5 * #{map_get($vars, $icon-size)} -
+            (1.5 * #{map_get($vars, $line-width)})
+        );
+        border: map_get($vars, $line-width) solid map_get($vars, $accent-color);
+        border-radius: 100%;
+        background: map_get($vars, $background);
+      }
+
+      .date {
+        @include insignificant-font();
+        color: map_get($vars, $accent-color);
+      }
+    }
+
+    @include on-large-screen {
+      &:not(:first-of-type) .card {
+        margin-top: map_get($vars, $large-margin);
+      }
+
+      .line {
+        &:before {
+          top: calc(33% - #{map_get($vars, $icon-size)} / 2);
+        }
+
+        .date {
+          position: relative;
+          top: calc(33% + #{map_get($vars, $icon-size)} / 2 + 1ch);
+          transform: rotate(30deg);
+          margin: 0 map_get($vars, $normal-margin) 0
+            calc(#{map_get($vars, $line-width)} + 1ex);
+          width: 100px;
+        }
+      }
+    }
+
+    @include on-small-screen {
+      flex-direction: column;
+      align-items: center;
+
+      &:before {
+        top: calc(50% - #{map_get($vars, $icon-size)} / 2);
+      }
+
+      .line {
+        @include center-children();
+        justify-content: flex-start;
+        height: 150px;
+        width: 50%;
+
+        .date {
+          margin-left: calc(
+            #{map_get($vars, $icon-size)} / 2 + #{map_get($vars, $small-margin)}
+          );
+          width: 200px;
+        }
+      }
+    }
+
+    .card {
+      @include card-base($vars);
+      border-radius: map_get($vars, $border-radius);
+      background-color: map_get($vars, $card-color);
+      overflow: hidden;
+
+      & > *:not(:first-child) {
+        margin-top: map_get($vars, $line-height);
+      }
+
+      h2 {
+        @include sub-title-font();
+      }
+
+      & > p {
+        font-style: italic;
+        text-align: center;
+      }
+
+      .more {
+        overflow: hidden;
+        height: 0;
+        margin-top: 0;
+        transition: height map_get($vars, $long-transition-time);
+      }
+
+      .buttons {
+        position: relative;
+        margin-top: map_get($vars, $small-margin);
+
+        * {
+          transition: opacity map_get($vars, $long-transition-time);
+        }
+
+        .show-more {
+          opacity: 1;
+        }
+
+        .show-less {
+          opacity: 0;
+          visibility: hidden;
+          position: absolute;
+          left: 50%;
+          top: 50%;
+          transform: translateX(-50%) translateY(-50%);
+        }
       }
     }
   }

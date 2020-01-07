@@ -3,68 +3,87 @@
 @import 'style/a';
 @import 'framework/primitives/primitives';
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  color: $normal-text-color;
-  hyphens: auto;
-}
-
-::-moz-selection {
-  background: $accent-color;
-  color: $inverse-text-color;
-}
-::selection {
-  background: $accent-color;
-  color: $inverse-text-color;
-}
-
-html {
-  background-color: $background;
-  height: 100%;
-}
-
-body {
-  @include main-font();
-  height: 100%;
-  //noinspection CssInvalidFunction
-  padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
-    env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
-
-  & > main {
+@include responsive() using ($vars) {
+  & {
+    background-color: map_get($vars, $background);
     height: 100%;
+
+    @include on-small-screen {
+      font-size: 0.8em;
+    }
+  }
+
+  svg {
+    fill: hotpink;
+  }
+
+  body {
+    @include main-font();
+
+    //noinspection CssInvalidFunction
+    padding: env(safe-area-inset-top, 20px) env(safe-area-inset-right, 20px)
+      env(safe-area-inset-bottom, 20px) env(safe-area-inset-left, 20px);
+
+    height: 100%;
+    overflow: hidden;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: map_get($vars, $normal-text-color);
+    hyphens: auto;
+
+    :focus {
+      /* border: 2px solid map_get($vars, $accent-color);
+        outline: 0;
+        border-radius: map_get($vars, $border-radius);*/
+    }
+  }
+
+  img,
+  video {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  ::-moz-selection {
+    background: map_get($vars, $accent-color);
+    color: map_get($vars, $inverse-text-color);
+  }
+  ::selection {
+    background: map_get($vars, $accent-color);
+    color: map_get($vars, $inverse-text-color);
+  }
+
+  .main {
+    height: 100vh;
     overflow-y: scroll;
     overflow-x: hidden;
+
+    will-change: transform;
+
+    -webkit-overflow-scrolling: touch;
+    perspective: 5px;
+    perspective-origin: center center;
 
     noscript {
       @include square(100%);
       @include center-children();
     }
 
-    @media (min-width: $breakpoint-width) {
+    @include on-large-screen {
       &::-webkit-scrollbar-track,
       &::-webkit-scrollbar {
         background-color: transparent;
         width: 12px;
       }
       &::-webkit-scrollbar-thumb {
-        background-color: $accent-color;
-        border-radius: $border-radius;
+        background-color: map_get($vars, $accent-color);
+        border-radius: map_get($vars, $border-radius);
       }
     }
-  }
-}
-
-img,
-video {
-  width: 100%;
-  height: auto;
-  object-fit: contain;
-}
-
-@media (max-width: $breakpoint-width) {
-  html {
-    font-size: 0.8em;
   }
 }

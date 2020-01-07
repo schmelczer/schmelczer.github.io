@@ -1,51 +1,114 @@
 @import 'fonts';
 
-$background: #ffffff;
+$_id_value: 0;
+@function id() {
+  $_id_value: $_id_value + 1 !global;
+  @return $_id_value;
+}
 
-$normal-text-color: #31343f;
-$light-text-color: #7a7d8e;
-$inverse-text-color: #ffffff;
+/* NAMES */
+$background: id();
 
-$card-color: #ffffff;
-$accent-color: #aa4465;
-$scrollbar-color: #ffd6d6;
+$normal-text-color: id();
+$light-text-color: id();
+$important-card-text-color: id();
 
-$short-transition-time: 220ms;
-$long-transition-time: 350ms;
-$line-width: 3px;
-$border-radius: var(--border-radius);
+$inverse-text-color: id();
+$card-color: id();
+$important-card-color: id();
+$theme-switcher-color: id();
+
+$accent-color: id();
+$scrollbar-color: id();
+
+$short-transition-time: id();
+$long-transition-time: id();
+$line-width: id();
+$border-radius: id();
+$breakpoint-width: id();
+
+$large-margin: id();
+$normal-margin: id();
+$small-margin: id();
+$line-height: id();
+
+$shadow1: id();
+$shadow2: id();
+$shadow3: id();
+
+$body-width: id();
+
+$icon-size: id();
+/**/
+
 $breakpoint-width: 925px;
 
-$large-margin: var(--large-margin);
-$normal-margin: var(--normal-margin);
-$small-margin: var(--small-margin);
-$line-height: 18px;
+$universal-variables: (
+  $short-transition-time: 220ms,
+  $long-transition-time: 350ms,
+  $line-width: 3px,
+  $line-height: 18px,
+  $shadow3: 0 0 15px 4px rgba(0, 0, 0, 0.1),
+);
 
-$shadow1: var(--shadow1);
-$shadow2: var(--shadow2);
-$shadow3: 0 0 15px 4px rgba(0, 0, 0, 0.1);
+$light-theme-variables: map_merge(
+  (
+    $background: #ffffff,
+    $normal-text-color: #31343f,
+    $light-text-color: #7a7d8e,
+    $inverse-text-color: #ffffff,
+    $theme-switcher-color: #f7f78c,
+    $card-color: #ffffff,
+    $important-card-color: #aa4465,
+    $important-card-text-color: #ffffff,
+    $accent-color: #aa4465,
+    $scrollbar-color: #ffd6d6,
+  ),
+  $universal-variables
+);
 
-$icon-size: var(--icon-size);
-$body-width: var(--body-width);
+$dark-theme-variables: map_merge(
+  (
+    $background: #242638,
+    $normal-text-color: #ffffff,
+    $light-text-color: #fff9e0,
+    $inverse-text-color: #242638,
+    $theme-switcher-color: #ffff92,
+    $card-color: #263551,
+    $important-card-text-color: #fff9e0,
+    $accent-color: #f7f78c,
+    $important-card-color: #263551,
+    $scrollbar-color: #ffd6d6,
+    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.175),
+    $shadow2: 0 0 1px rgba(0, 0, 0, 0.4),
+  ),
+  $universal-variables
+);
 
-:root {
-  --large-margin: 70px;
-  --normal-margin: 45px;
-  --small-margin: 25px;
-  --icon-size: 35px;
-  --body-width: 765px;
-  --shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.075);
-  --shadow2: 0 0 1px rgba(0, 0, 0, 0.2);
-  --border-radius: 15px;
+$large-screen-variables: map_merge(
+  (
+    $border-radius: 15px,
+    $large-margin: 70px,
+    $normal-margin: 45px,
+    $small-margin: 25px,
+    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.075),
+    $shadow2: 0 0 1px rgba(0, 0, 0, 0.2),
+    $icon-size: 35px,
+    $body-width: 765px,
+  ),
+  $universal-variables
+);
 
-  @media (max-width: $breakpoint-width) {
-    --large-margin: 60px;
-    --normal-margin: 30px;
-    --small-margin: 15px;
-    --icon-size: 25px;
-    --body-width: 90%;
-    --shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.05);
-    --shadow2: 0 0 1px rgba(0, 0, 0, 0.125);
-    --border-radius: 10px;
-  }
-}
+$small-screen-variables: map_merge(
+  (
+    $border-radius: 10px,
+    $large-margin: 60px,
+    $normal-margin: 30px,
+    $small-margin: 15px,
+    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.05),
+    $shadow2: 0 0 1px rgba(0, 0, 0, 0.125),
+    $icon-size: 25px,
+    $body-width: 90%,
+  ),
+  $universal-variables
+);

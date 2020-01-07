@@ -20,16 +20,12 @@ export const mixColors = (
 
 const hexToRGB = (hex: hex): rgb => {
   const [r1, r2, g1, g2, b1, b2] = normalizeHex(hex);
-  return [
-    Number.parseInt(r1 + r2, 16),
-    Number.parseInt(g1 + g2, 16),
-    Number.parseInt(b1 + b2, 16),
-  ];
+  return [parseInt(r1 + r2, 16), parseInt(g1 + g2, 16), parseInt(b1 + b2, 16)];
 };
 
 const normalizeHex = (hex: hex): hex => {
   hex = hex.trim();
-  if (hex.startsWith('#')) {
+  if (hex[0] === '#') {
     hex = hex.substr(1);
   }
   return hex;
@@ -38,4 +34,4 @@ const normalizeHex = (hex: hex): hex => {
 const mix = (a: number, b: number, q: number): number => a * q + b * (1 - q);
 
 const rgbToHex = (rgb: rgb): hex =>
-  '#' + rgb.map(n => Math.round(n).toString(16)).join('');
+  '#' + rgb.map(n => (n < 16 ? '0' : '') + Math.round(n).toString(16)).join('');

@@ -6,5 +6,6 @@ export class PageEvent {
 export enum PageEventType {
   onLoad,
   onBodyDimensionsChanged,
-  eventBroadcasterChanged
+  eventBroadcasterChanged,
+  pageThemeChanged,
 }

@@ -1,48 +1,51 @@
 @import 'vars';
 @import 'mixins';
 
-a {
-  @include insignificant-font();
-  text-decoration: none;
-  position: relative;
-  cursor: pointer;
-  color: $accent-color;
-  display: inline-block;
-  overflow: hidden;
+@include responsive() using ($vars) {
+  a {
+    @include insignificant-font();
+    text-decoration: none;
+    position: relative;
+    cursor: pointer;
+    color: map_get($vars, $accent-color);
+    display: inline-block;
+    overflow: hidden;
 
-  $border-shift: 10px;
+    $border-shift: 10px;
 
-  transition: transform $long-transition-time;
+    transition: transform map_get($vars, $long-transition-time);
 
-  &:before {
-    content: '';
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: $line-width;
-    bottom: 0;
-    z-index: 1;
-    background: linear-gradient(
-      90deg,
-      $card-color 0,
-      transparentize($card-color, 1) 4px,
-      transparentize($card-color, 1) calc(100% - 4px),
-      $card-color 100%
-    );
-  }
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: map_get($vars, $line-width);
+      bottom: 0;
+      z-index: 1;
+      background: linear-gradient(
+        90deg,
+        map_get($vars, $card-color) 0,
+        transparentize(map_get($vars, $card-color), 1) 4px,
+        transparentize(map_get($vars, $card-color), 1) calc(100% - 4px),
+        map_get($vars, $card-color) 100%
+      );
+    }
 
-  &:after {
-    content: '';
-    display: block;
-    width: calc(100% + #{$border-shift});
-    z-index: 0;
-    border-bottom: $line-width dashed $accent-color;
-    transition: transform $long-transition-time;
-  }
-
-  &:hover {
     &:after {
-      transform: translateX(-$border-shift);
+      content: '';
+      display: block;
+      width: calc(100% + #{$border-shift});
+      z-index: 0;
+      border-bottom: map_get($vars, $line-width) dashed
+        map_get($vars, $accent-color);
+      transition: transform map_get($vars, $long-transition-time);
+    }
+
+    &:hover {
+      &:after {
+        transform: translateX(-$border-shift);
+      }
     }
   }
 }

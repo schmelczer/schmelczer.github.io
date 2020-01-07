@@ -1,10 +1,13 @@
 @import '../../style/vars';
+@import '../../style/mixins';
 
-#timeline {
-  width: $body-width;
-  margin: $large-margin auto 0 auto;
-
-  @media (max-width: $breakpoint-width) {
-    margin: auto;
+@include responsive() using ($vars) {
+  #timeline {
+    @include on-large-screen {
+      // workaround for IE
+      & > :first-child {
+        margin-top: map_get($vars, $large-margin);
+      }
+    }
   }
 }

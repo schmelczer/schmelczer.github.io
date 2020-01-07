@@ -6,9 +6,8 @@ import { createElement } from '../../framework/helper/create-element';
 
 export class PageImageViewer extends PageElement {
   public constructor() {
-    const root = createElement(generate());
-    root.onclick = () => PageImageViewer.hide(root);
-    super(root);
+    super(createElement(generate()));
+    this.element.onclick = () => PageImageViewer.hide(this.element);
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
@@ -18,25 +17,26 @@ export class PageImageViewer extends PageElement {
 
     document.body.addEventListener('keydown', this.handleKeydown.bind(this));
 
-    const images = Array.prototype.slice.call(
-      parent.element.querySelectorAll('img')
+    const media = Array.prototype.slice.call(
+      parent.element.querySelectorAll('img, video')
     );
-    images
+
+    media
       .filter(
-        (img: HTMLImageElement) =>
-          img.parentElement !== this.element &&
-          !img.classList.contains('no-open')
+        (e: HTMLElement) =>
+          e.parentElement !== this.element && !e.classList.contains('no-open')
       )
       .forEach(
-        (img: HTMLImageElement) => (img.onclick = this.handleClick.bind(this))
+        (e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this))
       );
   }
 
   private handleClick(event: Event) {
-    (this.query(
-      '#photo'
-    ) as HTMLImageElement).src = (event.target as HTMLImageElement).src;
-
+    const container = this.query('#container');
+    Array.prototype.forEach.call(container.childNodes, (e: HTMLElement) =>
+      e.remove()
+    );
+    container.appendChild((event.target as HTMLElement).cloneNode());
     PageImageViewer.show(this.element);
   }
 

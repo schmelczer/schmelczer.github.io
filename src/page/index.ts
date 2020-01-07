@@ -12,7 +12,7 @@ export const create = ({ header, timeline, footer }: Portfolio) => {
 
   new ContainerPage(document.body, [
     new PageImageViewer(),
-    new ContainerPage(document.body.querySelector('main'), [
+    new ContainerPage(document.body.querySelector('.main'), [
       pageHeader,
       new PageTimeline(timeline),
       pageFooter,

@@ -5,7 +5,7 @@ export abstract class PageElement implements EventBroadcaster {
   protected eventBroadcaster: EventBroadcaster;
 
   protected constructor(
-    private readonly rootElement: HTMLElement,
+    private readonly rootElement?: HTMLElement,
     private readonly children: Array<PageElement> = []
   ) {}
 

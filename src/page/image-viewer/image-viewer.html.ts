@@ -1,10 +1,11 @@
-import { html } from "../../model/misc";
-import cancel from "../../static/icons/cancel.svg";
-import "./image-viewer.scss";
+import { html } from '../../model/misc';
+import cancel from '../../static/icons/cancel.svg';
+
+import './image-viewer.scss';
 
 export const generate = (): html => `
     <section id="image-viewer">
-        <img id="photo" alt="currently opened photo"/>
+        <div id="container"></div>
         <img id="cancel" src="${cancel}" alt="cancel"/>
     </section>
 `;

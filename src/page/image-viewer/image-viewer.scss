@@ -1,30 +1,41 @@
 @import '../../style/vars';
 @import '../../style/mixins';
 
-#image-viewer {
-  @include center-children();
-  display: none;
-  position: fixed;
-  width: 100%;
-  height: 100%;
-  left: 0;
-  top: 0;
-  margin: 0;
-  z-index: 2;
-  background-color: rgba(0, 0, 0, 0.75);
-
-  #photo {
-    max-width: 80vw;
-    max-height: 80vh;
-  }
-
-  #cancel {
-    @include square($icon-size);
-    position: absolute;
-    box-sizing: content-box;
-    padding: $normal-margin;
-    right: 0;
+@include responsive() using ($vars) {
+  #image-viewer {
+    @include center-children();
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
     top: 0;
-    cursor: pointer;
+    margin: 0;
+    z-index: 2;
+    background-color: rgba(0, 0, 0, 0.85);
+
+    @include on-large-screen {
+      #container > * {
+        max-width: 80vw;
+        max-height: 80vh;
+      }
+    }
+
+    @include on-small-screen {
+      #container > * {
+        max-width: 95vw;
+        max-height: 95vh;
+      }
+    }
+
+    #cancel {
+      @include square(map_get($vars, $icon-size));
+      position: absolute;
+      box-sizing: content-box;
+      padding: map_get($vars, $normal-margin);
+      right: 0;
+      top: 0;
+      cursor: pointer;
+    }
   }
 }

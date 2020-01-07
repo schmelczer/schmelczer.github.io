@@ -1,5 +1,8 @@
 @import '../../style/vars';
+@import '../../style/mixins';
 
-.content {
-  margin-top: $small-margin;
+@include responsive() using ($vars) {
+  .content {
+    margin-top: map_get($vars, $small-margin);
+  }
 }

@@ -1,38 +1,54 @@
 @import 'vars';
 
+@mixin on-small-screen() {
+  @media (max-width: $breakpoint-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen() {
+  @media (min-width: $breakpoint-width) {
+    @content;
+  }
+}
+
+@mixin responsive() {
+  html {
+    @include on-small-screen {
+      @content (map_merge($small-screen-variables, $light-theme-variables));
+      &[theme='dark'] {
+        @content (map_merge($small-screen-variables, $dark-theme-variables));
+      }
+    }
+  }
+  @include on-large-screen {
+    html {
+      @content (map_merge($large-screen-variables, $light-theme-variables));
+      &[theme='dark'] {
+        @content (map_merge($large-screen-variables, $dark-theme-variables));
+      }
+    }
+  }
+}
+
 @mixin center-children() {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-%card {
+@mixin card-base($vars) {
   text-align: center;
-  padding: $normal-margin;
-  box-shadow: $shadow1, $shadow2;
+  padding: map_get($vars, $normal-margin);
+  box-shadow: map_get($vars, $shadow1), map_get($vars, $shadow2);
   z-index: 1;
 
-  @media (min-width: $breakpoint-width) {
-    transition: box-shadow $long-transition-time;
+  @include on-large-screen {
+    transition: box-shadow map_get($vars, $long-transition-time);
 
     &:hover {
-      box-shadow: $shadow3, $shadow2;
+      box-shadow: map_get($vars, $shadow3), map_get($vars, $shadow2);
     }
-  }
-}
-
-@mixin card() {
-  @extend %card;
-  border-radius: $border-radius;
-  background-color: $card-color;
-}
-
-@mixin important-card() {
-  @extend %card;
-  background-color: $accent-color;
-
-  * {
-    color: white;
   }
 }
 
@@ -51,7 +67,7 @@
   font-style: normal;
   line-height: 1;
 
-  @media (max-width: $breakpoint-width) {
+  @include on-small-screen {
     font-size: 3rem;
     line-height: 1.1;
   }

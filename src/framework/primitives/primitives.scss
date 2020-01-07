@@ -1,25 +1,27 @@
 @import '../../style/vars';
 @import '../../style/mixins';
 
-.figure-container {
-  font-size: 0;
-  box-shadow: inset $shadow1, inset $shadow2;
-  pointer-events: none;
-  cursor: pointer;
+@include responsive() using ($vars) {
+  .figure-container {
+    font-size: 0;
+    box-shadow: inset map_get($vars, $shadow1), inset map_get($vars, $shadow2);
+    pointer-events: none;
+    cursor: pointer;
 
-  * {
-    pointer-events: all;
-    position: relative;
-    z-index: -2;
+    * {
+      pointer-events: all;
+      position: relative;
+      z-index: -2;
+    }
   }
-}
 
-.primitive-text,
-.primitive-anchor,
-.figure-container {
-  margin-top: $line-height;
-}
+  .primitive-text,
+  .primitive-anchor,
+  .figure-container {
+    margin-top: map_get($vars, $line-height);
+  }
 
-.primitive-text {
-  text-align: left;
+  .primitive-text {
+    text-align: left;
+  }
 }

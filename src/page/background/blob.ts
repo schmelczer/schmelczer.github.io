@@ -1,10 +1,14 @@
 import { mixColors } from '../../framework/helper/mix-colors';
 import { createElement } from '../../framework/helper/create-element';
 import { Random } from '../../framework/helper/random';
+import { generate } from './background.html';
 
 export class Blob {
   private static readonly creatorRandom = new Random(44);
-  private static readonly colors = ['#fff9e0', '#ffd6d6'];
+  private static colorPickerRandom = new Random(132);
+  private static readonly lightColors = ['#fff9e0', '#ffd6d6'];
+  private static readonly darkColors = ['#2C477A'];
+  private static isDarkThemed = false;
   private static zMin: number;
   private static zMax: number;
   private static perspective: number;
@@ -14,23 +18,34 @@ export class Blob {
     Blob.perspective = perspective;
   }
 
+  public static changeTheme(isDarkThemed: boolean) {
+    Blob.colorPickerRandom = new Random(132);
+    Blob.isDarkThemed = isDarkThemed;
+  }
+
   private readonly z = Blob.creatorRandom.randomInInterval(
     Blob.zMin,
     Blob.zMax
   );
 
-  private readonly element: HTMLElement = createElement('<div></div>');
+  private readonly element: HTMLElement = createElement(generate());
   constructor() {
-    this.element.style.backgroundColor = mixColors(
-      '#ffffff',
-      Blob.creatorRandom.choose(Blob.colors),
-      (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
-    );
-    this.element.style.zIndex = (-this.z).toString();
+    this.decideColor();
+    this.element.style.zIndex = Math.round(-this.z).toString();
     this.element.style.height = `${Blob.creatorRandom.randomInInterval(
       160,
       740
     )}px`;
+  }
+
+  public decideColor() {
+    this.element.style.backgroundColor = mixColors(
+      Blob.isDarkThemed ? '#242638  ' : '#ffffff',
+      Blob.colorPickerRandom.choose(
+        Blob.isDarkThemed ? Blob.darkColors : Blob.lightColors
+      ),
+      (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
+    );
   }
 
   get htmlElement(): HTMLElement {

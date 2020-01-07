@@ -1,0 +1,94 @@
+@import '../../style/mixins';
+@import '../../style/vars';
+
+@include responsive using($vars) {
+  input[type='checkbox']#theme-switcher {
+    @include on-large-screen {
+      position: fixed;
+      top: map_get($vars, $large-margin);
+      right: map_get($vars, $large-margin);
+    }
+
+    @include on-small-screen {
+      position: relative;
+      margin-top: map_get($vars, $small-margin);
+    }
+
+    $size: map_get($vars, $icon-size);
+    $small-size: 4 / 5 * $size;
+
+    z-index: 10;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+
+    width: 2 * $size;
+    height: $size;
+
+    border-radius: 1000px;
+    box-shadow: map_get($vars, $shadow1), map_get($vars, $shadow2);
+
+    cursor: pointer;
+
+    &:before,
+    &:after {
+      content: '';
+      position: absolute;
+      display: block;
+      border-radius: 1000px;
+
+      @include square($size);
+
+      transition: height map_get($vars, $long-transition-time),
+        width map_get($vars, $long-transition-time),
+        left map_get($vars, $long-transition-time),
+        top map_get($vars, $long-transition-time),
+        transform map_get($vars, $long-transition-time),
+        background-color map_get($vars, $long-transition-time);
+    }
+
+    &:before {
+      left: 0;
+      background-color: transparent;
+    }
+
+    &:after {
+      $delta: 4px;
+      top: -$delta / 2;
+      left: $size;
+      @include square($size + $delta);
+      background-color: map_get($vars, $theme-switcher-color);
+
+      animation: shine 3s linear alternate infinite;
+
+      @keyframes shine {
+        from {
+          filter: brightness(1.01);
+          box-shadow: 0 0 4px 2px map_get($vars, $theme-switcher-color);
+        }
+
+        to {
+          filter: brightness(1.1);
+          box-shadow: 0 0 15px 2px map_get($vars, $theme-switcher-color);
+        }
+      }
+    }
+
+    &:checked {
+      &:before {
+        background-color: map_get($vars, $normal-text-color);
+      }
+      &:after {
+        @include square($small-size);
+        $offset: $small-size / 5.5;
+        left: $size - $small-size + $offset;
+        top: ($size - $small-size) / 2;
+        background-color: map_get($vars, $background);
+      }
+    }
+
+    &:focus {
+      outline: 0;
+    }
+  }
+}

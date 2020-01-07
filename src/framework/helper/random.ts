@@ -1,5 +1,9 @@
+import { addImul } from '../polyfills';
+
 export class Random {
-  public constructor(private seed: number) {}
+  public constructor(private seed: number) {
+    addImul();
+  }
 
   public get next(): number {
     // result is in [0, 1)
