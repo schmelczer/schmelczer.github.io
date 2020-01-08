@@ -1,4 +1,4 @@
-import { addImul } from '../polyfills';
+import { addImul } from './polyfills';
 
 export class Random {
   public constructor(private seed: number) {

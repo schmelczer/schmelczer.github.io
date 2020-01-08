@@ -6,15 +6,23 @@
 @include responsive() using ($vars) {
   & {
     background-color: map_get($vars, $background);
+    transition: background-color map_get($vars, $long-transition-time);
+
     height: 100%;
 
     @include on-small-screen {
       font-size: 0.8em;
     }
-  }
 
-  svg {
-    fill: hotpink;
+    &[animations='off'] {
+      &,
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+        animation: none !important;
+      }
+    }
   }
 
   body {
@@ -28,11 +36,16 @@
     overflow: hidden;
   }
 
-  * {
+  *,
+  *::before,
+  *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     color: map_get($vars, $normal-text-color);
+    transition: background-color map_get($vars, $long-transition-time),
+      color map_get($vars, $long-transition-time);
+
     hyphens: auto;
 
     :focus {

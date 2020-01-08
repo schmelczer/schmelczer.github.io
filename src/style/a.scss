@@ -3,11 +3,10 @@
 
 @include responsive() using ($vars) {
   a {
-    @include insignificant-font();
+    @include special-text-font($vars);
     text-decoration: none;
     position: relative;
     cursor: pointer;
-    color: map_get($vars, $accent-color);
     display: inline-block;
     overflow: hidden;
 

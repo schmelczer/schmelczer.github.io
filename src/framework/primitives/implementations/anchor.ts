@@ -8,6 +8,10 @@ export class Anchor implements Primitive {
   ) {}
 
   public toHTML(): html {
-    return `<a class="primitive-anchor" href="${this.href}" rel="noreferrer" target="_blank">${this.text}</a>`;
+    return `<a class="primitive-anchor" 
+               href="${this.href}"
+               rel="noreferrer"
+               target="_blank"
+            >${this.text}</a>`;
   }
 }

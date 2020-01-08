@@ -1,6 +1,6 @@
 export const addImul = () => {
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul
   if (!Math.imul)
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul
     Math.imul = function(opA, opB) {
       opB |= 0; // ensure that opB is an integer. opA will automatically be coerced.
       // floating points give us 53 bits of precision to work with plus 1 sign bit

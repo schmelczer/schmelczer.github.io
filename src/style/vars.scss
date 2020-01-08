@@ -16,7 +16,9 @@ $important-card-text-color: id();
 $inverse-text-color: id();
 $card-color: id();
 $important-card-color: id();
-$theme-switcher-color: id();
+$theme-switcher-background: id();
+$theme-switcher-foreground: id();
+$special-text-color: id();
 
 $accent-color: id();
 $scrollbar-color: id();
@@ -48,41 +50,10 @@ $universal-variables: (
   $long-transition-time: 350ms,
   $line-width: 3px,
   $line-height: 18px,
+  $theme-switcher-foreground: #f7f78c,
+  $accent-color: #b7455e,
+  $important-card-color: #b7405a,
   $shadow3: 0 0 15px 4px rgba(0, 0, 0, 0.1),
-);
-
-$light-theme-variables: map_merge(
-  (
-    $background: #ffffff,
-    $normal-text-color: #31343f,
-    $light-text-color: #7a7d8e,
-    $inverse-text-color: #ffffff,
-    $theme-switcher-color: #f7f78c,
-    $card-color: #ffffff,
-    $important-card-color: #aa4465,
-    $important-card-text-color: #ffffff,
-    $accent-color: #aa4465,
-    $scrollbar-color: #ffd6d6,
-  ),
-  $universal-variables
-);
-
-$dark-theme-variables: map_merge(
-  (
-    $background: #242638,
-    $normal-text-color: #ffffff,
-    $light-text-color: #fff9e0,
-    $inverse-text-color: #242638,
-    $theme-switcher-color: #ffff92,
-    $card-color: #263551,
-    $important-card-text-color: #fff9e0,
-    $accent-color: #f7f78c,
-    $important-card-color: #263551,
-    $scrollbar-color: #ffd6d6,
-    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.175),
-    $shadow2: 0 0 1px rgba(0, 0, 0, 0.4),
-  ),
-  $universal-variables
 );
 
 $large-screen-variables: map_merge(
@@ -109,6 +80,36 @@ $small-screen-variables: map_merge(
     $shadow2: 0 0 1px rgba(0, 0, 0, 0.125),
     $icon-size: 25px,
     $body-width: 90%,
+  ),
+  $universal-variables
+);
+
+$light-theme-variables: map_merge(
+  (
+    $background: #ffffff,
+    $normal-text-color: #31343f,
+    $light-text-color: #7a7d8e,
+    $inverse-text-color: #ffffff,
+    $card-color: #ffffff,
+    $important-card-text-color: #ffffff,
+    $special-text-color: map_get($universal-variables, $accent-color),
+    $scrollbar-color: #ffd6d6,
+  ),
+  $universal-variables
+);
+
+$dark-theme-variables: map_merge(
+  (
+    $background: #242638,
+    $normal-text-color: #ffffff,
+    $light-text-color: #fff9e0,
+    $inverse-text-color: #242638,
+    $card-color: #263551,
+    $special-text-color: #ffffff,
+    $important-card-text-color: #fff9e0,
+    $scrollbar-color: #ffd6d6,
+    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.175),
+    $shadow2: 0 0 1px rgba(0, 0, 0, 0.4),
   ),
   $universal-variables
 );

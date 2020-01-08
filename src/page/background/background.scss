@@ -25,7 +25,9 @@
     }
 
     transition: transform map_get($vars, $long-transition-time),
-      opacity map_get($vars, $long-transition-time);
+      opacity map_get($vars, $long-transition-time),
+      background-color map_get($vars, $long-transition-time);
+
     will-change: transform, opacity;
     animation: fade-in 1s linear;
     @keyframes fade-in {

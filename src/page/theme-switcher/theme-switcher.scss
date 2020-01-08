@@ -5,30 +5,40 @@
   input[type='checkbox']#theme-switcher {
     @include on-large-screen {
       position: fixed;
-      top: map_get($vars, $large-margin);
-      right: map_get($vars, $large-margin);
+      top: map_get($vars, $normal-margin);
+      right: map_get($vars, $normal-margin);
     }
 
     @include on-small-screen {
       position: relative;
-      margin-top: map_get($vars, $small-margin);
+      margin-top: map_get($vars, $normal-margin);
     }
 
-    $size: map_get($vars, $icon-size);
-    $small-size: 4 / 5 * $size;
+    background-color: map_get($vars, $accent-color);
 
     z-index: 10;
+    cursor: pointer;
 
     -webkit-appearance: none;
     -moz-appearance: none;
 
+    $size: map_get($vars, $icon-size);
     width: 2 * $size;
     height: $size;
+    $icon-size: 0.7 * $size;
+    $margin: ($size - $icon-size) / 2;
 
     border-radius: 1000px;
-    box-shadow: map_get($vars, $shadow1), map_get($vars, $shadow2);
+    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
+      inset 0 0 1px rgba(0, 0, 0, 0.4);
 
-    cursor: pointer;
+    &:before {
+      @include square($icon-size);
+    }
+
+    &:after {
+      @include square($icon-size * 0.8);
+    }
 
     &:before,
     &:after {
@@ -37,53 +47,47 @@
       display: block;
       border-radius: 1000px;
 
-      @include square($size);
+      top: 50%;
+      transform: translateY(-50%);
 
-      transition: height map_get($vars, $long-transition-time),
-        width map_get($vars, $long-transition-time),
-        left map_get($vars, $long-transition-time),
-        top map_get($vars, $long-transition-time),
-        transform map_get($vars, $long-transition-time),
+      transition: transform map_get($vars, $long-transition-time),
         background-color map_get($vars, $long-transition-time);
     }
 
-    &:before {
-      left: 0;
-      background-color: transparent;
-    }
+    &:not(:checked) {
+      &:before {
+        transform: translateY(-50%) translateX(3 * $margin + $icon-size);
 
-    &:after {
-      $delta: 4px;
-      top: -$delta / 2;
-      left: $size;
-      @include square($size + $delta);
-      background-color: map_get($vars, $theme-switcher-color);
+        animation: shine 3s linear alternate infinite;
+        background-color: map_get($vars, $theme-switcher-foreground);
+        @keyframes shine {
+          from {
+            filter: brightness(1.01);
+            box-shadow: 0 0 4px 2px map_get($vars, $theme-switcher-foreground);
+          }
 
-      animation: shine 3s linear alternate infinite;
-
-      @keyframes shine {
-        from {
-          filter: brightness(1.01);
-          box-shadow: 0 0 4px 2px map_get($vars, $theme-switcher-color);
+          to {
+            filter: brightness(1.1);
+            box-shadow: 0 0 15px 2px map_get($vars, $theme-switcher-foreground);
+          }
         }
+      }
 
-        to {
-          filter: brightness(1.1);
-          box-shadow: 0 0 15px 2px map_get($vars, $theme-switcher-color);
-        }
+      &:after {
+        background-color: transparent;
+        transform: translateY(-50%) translateX($size * 2 - $icon-size);
       }
     }
 
     &:checked {
       &:before {
         background-color: map_get($vars, $normal-text-color);
+        transform: translateY(-50%) translateX($margin);
       }
+
       &:after {
-        @include square($small-size);
-        $offset: $small-size / 5.5;
-        left: $size - $small-size + $offset;
-        top: ($size - $small-size) / 2;
-        background-color: map_get($vars, $background);
+        background-color: map_get($vars, $accent-color);
+        transform: translateY(-50%) translateX($margin + $icon-size * 0.33);
       }
     }
 

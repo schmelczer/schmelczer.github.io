@@ -49,7 +49,7 @@
       width: map_get($vars, $body-width);
 
       h6 {
-        @include insignificant-font();
+        @include special-text-font($vars);
         display: inline;
         opacity: 0.75;
       }
