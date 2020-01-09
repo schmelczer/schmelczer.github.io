@@ -11,7 +11,7 @@ import { EventBroadcaster } from '../../framework/event-broadcaster';
 import {
   turnOffAnimations,
   turnOnAnimations,
-} from '../../framework/helper/animations';
+} from '../../framework/helper/animations/animations';
 
 export class PageThemeSwitcher extends PageElement {
   private static readonly LOCAL_STORAGE_KEY = 'dark-mode';

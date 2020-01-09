@@ -1,7 +1,7 @@
 @import 'style/vars';
 @import 'style/mixins';
 @import 'style/a';
-@import 'framework/primitives/primitives';
+@import 'framework/index';
 
 @include responsive() using ($vars) {
   & {
@@ -12,16 +12,6 @@
 
     @include on-small-screen {
       font-size: 0.8em;
-    }
-
-    &[animations='off'] {
-      &,
-      *,
-      *::before,
-      *::after {
-        transition: none !important;
-        animation: none !important;
-      }
     }
   }
 

@@ -1,33 +1,66 @@
 @import '../../../style/mixins';
 @import '../../../style/vars';
 
+@mixin q-dependent-line-container($vars, $q) {
+  .line {
+    height: calc(#{$q} - #{map_get($vars, $icon-size)} / 2);
+
+    &:before {
+      height: calc(100% - #{$q} - #{map_get($vars, $icon-size)} / 2);
+    }
+    &:after {
+      top: calc(#{$q} - #{map_get($vars, $icon-size)} / 2);
+    }
+  }
+  .date {
+    top: calc(#{$q} - 0.5ch);
+  }
+}
+
 @include responsive() using ($vars) {
   .timeline-element {
     display: flex;
     width: map_get($vars, $body-width);
     margin: auto;
 
-    .line {
+    .line-container {
       position: relative;
-      border-left: map_get($vars, $line-width) solid
-        map_get($vars, $accent-color);
+      @include q-dependent-line-container($vars, 33%);
+      min-width: 160px;
 
-      &:before {
-        content: '';
-        @include square(map_get($vars, $icon-size));
-        box-sizing: content-box;
-        position: absolute;
-        left: calc(
-          -0.5 * #{map_get($vars, $icon-size)} -
-            (1.5 * #{map_get($vars, $line-width)})
-        );
-        border: map_get($vars, $line-width) solid map_get($vars, $accent-color);
-        border-radius: 100%;
-        background: map_get($vars, $background);
+      .line {
+        border-left: map_get($vars, $line-width) solid
+          map_get($vars, $accent-color);
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          border-left: map_get($vars, $line-width) solid
+            map_get($vars, $accent-color);
+        }
+
+        &:after {
+          content: '';
+          @include square(map_get($vars, $icon-size));
+          border-radius: 1000px;
+          border: map_get($vars, $line-width) solid
+            map_get($vars, $accent-color);
+          position: absolute;
+          left: -1 * map_get($vars, $icon-size) / 2 +
+            map_get($vars, $line-width) / 2;
+        }
       }
 
       .date {
         @include special-text-font($vars);
+        position: absolute;
+        transform-origin: left center;
+        transform: rotate(30deg)
+          translateX(map_get($vars, $icon-size) / 2 + 6px) translateY(-10%);
+
+        padding-right: map_get($vars, $normal-margin);
       }
     }
 
@@ -35,42 +68,20 @@
       &:not(:first-of-type) .card {
         margin-top: map_get($vars, $large-margin);
       }
-
-      .line {
-        &:before {
-          top: calc(33% - #{map_get($vars, $icon-size)} / 2);
-        }
-
-        .date {
-          position: relative;
-          top: calc(33% + #{map_get($vars, $icon-size)} / 2 + 1ch);
-          transform: rotate(30deg);
-          margin: 0 map_get($vars, $normal-margin) 0
-            calc(#{map_get($vars, $line-width)} + 1ex);
-          width: 100px;
-        }
-      }
     }
 
     @include on-small-screen {
       flex-direction: column;
       align-items: center;
 
-      &:before {
-        top: calc(50% - #{map_get($vars, $icon-size)} / 2);
-      }
-
-      .line {
-        @include center-children();
-        justify-content: flex-start;
+      .line-container {
+        @include q-dependent-line-container($vars, 50%);
         height: 150px;
         width: 50%;
 
         .date {
-          margin-left: calc(
-            #{map_get($vars, $icon-size)} / 2 + #{map_get($vars, $small-margin)}
-          );
-          width: 200px;
+          transform: translateX(map_get($vars, $icon-size) / 2 + 12px)
+            translateY(-10%);
         }
       }
     }

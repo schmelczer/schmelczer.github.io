@@ -9,7 +9,8 @@ export const generate = (
   showLess: string
 ): html => `
     <section class="timeline-element">
-        <div class="line">
+        <div class="line-container">
+            <div class="line"></div>
             <p class="date">${date}</p>
         </div>
         <div class="card">

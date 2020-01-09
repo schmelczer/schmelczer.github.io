@@ -2,26 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/framework/helper/animations/animations.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/index.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/cache.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/animations.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/helper/random.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/random.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/polyfills.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.html.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/animations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/animations/animations.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/a.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/a.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/fonts.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/mixins.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/style/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/vars.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,6 +33,11 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
@@ -56,33 +51,33 @@
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="prettierjs.PrettierConfiguration.Package" value="/usr/local/lib/node_modules/prettier" />
     <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+    <property name="settings.editor.selected.configurable" value="preferences.updates" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/framework/helper" />
-      <recent name="$PROJECT_DIR$/src/framework/primitives/implementations" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="$PROJECT_DIR$" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/framework/helper/animations" />
+      <recent name="$PROJECT_DIR$/src/framework/helper" />
+      <recent name="$PROJECT_DIR$/src/framework/primitives/implementations" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\fonts" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\cv" />
+    </key>
   </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
+  <component name="ServiceViewManager">
+    <option name="viewStates">
       <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
       </list>
     </option>
   </component>
@@ -127,7 +122,9 @@
       <workItem from="1578383579118" duration="5883000" />
       <workItem from="1578391423465" duration="34000" />
       <workItem from="1578392333248" duration="21735000" />
-      <workItem from="1578472848376" duration="13628000" />
+      <workItem from="1578472848376" duration="13670000" />
+      <workItem from="1578556192921" duration="3098000" />
+      <workItem from="1578559306201" duration="30000" />
     </task>
     <servers />
   </component>
