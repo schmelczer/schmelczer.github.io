@@ -1,0 +1,38 @@
+@use 'dark-mode/dark-mode' as *;
+
+$breakpoint-width: 925px !default;
+$small-screen-light-theme-variables: () !default;
+$small-screen-dark-theme-variables: () !default;
+$large-screen-light-theme-variables: () !default;
+$large-screen-dark-theme-variables: () !default;
+
+@mixin on-small-screen() {
+  @media (max-width: $breakpoint-width) {
+    @content;
+  }
+}
+
+@mixin on-large-screen() {
+  @media (min-width: $breakpoint-width) {
+    @content;
+  }
+}
+
+@mixin responsive() {
+  html {
+    @include on-small-screen {
+      @content ($small-screen-light-theme-variables);
+      @include in-dark-mode {
+        @content ($small-screen-dark-theme-variables);
+      }
+    }
+  }
+  @include on-large-screen {
+    html {
+      @content ($large-screen-light-theme-variables);
+      @include in-dark-mode {
+        @content ($large-screen-dark-theme-variables);
+      }
+    }
+  }
+}

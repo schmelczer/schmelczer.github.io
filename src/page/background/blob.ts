@@ -1,14 +1,15 @@
 import { mixColors } from '../../framework/helper/mix-colors';
 import { createElement } from '../../framework/helper/create-element';
 import { Random } from '../../framework/helper/random';
-import { generate } from './background.html';
+import { generate } from './blob.html';
 
 export class Blob {
   private static readonly creatorRandom = new Random(44);
-  private static colorPickerRandom = new Random(132);
+  private static readonly darkColors = ['#2c477a'];
   private static readonly lightColors = ['#fff9e0', '#ffd6d6'];
-  private static readonly darkColors = ['#2C477A'];
+  private static colorPickerRandom = new Random(132);
   private static isDarkThemed = false;
+
   private static zMin: number;
   private static zMax: number;
   private static perspective: number;

@@ -1,9 +1,9 @@
-import "./static/no-change/favicon.ico";
-import "./static/no-change/og-image.jpg";
+import { create } from './page/index';
+import { portfolio } from './portfolio';
 
-import "./styles.scss";
+import './static/no-change/favicon.ico';
+import './static/no-change/og-image.jpg';
 
-import { create } from "./page/index";
-import { portfolio } from "./portfolio";
+import './styles.scss';
 
 create(portfolio);

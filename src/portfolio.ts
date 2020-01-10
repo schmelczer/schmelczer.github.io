@@ -5,10 +5,9 @@ import { Video } from './framework/primitives/implementations/video';
 import { Anchor } from './framework/primitives/implementations/anchor';
 
 import me from './static/media/me.jpg';
-import forexGIF from './static/media/forex.gif';
 import forexMP4 from './static/media/forex.mp4';
 import forexWEBM from './static/media/forex.webm';
-import myNotes from './static/media/my-notes.jpg';
+import myNotes from './static/media/my-notes.png';
 import processSimulator from './static/media/process-simulator.jpg';
 import processSimulatorInput from './static/media/process-simulator-input.jpg';
 import citySimulation from './static/media/simulation.jpg';
@@ -19,6 +18,7 @@ import led from './static/media/led.jpg';
 import cv from './static/cv/andras_schmelczer_cv_2020_01.pdf';
 import ledMP4 from './static/media/led.mp4';
 import ledWEBM from './static/media/led.webm';
+import { last } from './framework/helper/last';
 
 export const portfolio: Portfolio = {
   header: {
@@ -44,10 +44,10 @@ export const portfolio: Portfolio = {
         title: `Predicting foreign exchange rates`,
         date: `2019 Autumn`,
         figure: new Video(
-          forexGIF,
+          null,
           forexMP4,
           forexWEBM,
-          `autoplay loop muted playsinline`
+          `autoplay loop muted playsinline controls`
         ),
         description: new Text(
           `From the animation we can see that my algorithm does a somewhat acceptable job at
@@ -74,12 +74,12 @@ export const portfolio: Portfolio = {
           `A minimalist note organizer and editor powered by Markwon.`
         ),
         more: [
+          new Text(
+            `A basic android app for creating and filtering notes written in markdown.`
+          ),
           new Anchor(
             `https://github.com/schmelczerandras/my-notes`,
             `MyNotes on GitHub`
-          ),
-          new Text(
-            `A basic android app for creating and filtering notes written in markdown.`
           ),
           new Text(
             `It was my homework for BME's Android and web development course.
@@ -211,7 +211,12 @@ export const portfolio: Portfolio = {
       {
         date: `2016 spring`,
         title: `Lights synchronised to music`,
-        figure: new Video(led.src, ledMP4, ledWEBM, `controls`),
+        figure: new Video(
+          last(led.images).path,
+          ledMP4,
+          ledWEBM,
+          `controls playsinline preload="none"`
+        ),
         description: new Text(
           `A full stack application with a built-in 
           music player which music controls the color of some RGB LED strips.`
@@ -233,15 +238,15 @@ export const portfolio: Portfolio = {
   footer: {
     title: `Learn more`,
     curiumVitaes: [
-      { name: `Curriculum vitae (en)`, url: cv },
-      { name: `Önéletrajz (hu)`, url: cv },
+      { name: `Curriculum vitae`, url: cv },
+      /*{ name: `Önéletrajz (hu)`, url: cv },*/
     ],
     email: `andras@schmelczer.dev`,
     lastEditText: `Last modified on `,
-    lastEdit: new Date(2020, 0, 6), // months are 0 indexed
+    lastEdit: new Date(2020, 0, 10), // months are 0 indexed
     gitHub: new Anchor(
       `https://github.com/schmelczerandras/timeline`,
-      `Find this page on GitHub.`
+      `Find this on GitHub`
     ),
   },
 };

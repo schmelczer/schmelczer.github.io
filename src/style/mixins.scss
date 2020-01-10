@@ -1,35 +1,5 @@
-@import 'vars';
-
-@mixin on-small-screen() {
-  @media (max-width: $breakpoint-width) {
-    @content;
-  }
-}
-
-@mixin on-large-screen() {
-  @media (min-width: $breakpoint-width) {
-    @content;
-  }
-}
-
-@mixin responsive() {
-  html {
-    @include on-small-screen {
-      @content (map_merge($small-screen-variables, $light-theme-variables));
-      &[theme='dark'] {
-        @content (map_merge($small-screen-variables, $dark-theme-variables));
-      }
-    }
-  }
-  @include on-large-screen {
-    html {
-      @content (map_merge($large-screen-variables, $light-theme-variables));
-      &[theme='dark'] {
-        @content (map_merge($large-screen-variables, $dark-theme-variables));
-      }
-    }
-  }
-}
+@use "configured-responsive";
+@use "vars";
 
 @mixin center-children() {
   display: flex;
@@ -46,17 +16,9 @@
 
 @mixin card-base($vars) {
   text-align: center;
-  padding: map_get($vars, $normal-margin);
-  box-shadow: map_get($vars, $shadow1), map_get($vars, $shadow2);
+  padding: map_get($vars, vars.$normal-margin);
+  box-shadow: map_get($vars, vars.$shadow);
   z-index: 1;
-
-  @include on-large-screen {
-    transition: box-shadow map_get($vars, $long-transition-time),
-      background-color map_get($vars, $long-transition-time);
-    &:hover {
-      box-shadow: map_get($vars, $shadow3), map_get($vars, $shadow2);
-    }
-  }
 }
 
 @mixin square($size) {
@@ -69,29 +31,32 @@
   max-height: $size;
 }
 
-@mixin title-font() {
+@mixin title-font($vars) {
   font: 400 3.5rem 'Montserrat', serif;
   font-style: normal;
+  color: map_get($vars, vars.$normal-text-color);
   line-height: 1;
 
-  @include on-small-screen {
+  @include configured-responsive.on-small-screen {
     font-size: 3rem;
     line-height: 1.1;
   }
 }
 
-@mixin sub-title-font() {
+@mixin sub-title-font($vars) {
   font: 400 2rem 'Montserrat', serif;
+  color: map_get($vars, vars.$normal-text-color);
   font-style: normal;
 }
 
-@mixin main-font() {
+@mixin main-font($vars) {
   font: 400 1.25rem 'Lato', sans-serif;
+  color: map_get($vars, vars.$normal-text-color);
   line-height: 1.6;
 }
 
 @mixin special-text-font($vars) {
   font: 400 1.1rem 'Lato', sans-serif;
-  color: map_get($vars, $special-text-color);
+  color: map_get($vars, vars.$special-text-color);
   font-style: italic;
 }

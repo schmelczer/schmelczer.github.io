@@ -2,11 +2,11 @@ import { TimelineElement } from '../../../model/portfolio';
 import { PageContent } from '../../content/content';
 import { PageElement } from '../../../framework/page-element';
 import { generate } from './timeline-element.html';
-import { PageEventType } from '../../../framework/page-event';
+import { PageEventType } from '../../../framework/events/page-event';
 import { createElement } from '../../../framework/helper/create-element';
 
 export class PageTimelineElement extends PageElement {
-  private isOpen;
+  private isOpen: boolean;
   private more: HTMLElement;
 
   public constructor(
@@ -56,7 +56,7 @@ export class PageTimelineElement extends PageElement {
         this.eventBroadcaster?.broadcastEvent({
           type: PageEventType.onBodyDimensionsChanged,
         }),
-      350
+      250
     );
   }
 
@@ -64,7 +64,7 @@ export class PageTimelineElement extends PageElement {
     element.style.opacity = '0';
     setTimeout(() => {
       element.style.visibility = 'hidden';
-    }, 350);
+    }, 250);
   }
 
   private static show(element: HTMLElement) {

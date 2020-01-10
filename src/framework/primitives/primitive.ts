@@ -1,6 +1,4 @@
-import { html } from '../../model/misc';
-
-import './primitives.scss';
+import { html } from '../model/misc';
 
 export interface Primitive {
   toHTML(): html;

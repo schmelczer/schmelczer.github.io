@@ -1,23 +1,16 @@
-@import '../../style/mixins';
-@import '../../style/vars';
+@use '../../style/include' as *;
 
 @include responsive() using ($vars) {
-  #about {
+  section#about {
     @include card-base($vars);
-
-    background-color: map_get($vars, $important-card-color);
-
-    * {
-      color: map_get($vars, $important-card-text-color);
-    }
+    background-color: map_get($vars, $accent-color);
+    font-size: 0;
 
     $img-size: 125px;
-
     h1,
     img,
-    .placeholder,
-    & {
-      @include title-font();
+    .placeholder {
+      @include title-font($vars);
     }
 
     img {
@@ -26,19 +19,18 @@
     }
 
     p {
-      @include main-font();
+      @include main-font($vars);
       text-align: justify;
-      margin-top: map_get($vars, $small-margin);
     }
 
     h1 {
       hyphens: none;
     }
 
-    @include on-small-screen {
-      h1 {
-        margin-top: map_get($vars, $small-margin);
-      }
+    p,
+    h1 {
+      color: map_get($vars, $very-light-text-color);
+      margin-top: map_get($vars, $small-margin);
     }
 
     @include on-large-screen {
@@ -69,6 +61,7 @@
 
       h1 {
         text-align: left;
+        margin-top: 0;
       }
     }
   }

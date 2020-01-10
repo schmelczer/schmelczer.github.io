@@ -16,10 +16,15 @@ module.exports = {
   },
   devServer: {
     host: '0.0.0.0',
-    // disableHostCheck: true,
+    disableHostCheck: true,
   },
   optimization: {
-    minimizer: [new TerserJSPlugin({}), new OptimizeCSSAssetsPlugin({})],
+    minimizer: [
+      new TerserJSPlugin({
+        sourceMap: !isProduction,
+      }),
+      new OptimizeCSSAssetsPlugin({}),
+    ],
   },
   plugins: [
     new CleanWebpackPlugin(),

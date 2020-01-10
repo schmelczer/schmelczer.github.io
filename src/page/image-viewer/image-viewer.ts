@@ -1,7 +1,7 @@
 import { PageElement } from '../../framework/page-element';
 
 import { generate } from './image-viewer.html';
-import { PageEvent, PageEventType } from '../../framework/page-event';
+import { PageEvent, PageEventType } from '../../framework/events/page-event';
 import { createElement } from '../../framework/helper/create-element';
 
 export class PageImageViewer extends PageElement {
@@ -11,24 +11,19 @@ export class PageImageViewer extends PageElement {
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
-    if (event.type !== PageEventType.onLoad) {
-      return;
-    }
+    if (event.type === PageEventType.onLoad) {
+      document.body.addEventListener('keydown', this.handleKeydown.bind(this));
 
-    document.body.addEventListener('keydown', this.handleKeydown.bind(this));
-
-    const media = Array.prototype.slice.call(
-      parent.element.querySelectorAll('img, video')
-    );
-
-    media
-      .filter(
-        (e: HTMLElement) =>
-          e.parentElement !== this.element && !e.classList.contains('no-open')
-      )
-      .forEach(
-        (e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this))
+      const media = Array.prototype.slice.call(
+        parent.element.querySelectorAll('img')
       );
+
+      media
+        .filter((e: HTMLElement) => e.parentElement !== this.element)
+        .forEach(
+          (e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this))
+        );
+    }
   }
 
   private handleClick(event: Event) {

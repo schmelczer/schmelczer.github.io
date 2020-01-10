@@ -1,5 +1,5 @@
 import { Primitive } from '../primitive';
-import { url } from '../../../model/misc';
+import { url } from '../../model/misc';
 
 export class Video implements Primitive {
   public constructor(
@@ -11,7 +11,9 @@ export class Video implements Primitive {
   public toHTML(disableInnerShadow = false): string {
     return `
         ${!disableInnerShadow ? `<div class="figure-container">` : ''}
-          <video ${this.options} poster="${this.poster}">
+          <video ${this.options} ${
+      this.poster ? `poster="${this.poster}` : ''
+    }" >
               <source src="${this.webm}" type="video/webm"/>
               <source src="${this.mp4}" type="video/mp4"/>
           </video>

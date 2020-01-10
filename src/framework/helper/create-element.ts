@@ -1,4 +1,4 @@
-import { html } from '../../model/misc';
+import { html } from '../model/misc';
 
 export const createElement = (from: html): HTMLElement => {
   // won't work for all elements, eg.: <td>

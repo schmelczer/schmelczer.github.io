@@ -19,4 +19,20 @@ export const create = ({ header, timeline, footer }: Portfolio) => {
       new PageBackground(pageHeader, pageFooter),
     ]),
   ]).setAsMain();
+
+  addSupportForTabNavigation();
+  removeUnnecessaryOutlines();
 };
+
+const addSupportForTabNavigation = () =>
+  (document.onkeydown = e => {
+    if (e.key === ' ') {
+      (document.activeElement as HTMLElement)?.click();
+      e.preventDefault();
+    }
+  });
+
+const removeUnnecessaryOutlines = () =>
+  (document.onclick = e => {
+    (e.target as HTMLElement)?.blur();
+  });

@@ -1,8 +1,7 @@
-@import '../../style/vars';
-@import '../../style/mixins';
+@use '../../style/include' as *;
 
 @include responsive() using ($vars) {
-  #timeline {
+  main#timeline {
     @include on-large-screen {
       // workaround for IE
       & > :first-child {

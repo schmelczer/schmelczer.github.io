@@ -1,5 +1,5 @@
 import { Footer } from '../../model/portfolio';
-import { html } from '../../model/misc';
+import { html } from '../../framework/model/misc';
 
 import './footer.scss';
 

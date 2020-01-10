@@ -1,5 +1,5 @@
-import { PageEvent, PageEventType } from './page-event';
-import { EventBroadcaster } from './event-broadcaster';
+import { PageEvent, PageEventType } from './events/page-event';
+import { EventBroadcaster } from './events/event-broadcaster';
 
 export abstract class PageElement implements EventBroadcaster {
   protected eventBroadcaster: EventBroadcaster;

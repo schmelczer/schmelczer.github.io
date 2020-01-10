@@ -1,5 +1,5 @@
 import { PageElement } from '../../framework/page-element';
-import { PageEvent, PageEventType } from '../../framework/page-event';
+import { PageEvent, PageEventType } from '../../framework/events/page-event';
 import { Blob } from './blob';
 import { Random } from '../../framework/helper/random';
 import { getHeight } from '../../framework/helper/get-height';
@@ -15,13 +15,17 @@ export class PageBackground extends PageElement {
   }
 
   protected handleEvent(event: PageEvent, parent: PageElement) {
-    if (event.type === PageEventType.onLoad) {
-      this.bindListeners(parent);
-    } else if (event.type === PageEventType.onBodyDimensionsChanged) {
-      this.resize(parent, event.data?.deltaHeight);
-    } else if (event.type === PageEventType.pageThemeChanged) {
-      Blob.changeTheme(event.data);
-      this.blobs.forEach(b => b.decideColor());
+    switch (event.type) {
+      case PageEventType.onLoad:
+        this.bindListeners(parent);
+        break;
+      case PageEventType.onBodyDimensionsChanged:
+        this.resize(parent, event.data?.deltaHeight);
+        break;
+      case PageEventType.pageThemeChanged:
+        Blob.changeTheme(event.data);
+        this.blobs.forEach(b => b.decideColor());
+        break;
     }
   }
 

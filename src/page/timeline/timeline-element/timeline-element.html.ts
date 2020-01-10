@@ -1,5 +1,5 @@
 import { TimelineElement } from '../../../model/portfolio';
-import { html } from '../../../model/misc';
+import { html } from '../../../framework/model/misc';
 
 import './timeline-element.scss';
 
@@ -22,8 +22,8 @@ export const generate = (
                 ? `
                 <div class="more"></div>
                 <div class="buttons">
-                    <a class="show-more">${showMore}</a>
-                    <a class="show-less">${showLess}</a>
+                    <a tabindex="0" class="show-more">${showMore}</a>
+                    <a tabindex="0" class="show-less">${showLess}</a>
                 </div>
                 `
                 : ''

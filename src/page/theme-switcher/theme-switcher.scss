@@ -1,5 +1,4 @@
-@import '../../style/mixins';
-@import '../../style/vars';
+@use '../../style/include' as *;
 
 @include responsive using($vars) {
   input[type='checkbox']#theme-switcher {
@@ -14,11 +13,12 @@
       margin-top: map_get($vars, $normal-margin);
     }
 
+    &::-ms-check {
+      display: none;
+    }
+
     background-color: map_get($vars, $accent-color);
-
-    z-index: 10;
     cursor: pointer;
-
     -webkit-appearance: none;
     -moz-appearance: none;
 
@@ -33,10 +33,12 @@
       inset 0 0 1px rgba(0, 0, 0, 0.4);
 
     &:before {
+      // moon + sun
       @include square($icon-size);
     }
 
     &:after {
+      // sun blocking moon
       @include square($icon-size * 0.8);
     }
 
@@ -50,8 +52,8 @@
       top: 50%;
       transform: translateY(-50%);
 
-      transition: transform map_get($vars, $long-transition-time),
-        background-color map_get($vars, $long-transition-time);
+      transition: transform map_get($vars, $transition-time),
+        background-color map_get($vars, $transition-time);
     }
 
     &:not(:checked) {
@@ -59,16 +61,16 @@
         transform: translateY(-50%) translateX(3 * $margin + $icon-size);
 
         animation: shine 3s linear alternate infinite;
-        background-color: map_get($vars, $theme-switcher-foreground);
+        background-color: map_get($vars, $sun-color);
         @keyframes shine {
           from {
             filter: brightness(1.01);
-            box-shadow: 0 0 4px 2px map_get($vars, $theme-switcher-foreground);
+            box-shadow: 0 0 4px 2px map_get($vars, $sun-color);
           }
 
           to {
             filter: brightness(1.1);
-            box-shadow: 0 0 15px 2px map_get($vars, $theme-switcher-foreground);
+            box-shadow: 0 0 15px 2px map_get($vars, $sun-color);
           }
         }
       }
@@ -89,10 +91,6 @@
         background-color: map_get($vars, $accent-color);
         transform: translateY(-50%) translateX($margin + $icon-size * 0.33);
       }
-    }
-
-    &:focus {
-      outline: 0;
     }
   }
 }

@@ -1,5 +1,5 @@
 import { Primitive } from '../primitive';
-import { html, ResponsiveImage } from '../../../model/misc';
+import { html, ResponsiveImage } from '../../model/misc';
 import { last } from '../../helper/last';
 
 export class Image implements Primitive {
@@ -11,7 +11,7 @@ export class Image implements Primitive {
   public toHTML(disableInnerShadow = false): html {
     return `
         ${!disableInnerShadow ? `<div class="figure-container">` : ''}
-            <img 
+            <img tabindex="0"
                 srcset="${this.image.srcSet}" 
                 src="${last(this.image.images)?.path}" 
                 alt="${this.alt}"

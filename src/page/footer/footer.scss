@@ -1,21 +1,20 @@
-@import '../../style/mixins';
-@import '../../style/vars';
+@use '../../style/include' as *;
 
 @include responsive() using ($vars) {
   footer#page-footer {
     text-align: center;
 
-    margin: map_get($vars, $large-margin) auto 0 auto;
+    margin-top: map_get($vars, $large-margin);
     width: 100%;
 
     h2 {
-      @include title-font();
+      @include title-font($vars);
     }
 
     ul {
+      margin-top: map_get($vars, $normal-margin);
       list-style: none;
       display: inline-block;
-      margin-top: map_get($vars, $normal-margin);
       text-align: left;
 
       li {
@@ -29,10 +28,11 @@
         img,
         svg {
           @include max-square(map_get($vars, $icon-size));
+          margin-right: map_get($vars, $small-margin);
+
           * {
             fill: map_get($vars, $normal-text-color);
           }
-          margin-right: map_get($vars, $small-margin);
         }
 
         a {
@@ -44,13 +44,17 @@
     aside.other {
       @include center-children();
       flex-direction: column;
-      margin: map_get($vars, $large-margin) auto map_get($vars, $line-height)
-        auto;
+      margin: map_get($vars, $large-margin) auto 0 auto;
+      padding-bottom: map_get($vars, $line-height);
       width: map_get($vars, $body-width);
 
       h6 {
-        @include special-text-font($vars);
         display: inline;
+        &,
+        * {
+          @include special-text-font($vars);
+          color: map_get($vars, $normal-text-color);
+        }
         opacity: 0.75;
       }
     }

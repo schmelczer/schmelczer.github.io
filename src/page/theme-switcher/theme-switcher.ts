@@ -5,13 +5,13 @@ import {
   isSystemLevelDarkModeEnabled,
   turnOnDarkMode,
   turnOnLightMode,
-} from '../../framework/helper/dark-mode';
-import { PageEvent, PageEventType } from '../../framework/page-event';
-import { EventBroadcaster } from '../../framework/event-broadcaster';
+} from '../../framework/styles/dark-mode/dark-mode';
+import { PageEvent, PageEventType } from '../../framework/events/page-event';
+import { EventBroadcaster } from '../../framework/events/event-broadcaster';
 import {
   turnOffAnimations,
   turnOnAnimations,
-} from '../../framework/helper/animations/animations';
+} from '../../framework/styles/animations/animations';
 
 export class PageThemeSwitcher extends PageElement {
   private static readonly LOCAL_STORAGE_KEY = 'dark-mode';
@@ -62,9 +62,12 @@ export class PageThemeSwitcher extends PageElement {
   }
 
   private static loadFromLocalStorage(): boolean | null {
-    return JSON.parse(
-      window.localStorage?.getItem(PageThemeSwitcher.LOCAL_STORAGE_KEY) ||
-        'null'
-    );
+    try {
+      return JSON.parse(
+        window.localStorage?.getItem(PageThemeSwitcher.LOCAL_STORAGE_KEY)
+      );
+    } catch {
+      return null;
+    }
   }
 }

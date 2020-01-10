@@ -1,5 +1,4 @@
-@import '../../../style/mixins';
-@import '../../../style/vars';
+@use '../../../style/include' as *;
 
 @mixin q-dependent-line-container($vars, $q) {
   .line {
@@ -18,7 +17,7 @@
 }
 
 @include responsive() using ($vars) {
-  .timeline-element {
+  section.timeline-element {
     display: flex;
     width: map_get($vars, $body-width);
     margin: auto;
@@ -32,9 +31,13 @@
         border-left: map_get($vars, $line-width) solid
           map_get($vars, $accent-color);
 
-        &:before {
+        &:before,
+        &:after {
           content: '';
           position: absolute;
+        }
+
+        &:before {
           left: 0;
           bottom: 0;
           border-left: map_get($vars, $line-width) solid
@@ -42,12 +45,10 @@
         }
 
         &:after {
-          content: '';
           @include square(map_get($vars, $icon-size));
           border-radius: 1000px;
           border: map_get($vars, $line-width) solid
             map_get($vars, $accent-color);
-          position: absolute;
           left: -1 * map_get($vars, $icon-size) / 2 +
             map_get($vars, $line-width) / 2;
         }
@@ -88,18 +89,19 @@
 
     .card {
       @include card-base($vars);
-
       border-radius: map_get($vars, $border-radius);
       background-color: map_get($vars, $card-color);
-
-      overflow: hidden;
 
       & > *:not(:first-child) {
         margin-top: map_get($vars, $line-height);
       }
 
+      .content {
+        margin-top: 0;
+      }
+
       h2 {
-        @include sub-title-font();
+        @include sub-title-font($vars);
       }
 
       & > p {
@@ -110,16 +112,16 @@
       .more {
         overflow: hidden;
         height: 0;
-        margin-top: 0;
-        transition: height map_get($vars, $long-transition-time);
+        transition: height map_get($vars, $transition-time);
       }
 
       .buttons {
         position: relative;
-        margin-top: map_get($vars, $small-margin);
+        margin-top: map_get($vars, $line-height);
 
-        * {
-          transition: opacity map_get($vars, $long-transition-time);
+        .show-more,
+        .show-less {
+          transition: opacity map_get($vars, $transition-time);
         }
 
         .show-more {
@@ -127,9 +129,9 @@
         }
 
         .show-less {
+          @include absolute-center();
           opacity: 0;
           visibility: hidden;
-          @include absolute-center();
         }
       }
     }

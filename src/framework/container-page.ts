@@ -1,5 +1,5 @@
 import { PageElement } from './page-element';
-import { PageEventType } from './page-event';
+import { PageEventType } from './events/page-event';
 
 export class ContainerPage extends PageElement {
   public constructor(rootElement: HTMLElement, children: Array<PageElement>) {

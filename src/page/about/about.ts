@@ -1,6 +1,5 @@
 import { PageContent } from '../content/content';
 import { Header } from '../../model/portfolio';
-import { PageElement } from '../../framework/page-element';
 
 import { generate } from './about.html';
 import { createElement } from '../../framework/helper/create-element';

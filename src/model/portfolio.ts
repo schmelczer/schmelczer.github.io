@@ -1,4 +1,4 @@
-import { url } from './misc';
+import { url } from '../framework/model/misc';
 import { Primitive } from '../framework/primitives/primitive';
 import { Image } from '../framework/primitives/implementations/image';
 import { Anchor } from '../framework/primitives/implementations/anchor';

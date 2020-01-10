@@ -1,9 +1,7 @@
-@import '../../style/vars';
-@import '../../style/mixins';
+@use '../../style/include' as *;
 
 @include responsive() using ($vars) {
   div.background-element {
-    position: -webkit-sticky;
     position: absolute;
     left: 0;
     top: 0;
@@ -24,9 +22,9 @@
       }
     }
 
-    transition: transform map_get($vars, $long-transition-time),
-      opacity map_get($vars, $long-transition-time),
-      background-color map_get($vars, $long-transition-time);
+    transition: transform map_get($vars, $transition-time),
+      opacity map_get($vars, $transition-time),
+      background-color map_get($vars, $transition-time);
 
     will-change: transform, opacity;
     animation: fade-in 1s linear;

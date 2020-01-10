@@ -1,5 +1,4 @@
 import { Timeline } from '../../model/portfolio';
-import { PageElement } from '../../framework/page-element';
 import { PageTimelineElement } from './timeline-element/timeline-element';
 import { generate } from './timeline.html';
 import { createElement } from '../../framework/helper/create-element';

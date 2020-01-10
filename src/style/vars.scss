@@ -1,115 +1,108 @@
-@import 'fonts';
+@use 'fonts';
+@use "id" as *;
 
-$_id_value: 0;
-@function id() {
-  $_id_value: $_id_value + 1 !global;
-  @return $_id_value;
-}
-
-/* NAMES */
+/* KEYS */
 $background: id();
-
 $normal-text-color: id();
-$light-text-color: id();
-$important-card-text-color: id();
-
-$inverse-text-color: id();
-$card-color: id();
-$important-card-color: id();
-$theme-switcher-background: id();
-$theme-switcher-foreground: id();
+$very-light-text-color: id();
 $special-text-color: id();
-
+$card-color: id();
+$sun-color: id();
 $accent-color: id();
-$scrollbar-color: id();
 
-$short-transition-time: id();
-$long-transition-time: id();
-$line-width: id();
+$transition-time: id();
 $border-radius: id();
-$breakpoint-width: id();
-
-$large-margin: id();
-$normal-margin: id();
-$small-margin: id();
-$line-height: id();
-
-$shadow1: id();
-$shadow2: id();
-$shadow3: id();
-
+$line-width: id();
 $body-width: id();
 
+$small-margin: id();
+$normal-margin: id();
+$large-margin: id();
 $icon-size: id();
+$line-height: id();
+
+$shadow: id();
+$inset-shadow: id();
 /**/
 
-$breakpoint-width: 925px;
-
 $universal-variables: (
-  $short-transition-time: 220ms,
-  $long-transition-time: 350ms,
+  $transition-time: 250ms,
   $line-width: 3px,
   $line-height: 18px,
-  $theme-switcher-foreground: #f7f78c,
   $accent-color: #b7455e,
-  $important-card-color: #b7405a,
-  $shadow3: 0 0 15px 4px rgba(0, 0, 0, 0.1),
+  $sun-color: #f7f78c,
+  $very-light-text-color: #ffffff,
 );
 
-$large-screen-variables: map_merge(
-  (
-    $border-radius: 15px,
-    $large-margin: 70px,
-    $normal-margin: 45px,
-    $small-margin: 25px,
-    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.075),
-    $shadow2: 0 0 1px rgba(0, 0, 0, 0.2),
-    $icon-size: 35px,
-    $body-width: 765px,
+$large-screen-variables: (
+  $border-radius: 15px,
+  $large-margin: 70px,
+  $normal-margin: 45px,
+  $small-margin: 25px,
+  $shadow: (
+    0 0 10px 2px rgba(0, 0, 0, 0.075),
+    0 0 1px rgba(0, 0, 0, 0.2),
   ),
-  $universal-variables
+  $inset-shadow: (
+    inset 0 0 10px 2px rgba(0, 0, 0, 0.075),
+    inset 0 0 1px rgba(0, 0, 0, 0.2),
+  ),
+  $icon-size: 35px,
+  $body-width: 765px,
 );
 
-$small-screen-variables: map_merge(
-  (
-    $border-radius: 10px,
-    $large-margin: 60px,
-    $normal-margin: 30px,
-    $small-margin: 15px,
-    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.05),
-    $shadow2: 0 0 1px rgba(0, 0, 0, 0.125),
-    $icon-size: 25px,
-    $body-width: 90%,
+$small-screen-variables: (
+  $border-radius: 10px,
+  $large-margin: 60px,
+  $normal-margin: 30px,
+  $small-margin: 15px,
+  $shadow: (
+    0 0 10px 2px rgba(0, 0, 0, 0.05),
+    0 0 1px rgba(0, 0, 0, 0.125),
   ),
-  $universal-variables
+  $inset-shadow: (
+    inset 0 0 10px 2px rgba(0, 0, 0, 0.05),
+    inset 0 0 1px rgba(0, 0, 0, 0.125),
+  ),
+  $icon-size: 25px,
+  $body-width: 90%,
 );
 
-$light-theme-variables: map_merge(
-  (
-    $background: #ffffff,
-    $normal-text-color: #31343f,
-    $light-text-color: #7a7d8e,
-    $inverse-text-color: #ffffff,
-    $card-color: #ffffff,
-    $important-card-text-color: #ffffff,
-    $special-text-color: map_get($universal-variables, $accent-color),
-    $scrollbar-color: #ffd6d6,
-  ),
-  $universal-variables
+$light-theme-variables: (
+  $background: #ffffff,
+  $normal-text-color: #31343f,
+  $card-color: #ffffff,
+  $special-text-color: map_get($universal-variables, $accent-color),
 );
 
-$dark-theme-variables: map_merge(
-  (
-    $background: #242638,
-    $normal-text-color: #ffffff,
-    $light-text-color: #fff9e0,
-    $inverse-text-color: #242638,
-    $card-color: #263551,
-    $special-text-color: #ffffff,
-    $important-card-text-color: #fff9e0,
-    $scrollbar-color: #ffd6d6,
-    $shadow1: 0 0 10px 2px rgba(0, 0, 0, 0.175),
-    $shadow2: 0 0 1px rgba(0, 0, 0, 0.4),
+$dark-theme-variables: (
+  $background: #242638,
+  $normal-text-color: #ffffff,
+  $card-color: #263551,
+  $special-text-color: #ffffff,
+  $shadow: (
+    0 0 10px 2px rgba(0, 0, 0, 0.175),
+    0 0 1px rgba(0, 0, 0, 0.4),
   ),
-  $universal-variables
+  $inset-shadow: (
+    inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
+    inset 0 0 1px rgba(0, 0, 0, 0.4),
+  ),
+);
+
+$small-screen-light-theme-variables: map_merge(
+  $universal-variables,
+  map_merge($small-screen-variables, $light-theme-variables)
+);
+$small-screen-dark-theme-variables: map_merge(
+  $universal-variables,
+  map_merge($small-screen-variables, $dark-theme-variables)
+);
+$large-screen-light-theme-variables: map_merge(
+  $universal-variables,
+  map_merge($large-screen-variables, $light-theme-variables)
+);
+$large-screen-dark-theme-variables: map_merge(
+  $universal-variables,
+  map_merge($large-screen-variables, $dark-theme-variables)
 );
