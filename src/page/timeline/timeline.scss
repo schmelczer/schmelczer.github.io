@@ -1,7 +1,7 @@
 @use '../../style/include' as *;
 
 @include responsive() using ($vars) {
-  main#timeline {
+  div#timeline {
     @include on-large-screen {
       // workaround for IE
       & > :first-child {

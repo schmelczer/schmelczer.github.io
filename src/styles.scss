@@ -5,14 +5,9 @@
 @include responsive() using ($vars) {
   & {
     height: 100%;
-    overflow: hidden;
-
-    transform-style: preserve-3d;
 
     background-color: map_get($vars, $background);
-    transition: background-color map_get($vars, $transition-time);
-
-    touch-action: manipulation;
+    transition: background-color linear map_get($vars, $transition-time);
 
     @include on-small-screen {
       font-size: 0.8rem;
@@ -48,17 +43,13 @@
   *::after {
     @include main-font($vars);
 
-    transform-style: preserve-3d;
-
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color map_get($vars, $transition-time),
+    transition: background-color linear map_get($vars, $transition-time),
       color map_get($vars, $transition-time);
 
     hyphens: auto;
-
-    touch-action: manipulation;
   }
 
   img,
@@ -66,7 +57,6 @@
   .figure-container {
     width: 100%;
     height: auto;
-    object-fit: contain;
   }
 
   .figure-container {
@@ -97,35 +87,34 @@
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
 
+    height: 100%;
+
     @media print {
       & {
         height: auto;
       }
     }
 
-    max-height: 100%; // to take mobile nav-bar into account
-    overflow-x: hidden;
-    overflow-y: scroll;
+    div#main {
+      height: 100%;
+      overflow-x: hidden;
+      overflow-y: scroll;
 
-    //will-change: transform;
-
-    perspective: 5px;
-    perspective-origin: center center;
-
-    noscript {
-      @include square(100%);
-      @include center-children();
-    }
-
-    @include on-large-screen {
-      &::-webkit-scrollbar-track,
-      &::-webkit-scrollbar {
-        background-color: transparent;
-        width: 12px;
+      noscript {
+        @include square(100%);
+        @include center-children();
       }
-      &::-webkit-scrollbar-thumb {
-        background-color: map_get($vars, $accent-color);
-        border-radius: map_get($vars, $border-radius);
+
+      @include on-large-screen {
+        &::-webkit-scrollbar-track,
+        &::-webkit-scrollbar {
+          background-color: transparent;
+          width: 12px;
+        }
+        &::-webkit-scrollbar-thumb {
+          background-color: map_get($vars, $accent-color);
+          border-radius: map_get($vars, $border-radius);
+        }
       }
     }
   }

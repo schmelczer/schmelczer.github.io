@@ -19,6 +19,7 @@
   padding: map_get($vars, vars.$normal-margin);
   box-shadow: map_get($vars, vars.$shadow);
   z-index: 1;
+  width: 100%;
 }
 
 @mixin square($size) {

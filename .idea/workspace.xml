@@ -2,11 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/page/background/animation.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/background/vec2.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/page/background/vec3.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/blob.html.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/mixins.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,7 +53,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../life-towers" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/page/background" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
@@ -56,6 +65,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/page/background" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
@@ -127,6 +137,7 @@
       <workItem from="1578559306201" duration="8231000" />
       <workItem from="1578641947739" duration="28021000" />
       <workItem from="1578727663054" duration="2241000" />
+      <workItem from="1578731179373" duration="9813000" />
     </task>
     <servers />
   </component>
@@ -166,17 +177,25 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1664" y="411" width="502" height="292" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.27.2560.1053@0.27.2560.1053" timestamp="1578563647005" />
-    <state x="1380" y="127" width="1080" height="853" key="DiffContextDialog" timestamp="1578686003357">
+    <state x="1171" y="27" width="1080" height="853" maximized="true" key="DiffContextDialog" timestamp="1578738442479">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1380" y="127" width="1080" height="853" key="DiffContextDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1578686003357" />
-    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578687009013">
+    <state x="1171" y="27" width="1080" height="853" maximized="true" key="DiffContextDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1578738442479" />
+    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578740458107">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.2560.1053@0.27.2560.1053" timestamp="1578687009013" />
-    <state x="1603" y="289" width="774" height="677" key="find.popup" timestamp="1578682206106">
+    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.2560.1053@0.27.2560.1053" timestamp="1578740458107" />
+    <state x="2130" y="404" width="969" height="749" key="dock-window-1" timestamp="1578731230649">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1603" y="289" width="774" height="677" key="find.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1578682206106" />
+    <state x="2130" y="404" width="969" height="749" key="dock-window-1/0.27.2560.1053@0.27.2560.1053" timestamp="1578731230649" />
+    <state x="1603" y="289" width="774" height="677" key="find.popup" timestamp="1578740080122">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="1603" y="289" width="774" height="677" key="find.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1578740080122" />
+    <state x="943" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1578734818429">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="943" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1578734818429" />
   </component>
 </project>

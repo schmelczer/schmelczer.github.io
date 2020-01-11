@@ -1,33 +1,17 @@
 @use '../../style/include' as *;
 
 @include responsive() using ($vars) {
-  div.background-element {
-    position: absolute;
+  canvas#background {
+    position: fixed;
     top: 0;
     left: 0;
-    border-radius: 100px;
-    width: 140px;
+    height: 100%;
+    width: 100%;
+    z-index: -10;
 
-    overflow: visible !important; // IE11 fix for disappearing elements
-
-    @media (prefers-reduced-motion: reduce) {
+    @media print {
       & {
         display: none;
-      }
-    }
-
-    transition: transform map_get($vars, $transition-time),
-      opacity map_get($vars, $transition-time),
-      background-color map_get($vars, $transition-time);
-
-    will-change: transform, opacity;
-    animation: fade-in 1s linear;
-    @keyframes fade-in {
-      from {
-        opacity: 0;
-      }
-      to {
-        opacity: 1;
       }
     }
   }
