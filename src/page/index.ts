@@ -8,16 +8,15 @@ import { ContainerPage } from '../framework/container-page';
 
 export const create = ({ header, timeline, footer }: Portfolio) => {
   const pageHeader = new PageHeader(header);
+  const pageTimeline = new PageTimeline(timeline);
   const pageFooter = new PageFooter(footer);
 
   new ContainerPage(document.body, [
     new PageImageViewer(),
-    new ContainerPage(document.body.querySelector('.main'), [
-      pageHeader,
-      new PageTimeline(timeline),
-      pageFooter,
-      new PageBackground(pageHeader, pageFooter),
-    ]),
+    pageHeader,
+    pageTimeline,
+    pageFooter,
+    new PageBackground(pageHeader, [pageTimeline], pageFooter),
   ]).setAsMain();
 
   addSupportForTabNavigation();

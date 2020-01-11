@@ -9,7 +9,11 @@ export class PageBackground extends PageElement {
   private readonly blobs: Array<Blob> = [];
   private readonly blobSpacing = 350;
 
-  public constructor(private start: PageElement, private end: PageElement) {
+  public constructor(
+    private readonly start: PageElement,
+    private readonly inBetween: Array<PageElement>,
+    private readonly end: PageElement
+  ) {
     super();
     Blob.initialize(10, 30, 5);
   }
@@ -35,7 +39,7 @@ export class PageBackground extends PageElement {
   }
 
   private resize(parent: PageElement, heightChange?: number) {
-    const siblings: Array<HTMLElement> = PageBackground.getSiblings(parent);
+    const siblings: Array<HTMLElement> = this.getSiblings();
 
     const width = document.body.clientWidth;
     let height = sum(siblings.map(getHeight));
@@ -72,9 +76,7 @@ export class PageBackground extends PageElement {
     });
   }
 
-  private static getSiblings(parent: PageElement): Array<HTMLElement> {
-    return Array.prototype.slice
-      .call(parent.element.children)
-      .filter((e: HTMLElement) => !e.classList.contains('background-element'));
+  private getSiblings(): Array<HTMLElement> {
+    return [this.start, ...this.inBetween, this.end].map(e => e.element);
   }
 }
