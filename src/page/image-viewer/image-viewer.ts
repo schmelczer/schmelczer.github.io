@@ -28,10 +28,11 @@ export class PageImageViewer extends PageElement {
 
   private handleClick(event: Event) {
     const container = this.query('#container');
-    Array.prototype.forEach.call(container.childNodes, (e: HTMLElement) =>
-      e.remove()
-    );
-    container.appendChild((event.target as HTMLElement).cloneNode());
+    container.firstElementChild?.remove();
+
+    const element: HTMLImageElement = new Image();
+    element.src = (event.target as HTMLImageElement).src;
+    container.appendChild(element);
     PageImageViewer.show(this.element);
   }
 

@@ -2,21 +2,129 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/page/background/animation.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/background/vec2.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/page/background/vec3.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CompiledCV.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CompiledCV.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Schme.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Schme.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/andras.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/andras.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vagrant.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vagrant.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/custom.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/container-page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/container-page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/events/event-broadcaster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/events/event-broadcaster.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/events/page-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/events/page-event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/framework.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/framework.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/create-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/create-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/get-height.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/get-height.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/last.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/last.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/mix-colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/mix-colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/random.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/random.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/sum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/sum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/model/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/model/misc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/page-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/page-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/text.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/primitive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/primitive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/animations/animations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/animations/animations.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/animations/animations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/animations/animations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/wrapper.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/wrapper.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/animation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/animation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/page/background/blob.html.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/vec2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/vec2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/vec3.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/vec3.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/cv/andras_schmelczer_cv_2020_01.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/cv/andras_schmelczer_cv_2020_01.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-italic.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/lato/lato-v16-latin-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.eot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.ttf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.woff" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/fonts/montserrat/montserrat-v14-latin-regular.woff2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/icons/cancel.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/icons/cancel.svg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/avoid.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/avoid.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/color.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/color.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/forex.gif" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/forex.gif" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/forex.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/forex.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/forex.webm" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/forex.webm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/led.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/led.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/led.mp4" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/led.mp4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/led.webm" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/led.webm" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/me-2.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/me-2.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/me.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/me.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/my-notes.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/my-notes.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/og-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/og-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/og.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/og.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/photos.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/photos.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/platform.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/platform.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/process-simulator-input.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/process-simulator-input.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/process-simulator.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/process-simulator.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/media/simulation.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/media/simulation.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/no-change/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/no-change/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/static/no-change/og-image.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/src/static/no-change/og-image.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/_id.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/_id.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/a.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/a.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/configured-responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/configured-responsive.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/include.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/include.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/style/mixins.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/mixins.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/vars.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +161,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="ignore_missing_gitignore" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/page/background" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.stylelint" value="true" />
     <property name="node.js.path.for.package.stylelint" value="project" />
     <property name="node.js.selected.package.stylelint" value="" />
@@ -137,7 +245,13 @@
       <workItem from="1578559306201" duration="8231000" />
       <workItem from="1578641947739" duration="28021000" />
       <workItem from="1578727663054" duration="2241000" />
-      <workItem from="1578731179373" duration="9813000" />
+      <workItem from="1578731179373" duration="13801000" />
+      <workItem from="1578769440356" duration="1142000" />
+      <workItem from="1578775328528" duration="93000" />
+      <workItem from="1578775485718" duration="527000" />
+      <workItem from="1578814887967" duration="1959000" />
+      <workItem from="1578817329583" duration="2069000" />
+      <workItem from="1578831427111" duration="6439000" />
     </task>
     <servers />
   </component>
@@ -161,14 +275,22 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1629" y="108" width="571" height="897" key="#Dockerfile" timestamp="1578745273332">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="1629" y="108" width="571" height="897" key="#Dockerfile/0.27.2560.1053@0.27.2560.1053" timestamp="1578745273332" />
     <state x="1515" y="215" width="800" height="684" key="#Inspections" timestamp="1578563668907">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1515" y="215" width="800" height="684" key="#Inspections/0.27.2560.1053@0.27.2560.1053" timestamp="1578563668907" />
-    <state x="1648" y="359" width="545" height="410" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578643626511">
+    <state x="1515" y="215" width="800" height="684" key="#Plugins" timestamp="1578749197331">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1648" y="359" width="545" height="410" key="#com.intellij.fileTypes.FileTypeChooser/0.27.2560.1053@0.27.2560.1053" timestamp="1578643626511" />
+    <state x="1515" y="215" width="800" height="684" key="#Plugins/0.27.2560.1053@0.27.2560.1053" timestamp="1578749197331" />
+    <state x="1648" y="359" width="552" height="417" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1578746105174">
+      <screen x="0" y="27" width="2560" height="1053" />
+    </state>
+    <state x="1648" y="359" width="552" height="417" key="#com.intellij.fileTypes.FileTypeChooser/0.27.2560.1053@0.27.2560.1053" timestamp="1578746105174" />
     <state x="1653" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1578646728957">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -181,10 +303,10 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1171" y="27" width="1080" height="853" maximized="true" key="DiffContextDialog/0.27.2560.1053@0.27.2560.1053" timestamp="1578738442479" />
-    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578740458107">
+    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1578855911005">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.2560.1053@0.27.2560.1053" timestamp="1578740458107" />
+    <state x="1072" y="473" width="415" height="167" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.27.2560.1053@0.27.2560.1053" timestamp="1578855911005" />
     <state x="2130" y="404" width="969" height="749" key="dock-window-1" timestamp="1578731230649">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
@@ -193,9 +315,9 @@
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
     <state x="1603" y="289" width="774" height="677" key="find.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1578740080122" />
-    <state x="943" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1578734818429">
+    <state x="943" y="259" width="672" height="678" key="search.everywhere.popup" timestamp="1578749177327">
       <screen x="0" y="27" width="2560" height="1053" />
     </state>
-    <state x="943" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1578734818429" />
+    <state x="943" y="259" width="672" height="678" key="search.everywhere.popup/0.27.2560.1053@0.27.2560.1053" timestamp="1578749177327" />
   </component>
 </project>

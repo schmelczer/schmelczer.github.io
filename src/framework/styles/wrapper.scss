@@ -7,7 +7,7 @@ $large-screen-light-theme-variables: () !default;
 $large-screen-dark-theme-variables: () !default;
 
 @mixin on-small-screen() {
-  @media (max-width: $breakpoint-width) {
+  @media (max-width: $breakpoint-width - 1px) {
     @content;
   }
 }

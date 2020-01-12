@@ -5,7 +5,8 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development",
-    "build": "webpack"
+    "build": "webpack",
+    "build-docker": "webpack && docker build -t portfolio . && docker save -o target/portfolio portfolio"
   },
   "repository": {
     "type": "git",

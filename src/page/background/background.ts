@@ -142,7 +142,7 @@ export class PageBackground extends PageElement {
         blob.topLeft.add(Vec3.from(blob.size, 0))
       );
 
-      if (this.isInView(topLeft) || this.isInView(bottomRight)) {
+      if (this.isInView(topLeft, bottomRight)) {
         blob.draw(this.ctx, topLeft, bottomRight.subtract(topLeft));
       }
     });
@@ -175,12 +175,12 @@ export class PageBackground extends PageElement {
     return new Vec2(p.x * m - z / 2, p.y * m - z / 2 + scrollPosition);
   }
 
-  private isInView(p: Vec2): boolean {
+  private isInView(topLeft: Vec2, bottomRight: Vec2): boolean {
     return (
-      0 <= p.x &&
-      p.x <= this.canvas.width &&
-      0 <= p.y &&
-      p.y <= this.canvas.height
+      ((0 <= topLeft.x && topLeft.x <= this.canvas.width) ||
+        (0 <= bottomRight.x && bottomRight.x < this.canvas.width)) &&
+      ((0 <= topLeft.y && topLeft.y <= this.canvas.height) ||
+        (0 <= bottomRight.y && bottomRight.y <= this.canvas.height))
     );
   }
 

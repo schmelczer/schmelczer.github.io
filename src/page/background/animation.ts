@@ -7,9 +7,10 @@ export class Animation<T> {
     private to: T,
     private intervalInMs: number,
     private interpolator: (from: T, to: T, q: number) => T,
-
     private onChange?: (currentValue: T) => void
-  ) {}
+  ) {
+    this._value = from;
+  }
 
   public step(deltaTimeInMs: number) {
     if (this.elapsedTime === this.intervalInMs) {
