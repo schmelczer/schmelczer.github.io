@@ -16,6 +16,7 @@
     img {
       @include square($img-size);
       border-radius: 100%;
+      cursor: pointer;
     }
 
     p {
