@@ -3,7 +3,69 @@
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/custom.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/custom.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/container-page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/container-page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/events/event-broadcaster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/events/event-broadcaster.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/events/page-event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/events/page-event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/framework.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/framework.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/create-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/create-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/get-height.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/get-height.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/last.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/last.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/mix-colors.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/mix-colors.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/polyfills.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/polyfills.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/random.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/random.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/helper/sum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/helper/sum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/model/misc.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/model/misc.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/page-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/page-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/anchor.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/text.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/text.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/primitive.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/primitive.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/animations/animations.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/animations/animations.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/animations/animations.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/animations/animations.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/dark-mode/dark-mode.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/index.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/index.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/styles/wrapper.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/styles/wrapper.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/model/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/model/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/about/about.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/about/about.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/animation.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/animation.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/vec2.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/vec2.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/vec3.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/vec3.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/content/content.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/content/content.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/footer/footer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/footer/footer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/configured-responsive.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/configured-responsive.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/include.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/include.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/vars.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/vars.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.config.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,13 +113,6 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/page/background" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
-      <recent name="$PROJECT_DIR$" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/framework/events" />
       <recent name="$PROJECT_DIR$/src/framework/model" />
@@ -65,16 +120,23 @@
       <recent name="$PROJECT_DIR$/src/framework/styles" />
       <recent name="$PROJECT_DIR$/src/framework/helper/animations" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/page/background" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>
