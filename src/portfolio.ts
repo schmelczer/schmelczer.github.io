@@ -180,7 +180,7 @@ export const portfolio: Portfolio = {
             `By clicking on a colored circle you can change its settings. 
             New circles can be created by clicking in the large circle (and they can also be moved by drag & drop).`
           ),
-          new Anchor('color', `schmelczer.dev/color`),
+          new Anchor('https://color.schmelczer.dev', `color.schmelczer.dev`),
         ],
       },
       {
@@ -207,7 +207,10 @@ export const portfolio: Portfolio = {
         description: new Text(
           `A simple web page where you can view my photos.`
         ),
-        link: new Anchor(`photos`, `schmelczer.dev/photos`),
+        link: new Anchor(
+          `https://photo.schmelczer.dev`,
+          `photo.schmelczer.dev`
+        ),
       },
       {
         date: `2016 spring`,
