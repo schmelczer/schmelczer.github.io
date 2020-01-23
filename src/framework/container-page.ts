@@ -1,5 +1,6 @@
 import { PageElement } from './page-element';
-import { PageEventType } from './events/page-event';
+import { OnEventBroadcasterChangedEvent } from './events/concrete-events/on-event-broadcaster-changed-event';
+import { OnLoadEvent } from './events/concrete-events/on-load-event';
 
 export class ContainerPage extends PageElement {
   public constructor(rootElement: HTMLElement, children: Array<PageElement>) {
@@ -10,11 +11,7 @@ export class ContainerPage extends PageElement {
   }
 
   public setAsMain() {
-    this.broadcastEvent(
-      { type: PageEventType.eventBroadcasterChanged, data: this },
-      this
-    );
-
-    this.broadcastEvent({ type: PageEventType.onLoad }, this);
+    this.broadcastEvent(new OnEventBroadcasterChangedEvent(this));
+    this.broadcastEvent(new OnLoadEvent(this));
   }
 }

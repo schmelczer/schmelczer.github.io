@@ -4,24 +4,29 @@ import { generate } from './background.html';
 import { Animation } from './animation';
 import { Vec3 } from './vec3';
 import { Vec2 } from './vec2';
-import { PageEvent, PageEventType } from '../../framework/events/page-event';
 import { createElement } from '../../framework/helper/create-element';
 import { sum } from '../../framework/helper/sum';
 import { getHeight } from '../../framework/helper/get-height';
+import { OnLoadEvent } from '../../framework/events/concrete-events/on-load-event';
+import { OnBodyDimensionsChangedEvent } from '../../framework/events/concrete-events/on-body-dimensions-changed-event';
+import { OnPageThemeChangedEvent } from '../../framework/events/concrete-events/on-page-theme-changed-event';
+import { OptionalEvent } from '../../framework/events/optional-event';
 
 export class PageBackground extends PageElement {
-  private readonly blobs: Array<Blob> = [];
-  private readonly blobSpacing = 325;
-  private readonly minBlobCount = 30;
-  private readonly perspective = 5;
-  private readonly zMin = 10;
-  private readonly zMax = 30;
-  private readonly animationTime = 250;
+  public static readonly BLOB_SPACING = 325;
+  public static readonly MIN_BLOB_COUNT = 30;
+  public static readonly PERSPECTIVE = 5;
+  public static readonly Z_MIN = 10;
+  public static readonly Z_MAX = 30;
+  public static readonly ANIMATION_TIME = 250;
+
   private backgroundSize: Animation<Vec2>;
   private scrollPosition: number = 0;
   private previousTimestamp: DOMHighResTimeStamp = null;
+  private readonly blobs: Array<Blob> = [];
   private readonly canvas: HTMLCanvasElement;
   private readonly ctx: CanvasRenderingContext2D;
+  private parent: PageElement;
 
   public constructor(
     private readonly start: PageElement,
@@ -31,35 +36,40 @@ export class PageBackground extends PageElement {
     super(createElement(generate()));
     this.canvas = this.element as HTMLCanvasElement;
     this.ctx = this.canvas.getContext('2d');
-    Blob.initialize(this.zMin, this.zMax);
   }
 
-  protected handleEvent(event: PageEvent, parent: PageElement) {
-    switch (event.type) {
-      case PageEventType.onLoad:
-        this.bindListeners(parent);
-        break;
-      case PageEventType.onBodyDimensionsChanged:
-        this.resize(parent, event.data?.deltaHeight);
-        break;
-      case PageEventType.pageThemeChanged:
-        Blob.changeTheme(event.data);
-        this.blobs.forEach(b => b.decideColor());
-        break;
-    }
+  public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
+    this.parent = event.parent;
+    this.bindListeners();
+    return super.handleOnLoadEvent(event);
   }
 
-  private bindListeners(parent: PageElement) {
-    window.addEventListener('resize', () => this.resize(parent));
+  public handleOnBodyDimensionsChangedEvent(
+    event: OnBodyDimensionsChangedEvent
+  ): OptionalEvent {
+    this.resize(event.deltaHeight);
+    return super.handleOnBodyDimensionsChangedEvent(event);
+  }
+
+  public handleOnPageThemeChangedEvent(
+    event: OnPageThemeChangedEvent
+  ): OptionalEvent {
+    Blob.changeTheme(event.isDark);
+    this.blobs.forEach(b => b.decideColor());
+    return super.handleOnPageThemeChangedEvent(event);
+  }
+
+  private bindListeners() {
+    window.addEventListener('resize', () => this.resize());
     window.addEventListener('load', e => {
-      this.resize(parent);
-      this.redraw(e.timeStamp, parent);
+      this.resize();
+      this.redraw(e.timeStamp);
     });
   }
 
-  private resize(parent: PageElement, heightChange?: number) {
+  private resize(heightChange?: number) {
     this.resizeCanvas();
-    this.resizeBackground(parent, heightChange);
+    this.resizeBackground(heightChange);
   }
 
   private resizeCanvas() {
@@ -67,8 +77,8 @@ export class PageBackground extends PageElement {
     this.canvas.height = this.canvas.clientHeight;
   }
 
-  private resizeBackground(parent: PageElement, heightChange?: number) {
-    const targetWidth = parent.element.clientWidth;
+  private resizeBackground(heightChange?: number) {
+    const targetWidth = this.parent.element.clientWidth;
 
     const siblings: Array<HTMLElement> = this.getSiblings();
     let targetHeight = sum(siblings.map(getHeight));
@@ -81,7 +91,7 @@ export class PageBackground extends PageElement {
     this.backgroundSize = new Animation(
       this.backgroundSize ? this.backgroundSize.value : targetSize,
       targetSize,
-      this.animationTime,
+      PageBackground.ANIMATION_TIME,
       (from: Vec2, to: Vec2, q: number): Vec2 =>
         new Vec2(from.x + q * (to.x - from.x), from.y + q * (to.y - from.y)),
       backgroundSize =>
@@ -90,7 +100,10 @@ export class PageBackground extends PageElement {
             Math.max(
               0,
               offset -
-                ((blob.z - this.zMin) / (this.zMax - this.zMin)) * offset * q
+                ((blob.z - PageBackground.Z_MIN) /
+                  (PageBackground.Z_MAX - PageBackground.Z_MIN)) *
+                  offset *
+                  q
             );
           const topOffset = variableOffset(getHeight(this.start.element), 1);
           const topLeft = this.convertFrom2Dto3D(
@@ -116,14 +129,14 @@ export class PageBackground extends PageElement {
     return [this.start, ...this.inBetween, this.end].map(e => e.element);
   }
 
-  private redraw(timestamp: DOMHighResTimeStamp, parent: PageElement) {
+  private redraw(timestamp: DOMHighResTimeStamp) {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
 
     const deltaTime = this.getDeltaTime(timestamp);
     this.backgroundSize.step(deltaTime);
     this.blobs.forEach(b => b.step(deltaTime));
 
-    this.scrollPosition = parent.element.scrollTop;
+    this.scrollPosition = this.parent.element.scrollTop;
     const requiredBlobCount = this.requiredBlobCount;
 
     while (requiredBlobCount > this.blobs.length) {
@@ -147,7 +160,7 @@ export class PageBackground extends PageElement {
       }
     });
 
-    window.requestAnimationFrame(timestamp => this.redraw(timestamp, parent));
+    window.requestAnimationFrame(timestamp => this.redraw(timestamp));
   }
 
   private getDeltaTime(timestamp: DOMHighResTimeStamp): number {
@@ -159,7 +172,7 @@ export class PageBackground extends PageElement {
   }
 
   private convertFrom3Dto2D(p: Vec3): Vec2 {
-    const m = this.perspective / (this.perspective + p.z);
+    const m = PageBackground.PERSPECTIVE / (PageBackground.PERSPECTIVE + p.z);
     return new Vec2(
       m * (p.z / 2 + p.x),
       m * (p.z / 2 + p.y - this.scrollPosition)
@@ -171,7 +184,7 @@ export class PageBackground extends PageElement {
     z: number,
     scrollPosition: number = 0
   ): Vec2 {
-    const m = 1 + z / this.perspective;
+    const m = 1 + z / PageBackground.PERSPECTIVE;
     return new Vec2(p.x * m - z / 2, p.y * m - z / 2 + scrollPosition);
   }
 
@@ -186,10 +199,10 @@ export class PageBackground extends PageElement {
 
   private get requiredBlobCount(): number {
     return Math.max(
-      this.minBlobCount,
+      PageBackground.MIN_BLOB_COUNT,
       Math.round(
         (this.backgroundSize.value.x * this.backgroundSize.value.y) /
-          this.blobSpacing ** 2
+          PageBackground.BLOB_SPACING ** 2
       )
     );
   }

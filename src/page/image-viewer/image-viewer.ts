@@ -1,8 +1,9 @@
 import { PageElement } from '../../framework/page-element';
 
 import { generate } from './image-viewer.html';
-import { PageEvent, PageEventType } from '../../framework/events/page-event';
 import { createElement } from '../../framework/helper/create-element';
+import { OnLoadEvent } from '../../framework/events/concrete-events/on-load-event';
+import { OptionalEvent } from '../../framework/events/optional-event';
 
 export class PageImageViewer extends PageElement {
   public constructor() {
@@ -10,20 +11,17 @@ export class PageImageViewer extends PageElement {
     this.element.onclick = () => PageImageViewer.hide(this.element);
   }
 
-  protected handleEvent(event: PageEvent, parent: PageElement) {
-    if (event.type === PageEventType.onLoad) {
-      document.body.addEventListener('keydown', this.handleKeydown.bind(this));
+  public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
+    document.body.addEventListener('keydown', this.handleKeydown.bind(this));
 
-      const media = Array.prototype.slice.call(
-        parent.element.querySelectorAll('img')
+    const media = Array.prototype.slice.call(document.querySelectorAll('img'));
+
+    media
+      .filter((e: HTMLElement) => e.parentElement !== this.element)
+      .forEach(
+        (e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this))
       );
-
-      media
-        .filter((e: HTMLElement) => e.parentElement !== this.element)
-        .forEach(
-          (e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this))
-        );
-    }
+    return super.handleOnLoadEvent(event);
   }
 
   private handleClick(event: Event) {

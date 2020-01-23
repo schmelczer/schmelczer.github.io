@@ -6,12 +6,13 @@ import {
   turnOnDarkMode,
   turnOnLightMode,
 } from '../../framework/styles/dark-mode/dark-mode';
-import { PageEvent, PageEventType } from '../../framework/events/page-event';
-import { EventBroadcaster } from '../../framework/events/event-broadcaster';
 import {
   turnOffAnimations,
   turnOnAnimations,
 } from '../../framework/styles/animations/animations';
+import { OnLoadEvent } from '../../framework/events/concrete-events/on-load-event';
+import { OnPageThemeChangedEvent } from '../../framework/events/concrete-events/on-page-theme-changed-event';
+import { OptionalEvent } from '../../framework/events/optional-event';
 
 export class PageThemeSwitcher extends PageElement {
   private static readonly LOCAL_STORAGE_KEY = 'dark-mode';
@@ -33,10 +34,9 @@ export class PageThemeSwitcher extends PageElement {
     this.element.onchange = this.handleThemeChange.bind(this);
   }
 
-  protected handleEvent(event: PageEvent, parent: EventBroadcaster) {
-    if (event.type === PageEventType.onLoad) {
-      this.handleThemeChange();
-    }
+  public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
+    this.handleThemeChange();
+    return super.handleOnLoadEvent(event);
   }
 
   private handleThemeChange() {
@@ -46,11 +46,8 @@ export class PageThemeSwitcher extends PageElement {
     } else {
       turnOnLightMode();
     }
-    this.eventBroadcaster.broadcastEvent({
-      type: PageEventType.pageThemeChanged,
-      data: isDark,
-    });
 
+    this.eventBroadcaster.broadcastEvent(new OnPageThemeChangedEvent(isDark));
     PageThemeSwitcher.saveToLocalStorage(isDark);
   }
 

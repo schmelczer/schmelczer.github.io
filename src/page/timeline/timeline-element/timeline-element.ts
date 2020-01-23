@@ -2,8 +2,8 @@ import { TimelineElement } from '../../../model/portfolio';
 import { PageContent } from '../../content/content';
 import { PageElement } from '../../../framework/page-element';
 import { generate } from './timeline-element.html';
-import { PageEventType } from '../../../framework/events/page-event';
 import { createElement } from '../../../framework/helper/create-element';
+import { OnBodyDimensionsChangedEvent } from '../../../framework/events/concrete-events/on-body-dimensions-changed-event';
 
 export class PageTimelineElement extends PageElement {
   private isOpen: boolean;
@@ -46,16 +46,15 @@ export class PageTimelineElement extends PageElement {
   }
 
   private notifyOfHeightChange(deltaHeight: number = undefined) {
-    this.eventBroadcaster?.broadcastEvent({
-      type: PageEventType.onBodyDimensionsChanged,
-      data: { deltaHeight },
-    });
+    this.eventBroadcaster?.broadcastEvent(
+      new OnBodyDimensionsChangedEvent(deltaHeight)
+    );
 
     setTimeout(
       () =>
-        this.eventBroadcaster?.broadcastEvent({
-          type: PageEventType.onBodyDimensionsChanged,
-        }),
+        this.eventBroadcaster?.broadcastEvent(
+          new OnBodyDimensionsChangedEvent()
+        ),
       250
     );
   }

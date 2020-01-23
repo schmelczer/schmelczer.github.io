@@ -1,5 +1,5 @@
-import { PageEvent } from './page-event';
+import { Event } from './event';
 
 export interface EventBroadcaster {
-  broadcastEvent(event: PageEvent, parent?: EventBroadcaster);
+  broadcastEvent(event: Event);
 }

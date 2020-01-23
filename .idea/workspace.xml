@@ -2,8 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/framework/events/concrete-events/on-body-dimensions-changed-event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/events/concrete-events/on-event-broadcaster-changed-event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/events/concrete-events/on-load-event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/events/concrete-events/on-page-theme-changed-event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/events/event-handler.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/events/event.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/framework/events/optional-event.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/container-page.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/container-page.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/events/event-broadcaster.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/events/event-broadcaster.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/events/page-event.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/page-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/page-element.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/image.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/framework/primitives/implementations/video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.html.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.html.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/background.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/background.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/background/blob.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/background/blob.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/image-viewer/image-viewer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/theme-switcher/theme-switcher.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/page/timeline/timeline-element/timeline-element.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/style/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/style/fonts.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +71,13 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Projects\portfolio\CompiledCV\src\framework\events\concrete-events" />
+      <recent name="$PROJECT_DIR$/src/framework/events" />
+      <recent name="$PROJECT_DIR$/src/framework/model" />
+      <recent name="$PROJECT_DIR$/src/framework/styles/dark-mode" />
+      <recent name="$PROJECT_DIR$/src/framework/styles" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/page/background" />
       <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
@@ -58,23 +85,16 @@
       <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
       <recent name="$PROJECT_DIR$" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/framework/events" />
-      <recent name="$PROJECT_DIR$/src/framework/model" />
-      <recent name="$PROJECT_DIR$/src/framework/styles/dark-mode" />
-      <recent name="$PROJECT_DIR$/src/framework/styles" />
-      <recent name="$PROJECT_DIR$/src/framework/helper/animations" />
-    </key>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
+  <component name="RunDashboard">
+    <option name="ruleStates">
       <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
       </list>
     </option>
   </component>

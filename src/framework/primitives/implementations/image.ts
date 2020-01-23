@@ -9,24 +9,28 @@ export class Image implements Primitive {
     private readonly alt: string
   ) {}
 
-  public toHTML(disableInnerShadow = false): html {
+  public toHTML(noContainer = false): html {
     return `
-        ${!disableInnerShadow ? `<div class="figure-container">` : ''}
+        ${!noContainer ? `<div class="figure-container">` : ''}
             <img tabindex="0"
                 srcset="${this.image.srcSet}" 
-                sizes="${this.image.images
-                  .slice(0, -1)
-                  .map(
-                    d =>
-                      `(max-width: ${d.width / Image.IMAGE_SCREEN_RATIO}px) ${
-                        d.width
-                      }px,`
-                  )
-                  .join('\n') + `\n${last(this.image.images).width}px`}"
+                sizes="${this.getSizes()}"
                 src="${last(this.image.images)?.path}" 
                 alt="${this.alt}"
             />
-        ${!disableInnerShadow ? `</div>` : ''}
+        ${!noContainer ? `</div>` : ''}
       `;
+  }
+
+  private getSizes(): string {
+    return (
+      this.image.images
+        .slice(0, -1)
+        .map(
+          d =>
+            `(max-width: ${d.width / Image.IMAGE_SCREEN_RATIO}px) ${d.width}px,`
+        )
+        .join('\n') + `\n${last(this.image.images).width}px`
+    );
   }
 }

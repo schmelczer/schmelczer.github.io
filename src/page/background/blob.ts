@@ -3,40 +3,38 @@ import { Vec3 } from './vec3';
 import { mixColors } from '../../framework/helper/mix-colors';
 import { Random } from '../../framework/helper/random';
 import { Animation } from './animation';
+import { PageBackground } from './background';
 
 export class Blob {
-  private static readonly darkColors = ['#2c477a'];
-  private static readonly lightColors = ['#fff9e0', '#ffd6d6'];
-  private static readonly rotation = (-20 / 180) * Math.PI;
-  private static readonly creatorRandom = new Random(51);
+  private static readonly DARK_COLORS = ['#2c477a'];
+  private static readonly LIGHT_COLORS = ['#fff9e0', '#ffd6d6'];
+  private static readonly ROTATION = (-20 / 180) * Math.PI;
+  private static readonly CREATOR_RANDOM = new Random(51);
+
   private static colorPickerRandom = new Random(132);
   private static isDarkThemed = false;
-
-  private static zMin: number;
-  private static zMax: number;
-  public static initialize(zMin: number, zMax: number) {
-    Blob.zMin = zMin;
-    Blob.zMax = zMax;
-  }
 
   public static changeTheme(isDarkThemed: boolean) {
     Blob.colorPickerRandom = new Random(132);
     Blob.isDarkThemed = isDarkThemed;
   }
 
-  public readonly z = Blob.creatorRandom.randomInInterval(Blob.zMin, Blob.zMax);
+  public readonly z = Blob.CREATOR_RANDOM.randomInInterval(
+    PageBackground.Z_MIN,
+    PageBackground.Z_MAX
+  );
   private color: Animation<string>;
 
   private readonly positionQ = new Vec2(
-    Blob.creatorRandom.next,
-    Blob.creatorRandom.next
+    Blob.CREATOR_RANDOM.next,
+    Blob.CREATOR_RANDOM.next
   );
   private _positionScale = new Vec2(0, 0);
   private _positionOffset = new Vec2(0, 0);
 
   private readonly _size = new Vec2(
     140,
-    Blob.creatorRandom.randomInInterval(260, 740)
+    Blob.CREATOR_RANDOM.randomInInterval(260, 740)
   );
 
   public constructor() {
@@ -47,9 +45,10 @@ export class Blob {
     const target = mixColors(
       Blob.isDarkThemed ? '#242638' : '#ffffff',
       Blob.colorPickerRandom.choose(
-        Blob.isDarkThemed ? Blob.darkColors : Blob.lightColors
+        Blob.isDarkThemed ? Blob.DARK_COLORS : Blob.LIGHT_COLORS
       ),
-      (this.z - Blob.zMin) / (Blob.zMax - Blob.zMin)
+      (this.z - PageBackground.Z_MIN) /
+        (PageBackground.Z_MAX - PageBackground.Z_MIN)
     );
 
     this.color = new Animation<string>(
@@ -87,7 +86,7 @@ export class Blob {
     ctx.save();
 
     ctx.translate(position.x, position.y);
-    ctx.rotate(Blob.rotation);
+    ctx.rotate(Blob.ROTATION);
 
     ctx.beginPath();
     ctx.arc(0, size.x / 2, size.x / 2, Math.PI, 0);
