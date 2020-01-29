@@ -15,8 +15,8 @@ import color from './static/media/color.jpg';
 import platform from './static/media/platform.png';
 import photos from './static/media/photos.jpg';
 import led from './static/media/led.jpg';
-import europass from './static/cv/andras_schmelczer_europass.pdf';
-import cv from './static/cv/schmelczer_andras_cv.pdf';
+import cvHungarian from './static/cv/schmelczer_andras_cv.pdf';
+import cvEnglish from './static/cv/andras_schmelczer_cv.pdf';
 import ledMP4 from './static/media/led.mp4';
 import ledWEBM from './static/media/led.webm';
 import { last } from './framework/helper/last';
@@ -242,8 +242,8 @@ export const portfolio: Portfolio = {
   footer: {
     title: `Learn more`,
     curiumVitaes: [
-      { name: `Curriculum vitae (en)`, url: europass },
-      { name: `Önéletrajz (hu)`, url: cv },
+      { name: `Curriculum vitae (en)`, url: cvEnglish },
+      { name: `Önéletrajz (hu)`, url: cvHungarian },
     ],
     email: `andras@schmelczer.dev`,
     lastEditText: `Last modified on `,
