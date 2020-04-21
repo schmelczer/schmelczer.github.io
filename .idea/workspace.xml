@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8edc47ab-1265-4111-9771-536b24cc9310" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/static/cv/andras_schmelczer_cv.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/portfolio.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/portfolio.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,19 +52,19 @@
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/static/cv" />
+      <recent name="$PROJECT_DIR$/src/page/background" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
+      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/framework/events" />
       <recent name="$PROJECT_DIR$/src/framework/model" />
       <recent name="$PROJECT_DIR$/src/framework/styles/dark-mode" />
       <recent name="$PROJECT_DIR$/src/framework/styles" />
       <recent name="$PROJECT_DIR$/src/framework/helper/animations" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/page/background" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\page\background" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static" />
-      <recent name="C:\Projects\portfolio\CompiledCV\src\static\icons" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -119,7 +121,7 @@
       <workItem from="1578817329583" duration="2069000" />
       <workItem from="1578831427111" duration="7110000" />
       <workItem from="1578858690755" duration="133000" />
-      <workItem from="1580314868144" duration="4000" />
+      <workItem from="1580314868144" duration="1107000" />
     </task>
     <servers />
   </component>

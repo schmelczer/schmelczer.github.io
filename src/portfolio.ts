@@ -247,7 +247,7 @@ export const portfolio: Portfolio = {
     ],
     email: `andras@schmelczer.dev`,
     lastEditText: `Last modified on `,
-    lastEdit: new Date(2020, 0, 18), // months are 0 indexed
+    lastEdit: new Date(2020, 0, 29), // months are 0 indexed
     gitHub: new Anchor(
       `https://github.com/schmelczerandras/timeline`,
       `Find this on GitHub`
