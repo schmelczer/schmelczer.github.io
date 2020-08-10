@@ -4,9 +4,14 @@ import { Image } from './framework/primitives/implementations/image';
 import { Video } from './framework/primitives/implementations/video';
 import { Anchor } from './framework/primitives/implementations/anchor';
 
+import { last } from './framework/helper/last';
+
 import me from './static/media/me.jpg';
 import forexMP4 from './static/media/forex.mp4';
 import forexWEBM from './static/media/forex.webm';
+import adAstraMP4 from './static/media/ad_astra_720.mp4';
+import adAstraWEBM from './static/media/ad_astra_720.webm';
+import ad_astra_index from './static/media/ad_astra.jpg';
 import myNotes from './static/media/my-notes.png';
 import processSimulator from './static/media/process-simulator.jpg';
 import processSimulatorInput from './static/media/process-simulator-input.jpg';
@@ -19,7 +24,6 @@ import cvHungarian from './static/cv/schmelczer_andras_cv.pdf';
 import cvEnglish from './static/cv/andras_schmelczer_cv.pdf';
 import ledMP4 from './static/media/led.mp4';
 import ledWEBM from './static/media/led.webm';
-import { last } from './framework/helper/last';
 
 export const portfolio: Portfolio = {
   header: {
@@ -41,6 +45,43 @@ export const portfolio: Portfolio = {
     showMoreText: `Show details`,
     showLessText: `Show less`,
     elements: [
+      {
+        title: `Video game on an ATtiny85`,
+        date: `2020 Spring`,
+        figure: new Video(
+          last(ad_astra_index.images).path,
+          adAstraMP4,
+          adAstraWEBM,
+          `controls playsinline preload="none"`
+        ),
+        description: new Text(
+          `A simple game engine with a sample game set in space. The greatest challenge was to overcome
+          the very limited resources of the hardware, this was also the most rewarding part.`
+        ),
+        more: [
+          new Text(
+            `For reducing complexity while maintaining performance a balance had to be found between object-oriented
+              and structural programming. For example, a simple prototype-based inheritance is used for the game objects. 
+              An optimized SIMD utilizing low level driver is used for drawing on the display. 
+              I think the code base is quite readable and at the same time the 
+              maximum frame times are between 15ms and 20ms at 8MHz.`
+          ),
+          new Text(
+            `As for the hardware, it is rather simple. Aside from the ATtiny85V, a D096-12864-SPI7 display is used for
+            output and a TSOP4838 for input. The circuit runs on 3.3V, so a regulator is also needed. It uses a current
+            of 8mA to 11mA on full brightness and around 1.5mA on standby mode.`
+          ),
+          new Text(
+            `There is also fault-tolerant persistent data storage using the built-in EEPROM. 
+            For creating sprites (which are also stored in EEPROM) I made a tool to convert PNG-s into C code. 
+            This can also be found on GitHub as well as the entire project.`
+          ),
+          new Anchor(
+            `https://github.com/schmelczerandras/ad_astra`,
+            `View it on GitHub`
+          ),
+        ],
+      },
       {
         title: `Predicting foreign exchange rates`,
         date: `2019 Autumn`,
@@ -247,7 +288,7 @@ export const portfolio: Portfolio = {
     ],
     email: `andras@schmelczer.dev`,
     lastEditText: `Last modified on `,
-    lastEdit: new Date(2020, 0, 29), // months are 0 indexed
+    lastEdit: new Date(2020, 3, 21), // months are 0 indexed
     gitHub: new Anchor(
       `https://github.com/schmelczerandras/timeline`,
       `Find this on GitHub`
