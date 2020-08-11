@@ -20,13 +20,22 @@ jobs:
         run: |
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push
+      - name: Install buildx
+        id: buildx
+        uses: crazy-max/ghaction-docker-buildx@v1
+        with:
+          version: latest
+
+      - name: Build and push job
         run: |
-          docker build . -t $CONTAINER_REGISTRY/timeline
-          docker push $CONTAINER_REGISTRY/timeline
+          docker buildx build \
+          --tag $CONTAINER_REGISTRY/timeline:latest \
+          --platform linux/amd64,linux/arm/v7,linux/arm64 . --push
 
   push:
     runs-on: ubuntu-latest
+    needs:
+      - build
     steps:
       - name: Checkout current branch with lfs
         uses: actions/checkout@main
@@ -41,7 +50,7 @@ jobs:
           chmod 400 ~/.ssh/id_ed25519
           ssh -o StrictHostKeyChecking=no root@$DOMAIN uptime
 
-      - name: Stack up
+      - name: Stack deploy
         run: |
-          DOCKER_HOST=ssh://root@$DOMAIN docker login -u ${{ secrets.DOCKER_TOKEN }} -p ${{ secrets.DOCKER_TOKEN }} $CONTAINER_REGISTRY
-          DOCKER_HOST=ssh://root@$DOMAIN docker stack up declared -c docker-compose.yml --with-registry-auth
+          DOCKER_HOST=ssh://root@$DOMAIN docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_HOST=ssh://root@$DOMAIN docker stack deploy timeline -c docker-compose.yml --with-registry-auth
