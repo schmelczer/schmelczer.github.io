@@ -9,6 +9,7 @@ const Sharp = require('responsive-loader/sharp');
 const Sass = require('sass');
 
 const isProduction = process.env.NODE_ENV === 'production';
+const isDevelopment = !isProduction;
 
 module.exports = {
   watchOptions: {
