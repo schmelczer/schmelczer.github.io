@@ -1,11 +1,9 @@
-version: "3.8"
+version: '3.8'
 
 services:
   timeline:
     init: true
     image: schmelczera/timeline
-    depends_on:
-      - frontend
     networks:
       - network
     ports:
@@ -16,10 +14,10 @@ services:
       replicas: 2
       resources:
         limits:
-          cpus: "0.5"
+          cpus: '0.5'
           memory: 32M
         reservations:
-          cpus: "0.2"
+          cpus: '0.2'
           memory: 32M
       placement:
         max_replicas_per_node: 1
