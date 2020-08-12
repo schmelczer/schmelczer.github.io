@@ -20,17 +20,10 @@ jobs:
         run: |
           docker login -u ${{ secrets.DOCKER_USER }} -p ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Install buildx
-        id: buildx
-        uses: crazy-max/ghaction-docker-buildx@v1
-        with:
-          version: latest
-
       - name: Build and push job
         run: |
-          docker buildx build \
-          --tag $CONTAINER_REGISTRY/timeline:latest \
-          --platform linux/amd64,linux/arm/v7,linux/arm64 . --push
+          docker build . -t $CONTAINER_REGISTRY/timeline
+          docker push $CONTAINER_REGISTRY/timeline
 
   push:
     runs-on: ubuntu-latest
