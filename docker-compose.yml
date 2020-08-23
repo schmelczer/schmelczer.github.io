@@ -7,14 +7,14 @@ services:
     networks:
       - network
     deploy:
-      replicas: 2
+      replicas: 3
       resources:
         limits:
-          cpus: "0.5"
-          memory: 32M
+          # no cpu limit
+          memory: 16M
         reservations:
           cpus: "0.2"
-          memory: 32M
+          memory: 16M
       placement:
         max_replicas_per_node: 1
       update_config:
