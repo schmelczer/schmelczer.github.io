@@ -83,7 +83,6 @@
   }
 
   body {
-    //noinspection CssInvalidFunction
     padding: env(safe-area-inset-top) env(safe-area-inset-right)
       env(safe-area-inset-bottom) env(safe-area-inset-left);
 
@@ -95,7 +94,7 @@
       }
     }
 
-    div#main {
+    main {
       height: 100%;
       overflow-x: hidden;
       overflow-y: scroll;

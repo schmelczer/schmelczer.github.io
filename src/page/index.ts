@@ -11,7 +11,7 @@ export const create = ({ header, timeline, footer }: Portfolio) => {
   const pageTimeline = new PageTimeline(timeline);
   const pageFooter = new PageFooter(footer);
 
-  new ContainerPage(document.body.querySelector('#main'), [
+  new ContainerPage(document.body.querySelector('main'), [
     new PageImageViewer(),
     pageHeader,
     pageTimeline,
