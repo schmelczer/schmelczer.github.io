@@ -1,9 +1,26 @@
-import { create } from './page/index';
-import { portfolio } from './portfolio';
-
 import './static/no-change/favicon.ico';
 import './static/no-change/og-image.jpg';
 
 import './styles.scss';
+import { create } from './portfolio';
 
-create(portfolio);
+const initialize = () => {
+  create();
+  addSupportForTabNavigation();
+  removeUnnecessaryOutlines();
+};
+
+const addSupportForTabNavigation = () =>
+  (document.onkeydown = e => {
+    if (e.key === ' ') {
+      (document.activeElement as HTMLElement)?.click();
+      e.preventDefault();
+    }
+  });
+
+const removeUnnecessaryOutlines = () =>
+  (document.onclick = e => {
+    (e.target as HTMLElement)?.blur();
+  });
+
+initialize();
