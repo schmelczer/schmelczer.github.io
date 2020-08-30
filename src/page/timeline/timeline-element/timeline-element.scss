@@ -45,7 +45,7 @@ section.timeline-element {
         @include square(var(--icon-size));
         border-radius: 1000px;
         border: var(--line-width) solid var(--accent-color);
-        left: calc(-1 * var(--icon-size) / 2 + var(--line-width) / 2);
+        left: calc((var(--line-width) - var(--icon-size)) / 2);
       }
     }
 

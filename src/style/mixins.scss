@@ -1,7 +1,5 @@
 @import '../framework/framework';
 
-@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans:ital@0;1&display=swap');
-
 @mixin center-children() {
   display: flex;
   align-items: center;
@@ -40,7 +38,7 @@
   line-height: 1;
 
   @include on-small-screen {
-    font-size: 2.5rem;
+    font-size: 3rem;
     line-height: 1.1;
   }
 }

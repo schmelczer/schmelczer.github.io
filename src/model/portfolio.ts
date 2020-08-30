@@ -38,7 +38,6 @@ export interface Footer {
   curiumVitaes: Array<CV>;
   lastEditText: string;
   lastEdit: Date;
-  gitHub: Anchor;
 }
 
 export interface CV {

@@ -7,7 +7,6 @@ export const generate = ({
   title,
   email,
   curiumVitaes,
-  gitHub,
   lastEditText,
   lastEdit,
 }: Footer): html => `
@@ -39,7 +38,7 @@ export const generate = ({
             </li>
         </ul>
         <aside class="other">
-           <h6>${lastEditText} <time datetime="${lastEdit.toISOString()}">${lastEdit.toLocaleDateString()}</time></h6>
+           <p>${lastEditText} <time datetime="${lastEdit.toISOString()}">${lastEdit.toLocaleDateString()}</time></p>
         </aside>
     </footer>
 `;

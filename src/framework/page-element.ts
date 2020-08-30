@@ -30,7 +30,7 @@ export abstract class PageElement extends EventHandler
     return super.handleOnEventBroadcasterChangedEvent(event);
   }
 
-  public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
+  public handleOnLoadEvent(_: OnLoadEvent): OptionalEvent {
     return super.handleOnLoadEvent(new OnLoadEvent(this));
   }
 

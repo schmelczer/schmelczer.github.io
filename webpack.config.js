@@ -15,6 +15,7 @@ module.exports = {
   watchOptions: {
     ignored: /node_modules/,
   },
+  //devtool: 'inline-source-map',
   devServer: {
     host: '0.0.0.0',
     disableHostCheck: true,
@@ -22,7 +23,7 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserJSPlugin({
-        sourceMap: !isProduction,
+        sourceMap: isDevelopment,
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],

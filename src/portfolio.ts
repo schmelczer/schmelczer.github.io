@@ -291,10 +291,6 @@ export const create = () => {
       email: `andras@schmelczer.dev`,
       lastEditText: `Last modified on `,
       lastEdit: new Date(2020, 8 + 1, 30), // months are 0 indexed
-      gitHub: new Anchor(
-        `https://github.com/schmelczerandras/timeline`,
-        `Find this on GitHub`
-      ),
     }),
   };
 
