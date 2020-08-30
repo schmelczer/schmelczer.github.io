@@ -1,5 +1,6 @@
-@use "configured-responsive";
-@use "vars";
+@import '../framework/framework';
+
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Open+Sans:ital@0;1&display=swap');
 
 @mixin center-children() {
   display: flex;
@@ -14,10 +15,10 @@
   transform: translateX(-50%) translateY(-50%);
 }
 
-@mixin card-base($vars) {
+@mixin card-base() {
   text-align: center;
-  padding: map_get($vars, vars.$normal-margin);
-  box-shadow: map_get($vars, vars.$shadow);
+  padding: var(--normal-margin);
+  box-shadow: var(--shadow);
   z-index: 1;
   width: 100%;
 }
@@ -32,32 +33,32 @@
   max-height: $size;
 }
 
-@mixin title-font($vars) {
-  font: 400 3.5rem 'Montserrat', serif;
+@mixin title-font() {
+  font: 400 3rem 'Comfortaa', serif;
   font-style: normal;
-  color: map_get($vars, vars.$normal-text-color);
+  color: var(--normal-text-color);
   line-height: 1;
 
-  @include configured-responsive.on-small-screen {
-    font-size: 3rem;
+  @include on-small-screen {
+    font-size: 2.5rem;
     line-height: 1.1;
   }
 }
 
-@mixin sub-title-font($vars) {
-  font: 400 2rem 'Montserrat', serif;
-  color: map_get($vars, vars.$normal-text-color);
+@mixin sub-title-font() {
+  font: 400 1.75rem 'Comfortaa', serif;
+  color: var(--normal-text-color);
   font-style: normal;
 }
 
-@mixin main-font($vars) {
-  font: 400 1.25rem 'Lato', sans-serif;
-  color: map_get($vars, vars.$normal-text-color);
+@mixin main-font() {
+  font: 400 1.1rem 'Open Sans', sans-serif;
+  color: var(--normal-text-color);
   line-height: 1.6;
 }
 
-@mixin special-text-font($vars) {
-  font: 400 1.1rem 'Lato', sans-serif;
-  color: map_get($vars, vars.$special-text-color);
+@mixin special-text-font() {
+  font: 400 1rem 'Open Sans', sans-serif;
+  color: var(--special-text-color);
   font-style: italic;
 }

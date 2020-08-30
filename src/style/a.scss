@@ -1,50 +1,48 @@
 @use 'sass:color';
-@use 'include' as i;
+@use 'style/mixins' as *;
 
-@include i.responsive() using ($vars) {
-  a {
-    $border-shift: 10px;
-    $line-width: 2px;
+a {
+  $border-shift: 10px;
+  $line-width: 2px;
 
-    @include i.special-text-font($vars);
-    text-decoration: none;
-    cursor: pointer;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
+  @include special-text-font();
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
 
-    padding-bottom: $line-width;
+  padding-bottom: $line-width;
 
-    &:before,
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-    }
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
 
+  &:before {
+    width: calc(100% + #{$border-shift});
+    border-bottom: $line-width dashed var(--accent-color);
+    transition: transform var(--transition-time);
+  }
+
+  &:after {
+    width: 100%;
+    height: $line-width;
+    background: linear-gradient(
+      90deg,
+      var(--card-color) 0,
+      transparent 4px,
+      transparent calc(100% - 4px),
+      var(--card-color) 100%
+    );
+  }
+
+  &:hover {
     &:before {
-      width: calc(100% + #{$border-shift});
-      border-bottom: $line-width dashed map_get($vars, i.$accent-color);
-      transition: transform map_get($vars, i.$transition-time);
-    }
-
-    &:after {
-      width: 100%;
-      height: $line-width;
-      background: linear-gradient(
-        90deg,
-        map_get($vars, i.$card-color) 0,
-        color.adjust(map_get($vars, i.$card-color), $alpha: -1) 4px,
-        color.adjust(map_get($vars, i.$card-color), $alpha: -1) calc(100% - 4px),
-        map_get($vars, i.$card-color) 100%
-      );
-    }
-
-    &:hover {
-      &:before {
-        transform: translateX(-$border-shift);
-      }
+      transform: translateX(-$border-shift);
     }
   }
 }

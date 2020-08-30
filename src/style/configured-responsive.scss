@@ -1,7 +1,0 @@
-@use 'vars';
-@forward "../framework/framework" with (
-  $small-screen-light-theme-variables: vars.$small-screen-light-theme-variables,
-  $small-screen-dark-theme-variables: vars.$small-screen-dark-theme-variables,
-  $large-screen-light-theme-variables: vars.$large-screen-light-theme-variables,
-  $large-screen-dark-theme-variables: vars.$large-screen-dark-theme-variables,
-);

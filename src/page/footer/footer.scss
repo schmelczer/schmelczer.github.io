@@ -1,62 +1,60 @@
-@use '../../style/include' as *;
+@use '../../style/mixins' as *;
 
-@include responsive() using ($vars) {
-  footer#page-footer {
-    text-align: center;
+footer#page-footer {
+  text-align: center;
 
-    margin-top: map_get($vars, $large-margin);
-    width: 100%;
+  margin-top: var(--large-margin);
+  width: 100%;
 
-    h2 {
-      @include title-font($vars);
-    }
+  h2 {
+    @include title-font();
+  }
 
-    ul {
-      margin-top: map_get($vars, $normal-margin);
-      list-style: none;
-      display: inline-block;
-      text-align: left;
+  ul {
+    margin-top: var(--normal-margin);
+    list-style: none;
+    display: inline-block;
+    text-align: left;
 
-      li {
-        @include center-children();
-        justify-content: flex-start;
-
-        &:not(:first-child) {
-          padding-top: map_get($vars, $line-height);
-        }
-
-        img,
-        svg {
-          @include max-square(map_get($vars, $icon-size));
-          margin-right: map_get($vars, $small-margin);
-
-          * {
-            fill: map_get($vars, $normal-text-color);
-          }
-        }
-
-        a {
-          font-size: 1.4rem;
-        }
-      }
-    }
-
-    aside.other {
+    li {
       @include center-children();
-      flex-direction: column;
-      margin: map_get($vars, $large-margin) auto 0 auto;
-      padding-bottom: map_get($vars, $line-height);
-      width: map_get($vars, $body-width);
+      justify-content: flex-start;
 
-      h6 {
-        display: inline;
-        &,
-        * {
-          @include special-text-font($vars);
-          color: map_get($vars, $normal-text-color);
-        }
-        opacity: 0.75;
+      &:not(:first-child) {
+        padding-top: var(--line-height);
       }
+
+      img,
+      svg {
+        @include max-square(var(--icon-size));
+        margin-right: var(--small-margin);
+
+        * {
+          fill: var(--normal-text-color);
+        }
+      }
+
+      a {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  aside.other {
+    @include center-children();
+    flex-direction: column;
+    margin: var(--large-margin) auto 0 auto;
+    padding-bottom: var(--line-height);
+    width: var(--body-width);
+
+    h6 {
+      display: inline;
+      &,
+      * {
+        @include special-text-font();
+        color: var(--normal-text-color);
+      }
+      opacity: 0.75;
     }
   }
 }

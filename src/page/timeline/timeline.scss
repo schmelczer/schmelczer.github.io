@@ -1,12 +1,10 @@
-@use '../../style/include' as *;
+@use '../../style/mixins' as *;
 
-@include responsive() using ($vars) {
-  div#timeline {
-    @include on-large-screen {
-      // workaround for IE
-      & > :first-child {
-        margin-top: map_get($vars, $large-margin);
-      }
+div#timeline {
+  @include on-large-screen {
+    // workaround for IE
+    & > :first-child {
+      margin-top: var(--large-margin);
     }
   }
 }

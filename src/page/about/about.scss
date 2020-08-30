@@ -1,69 +1,64 @@
-@use '../../style/include' as *;
+@use '../../style/mixins' as *;
 
-@include responsive() using ($vars) {
-  section#about {
-    @include card-base($vars);
-    background-color: map_get($vars, $accent-color);
-    font-size: 0;
+section#about {
+  @include card-base();
+  background-color: var(--accent-color);
+  font-size: 0;
 
-    $img-size: 125px;
-    h1,
-    img,
-    .placeholder {
-      @include title-font($vars);
-    }
+  $img-size: 125px;
+  h1,
+  img,
+  .placeholder {
+    @include title-font();
+  }
+
+  img {
+    @include square($img-size);
+    border-radius: 100%;
+    cursor: pointer;
+  }
+
+  p {
+    @include main-font();
+    text-align: justify;
+  }
+
+  h1 {
+    hyphens: none;
+  }
+
+  p,
+  h1 {
+    color: var(--very-light-text-color);
+    margin-top: var(--small-margin);
+  }
+
+  @include on-large-screen {
+    $img-size: 190px;
+
+    width: var(--body-width);
+    margin: calc(#{var(--normal-margin)} + #{$img-size} * 1 / 3) auto 0 auto;
+    position: relative;
+    border-radius: var(--border-radius);
 
     img {
       @include square($img-size);
-      border-radius: 100%;
-      cursor: pointer;
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translateY(-$img-size * 1/3) translateX(-$img-size * 1/3);
     }
 
-    p {
-      @include main-font($vars);
-      text-align: justify;
+    .placeholder {
+      @include square(calc(#{$img-size} * 2 / 3 - #{var(--normal-margin)}));
+      box-sizing: content-box;
+      float: left;
+      margin: 0 0.75ex 0.75ex 0;
     }
 
     h1 {
-      hyphens: none;
-    }
-
-    p,
-    h1 {
-      color: map_get($vars, $very-light-text-color);
-      margin-top: map_get($vars, $small-margin);
-    }
-
-    @include on-large-screen {
-      $img-size: 190px;
-
-      width: map_get($vars, $body-width);
-      margin: calc(#{map_get($vars, $normal-margin)} + #{$img-size} * 1 / 3)
-        auto 0 auto;
-      position: relative;
-      border-radius: map_get($vars, $border-radius);
-
-      img {
-        @include square($img-size);
-        position: absolute;
-        left: 0;
-        top: 0;
-        transform: translateY(-$img-size * 1/3) translateX(-$img-size * 1/3);
-      }
-
-      .placeholder {
-        @include square(
-          calc(#{$img-size} * 2 / 3 - #{map_get($vars, $normal-margin)})
-        );
-        box-sizing: content-box;
-        float: left;
-        margin: 0 0.75ex 0.75ex 0;
-      }
-
-      h1 {
-        text-align: left;
-        margin-top: 0;
-      }
+      text-align: left;
+      margin-top: 0;
     }
   }
 }

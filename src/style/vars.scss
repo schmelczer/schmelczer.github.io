@@ -1,108 +1,55 @@
-@use 'fonts';
-@use "id" as *;
+@import '../framework/framework';
 
-/* KEYS */
-$background: id();
-$normal-text-color: id();
-$very-light-text-color: id();
-$special-text-color: id();
-$card-color: id();
-$sun-color: id();
-$accent-color: id();
+:root {
+  --transition-time: 250ms;
+  --line-width: 3px;
+  --line-height: 18px;
+  --accent-color: #b7455e;
+  --sun-color: #f7f78c;
+  --very-light-text-color: #ffffff;
+}
 
-$transition-time: id();
-$border-radius: id();
-$line-width: id();
-$body-width: id();
+:root {
+  --background: #ffffff;
+  --normal-text-color: #31343f;
+  --card-color: #ffffff;
+  --special-text-color: var(--accent-color);
+}
 
-$small-margin: id();
-$normal-margin: id();
-$large-margin: id();
-$icon-size: id();
-$line-height: id();
+@include on-large-screen {
+  :root {
+    --border-radius: 15px;
+    --large-margin: 70px;
+    --normal-margin: 45px;
+    --small-margin: 25px;
+    --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.075), 0 0 1px rgba(0, 0, 0, 0.2);
+    --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.075),
+      inset 0 0 1px rgba(0, 0, 0, 0.2);
+    --icon-size: 35px;
+    --body-width: 765px;
+  }
+}
 
-$shadow: id();
-$inset-shadow: id();
-/**/
+@include on-small-screen {
+  :root {
+    --border-radius: 10px;
+    --large-margin: 60px;
+    --normal-margin: 30px;
+    --small-margin: 15px;
+    --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.05), 0 0 1px rgba(0, 0, 0, 0.125);
+    --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.05),
+      inset 0 0 1px rgba(0, 0, 0, 0.125);
+    --icon-size: 25px;
+    --body-width: 90%;
+  }
+}
 
-$universal-variables: (
-  $transition-time: 250ms,
-  $line-width: 3px,
-  $line-height: 18px,
-  $accent-color: #b7455e,
-  $sun-color: #f7f78c,
-  $very-light-text-color: #ffffff,
-);
-
-$large-screen-variables: (
-  $border-radius: 15px,
-  $large-margin: 70px,
-  $normal-margin: 45px,
-  $small-margin: 25px,
-  $shadow: (
-    0 0 10px 2px rgba(0, 0, 0, 0.075),
-    0 0 1px rgba(0, 0, 0, 0.2),
-  ),
-  $inset-shadow: (
-    inset 0 0 10px 2px rgba(0, 0, 0, 0.075),
-    inset 0 0 1px rgba(0, 0, 0, 0.2),
-  ),
-  $icon-size: 35px,
-  $body-width: 765px,
-);
-
-$small-screen-variables: (
-  $border-radius: 10px,
-  $large-margin: 60px,
-  $normal-margin: 30px,
-  $small-margin: 15px,
-  $shadow: (
-    0 0 10px 2px rgba(0, 0, 0, 0.05),
-    0 0 1px rgba(0, 0, 0, 0.125),
-  ),
-  $inset-shadow: (
-    inset 0 0 10px 2px rgba(0, 0, 0, 0.05),
-    inset 0 0 1px rgba(0, 0, 0, 0.125),
-  ),
-  $icon-size: 25px,
-  $body-width: 90%,
-);
-
-$light-theme-variables: (
-  $background: #ffffff,
-  $normal-text-color: #31343f,
-  $card-color: #ffffff,
-  $special-text-color: map_get($universal-variables, $accent-color),
-);
-
-$dark-theme-variables: (
-  $background: #242638,
-  $normal-text-color: #ffffff,
-  $card-color: #263551,
-  $special-text-color: #ffffff,
-  $shadow: (
-    0 0 10px 2px rgba(0, 0, 0, 0.175),
-    0 0 1px rgba(0, 0, 0, 0.4),
-  ),
-  $inset-shadow: (
-    inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
-    inset 0 0 1px rgba(0, 0, 0, 0.4),
-  ),
-);
-
-$small-screen-light-theme-variables: map_merge(
-  $universal-variables,
-  map_merge($small-screen-variables, $light-theme-variables)
-);
-$small-screen-dark-theme-variables: map_merge(
-  $universal-variables,
-  map_merge($small-screen-variables, $dark-theme-variables)
-);
-$large-screen-light-theme-variables: map_merge(
-  $universal-variables,
-  map_merge($large-screen-variables, $light-theme-variables)
-);
-$large-screen-dark-theme-variables: map_merge(
-  $universal-variables,
-  map_merge($large-screen-variables, $dark-theme-variables)
-);
+@include in-dark-mode {
+  --background: #242638;
+  --normal-text-color: #ffffff;
+  --card-color: #263551;
+  --special-text-color: #ffffff;
+  --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.175), 0 0 1px rgba(0, 0, 0, 0.4);
+  --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
+    inset 0 0 1px rgba(0, 0, 0, 0.4);
+}

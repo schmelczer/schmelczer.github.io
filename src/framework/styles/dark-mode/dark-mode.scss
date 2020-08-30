@@ -1,5 +1,5 @@
 @mixin in-dark-mode() {
-  &[theme='dark'] {
+  html[theme='dark'] {
     @content;
   }
 }

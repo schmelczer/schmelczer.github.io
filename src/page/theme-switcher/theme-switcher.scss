@@ -1,102 +1,97 @@
-@use '../../style/include' as *;
+@use '../../style/mixins' as *;
 
-@include responsive using($vars) {
-  input[type='checkbox']#theme-switcher {
-    @include on-large-screen {
-      position: absolute;
-      top: -1 * map_get($vars, $small-margin);
-      right: calc(
-        -1 * (50vw - #{map_get($vars, $body-width)} / 2) + #{map_get(
-            $vars,
-            $normal-margin
-          )}
-      );
-      transform: translateY(-100%);
-    }
+input[type='checkbox']#theme-switcher {
+  @include on-large-screen {
+    position: absolute;
+    top: calc(-1 * var(--small-margin));
+    right: calc(-1 * (50vw - var(--body-width) / 2) + var(--normal-margin));
+    transform: translateY(-100%);
+  }
 
-    @include on-small-screen {
-      position: relative;
-      margin-top: map_get($vars, $normal-margin);
-    }
+  @include on-small-screen {
+    position: relative;
+    margin-top: var(--normal-margin);
+  }
 
-    &::-ms-check {
-      display: none;
-    }
+  &::-ms-check {
+    display: none;
+  }
 
-    background-color: map_get($vars, $accent-color);
-    cursor: pointer;
-    -webkit-appearance: none;
-    -moz-appearance: none;
+  background-color: var(--accent-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
 
-    $size: map_get($vars, $icon-size);
-    width: 2 * $size;
-    height: $size;
-    $icon-size: 0.7 * $size;
-    $margin: ($size - $icon-size) / 2;
+  $size: var(--icon-size);
+  width: calc(2 * #{$size});
+  height: $size;
+  $icon-size: calc(0.7 * #{$size});
+  $margin: calc((#{$size} - #{$icon-size}) / 2);
 
+  border-radius: 1000px;
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
+    inset 0 0 1px rgba(0, 0, 0, 0.4);
+
+  &:before {
+    // moon + sun
+    @include square($icon-size);
+  }
+
+  &:after {
+    // sun blocking moon
+    @include square(calc(#{$icon-size} * 0.8));
+  }
+
+  &:before,
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
     border-radius: 1000px;
-    box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
-      inset 0 0 1px rgba(0, 0, 0, 0.4);
 
+    top: 50%;
+    transform: translateY(-50%);
+
+    transition: transform var(--transition-time),
+      background-color var(--transition-time);
+  }
+
+  &:not(:checked) {
     &:before {
-      // moon + sun
-      @include square($icon-size);
-    }
+      transform: translateY(-50%)
+        translateX(calc(3 * #{$margin} + #{$icon-size}));
 
-    &:after {
-      // sun blocking moon
-      @include square($icon-size * 0.8);
-    }
+      animation: shine 3s linear alternate infinite;
+      background-color: var(--sun-color);
+      @keyframes shine {
+        from {
+          filter: brightness(1.01);
+          box-shadow: 0 0 4px 2px var(--sun-color);
+        }
 
-    &:before,
-    &:after {
-      content: '';
-      position: absolute;
-      display: block;
-      border-radius: 1000px;
-
-      top: 50%;
-      transform: translateY(-50%);
-
-      transition: transform map_get($vars, $transition-time),
-        background-color map_get($vars, $transition-time);
-    }
-
-    &:not(:checked) {
-      &:before {
-        transform: translateY(-50%) translateX(3 * $margin + $icon-size);
-
-        animation: shine 3s linear alternate infinite;
-        background-color: map_get($vars, $sun-color);
-        @keyframes shine {
-          from {
-            filter: brightness(1.01);
-            box-shadow: 0 0 4px 2px map_get($vars, $sun-color);
-          }
-
-          to {
-            filter: brightness(1.1);
-            box-shadow: 0 0 15px 2px map_get($vars, $sun-color);
-          }
+        to {
+          filter: brightness(1.1);
+          box-shadow: 0 0 15px 2px var(--sun-color);
         }
       }
-
-      &:after {
-        background-color: transparent;
-        transform: translateY(-50%) translateX($size * 2 - $icon-size);
-      }
     }
 
-    &:checked {
-      &:before {
-        background-color: map_get($vars, $normal-text-color);
-        transform: translateY(-50%) translateX($margin);
-      }
+    &:after {
+      background-color: transparent;
+      transform: translateY(-50%) translateX(calc(#{$size} * 2 - #{$icon-size}));
+    }
+  }
 
-      &:after {
-        background-color: map_get($vars, $accent-color);
-        transform: translateY(-50%) translateX($margin + $icon-size * 0.33);
-      }
+  &:checked {
+    &:before {
+      background-color: var(--normal-text-color);
+      transform: translateY(-50%) translateX($margin);
+    }
+
+    &:after {
+      background-color: var(--accent-color);
+      transform: translateY(-50%)
+        translateX(calc(#{$margin} + #{$icon-size} * 0.33));
     }
   }
 }

@@ -5,6 +5,7 @@
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development",
+    "lint": "npx eslint --fix \"src/**/*.ts\" && npx prettier --write \"src/**/*.ts\"",
     "build": "webpack && find dist -type f -regex \".*\\(js\\|css\\|txt\\)\" | xargs rm"
   },
   "repository": {
@@ -32,10 +33,17 @@
   ],
   "homepage": "https://github.com/schmelczerandras/timeline#readme",
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^3.9.1",
+    "@typescript-eslint/parser": "^3.9.1",
     "autoprefixer": "^9.8.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.6.0",
-    "cssnano": "latest",
+    "cssnano": "^4.1.10",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.21.2",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-unused-imports": "^0.1.3",
     "file-loader": "^5.1.0",
     "html-webpack-inline-source-plugin": "0.0.10",
     "html-webpack-plugin": "^3.2.0",
@@ -51,7 +59,7 @@
     "sharp": "^0.23.4",
     "style-loader": "^1.2.1",
     "svg-url-loader": "^3.0.3",
-    "terser-webpack-plugin": "^2.3.7",
+    "terser-webpack-plugin": "^2.3.8",
     "ts-loader": "^6.2.2",
     "typescript": "^3.9.7",
     "webpack": "^4.44.1",

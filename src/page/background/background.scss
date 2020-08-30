@@ -1,18 +1,16 @@
-@use '../../style/include' as *;
+@use '../../style/mixins' as *;
 
-@include responsive() using ($vars) {
-  canvas#background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: -10;
+canvas#background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -10;
 
-    @media print {
-      & {
-        display: none;
-      }
+  @media print {
+    & {
+      display: none;
     }
   }
 }

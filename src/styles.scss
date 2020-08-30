@@ -1,119 +1,118 @@
-@use 'style/include' as *;
+@use 'style/vars';
+@use 'style/mixins' as *;
 @use 'style/a';
 @use 'framework/styles/index';
 
-@include responsive() using ($vars) {
-  & {
+html {
+  height: 100%;
+
+  background-color: var(--background);
+  transition: background-color linear var(--transition-time);
+
+  @include on-small-screen {
+    font-size: 0.8rem;
+  }
+
+  @media print {
+    & {
+      font-size: 0.75rem;
+    }
+  }
+}
+
+:focus {
+  outline: none;
+
+  &:not(:hover) {
+    outline: var(--accent-color) solid 2px;
+    outline-offset: 4px;
+  }
+}
+
+::-moz-selection {
+  background-color: var(--accent-color);
+  color: var(--very-light-text-color);
+}
+::selection {
+  background-color: var(--accent-color);
+  color: var(--very-light-text-color);
+}
+
+*,
+*::before,
+*::after {
+  @include main-font();
+
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  transition: background-color linear var(--transition-time),
+    color var(--transition-time);
+
+  hyphens: auto;
+}
+
+img,
+video,
+.figure-container {
+  width: 100%;
+  height: auto;
+}
+
+.figure-container {
+  font-size: 0;
+  box-shadow: var(--inset-shadow);
+  pointer-events: none;
+  cursor: pointer;
+
+  * {
+    pointer-events: all;
+    position: relative;
+    z-index: -2;
+  }
+}
+
+.primitive-text,
+.primitive-anchor,
+.figure-container {
+  margin-top: var(--line-height);
+}
+
+.primitive-text {
+  text-align: left;
+}
+
+body {
+  padding: env(safe-area-inset-top) env(safe-area-inset-right)
+    env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+  height: 100%;
+
+  @media print {
+    & {
+      height: auto;
+    }
+  }
+
+  main {
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
 
-    background-color: map_get($vars, $background);
-    transition: background-color linear map_get($vars, $transition-time);
-
-    @include on-small-screen {
-      font-size: 0.8rem;
+    noscript {
+      @include square(100%);
+      @include center-children();
     }
 
-    @media print {
-      & {
-        font-size: 0.75rem;
+    @include on-large-screen {
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar {
+        background-color: transparent;
+        width: 12px;
       }
-    }
-  }
-
-  :focus {
-    outline: none;
-
-    &:not(:hover) {
-      outline: map_get($vars, $accent-color) solid 2px;
-      outline-offset: 4px;
-    }
-  }
-
-  ::-moz-selection {
-    background-color: map_get($vars, $accent-color);
-    color: map_get($vars, $very-light-text-color);
-  }
-  ::selection {
-    background-color: map_get($vars, $accent-color);
-    color: map_get($vars, $very-light-text-color);
-  }
-
-  *,
-  *::before,
-  *::after {
-    @include main-font($vars);
-
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    transition: background-color linear map_get($vars, $transition-time),
-      color map_get($vars, $transition-time);
-
-    hyphens: auto;
-  }
-
-  img,
-  video,
-  .figure-container {
-    width: 100%;
-    height: auto;
-  }
-
-  .figure-container {
-    font-size: 0;
-    box-shadow: map_get($vars, $inset-shadow);
-    pointer-events: none;
-    cursor: pointer;
-
-    * {
-      pointer-events: all;
-      position: relative;
-      z-index: -2;
-    }
-  }
-
-  .primitive-text,
-  .primitive-anchor,
-  .figure-container {
-    margin-top: map_get($vars, $line-height);
-  }
-
-  .primitive-text {
-    text-align: left;
-  }
-
-  body {
-    padding: env(safe-area-inset-top) env(safe-area-inset-right)
-      env(safe-area-inset-bottom) env(safe-area-inset-left);
-
-    height: 100%;
-
-    @media print {
-      & {
-        height: auto;
-      }
-    }
-
-    main {
-      height: 100%;
-      overflow-x: hidden;
-      overflow-y: scroll;
-
-      noscript {
-        @include square(100%);
-        @include center-children();
-      }
-
-      @include on-large-screen {
-        &::-webkit-scrollbar-track,
-        &::-webkit-scrollbar {
-          background-color: transparent;
-          width: 12px;
-        }
-        &::-webkit-scrollbar-thumb {
-          background-color: map_get($vars, $accent-color);
-          border-radius: map_get($vars, $border-radius);
-        }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--accent-color);
+        border-radius: var(--border-radius);
       }
     }
   }

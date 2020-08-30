@@ -1,6 +1,0 @@
-$_id_value: 0;
-@function id() {
-  $_id_value: $_id_value + 1 !global;
-  @return $_id_value;
-}
-

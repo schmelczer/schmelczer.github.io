@@ -21,7 +21,7 @@ export class PageBackground extends PageElement {
   public static readonly ANIMATION_TIME = 250;
 
   private backgroundSize: Animation<Vec2>;
-  private scrollPosition: number = 0;
+  private scrollPosition = 0;
   private previousTimestamp: DOMHighResTimeStamp = null;
   private readonly blobs: Array<Blob> = [];
   private readonly canvas: HTMLCanvasElement;
@@ -179,11 +179,7 @@ export class PageBackground extends PageElement {
     );
   }
 
-  private convertFrom2Dto3D(
-    p: Vec2,
-    z: number,
-    scrollPosition: number = 0
-  ): Vec2 {
+  private convertFrom2Dto3D(p: Vec2, z: number, scrollPosition = 0): Vec2 {
     const m = 1 + z / PageBackground.PERSPECTIVE;
     return new Vec2(p.x * m - z / 2, p.y * m - z / 2 + scrollPosition);
   }
