@@ -21,7 +21,8 @@ export class PageThemeSwitcher extends PageElement {
     super(createElement(generate()));
 
     const storedIsDark = PageThemeSwitcher.loadFromLocalStorage();
-    const isDark = storedIsDark ? storedIsDark : isSystemLevelDarkModeEnabled();
+    const isDark =
+      storedIsDark !== null ? storedIsDark : isSystemLevelDarkModeEnabled();
 
     if (isDark) {
       (this.element as HTMLInputElement).checked = true;

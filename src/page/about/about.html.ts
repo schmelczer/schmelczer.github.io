@@ -5,7 +5,7 @@ import './about.scss';
 
 export const generate = ({ name, picture }: Header): html => `
     <section id="about">
-        ${picture.toHTML(true)}
+        ${picture.toHTML()}
         <div class="placeholder"></div>
         <h1>${name}</h1>
     </section>

@@ -15,7 +15,7 @@ export const generate = (
         </div>
         <div class="card">
             <h2>${title}</h2>
-            ${figure.toHTML()}
+            ${figure.toHTML(true)}
             ${description.toHTML()}
             ${
               more

@@ -9,16 +9,16 @@ export class Image implements Primitive {
     private readonly alt: string
   ) {}
 
-  public toHTML(noContainer = false): html {
+  public toHTML(container = false): html {
     return `
-        ${!noContainer ? `<div class="figure-container">` : ''}
+        ${container ? `<div class="figure-container">` : ''}
             <img tabindex="0"
                 srcset="${this.image.srcSet}" 
                 sizes="${this.getSizes()}"
                 src="${last(this.image.images)?.path}" 
                 alt="${this.alt}"
             />
-        ${!noContainer ? `</div>` : ''}
+        ${container ? `</div>` : ''}
       `;
   }
 

@@ -1,4 +1,4 @@
-version: "3.8"
+version: '3.8'
 
 services:
   timeline:
@@ -13,7 +13,7 @@ services:
           # no cpu limit
           memory: 16M
         reservations:
-          cpus: "0.2"
+          cpus: '0.2'
           memory: 16M
       placement:
         max_replicas_per_node: 1
