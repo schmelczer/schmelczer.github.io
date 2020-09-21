@@ -290,7 +290,7 @@ export const create = () => {
       curiumVitaes: [{ name: `Curriculum vitae`, url: cvEnglish }],
       email: `andras@schmelczer.dev`,
       lastEditText: `Last modified on `,
-      lastEdit: new Date(2020, 9 - 1, 10), // months are 0 indexed
+      lastEdit: new Date(2020, 9 - 1, 21), // months are 0 indexed
     }),
   };
 
