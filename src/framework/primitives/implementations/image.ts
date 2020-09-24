@@ -26,10 +26,7 @@ export class Image implements Primitive {
     return (
       this.image.images
         .slice(0, -1)
-        .map(
-          d =>
-            `(max-width: ${d.width / Image.IMAGE_SCREEN_RATIO}px) ${d.width}px,`
-        )
+        .map(d => `(max-width: ${d.width / Image.IMAGE_SCREEN_RATIO}px) ${d.width}px,`)
         .join('\n') + `\n${last(this.image.images).width}px`
     );
   }

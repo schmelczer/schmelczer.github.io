@@ -11,9 +11,7 @@ export class Video implements Primitive {
   public toHTML(container = false): string {
     return `
         ${container ? `<div class="figure-container">` : ''}
-          <video ${this.options} ${
-      this.poster ? `poster="${this.poster}` : ''
-    }" >
+          <video ${this.options} ${this.poster ? `poster="${this.poster}` : ''}" >
               <source src="${this.webm}" type="video/webm"/>
               <source src="${this.mp4}" type="video/mp4"/>
           </video>

@@ -5,8 +5,7 @@ import { Event } from './events/event';
 import { OnLoadEvent } from './events/concrete-events/on-load-event';
 import { OptionalEvent } from './events/optional-event';
 
-export abstract class PageElement extends EventHandler
-  implements EventBroadcaster {
+export abstract class PageElement extends EventHandler implements EventBroadcaster {
   protected eventBroadcaster: EventBroadcaster;
 
   protected constructor(

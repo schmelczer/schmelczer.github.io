@@ -21,8 +21,7 @@ export class PageThemeSwitcher extends PageElement {
     super(createElement(generate()));
 
     const storedIsDark = PageThemeSwitcher.loadFromLocalStorage();
-    const isDark =
-      storedIsDark !== null ? storedIsDark : isSystemLevelDarkModeEnabled();
+    const isDark = storedIsDark !== null ? storedIsDark : isSystemLevelDarkModeEnabled();
 
     if (isDark) {
       (this.element as HTMLInputElement).checked = true;
@@ -53,7 +52,7 @@ export class PageThemeSwitcher extends PageElement {
   }
 
   private static saveToLocalStorage(darkModeEnabled: boolean) {
-    window.localStorage?.setItem(
+    localStorage?.setItem(
       PageThemeSwitcher.LOCAL_STORAGE_KEY,
       JSON.stringify(darkModeEnabled)
     );
@@ -61,9 +60,7 @@ export class PageThemeSwitcher extends PageElement {
 
   private static loadFromLocalStorage(): boolean | null {
     try {
-      return JSON.parse(
-        window.localStorage?.getItem(PageThemeSwitcher.LOCAL_STORAGE_KEY)
-      );
+      return JSON.parse(localStorage?.getItem(PageThemeSwitcher.LOCAL_STORAGE_KEY));
     } catch {
       return null;
     }

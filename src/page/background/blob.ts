@@ -32,10 +32,7 @@ export class Blob {
   private _positionScale = new Vec2(0, 0);
   private _positionOffset = new Vec2(0, 0);
 
-  private readonly _size = new Vec2(
-    140,
-    Blob.CREATOR_RANDOM.randomInInterval(260, 740)
-  );
+  private readonly _size = new Vec2(140, Blob.CREATOR_RANDOM.randomInInterval(260, 740));
 
   public constructor() {
     this.decideColor();
@@ -47,8 +44,7 @@ export class Blob {
       Blob.colorPickerRandom.choose(
         Blob.isDarkThemed ? Blob.DARK_COLORS : Blob.LIGHT_COLORS
       ),
-      (this.z - PageBackground.Z_MIN) /
-        (PageBackground.Z_MAX - PageBackground.Z_MIN)
+      (this.z - PageBackground.Z_MIN) / (PageBackground.Z_MAX - PageBackground.Z_MIN)
     );
 
     this.color = new Animation<string>(

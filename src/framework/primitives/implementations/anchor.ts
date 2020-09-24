@@ -2,10 +2,7 @@ import { Primitive } from '../primitive';
 import { html, url } from '../../model/misc';
 
 export class Anchor implements Primitive {
-  public constructor(
-    private readonly href: url,
-    private readonly text: string
-  ) {}
+  public constructor(private readonly href: url, private readonly text: string) {}
 
   public toHTML(): html {
     return `
@@ -14,6 +11,7 @@ export class Anchor implements Primitive {
            rel="noreferrer"
            target="_blank"
         >${this.text}</a>
+        <br/>
     `;
   }
 }

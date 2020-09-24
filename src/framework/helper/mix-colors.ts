@@ -1,11 +1,7 @@
 export type hex = string;
 export type rgb = [number, number, number];
 
-export const mixColors = (
-  hexColorA: hex,
-  hexColorB: hex,
-  quantityA: number
-): hex => {
+export const mixColors = (hexColorA: hex, hexColorB: hex, quantityA: number): hex => {
   const colorA = hexToRGB(hexColorA);
   const colorB = hexToRGB(hexColorB);
 

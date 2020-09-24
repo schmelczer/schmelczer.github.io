@@ -18,9 +18,7 @@ export class PageImageViewer extends PageElement {
 
     media
       .filter((e: HTMLElement) => e.parentElement !== this.element)
-      .forEach(
-        (e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this))
-      );
+      .forEach((e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this)));
     return super.handleOnLoadEvent(event);
   }
 

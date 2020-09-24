@@ -4,9 +4,7 @@ import { OnLoadEvent } from './events/concrete-events/on-load-event';
 
 export class ContainerPage extends PageElement {
   public constructor(rootElement: HTMLElement, children: Array<PageElement>) {
-    children
-      .filter(e => e.element)
-      .forEach(e => rootElement.appendChild(e.element));
+    children.filter(e => e.element).forEach(e => rootElement.appendChild(e.element));
     super(rootElement, children);
   }
 

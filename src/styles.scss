@@ -52,23 +52,19 @@ html {
   hyphens: auto;
 }
 
-img,
-video,
-.figure-container {
-  width: 100%;
-  height: auto;
-}
-
 .figure-container {
   font-size: 0;
   box-shadow: var(--inset-shadow);
   pointer-events: none;
   cursor: pointer;
 
-  * {
+  img,
+  video,
+  iframe {
     pointer-events: all;
     position: relative;
     z-index: -2;
+    width: 100%;
   }
 }
 

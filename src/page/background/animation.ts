@@ -17,10 +17,7 @@ export class Animation<T> {
       return;
     }
 
-    this.elapsedTime = Math.min(
-      this.elapsedTime + deltaTimeInMs,
-      this.intervalInMs
-    );
+    this.elapsedTime = Math.min(this.elapsedTime + deltaTimeInMs, this.intervalInMs);
 
     const q = this.elapsedTime / this.intervalInMs;
     this._value = this.interpolator(this.from, this.to, q);

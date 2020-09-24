@@ -26,9 +26,7 @@ export abstract class EventHandler {
     return event;
   }
 
-  public handleOnPageThemeChangedEvent(
-    event: OnPageThemeChangedEvent
-  ): OptionalEvent {
+  public handleOnPageThemeChangedEvent(event: OnPageThemeChangedEvent): OptionalEvent {
     return event;
   }
 }
