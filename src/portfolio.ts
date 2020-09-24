@@ -15,10 +15,11 @@ import adAstraMP4 from './static/media/ad_astra_720.mp4';
 import adAstraWEBM from './static/media/ad_astra_720.webm';
 import ad_astra_index from './static/media/ad_astra.jpg';
 import myNotes from './static/media/my-notes.png';
+import sdf2d from './static/media/sdf2d.jpg';
 import processSimulator from './static/media/process-simulator.jpg';
 import processSimulatorInput from './static/media/process-simulator-input.jpg';
 import citySimulation from './static/media/simulation.jpg';
-import color from './static/media/color.jpg';
+import colour from './static/media/color.jpg';
 import platform from './static/media/platform.png';
 import photos from './static/media/photos.jpg';
 import led from './static/media/led.jpg';
@@ -50,6 +51,32 @@ export const create = () => {
       showMoreText: `Show details`,
       showLessText: `Show less`,
       elements: [
+        {
+          title: `SDF-2D library`,
+          date: `2020 Autumn`,
+          figure: new Image(sdf2d, `a screenshot of a demo scene`),
+          description: new Text(
+            `I created an NPM package for efficiently rendering and shading 2D scenes described 
+            by signed distance functions (SDF-s). It supports both WebGL and WebGL2 and is easily extendible.`
+          ),
+          more: [
+            new Text(
+              `A multitude of optimisations were needed to achieve real-time performance even on low-end mobile devices.
+              These include deferred shading, tile-based rendering, and dynamic shader generation to minimize unnecessary
+              instructions. Additionally, there were some interesting quirks of specific hardware that also needed to be overcame.`
+            ),
+            new Text(
+              `The end result is a reusable library written in TypeScript with a simple and elegant API. 
+            For more information please check out the GitHub repository or the NPM package itself. Or simply enjoy the
+            mesmerizing demo scenes.`
+            ),
+            new Anchor(`https://sdf2d.schmelczer.dev`, `View it in action`),
+            new Anchor(
+              `https://github.com/schmelczerandras/sdf-2d`,
+              `Check it out on GitHub`
+            ),
+          ],
+        },
         {
           title: `Video game on an ATtiny85`,
           date: `2020 Spring`,
@@ -87,6 +114,7 @@ export const create = () => {
             ),
           ],
         },
+
         {
           title: `Predicting foreign exchange rates`,
           date: `2019 Autumn`,
@@ -140,7 +168,7 @@ export const create = () => {
           figure: new Image(processSimulator, `a screenshot of the simulator`),
           description: new Text(
             `Dynamically calculating the temperatures and flow velocities
-          in a fluid based cooling system based on a simple model.`
+          in a fluid-based cooling system based on a simple model.`
           ),
           more: [
             new Text(
@@ -159,10 +187,7 @@ export const create = () => {
         {
           date: `2018 October - November`,
           title: `Graph editing application`,
-          figure: new Image(
-            processSimulatorInput,
-            `a picture of the simulator's UI`
-          ),
+          figure: new Image(processSimulatorInput, `a picture of the simulator's UI`),
           description: new Text(
             `An intuitive editor to create and edit input files for the nuclear facility simulator.`
           ),
@@ -207,23 +232,23 @@ export const create = () => {
         },
         {
           date: `2018 June`,
-          title: `Photo color grader`,
-          figure: new Image(color, `a picture of the app`),
+          title: `Photo colour grader`,
+          figure: new Image(colour, `a picture of the app`),
           description: new Text(
-            `An innovative (at least I thought so) color grader web application.`
+            `An innovative (at least I thought so) colour grader web application.`
           ),
           more: [
             new Text(
-              `The most noteworthy feature of this application is the color selector UI. 
+              `The most noteworthy feature of this application is the colour selector UI. 
             This program is only intended as a proof-of-concept, I wanted to experiment with 
             some ideas and this was the outcome.`
             ),
             new Text(
-              `You can select some colors and then apply transformations to the other colors as a 
-            function of their distance to the selected color.`
+              `You can select some colours and then apply transformations to the other colours as a 
+            function of their distance to the selected colour.`
             ),
             new Text(
-              `By clicking on a colored circle you can change its settings. 
+              `By clicking on a coloured circle you can change its settings. 
             New circles can be created by clicking in the large circle (and they can also be moved by drag & drop).`
             ),
             new Anchor('https://color.schmelczer.dev', `color.schmelczer.dev`),
@@ -241,22 +266,15 @@ export const create = () => {
               `The maps are randomly generated and fully destroyable. 
             The player is getting chased by flying enemies. Overall, I find it a really enjoyable game.`
             ),
-            new Text(
-              `I did this as a homework for my Basics of Programming course.`
-            ),
+            new Text(`I did this as a homework for my Basics of Programming course.`),
           ],
         },
         {
           date: `2016 summer`,
           title: `Photos`,
           figure: new Image(photos, `a picture of the website`),
-          description: new Text(
-            `A simple web page where you can view my photos.`
-          ),
-          link: new Anchor(
-            `https://photo.schmelczer.dev`,
-            `photo.schmelczer.dev`
-          ),
+          description: new Text(`A simple web page where you can view my photos.`),
+          link: new Anchor(`https://photo.schmelczer.dev`, `photo.schmelczer.dev`),
         },
         {
           date: `2016 spring`,
@@ -269,7 +287,7 @@ export const create = () => {
           ),
           description: new Text(
             `A full stack application with a built-in 
-          music player which music controls the color of some RGB LED strips.`
+          music player which music controls the colour of some RGB LED strips.`
           ),
           more: [
             new Text(
@@ -290,7 +308,7 @@ export const create = () => {
       curiumVitaes: [{ name: `Curriculum vitae`, url: cvEnglish }],
       email: `andras@schmelczer.dev`,
       lastEditText: `Last modified on `,
-      lastEdit: new Date(2020, 9 - 1, 21), // months are 0 indexed
+      lastEdit: new Date(2020, 9 - 1, 24), // months are 0 indexed
     }),
   };
 
