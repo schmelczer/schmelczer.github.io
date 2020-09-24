@@ -15,6 +15,17 @@
         "destination": "https://fizika.schmelczer.dev",
         "type": 301
       }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(jpg|jpeg|gif|png|webm|mp4)",
+        "headers": [
+          {
+            "key": "Cache-Control",
+            "value": "max-age=31536000"
+          }
+        ]
+      }
     ]
   }
 }
