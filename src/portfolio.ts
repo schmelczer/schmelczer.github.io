@@ -15,7 +15,7 @@ import adAstraMP4 from './static/media/ad_astra_720.mp4';
 import adAstraWEBM from './static/media/ad_astra_720.webm';
 import ad_astra_index from './static/media/ad_astra.jpg';
 import myNotes from './static/media/my-notes.png';
-import sdf2d from './static/media/sdf2d.jpg';
+import sdf2d from './static/media/sdf2d.png';
 import processSimulator from './static/media/process-simulator.jpg';
 import processSimulatorInput from './static/media/process-simulator-input.jpg';
 import citySimulation from './static/media/simulation.jpg';
