@@ -1,5 +1,7 @@
 import './static/no-change/favicon.ico';
 import './static/no-change/og-image.jpg';
+import './static/no-change/robots.txt';
+import './static/no-change/404.html';
 
 import './styles.scss';
 import { create } from './portfolio';

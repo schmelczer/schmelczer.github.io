@@ -117,7 +117,7 @@ module.exports = {
         },
       },
       {
-        test: /\.ico$/i,
+        test: /no-change.*(ico|html|txt)$/i,
         use: {
           loader: 'file-loader',
           query: {
