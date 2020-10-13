@@ -57,7 +57,7 @@ export const create = () => {
           figure: new Image(sdf2d, `a screenshot of a demo scene`),
           description: new Text(
             `I created an NPM package for efficiently rendering and shading 2D scenes described 
-            by signed distance functions (SDF-s). It supports both WebGL and WebGL2 and is easily extendible.`
+            by signed distance fields (SDF-s). It supports both WebGL and WebGL2 and is easily extendible.`
           ),
           more: [
             new Text(
