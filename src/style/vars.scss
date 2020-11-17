@@ -15,6 +15,8 @@
   --background: #ffffff;
   --normal-text-color: #31343f;
   --card-color: #ffffff;
+  --blurred-card-color: transparent;
+  --blur-radius: 16px;
   --special-text-color: var(--accent-color);
 }
 
@@ -50,6 +52,8 @@
   --background: #242638;
   --normal-text-color: #ffffff;
   --card-color: #263551;
+  --blurred-card-color: #26355166;
+  --blur-radius: 24px;
   --special-text-color: #ffffff;
   --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
     inset 0 0 1px rgba(0, 0, 0, 0.4);

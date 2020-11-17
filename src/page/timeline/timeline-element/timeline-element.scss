@@ -76,8 +76,7 @@ section.timeline-element {
       width: 50%;
 
       .date {
-        transform: translateX(calc(var(--icon-size) / 2 + 12px))
-          translateY(-10%);
+        transform: translateX(calc(var(--icon-size) / 2 + 12px)) translateY(-10%);
       }
     }
   }
@@ -85,7 +84,12 @@ section.timeline-element {
   .card {
     @include card-base();
     border-radius: var(--border-radius);
-    background-color: var(--card-color);
+
+    background-color: var(--blurred-card-color);
+    backdrop-filter: blur(var(--blur-radius));
+    @supports not (backdrop-filter: blur(var(--blur-radius))) {
+      background-color: var(--card-color);
+    }
 
     & > *:not(:first-child) {
       margin-top: var(--line-height);
