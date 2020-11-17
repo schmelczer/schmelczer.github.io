@@ -1,16 +1,16 @@
 import { PageContent } from '../content/content';
-import { Header } from '../../model/portfolio';
+import { Header } from '../../types/portfolio';
 
 import { generate } from './about.html';
-import { createElement } from '../../framework/helper/create-element';
-import { ContainerPage } from '../../framework/container-page';
+import { createElement } from '../../helper/create-element';
 import { PageThemeSwitcher } from '../theme-switcher/theme-switcher';
+import { PageElement } from '../page-element';
 
-export class PageHeader extends ContainerPage {
+export class PageHeader extends PageElement {
   public constructor(header: Header) {
-    super(createElement(generate(header)), [
-      new PageContent(header.about),
-      new PageThemeSwitcher(),
-    ]);
+    super(createElement(generate(header)));
+    this.attachElementByReplacing('.picture', header.picture);
+    this.attachElement(new PageContent(header.about));
+    this.attachElement(new PageThemeSwitcher());
   }
 }

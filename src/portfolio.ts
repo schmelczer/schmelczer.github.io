@@ -1,13 +1,11 @@
-import { Text } from './framework/primitives/implementations/text';
-import { Image } from './framework/primitives/implementations/image';
-import { Video } from './framework/primitives/implementations/video';
-import { Anchor } from './framework/primitives/implementations/anchor';
 import { PageFooter } from './page/footer/footer';
+import { Video } from './page/basics/video/video';
+import { Text } from './page/basics/text/text';
+import { Image } from './page/basics/image/image';
 import { PageHeader } from './page/about/about';
 import { PageTimeline } from './page/timeline/timeline';
 import { PageImageViewer } from './page/image-viewer/image-viewer';
-import { last } from './framework/helper/last';
-
+import { last } from './helper/last';
 import me from './static/media/me.jpg';
 import forexMP4 from './static/media/forex.mp4';
 import forexWEBM from './static/media/forex.webm';
@@ -26,15 +24,17 @@ import led from './static/media/led.jpg';
 import cvEnglish from './static/cv/cv_andras_schmelczer.pdf';
 import ledMP4 from './static/media/led.mp4';
 import ledWEBM from './static/media/led.webm';
-import { ContainerPage } from './framework/container-page';
 import { PageBackground } from './page/background/background';
+import { Anchor } from './page/basics/anchor/anchor';
+
+import { Body } from './page/body/body';
 
 export const create = () => {
   const page = {
     imageViewer: new PageImageViewer(),
     header: new PageHeader({
       name: `András Schmelczer`,
-      picture: new Image(me, `a picture of me`),
+      picture: new Image(me, `a picture of me`, false),
       about: [
         new Text(
           `I have always been fascinated by the engineering feats that surround us. 
@@ -308,12 +308,12 @@ export const create = () => {
       curiumVitaes: [{ name: `Curriculum vitae`, url: cvEnglish }],
       email: `andras@schmelczer.dev`,
       lastEditText: `Last modified on `,
-      lastEdit: new Date(2020, 9 - 1, 24), // months are 0 indexed
+      lastEdit: new Date(2020, 11 - 1, 17), // months are 0 indexed
     }),
   };
 
-  new ContainerPage(document.body.querySelector('main'), [
+  new Body(document.querySelector('main'), [
     ...Object.values(page),
     new PageBackground(page.header, [page.timeline], page.footer),
-  ]).setAsMain();
+  ]);
 };

@@ -1,7 +1,7 @@
-import { Footer } from '../../model/portfolio';
-import { html } from '../../framework/model/misc';
+import { Footer } from '../../types/portfolio';
 
 import './footer.scss';
+import { html } from '../../types/html';
 
 export const generate = ({
   title,

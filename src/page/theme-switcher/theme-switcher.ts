@@ -1,21 +1,18 @@
-import { PageElement } from '../../framework/page-element';
-import { createElement } from '../../framework/helper/create-element';
+import { PageElement } from '../page-element';
+import { createElement } from '../../helper/create-element';
 import { generate } from './theme-switcher.html';
 import {
   isSystemLevelDarkModeEnabled,
   turnOnDarkMode,
   turnOnLightMode,
-} from '../../framework/styles/dark-mode/dark-mode';
-import {
-  turnOffAnimations,
-  turnOnAnimations,
-} from '../../framework/styles/animations/animations';
-import { OnLoadEvent } from '../../framework/events/concrete-events/on-load-event';
-import { OnPageThemeChangedEvent } from '../../framework/events/concrete-events/on-page-theme-changed-event';
-import { OptionalEvent } from '../../framework/events/optional-event';
+} from '../../style/dark-mode/dark-mode';
+import { turnOffAnimations, turnOnAnimations } from '../../style/animations/animations';
+import { OnLoadEvent } from '../../events/concrete-events/on-load-event';
+import { OptionalEvent } from '../../events/optional-event';
+import { OnPageThemeChangedEvent } from '../../events/concrete-events/on-page-theme-changed-event';
 
 export class PageThemeSwitcher extends PageElement {
-  private static readonly LOCAL_STORAGE_KEY = 'dark-mode';
+  private static readonly localStorageKey = 'dark-mode';
 
   public constructor() {
     super(createElement(generate()));
@@ -24,14 +21,14 @@ export class PageThemeSwitcher extends PageElement {
     const isDark = storedIsDark !== null ? storedIsDark : isSystemLevelDarkModeEnabled();
 
     if (isDark) {
-      (this.element as HTMLInputElement).checked = true;
+      (this.htmlRoot as HTMLInputElement).checked = true;
       turnOffAnimations();
       turnOnDarkMode();
       setTimeout(() => turnOnAnimations(), 0);
     } else {
       turnOnLightMode();
     }
-    this.element.onchange = this.handleThemeChange.bind(this);
+    this.htmlRoot.onchange = this.handleThemeChange.bind(this);
   }
 
   public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
@@ -40,7 +37,7 @@ export class PageThemeSwitcher extends PageElement {
   }
 
   private handleThemeChange() {
-    const isDark = (this.element as HTMLInputElement).checked;
+    const isDark = (this.htmlRoot as HTMLInputElement).checked;
     if (isDark) {
       turnOnDarkMode();
     } else {
@@ -53,14 +50,14 @@ export class PageThemeSwitcher extends PageElement {
 
   private static saveToLocalStorage(darkModeEnabled: boolean) {
     localStorage?.setItem(
-      PageThemeSwitcher.LOCAL_STORAGE_KEY,
+      PageThemeSwitcher.localStorageKey,
       JSON.stringify(darkModeEnabled)
     );
   }
 
   private static loadFromLocalStorage(): boolean | null {
     try {
-      return JSON.parse(localStorage?.getItem(PageThemeSwitcher.LOCAL_STORAGE_KEY));
+      return JSON.parse(localStorage?.getItem(PageThemeSwitcher.localStorageKey));
     } catch {
       return null;
     }

@@ -1,8 +1,8 @@
-import { Footer } from '../../model/portfolio';
-import { PageElement } from '../../framework/page-element';
+import { Footer } from '../../types/portfolio';
+import { PageElement } from '../page-element';
 
 import { generate } from './footer.html';
-import { createElement } from '../../framework/helper/create-element';
+import { createElement } from '../../helper/create-element';
 
 export class PageFooter extends PageElement {
   constructor(footer: Footer) {

@@ -1,7 +1,7 @@
 import { Event } from '../event';
 import { EventHandler } from '../event-handler';
-import { PageElement } from '../../page-element';
 import { OptionalEvent } from '../optional-event';
+import { PageElement } from '../../page/page-element';
 
 export class OnLoadEvent implements Event {
   public constructor(public parent: PageElement) {}

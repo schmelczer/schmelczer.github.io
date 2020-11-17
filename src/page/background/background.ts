@@ -1,16 +1,16 @@
-import { PageElement } from '../../framework/page-element';
+import { PageElement } from '../page-element';
 import { Blob } from './blob';
 import { generate } from './background.html';
 import { Animation } from './animation';
 import { Vec3 } from './vec3';
 import { Vec2 } from './vec2';
-import { createElement } from '../../framework/helper/create-element';
-import { sum } from '../../framework/helper/sum';
-import { getHeight } from '../../framework/helper/get-height';
-import { OnLoadEvent } from '../../framework/events/concrete-events/on-load-event';
-import { OnBodyDimensionsChangedEvent } from '../../framework/events/concrete-events/on-body-dimensions-changed-event';
-import { OnPageThemeChangedEvent } from '../../framework/events/concrete-events/on-page-theme-changed-event';
-import { OptionalEvent } from '../../framework/events/optional-event';
+import { createElement } from '../../helper/create-element';
+import { sum } from '../../helper/sum';
+import { getHeight } from '../../helper/get-height';
+import { OnLoadEvent } from '../../events/concrete-events/on-load-event';
+import { OptionalEvent } from '../../events/optional-event';
+import { OnBodyDimensionsChangedEvent } from '../../events/concrete-events/on-body-dimensions-changed-event';
+import { OnPageThemeChangedEvent } from '../../events/concrete-events/on-page-theme-changed-event';
 
 export class PageBackground extends PageElement {
   public static readonly BLOB_SPACING = 325;
@@ -34,7 +34,7 @@ export class PageBackground extends PageElement {
     private readonly end: PageElement
   ) {
     super(createElement(generate()));
-    this.canvas = this.element as HTMLCanvasElement;
+    this.canvas = this.htmlRoot as HTMLCanvasElement;
     this.ctx = this.canvas.getContext('2d');
   }
 
@@ -89,7 +89,7 @@ export class PageBackground extends PageElement {
   }
 
   private resizeBackground(heightChange?: number) {
-    const targetWidth = this.parent.element.clientWidth;
+    const targetWidth = this.parent.htmlRoot.clientWidth;
 
     const siblings: Array<HTMLElement> = this.getSiblings();
     let targetHeight = sum(siblings.map(getHeight));
@@ -116,11 +116,10 @@ export class PageBackground extends PageElement {
                   offset *
                   q
             );
-          const topOffset = variableOffset(getHeight(this.start.element), 1);
+          const topOffset = variableOffset(getHeight(this.start.htmlRoot), 1);
           const topLeft = this.convertFrom2Dto3D(new Vec2(0, topOffset), blob.z);
 
-          const bottomOffset = variableOffset(getHeight(this.end.element), 0.2);
-
+          const bottomOffset = variableOffset(getHeight(this.end.htmlRoot), 0.2);
           const bottomRight = this.convertFrom2Dto3D(
             new Vec2(this.canvas.width, this.canvas.height - bottomOffset),
             blob.z,
@@ -134,7 +133,7 @@ export class PageBackground extends PageElement {
   }
 
   private getSiblings(): Array<HTMLElement> {
-    return [this.start, ...this.inBetween, this.end].map(e => e.element);
+    return [this.start, ...this.inBetween, this.end].map(e => e.htmlRoot);
   }
 
   private redraw(timestamp: DOMHighResTimeStamp) {
@@ -144,7 +143,7 @@ export class PageBackground extends PageElement {
     this.backgroundSize.step(deltaTime);
     this.blobs.forEach(b => b.step(deltaTime));
 
-    this.scrollPosition = this.parent.element.scrollTop;
+    this.scrollPosition = this.parent.htmlRoot.scrollTop;
 
     this.blobs.sort((b1, b2) => b2.z - b1.z);
 

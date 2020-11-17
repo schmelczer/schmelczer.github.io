@@ -1,4 +1,6 @@
-@import '../framework/framework';
+@use 'mixins' as *;
+@use 'dark-mode/dark-mode' as *;
+@use 'animations/animations' as *;
 
 :root {
   --transition-time: 250ms;

@@ -1,9 +1,9 @@
-import { TimelineElement } from '../../../model/portfolio';
+import { TimelineElement } from '../../../types/portfolio';
 import { PageContent } from '../../content/content';
-import { PageElement } from '../../../framework/page-element';
+import { PageElement } from '../../page-element';
 import { generate } from './timeline-element.html';
-import { createElement } from '../../../framework/helper/create-element';
-import { OnBodyDimensionsChangedEvent } from '../../../framework/events/concrete-events/on-body-dimensions-changed-event';
+import { createElement } from '../../../helper/create-element';
+import { OnBodyDimensionsChangedEvent } from '../../../events/concrete-events/on-body-dimensions-changed-event';
 
 export class PageTimelineElement extends PageElement {
   private isOpen: boolean;
@@ -18,15 +18,23 @@ export class PageTimelineElement extends PageElement {
 
     if (timelineElement.more) {
       const content = new PageContent(timelineElement.more);
-      super(root, [content]);
+      super(root);
+      this.children = [content];
       this.isOpen = false;
       this.more = root.querySelector('.more');
-      this.more.appendChild(content.element);
+      this.more.appendChild(content.htmlRoot);
       window.addEventListener('resize', this.handleResize.bind(this));
       root
         .querySelector('.buttons')
         .addEventListener('click', this.toggleOpen.bind(this));
     } else super(root);
+
+    this.attachElementByReplacing('.figure', timelineElement.figure);
+    this.attachElementByReplacing('.description', timelineElement.description);
+
+    if (timelineElement.link) {
+      this.attachElementByReplacing('.link', timelineElement.link);
+    }
   }
 
   private toggleOpen() {
@@ -46,15 +54,10 @@ export class PageTimelineElement extends PageElement {
   }
 
   private notifyOfHeightChange(deltaHeight: number = undefined) {
-    this.eventBroadcaster?.broadcastEvent(
-      new OnBodyDimensionsChangedEvent(deltaHeight)
-    );
+    this.eventBroadcaster?.broadcastEvent(new OnBodyDimensionsChangedEvent(deltaHeight));
 
     setTimeout(
-      () =>
-        this.eventBroadcaster?.broadcastEvent(
-          new OnBodyDimensionsChangedEvent()
-        ),
+      () => this.eventBroadcaster?.broadcastEvent(new OnBodyDimensionsChangedEvent()),
       250
     );
   }

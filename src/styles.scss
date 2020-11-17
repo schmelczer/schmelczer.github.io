@@ -1,7 +1,8 @@
 @use 'style/vars';
 @use 'style/mixins' as *;
 @use 'style/a';
-@use 'framework/styles/index';
+@use 'style/animations/animations';
+@use 'style/dark-mode/dark-mode';
 
 html {
   height: 100%;
@@ -46,8 +47,7 @@ html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  transition: background-color linear var(--transition-time),
-    color var(--transition-time);
+  transition: background-color linear var(--transition-time), color var(--transition-time);
 
   hyphens: auto;
 }
@@ -55,6 +55,7 @@ html {
 .figure-container {
   font-size: 0;
   box-shadow: var(--inset-shadow);
+  margin-top: var(--line-height);
   pointer-events: none;
   cursor: pointer;
 
@@ -68,19 +69,9 @@ html {
   }
 }
 
-.primitive-text,
-.primitive-anchor,
-.figure-container {
-  margin-top: var(--line-height);
-}
-
-.primitive-text {
-  text-align: left;
-}
-
 body {
-  padding: env(safe-area-inset-top) env(safe-area-inset-right)
-    env(safe-area-inset-bottom) env(safe-area-inset-left);
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
 
   height: 100%;
 
@@ -100,7 +91,7 @@ body {
       @include center-children();
     }
 
-    @include on-large-screen {
+    @media (hover: hover) {
       &::-webkit-scrollbar-track,
       &::-webkit-scrollbar {
         background-color: transparent;

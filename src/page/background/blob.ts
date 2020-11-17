@@ -1,7 +1,7 @@
 import { Vec2 } from './vec2';
 import { Vec3 } from './vec3';
-import { mixColors } from '../../framework/helper/mix-colors';
-import { Random } from '../../framework/helper/random';
+import { mixColors } from '../../helper/mix-colors';
+import { Random } from '../../helper/random';
 import { Animation } from './animation';
 import { PageBackground } from './background';
 

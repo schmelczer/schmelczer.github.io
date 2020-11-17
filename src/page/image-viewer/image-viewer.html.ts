@@ -1,7 +1,7 @@
-import { html } from '../../framework/model/misc';
 import cancel from '../../static/icons/cancel.svg';
 
 import './image-viewer.scss';
+import { html } from '../../types/html';
 
 export const generate = (): html => `
     <section id="image-viewer">

@@ -1,4 +1,16 @@
-@import '../framework/framework';
+$breakpoint-width: 925px !default;
+
+@mixin on-small-screen() {
+  @media (max-width: $breakpoint-width - 1px) {
+    @content;
+  }
+}
+
+@mixin on-large-screen() {
+  @media (min-width: $breakpoint-width) {
+    @content;
+  }
+}
 
 @mixin center-children() {
   display: flex;

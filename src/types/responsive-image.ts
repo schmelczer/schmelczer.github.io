@@ -1,6 +1,4 @@
-export type url = string;
-
-export type html = string;
+import { url } from './url';
 
 export type ResponsiveImage = {
   srcSet: string;

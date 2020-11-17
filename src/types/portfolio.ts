@@ -1,9 +1,9 @@
-import { url } from '../framework/model/misc';
-import { Primitive } from '../framework/primitives/primitive';
-import { Image } from '../framework/primitives/implementations/image';
-import { Anchor } from '../framework/primitives/implementations/anchor';
-import { Video } from '../framework/primitives/implementations/video';
-import { Text } from '../framework/primitives/implementations/text';
+import { Video } from '../page/basics/video/video';
+import { Text } from '../page/basics/text/text';
+import { Image } from '../page/basics/image/image';
+import { Anchor } from '../page/basics/anchor/anchor';
+import { PageElement } from '../page/page-element';
+import { url } from './url';
 
 export interface Portfolio {
   header: Header;
@@ -45,4 +45,4 @@ export interface CV {
   url: url;
 }
 
-export type Content = Array<Primitive>;
+export type Content = Array<PageElement>;

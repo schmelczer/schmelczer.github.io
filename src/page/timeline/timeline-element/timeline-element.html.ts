@@ -1,10 +1,10 @@
-import { TimelineElement } from '../../../model/portfolio';
-import { html } from '../../../framework/model/misc';
+import { TimelineElement } from '../../../types/portfolio';
 
 import './timeline-element.scss';
+import { html } from '../../../types/html';
 
 export const generate = (
-  { date, title, figure, description, more, link }: TimelineElement,
+  { date, title, more }: TimelineElement,
   showMore: string,
   showLess: string
 ): html => `
@@ -15,8 +15,8 @@ export const generate = (
         </div>
         <div class="card">
             <h2>${title}</h2>
-            ${figure.toHTML(true)}
-            ${description.toHTML()}
+            <div class="figure"></div>
+            <div class="description"></div>
             ${
               more
                 ? `
@@ -28,7 +28,7 @@ export const generate = (
                 `
                 : ''
             }
-            ${link ? link.toHTML() : ''}
+            <div class="link"></div>
         </div>
     </section>
 `;

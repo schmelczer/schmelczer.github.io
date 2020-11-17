@@ -1,4 +1,4 @@
-export const addImul = () => {
+export const polyfillImul = () => {
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/imul
   if (!Math.imul)
     Math.imul = function(opA, opB) {
