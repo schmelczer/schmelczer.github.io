@@ -13,6 +13,7 @@ export const generate = ({
 }): html => `
   <a class="image-anchor" 
     href="${href}"
+    rel="noopener"
     target="_blank"
   >
     <div class="svgContainer">
