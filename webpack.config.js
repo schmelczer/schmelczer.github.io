@@ -11,11 +11,11 @@ const Sass = require('sass');
 const isProduction = process.env.NODE_ENV === 'production';
 const isDevelopment = !isProduction;
 
-module.exports = {
+module.exports = (env, argv) => ({
   watchOptions: {
     ignored: /node_modules/,
   },
-  //devtool: 'inline-source-map',
+  devtool: argv.mode === 'development' ? 'inline-source-map' : '',
   devServer: {
     host: '0.0.0.0',
     disableHostCheck: true,
@@ -41,7 +41,7 @@ module.exports = {
         removeStyleLinkTypeAttributes: true,
         useShortDoctype: true,
       },
-      inlineSource: '.(js|css)$',
+      inlineSource: argv.mode === 'development' ? '' : '.(js|css)$',
     }),
     new HtmlWebpackInlineSourcePlugin(),
     new MiniCssExtractPlugin({
@@ -54,6 +54,16 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /no-change.*(ico|html|txt|png|webmanifest)$/i,
+        use: {
+          loader: 'file-loader',
+          query: {
+            outputPath: '/',
+            name: '[name].[ext]',
+          },
+        },
+      },
       {
         test: /\.(jpe?g|png)$/i,
         loader: 'responsive-loader',
@@ -112,16 +122,7 @@ module.exports = {
         test: /\.svg$/i,
         use: 'raw-loader',
       },
-      {
-        test: /no-change.*(ico|html|txt)$/i,
-        use: {
-          loader: 'file-loader',
-          query: {
-            outputPath: '/',
-            name: '[name].[ext]',
-          },
-        },
-      },
+
       {
         test: /\.scss$/i,
         use: [
@@ -144,17 +145,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.(woff2?|ttf|eot|svg)(?:[?#].+)?$/,
-        use: {
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'static/fonts/',
-          },
-        },
-        include: /fonts/,
-      },
-      {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
@@ -168,4 +158,4 @@ module.exports = {
     filename: '[name].[contenthash].js',
     path: path.resolve(__dirname, 'dist'),
   },
-};
+});

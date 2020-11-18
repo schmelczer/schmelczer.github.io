@@ -1,12 +1,11 @@
 {
   "name": "portfolio",
-  "version": "1.0.0",
-  "description": "An easily configurable portfolio.",
+  "description": "An easily configurable timeline of projects.",
   "private": true,
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "lint": "npx eslint --fix \"src/**/*.ts\" && npx prettier --write \"src/**/*.ts\"",
-    "build": "webpack && find dist -type f -regex \".*\\(js\\|css\\|LICENSE.*\\)\" | xargs rm"
+    "build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
@@ -14,6 +13,8 @@
   },
   "keywords": [
     "CV",
+    "curriculum",
+    "vitae",
     "portfolio",
     "resume",
     "resumé"
