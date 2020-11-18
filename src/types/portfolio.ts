@@ -1,9 +1,10 @@
 import { Video } from '../page/basics/video/video';
 import { Text } from '../page/basics/text/text';
 import { Image } from '../page/basics/image/image';
-import { Anchor } from '../page/basics/anchor/anchor';
+
 import { PageElement } from '../page/page-element';
 import { url } from './url';
+import { Preview } from '../page/basics/preview/preview';
 
 export interface Portfolio {
   header: Header;
@@ -24,18 +25,18 @@ export interface Timeline {
 }
 
 export interface TimelineElement {
-  title: string;
   date: string;
-  figure: Image | Video;
+  figure: Image | Video | Preview;
+  title: string;
   description: Text;
   more?: Content;
-  link?: Anchor;
+  links: Array<PageElement>;
 }
 
 export interface Footer {
   title: string;
   email: string;
-  curiumVitaes: Array<CV>;
+  curriculaVitae: Array<CV>;
   lastEditText: string;
   lastEdit: Date;
 }

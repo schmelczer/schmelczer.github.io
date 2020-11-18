@@ -17,8 +17,9 @@ export class PageImageViewer extends PageElement {
     const media = Array.prototype.slice.call(document.querySelectorAll('img'));
 
     media
-      .filter((e: HTMLElement) => e.parentElement !== this.htmlRoot)
+      .filter((e: HTMLElement) => !e.attributes['image-viewer-ignore'])
       .forEach((e: HTMLImageElement) => (e.onclick = this.handleClick.bind(this)));
+
     return super.handleOnLoadEvent(event);
   }
 

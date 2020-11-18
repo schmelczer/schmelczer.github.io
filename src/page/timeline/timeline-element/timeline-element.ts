@@ -8,13 +8,15 @@ import { OnBodyDimensionsChangedEvent } from '../../../events/concrete-events/on
 export class PageTimelineElement extends PageElement {
   private isOpen: boolean;
   private more: HTMLElement;
+  private showMore: string;
+  private showLess: string;
 
   public constructor(
     timelineElement: TimelineElement,
     showMore: string,
     showLess: string
   ) {
-    const root = createElement(generate(timelineElement, showMore, showLess));
+    const root = createElement(generate(timelineElement, showMore));
 
     if (timelineElement.more) {
       const content = new PageContent(timelineElement.more);
@@ -23,30 +25,25 @@ export class PageTimelineElement extends PageElement {
       this.isOpen = false;
       this.more = root.querySelector('.more');
       this.more.appendChild(content.htmlRoot);
-      window.addEventListener('resize', this.handleResize.bind(this));
-      root
-        .querySelector('.buttons')
-        .addEventListener('click', this.toggleOpen.bind(this));
+      addEventListener('resize', this.handleResize.bind(this));
+
+      this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
     } else super(root);
 
     this.attachElementByReplacing('.figure', timelineElement.figure);
     this.attachElementByReplacing('.description', timelineElement.description);
+    timelineElement.links.forEach(l => this.attachElementAsChildOf('.buttons', l));
 
-    if (timelineElement.link) {
-      this.attachElementByReplacing('.link', timelineElement.link);
-    }
+    this.showMore = showMore;
+    this.showLess = showLess;
   }
 
   private toggleOpen() {
-    const showMore = this.query('.show-more') as HTMLElement;
-    const showLess = this.query('.show-less') as HTMLElement;
     if (this.isOpen) {
-      PageTimelineElement.show(showMore);
-      PageTimelineElement.hide(showLess);
+      this.query('.info-button p').innerText = this.showMore;
       this.closeMore();
     } else {
-      PageTimelineElement.show(showLess);
-      PageTimelineElement.hide(showMore);
+      this.query('.info-button p').innerText = this.showLess;
       this.openMore();
     }
 

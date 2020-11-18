@@ -16,10 +16,10 @@ export const generate = ({
 }): html => `
   ${container ? `<div class="figure-container">` : ''}
   <img tabindex="0"
-      srcset="${image.srcSet}" 
-      sizes="${sizes}"
-      src="${last(image.images)?.path}" 
-      alt="${alt}"
+    srcset="${image.srcSet}" 
+    sizes="${sizes}"
+    src="${last(image.images)?.path}" 
+    alt="${alt}"
   />
   ${container ? `</div>` : ''}
 `;

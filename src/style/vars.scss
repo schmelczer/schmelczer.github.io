@@ -27,9 +27,9 @@
     --normal-margin: 45px;
     --small-margin: 25px;
     --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
-    --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.075),
-      inset 0 0 1px rgba(0, 0, 0, 0.2);
-    --icon-size: 35px;
+    --inset-shadow: inset 0 -9px 7px -7px rgb(0, 0, 0, 0.07);
+    --icon-size: 45px;
+    --large-icon-size: 80px;
     --body-width: 765px;
   }
 }
@@ -41,9 +41,9 @@
     --normal-margin: 30px;
     --small-margin: 15px;
     --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.075), 0 0 1px rgba(0, 0, 0, 0.125);
-    --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.05),
-      inset 0 0 1px rgba(0, 0, 0, 0.125);
-    --icon-size: 25px;
+    --inset-shadow: inset 0 -9px 7px -7px rgb(0, 0, 0, 0.07);
+    --icon-size: 35px;
+    --large-icon-size: 55px;
     --body-width: 90%;
   }
 }
@@ -52,7 +52,7 @@
   --background: #242638;
   --normal-text-color: #ffffff;
   --card-color: #263551;
-  --blurred-card-color: #26355166;
+  --blurred-card-color: #26355155;
   --blur-radius: 24px;
   --special-text-color: #ffffff;
   --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),

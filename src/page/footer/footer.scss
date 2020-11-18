@@ -6,6 +6,10 @@ footer#page-footer {
   margin-top: var(--large-margin);
   width: 100%;
 
+  a {
+    @include link;
+  }
+
   h2 {
     @include title-font();
   }
@@ -27,11 +31,8 @@ footer#page-footer {
       img,
       svg {
         @include max-square(var(--icon-size));
-        margin-right: var(--small-margin);
-
-        * {
-          fill: var(--normal-text-color);
-        }
+        margin-right: calc(var(--small-margin) / 2);
+        stroke: var(--normal-text-color);
       }
 
       a {

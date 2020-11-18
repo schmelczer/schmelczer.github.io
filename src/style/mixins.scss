@@ -12,6 +12,24 @@ $breakpoint-width: 925px !default;
   }
 }
 
+@mixin image-button($icon-size) {
+  display: block;
+  box-sizing: content-box;
+  cursor: pointer;
+  text-decoration: none;
+
+  &:hover svg {
+    transform: translateX(-50%) translateY(-50%) scale(1.15);
+  }
+
+  svg {
+    @include absolute-center;
+    @include square($icon-size);
+    transition: transform var(--transition-time);
+    transform-origin: center center;
+  }
+}
+
 @mixin center-children() {
   display: flex;
   align-items: center;
@@ -27,7 +45,6 @@ $breakpoint-width: 925px !default;
 
 @mixin card-base() {
   text-align: center;
-  padding: var(--normal-margin);
   box-shadow: var(--shadow);
   z-index: 1;
   width: 100%;
@@ -64,11 +81,57 @@ $breakpoint-width: 925px !default;
 @mixin main-font() {
   font: 400 1.1rem 'Open Sans', sans-serif;
   color: var(--normal-text-color);
-  line-height: 1.6;
+  line-height: 1.8;
 }
 
 @mixin special-text-font() {
   font: 400 1rem 'Open Sans', sans-serif;
   color: var(--special-text-color);
   font-style: italic;
+}
+
+@mixin link {
+  $border-shift: 10px;
+  $line-width: 2px;
+
+  @include special-text-font();
+  text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+
+  padding: 0 3px $line-width 0;
+
+  &:before,
+  &:after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+  }
+
+  &:before {
+    width: calc(100% + #{$border-shift});
+    border-bottom: $line-width dashed var(--accent-color);
+    transition: transform var(--transition-time);
+  }
+
+  &:after {
+    width: 100%;
+    height: $line-width;
+    background: linear-gradient(
+      90deg,
+      var(--card-color) 0,
+      transparent 4px,
+      transparent calc(100% - 4px),
+      var(--card-color) 100%
+    );
+  }
+
+  &:hover {
+    &:before {
+      transform: translateX(-$border-shift);
+    }
+  }
 }

@@ -2,6 +2,7 @@
 
 section#about {
   @include card-base();
+  padding: var(--normal-margin);
   background-color: var(--accent-color);
   font-size: 0;
 
@@ -31,7 +32,7 @@ section#about {
   p,
   h1 {
     color: var(--very-light-text-color);
-    margin-top: var(--small-margin);
+    margin-top: var(--line-height);
   }
 
   @include on-large-screen {

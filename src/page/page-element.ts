@@ -44,6 +44,11 @@ export abstract class PageElement extends EventHandler implements EventBroadcast
     this.children.push(element);
   }
 
+  protected attachElementAsChildOf(query: string, element: PageElement) {
+    this.query(query).appendChild(element.htmlRoot);
+    this.children.push(element);
+  }
+
   protected attachElement(element: PageElement) {
     this.htmlRoot.appendChild(element.htmlRoot);
     this.children.push(element);

@@ -1,10 +1,7 @@
 @use '../../style/mixins' as *;
 
-div#timeline {
-  @include on-large-screen {
-    // workaround for IE
-    & > :first-child {
-      margin-top: var(--large-margin);
-    }
+@include on-large-screen {
+  div#timeline > :first-child {
+    margin-top: var(--large-margin);
   }
 }

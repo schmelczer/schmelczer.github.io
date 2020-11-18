@@ -1,6 +1,5 @@
 import { PageContent } from '../content/content';
 import { Header } from '../../types/portfolio';
-
 import { generate } from './about.html';
 import { createElement } from '../../helper/create-element';
 import { PageThemeSwitcher } from '../theme-switcher/theme-switcher';

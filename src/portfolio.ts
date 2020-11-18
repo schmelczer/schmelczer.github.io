@@ -6,10 +6,18 @@ import { PageHeader } from './page/about/about';
 import { PageTimeline } from './page/timeline/timeline';
 import { PageImageViewer } from './page/image-viewer/image-viewer';
 import { last } from './helper/last';
+import { PageBackground } from './page/background/background';
+import { Anchor } from './page/basics/anchor/anchor';
+import { Body } from './page/body/body';
+import { ImageAnchorFactory } from './page/basics/image-anchor/image-anchor';
+import { Preview } from './page/basics/preview/preview';
 import me from './static/media/me.jpg';
+import declared from './static/media/decla-red.png';
 import forexMP4 from './static/media/forex.mp4';
 import forexWEBM from './static/media/forex.webm';
+import thesis from './static/media/andras-schmelczer-thesis.pdf';
 import adAstraMP4 from './static/media/ad_astra_720.mp4';
+import cvIcon from './static/icons/cv.svg';
 import adAstraWEBM from './static/media/ad_astra_720.webm';
 import ad_astra_index from './static/media/ad_astra.jpg';
 import myNotes from './static/media/my-notes.png';
@@ -24,27 +32,26 @@ import led from './static/media/led.jpg';
 import cvEnglish from './static/cv/cv_andras_schmelczer.pdf';
 import ledMP4 from './static/media/led.mp4';
 import ledWEBM from './static/media/led.webm';
-import { PageBackground } from './page/background/background';
-import { Anchor } from './page/basics/anchor/anchor';
-
-import { Body } from './page/body/body';
+import githubIcon from './static/icons/github.svg';
+import openIcon from './static/icons/open.svg';
 
 export const create = () => {
+  const GitHub = ImageAnchorFactory(githubIcon, 'Open on GitHub');
+  const Open = ImageAnchorFactory(openIcon, 'Open in new tab');
+  const Thesis = ImageAnchorFactory(cvIcon, 'Download thesis');
+
   const page = {
     imageViewer: new PageImageViewer(),
     header: new PageHeader({
       name: `András Schmelczer`,
       picture: new Image(me, `a picture of me`, false),
       about: [
-        new Text(
-          `I have always been fascinated by the engineering feats that surround us. 
-         When I realized that someday I might be able to contribute to these achievements, 
-         I knew that is what I need to aim for. As I am starting my last semester at the 
-         Budapest University of Technology and Economics, I feel I am getting closer to it every day.`
-        ),
-        new Text(
-          `You can see some of the more interesting projects I have worked on below.`
-        ),
+        new Text(`I have always been fascinated by the engineering feats that surround us and pervade every aspect
+          of our lives. When I realised I might someday be able to contribute to this field, I knew that
+          this would become my life’s ambition. As I am finishing my last semester at the 
+          Budapest University of Technology and Economics, I feel I am getting closer to it every day.`),
+        new Text(`Look at some of the more interesting projects I have worked on. They are all listed below. 
+          Further information about me can be found at the bottom of the page.`),
       ],
     }),
     timeline: new PageTimeline({
@@ -52,29 +59,53 @@ export const create = () => {
       showLessText: `Show less`,
       elements: [
         {
-          title: `SDF-2D library`,
+          title: `Multiplayer game`,
           date: `2020 Autumn`,
-          figure: new Image(sdf2d, `a screenshot of a demo scene`),
+          figure: new Preview(
+            declared,
+            'https://decla.red',
+            'The website of the video game'
+          ),
           description: new Text(
-            `I created an NPM package for efficiently rendering and shading 2D scenes described 
-            by signed distance fields (SDF-s). It supports both WebGL and WebGL2 and is easily extendible.`
+            `Using SDF-2D, I developed a conquest-style multiplayer browser game. It even runs on mobiles.`
           ),
           more: [
-            new Text(
-              `A multitude of optimisations were needed to achieve real-time performance even on low-end mobile devices.
-              These include deferred shading, tile-based rendering, and dynamic shader generation to minimize unnecessary
-              instructions. Additionally, there were some interesting quirks of specific hardware that also needed to be overcame.`
-            ),
-            new Text(
-              `The end result is a reusable library written in TypeScript with a simple and elegant API. 
+            new Text(`The scene is set in space, two teams have to conquer small planets, while they can also shoot at the other team. 
+            Points are given based on the number of planets controlled, 
+            and the first team which reaches a predefined score wins.`),
+            new Text(`As for the communication, a server-client architecture is used. Messaging is provided by Socket.IO and a custom
+              serialisation solution.`),
+            new Text(`This (along with SDF-2D) was my BSc thesis project, so more in-depth information about them
+               can be found in my thesis linked below.`),
+          ],
+          links: [
+            new GitHub('https://github.com/schmelczerandras/decla.red'),
+            new Thesis(thesis),
+            new Open('https://decla.red'),
+          ],
+        },
+        {
+          title: `2D ray tracing`,
+          date: `2020 Autumn`,
+          figure: new Preview(
+            sdf2d,
+            'https://sdf2d.schmelczer.dev',
+            'A webpage showcasing the SDF-2D project.'
+          ),
+          description: new Text(`I created the SDF-2D library for efficiently rendering 2D scenes using ray tracing. 
+            My solution relies on signed distance fields (SDF-s), it supports both WebGL and WebGL2,
+            and is an easily reusable and extendible NPM package.`),
+          more: [
+            new Text(`A multitude of optimisations were needed to achieve real-time performance even on low-end mobile devices.
+              These include deferred shading, tile-based rendering, and dynamic shader generation to eliminate unnecessary
+              instructions. Additionally, there were some interesting quirks of specific hardware that also needed to be overcome.`),
+            new Text(`The end result is a reusable library written in TypeScript with a — subjectively — simple and elegant API. 
             For more information please check out the GitHub repository or the NPM package itself. Or simply enjoy the
-            mesmerizing demo scenes.`
-            ),
-            new Anchor(`https://sdf2d.schmelczer.dev`, `View it in action`),
-            new Anchor(
-              `https://github.com/schmelczerandras/sdf-2d`,
-              `Check it out on GitHub`
-            ),
+            mesmerizing demo scenes.`),
+          ],
+          links: [
+            new GitHub('https://github.com/schmelczerandras/sdf-2d'),
+            new Open('https://sdf2d.schmelczer.dev'),
           ],
         },
         {
@@ -86,33 +117,24 @@ export const create = () => {
             adAstraWEBM,
             `controls playsinline preload="none"`
           ),
-          description: new Text(
-            `A simple game engine with a sample game set in space. The greatest challenge was to overcome
-          the very limited resources of the hardware, this was also the most rewarding part.`
-          ),
+          description: new Text(`A simple game engine with a sample game set in space. The greatest challenge was to overcome
+            the very limited resources of the hardware, this was also the most rewarding part.`),
           more: [
-            new Text(
-              `For reducing complexity while maintaining performance a balance had to be found between object-oriented
+            new Text(`For reducing complexity while maintaining performance, a balance had to be found between object-oriented
               and structural programming. For example, a simple prototype-based inheritance is used for the game objects. 
-              An optimized SIMD utilizing low level driver is used for drawing on the display. 
-              I think the code base is quite readable and at the same time the 
-              maximum frame times are between 15ms and 20ms at 8MHz.`
-            ),
-            new Text(
-              `As for the hardware, it is rather simple. Aside from the ATtiny85V, a D096-12864-SPI7 display is used for
-            output and a TSOP4838 for input. The circuit runs on 3.3V, so a regulator is also needed. It uses a current
-            of 8mA to 11mA on full brightness and around 1.5mA on standby mode.`
-            ),
+              Meanwhile, an optimized SIMD utilizing low-level driver is used for drawing on the display. 
+              I think the codebase is quite readable and at the same time the 
+              maximum frame times are between 15 ms and 20 ms at 8 MHz clock speed, which I find quite impressive.`),
+            new Text(`As for the hardware, it is rather simple. Aside from the ATtiny85V, a D096-12864-SPI7 display is used for
+              output and a TSOP4838 for input. The circuit runs on 3.3V, so a regulator is also needed. It uses a current
+              of 8mA to 11mA on full brightness and around 1.5mA on standby mode.`),
             new Text(
               `There is also fault-tolerant persistent data storage using the built-in EEPROM. 
-            For creating sprites (which are also stored in EEPROM) I made a tool to convert PNG-s into C code. 
-            This can also be found on GitHub as well as the entire project.`
-            ),
-            new Anchor(
-              `https://github.com/schmelczerandras/ad_astra`,
-              `View it on GitHub`
+              For creating sprites (which are also stored in EEPROM) I made a tool to convert PNG-s into C code. 
+              This can also be found on GitHub as well as the entire project.`
             ),
           ],
+          links: [new GitHub('https://github.com/schmelczerandras/ad_astra')],
         },
 
         {
@@ -140,6 +162,7 @@ export const create = () => {
             a mostly profitable trading strategy is viable. In my free time I may put more work into it.`
             ),
           ],
+          links: [],
         },
         {
           date: `2019 November`,
@@ -161,6 +184,7 @@ export const create = () => {
             It was also my first experience with Android development.`
             ),
           ],
+          links: [],
         },
         {
           date: `2018 October - November`,
@@ -183,6 +207,7 @@ export const create = () => {
              the communication between the layers. For drawing the frontend HTML5 canvas is utilized.`
             ),
           ],
+          links: [],
         },
         {
           date: `2018 October - November`,
@@ -201,6 +226,7 @@ export const create = () => {
             directly uploaded to the simulation backend.`
             ),
           ],
+          links: [],
         },
         {
           date: `2018 July - August`,
@@ -229,6 +255,7 @@ export const create = () => {
             were also made by me using Blender.`
             ),
           ],
+          links: [],
         },
         {
           date: `2018 June`,
@@ -251,8 +278,8 @@ export const create = () => {
               `By clicking on a coloured circle you can change its settings. 
             New circles can be created by clicking in the large circle (and they can also be moved by drag & drop).`
             ),
-            new Anchor('https://color.schmelczer.dev', `color.schmelczer.dev`),
           ],
+          links: [new Open('color.schmelczer.dev')],
         },
         {
           date: `2017 autumn`,
@@ -268,13 +295,14 @@ export const create = () => {
             ),
             new Text(`I did this as a homework for my Basics of Programming course.`),
           ],
+          links: [],
         },
         {
           date: `2016 summer`,
           title: `Photos`,
           figure: new Image(photos, `a picture of the website`),
           description: new Text(`A simple web page where you can view my photos.`),
-          link: new Anchor(`https://photo.schmelczer.dev`, `photo.schmelczer.dev`),
+          links: [new Open('https://photo.schmelczer.dev')],
         },
         {
           date: `2016 spring`,
@@ -300,12 +328,13 @@ export const create = () => {
             the settings also got built using vanilla web development technologies.`
             ),
           ],
+          links: [],
         },
       ],
     }),
     footer: new PageFooter({
       title: `Learn more`,
-      curiumVitaes: [{ name: `Curriculum vitae`, url: cvEnglish }],
+      curriculaVitae: [{ name: `Curriculum vitae`, url: cvEnglish }],
       email: `andras@schmelczer.dev`,
       lastEditText: `Last modified on `,
       lastEdit: new Date(2020, 11 - 1, 17), // months are 0 indexed

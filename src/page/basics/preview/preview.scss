@@ -1,0 +1,65 @@
+@use '../../../style/mixins' as *;
+
+.preview {
+  position: relative;
+
+  .overlay {
+    @include square(100%);
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    * {
+      position: absolute;
+      left: 0;
+      right: 0;
+    }
+
+    .load-button {
+      @include image-button(var(--large-icon-size));
+      @include absolute-center;
+      @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
+
+      &:hover svg {
+        box-shadow: var(--shadow);
+      }
+
+      svg {
+        border-radius: 10000px;
+        backdrop-filter: blur(16px);
+        transition: transform var(--transition-time), box-shadow var(--transition-time);
+        stroke: var(--normal-text-color);
+      }
+    }
+
+    .loading {
+      visibility: hidden;
+      &,
+      & > svg {
+        @include square(var(--large-icon-size));
+        @include absolute-center;
+      }
+    }
+
+    iframe {
+      @include square(100%);
+      border: none;
+      &:fullscreen {
+        border-radius: 0;
+      }
+    }
+  }
+
+  &.loaded {
+    .figure-container,
+    .load-button {
+      visibility: hidden;
+    }
+  }
+
+  &.waiting {
+    .loading {
+      visibility: visible;
+    }
+  }
+}

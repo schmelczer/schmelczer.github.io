@@ -1,0 +1,21 @@
+@use '../../../style/mixins' as *;
+
+.image-anchor {
+  @include image-button(var(--icon-size));
+
+  .svgContainer {
+    position: relative;
+    margin: auto;
+    @include square(var(--icon-size));
+
+    svg {
+      stroke: var(--normal-text-color);
+    }
+  }
+
+  p {
+    padding-bottom: var(--small-margin);
+    font-size: 0.9rem;
+    font-style: italic;
+  }
+}

@@ -1,6 +1,5 @@
 @use 'style/vars';
 @use 'style/mixins' as *;
-@use 'style/a';
 @use 'style/animations/animations';
 @use 'style/dark-mode/dark-mode';
 
@@ -55,7 +54,7 @@ html {
 .figure-container {
   font-size: 0;
   box-shadow: var(--inset-shadow);
-  margin-top: var(--line-height);
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
   pointer-events: none;
   cursor: pointer;
 

@@ -28,12 +28,11 @@ section#image-viewer {
   }
 
   #cancel {
-    @include square(var(--icon-size));
+    @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
     position: absolute;
-    box-sizing: content-box;
-    padding: var(--normal-margin);
     right: 0;
     top: 0;
-    cursor: pointer;
+
+    @include image-button(var(--large-icon-size));
   }
 }
