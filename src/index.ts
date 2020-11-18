@@ -20,9 +20,7 @@ const addSupportForTabNavigation = () =>
   });
 
 const removeUnnecessaryOutlines = () =>
-  (document.onclick = e => {
-    (e.target as HTMLElement)?.blur();
-  });
+  (document.onclick = e => (e.target as HTMLElement)?.blur());
 
 create();
 addSupportForTabNavigation();

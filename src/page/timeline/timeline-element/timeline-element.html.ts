@@ -22,7 +22,7 @@ export const generate = (
         ${
           more
             ? `
-            <div class="info-button">
+            <div tabindex=0 class="info-button">
               <div class="svgContainer">${info}</div>
               <p>${showMore}</p>
             </div>`
