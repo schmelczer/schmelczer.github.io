@@ -99,14 +99,6 @@ module.exports = {
         ],
       },
       {
-        test: /\.svg$/,
-        loader: 'svg-url-loader',
-        options: {
-          limit: 10 * 1024,
-          noquotes: true,
-        },
-      },
-      {
         test: /\.(pdf)$/i,
         use: {
           loader: 'file-loader',
@@ -115,6 +107,10 @@ module.exports = {
             name: '[name].[ext]',
           },
         },
+      },
+      {
+        test: /\.svg$/i,
+        use: 'raw-loader',
       },
       {
         test: /no-change.*(ico|html|txt)$/i,

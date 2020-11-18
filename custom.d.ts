@@ -1,6 +1,5 @@
 declare module '*.svg' {
-  import { url } from 'src/types/url';
-  const content: url;
+  const content: string;
   export default content;
 }
 
