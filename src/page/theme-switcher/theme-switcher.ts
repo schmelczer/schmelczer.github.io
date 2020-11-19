@@ -24,7 +24,7 @@ export class PageThemeSwitcher extends PageElement {
       (this.htmlRoot as HTMLInputElement).checked = true;
       turnOffAnimations();
       turnOnDarkMode();
-      setTimeout(() => turnOnAnimations(), 0);
+      turnOnAnimations();
     } else {
       turnOnLightMode();
     }

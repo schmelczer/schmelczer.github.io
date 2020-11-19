@@ -6,7 +6,6 @@
 html {
   height: 100%;
 
-  background-color: var(--background);
   transition: background-color linear var(--transition-time);
 
   @include on-small-screen {
@@ -68,6 +67,8 @@ html {
 }
 
 body {
+  background-color: var(--background);
+
   padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
     env(safe-area-inset-left);
 
