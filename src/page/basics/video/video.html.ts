@@ -16,7 +16,7 @@ export const generate = ({
   container: boolean;
 }): html => `
   ${container ? `<div class="figure-container">` : ''}
-    <video ${options} ${poster ? `poster="${poster}` : ''}" >
+    <video loading="lazy" ${options} ${poster ? `poster="${poster}` : ''}" >
         <source src="${webm}" type="video/webm"/>
         <source src="${mp4}" type="video/mp4"/>
     </video>
