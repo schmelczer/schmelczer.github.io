@@ -52,11 +52,6 @@ export class PageTimelineElement extends PageElement {
 
   private notifyOfHeightChange(deltaHeight: number = undefined) {
     this.eventBroadcaster?.broadcastEvent(new OnBodyDimensionsChangedEvent(deltaHeight));
-
-    setTimeout(
-      () => this.eventBroadcaster?.broadcastEvent(new OnBodyDimensionsChangedEvent()),
-      250
-    );
   }
 
   private openMore() {
@@ -74,7 +69,7 @@ export class PageTimelineElement extends PageElement {
   private handleResize() {
     if (this.isOpen) {
       this.more.style.height = 'auto';
-      setTimeout(this.openMore.bind(this), 200);
+      this.openMore.bind(this);
     }
   }
 }
