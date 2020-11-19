@@ -11,9 +11,6 @@ export class Preview extends PageElement {
     this.url += '?portfolioView';
     this.attachElementByReplacing('.poster', new Image(poster, alt));
     this.query('.load-button').addEventListener('click', this.loadContent.bind(this));
-    this.query('iframe').addEventListener('load', () => {
-      this.htmlRoot.classList.remove('waiting');
-    });
   }
 
   public handleOnLoadEvent(event: OnLoadEvent): OnLoadEvent {
@@ -27,7 +24,6 @@ export class Preview extends PageElement {
   }
 
   public loadContent() {
-    this.htmlRoot.classList.add('waiting');
     this.htmlRoot.classList.add('loaded');
     (this.query('iframe') as HTMLIFrameElement).src = this.url;
   }

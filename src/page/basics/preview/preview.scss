@@ -32,13 +32,10 @@
       }
     }
 
-    .loading {
-      visibility: hidden;
-      &,
-      & > svg {
-        @include square(var(--large-icon-size));
-        @include absolute-center;
-      }
+    .loading,
+    .loading > svg {
+      @include square(var(--large-icon-size));
+      @include absolute-center;
     }
 
     iframe {
