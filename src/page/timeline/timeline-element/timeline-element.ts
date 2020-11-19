@@ -3,7 +3,6 @@ import { PageContent } from '../../content/content';
 import { PageElement } from '../../page-element';
 import { generate } from './timeline-element.html';
 import { createElement } from '../../../helper/create-element';
-import { OnBodyDimensionsChangedEvent } from '../../../events/concrete-events/on-body-dimensions-changed-event';
 
 export class PageTimelineElement extends PageElement {
   private isOpen: boolean;
@@ -50,20 +49,13 @@ export class PageTimelineElement extends PageElement {
     this.isOpen = !this.isOpen;
   }
 
-  private notifyOfHeightChange(deltaHeight: number = undefined) {
-    this.eventBroadcaster?.broadcastEvent(new OnBodyDimensionsChangedEvent(deltaHeight));
-  }
-
   private openMore() {
     const deltaHeight = this.more.scrollHeight;
     this.more.style.height = `${deltaHeight.toString()}px`;
-    this.notifyOfHeightChange(deltaHeight);
   }
 
   private closeMore() {
-    const deltaHeight = this.more.scrollHeight;
     this.more.style.height = '0';
-    this.notifyOfHeightChange(-deltaHeight);
   }
 
   private handleResize() {

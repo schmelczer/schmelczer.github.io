@@ -1,7 +1,7 @@
 import { PageElement } from '../page-element';
 import { Blob } from './blob';
 import { generate } from './background.html';
-import { Animation } from './animation';
+
 import { Vec3 } from './vec3';
 import { Vec2 } from './vec2';
 import { createElement } from '../../helper/create-element';
@@ -9,7 +9,6 @@ import { sum } from '../../helper/sum';
 import { getHeight } from '../../helper/get-height';
 import { OnLoadEvent } from '../../events/concrete-events/on-load-event';
 import { OptionalEvent } from '../../events/optional-event';
-import { OnBodyDimensionsChangedEvent } from '../../events/concrete-events/on-body-dimensions-changed-event';
 import { OnPageThemeChangedEvent } from '../../events/concrete-events/on-page-theme-changed-event';
 
 export class PageBackground extends PageElement {
@@ -20,7 +19,7 @@ export class PageBackground extends PageElement {
   public static readonly Z_MAX = 30;
   public static readonly ANIMATION_TIME = 250;
 
-  private backgroundSize: Animation<Vec2>;
+  private backgroundSize: Vec2;
   private scrollPosition = 0;
   private previousTimestamp: DOMHighResTimeStamp = null;
   private readonly blobs: Array<Blob> = [];
@@ -44,13 +43,6 @@ export class PageBackground extends PageElement {
     return super.handleOnLoadEvent(event);
   }
 
-  public handleOnBodyDimensionsChangedEvent(
-    event: OnBodyDimensionsChangedEvent
-  ): OptionalEvent {
-    this.resize(event.deltaHeight);
-    return super.handleOnBodyDimensionsChangedEvent(event);
-  }
-
   public handleOnPageThemeChangedEvent(event: OnPageThemeChangedEvent): OptionalEvent {
     Blob.changeTheme(event.isDark);
     this.blobs.forEach(b => b.decideColor());
@@ -58,7 +50,6 @@ export class PageBackground extends PageElement {
   }
 
   private bindListeners() {
-    addEventListener('resize', () => this.resize());
     addEventListener('load', e => {
       this.resize();
       this.createBlobs();
@@ -69,8 +60,7 @@ export class PageBackground extends PageElement {
   private createBlobs() {
     const requiredBlobCount = Math.max(
       PageBackground.MIN_BLOB_COUNT,
-      (this.backgroundSize.value.x * this.backgroundSize.value.y) /
-        PageBackground.BLOB_SPACING ** 2
+      (this.backgroundSize.x * this.backgroundSize.y) / PageBackground.BLOB_SPACING ** 2
     );
 
     while (requiredBlobCount > this.blobs.length) {
@@ -78,9 +68,9 @@ export class PageBackground extends PageElement {
     }
   }
 
-  private resize(heightChange?: number) {
+  private resize() {
     this.resizeCanvas();
-    this.resizeBackground(heightChange);
+    this.resizeBackground();
   }
 
   private resizeCanvas() {
@@ -88,48 +78,42 @@ export class PageBackground extends PageElement {
     this.canvas.height = this.canvas.clientHeight;
   }
 
-  private resizeBackground(heightChange?: number) {
+  private resizeBackground() {
     const targetWidth = this.parent.htmlRoot.clientWidth;
 
     const siblings: Array<HTMLElement> = this.getSiblings();
-    let targetHeight = sum(siblings.map(getHeight));
-    if (heightChange) {
-      targetHeight += heightChange;
+    const targetHeight = sum(siblings.map(getHeight));
+
+    if (targetWidth === this.canvas.width && targetHeight === this.canvas.height) {
+      return;
     }
 
     const targetSize = new Vec2(targetWidth, targetHeight);
+    this.backgroundSize = targetSize;
 
-    this.backgroundSize = new Animation(
-      this.backgroundSize ? this.backgroundSize.value : targetSize,
-      targetSize,
-      PageBackground.ANIMATION_TIME,
-      (from: Vec2, to: Vec2, q: number): Vec2 =>
-        new Vec2(from.x + q * (to.x - from.x), from.y + q * (to.y - from.y)),
-      backgroundSize =>
-        this.blobs.forEach(blob => {
-          const variableOffset = (offset, q) =>
-            Math.max(
-              0,
-              offset -
-                ((blob.z - PageBackground.Z_MIN) /
-                  (PageBackground.Z_MAX - PageBackground.Z_MIN)) *
-                  offset *
-                  q
-            );
-          const topOffset = variableOffset(getHeight(this.start.htmlRoot), 1);
-          const topLeft = this.convertFrom2Dto3D(new Vec2(0, topOffset), blob.z);
+    this.blobs.forEach(blob => {
+      const variableOffset = (offset, q) =>
+        Math.max(
+          0,
+          offset -
+            ((blob.z - PageBackground.Z_MIN) /
+              (PageBackground.Z_MAX - PageBackground.Z_MIN)) *
+              offset *
+              q
+        );
+      const topOffset = variableOffset(getHeight(this.start.htmlRoot), 1);
+      const topLeft = this.convertFrom2Dto3D(new Vec2(0, topOffset), blob.z);
 
-          const bottomOffset = variableOffset(getHeight(this.end.htmlRoot), 0.2);
-          const bottomRight = this.convertFrom2Dto3D(
-            new Vec2(this.canvas.width, this.canvas.height - bottomOffset),
-            blob.z,
-            backgroundSize.y - this.canvas.height
-          );
+      const bottomOffset = variableOffset(getHeight(this.end.htmlRoot), 0.2);
+      const bottomRight = this.convertFrom2Dto3D(
+        new Vec2(this.canvas.width, this.canvas.height - bottomOffset),
+        blob.z,
+        targetSize.y - this.canvas.height
+      );
 
-          blob.positionOffset = topLeft;
-          blob.positionScale = bottomRight.subtract(topLeft);
-        })
-    );
+      blob.positionOffset = topLeft;
+      blob.positionScale = bottomRight.subtract(topLeft);
+    });
   }
 
   private getSiblings(): Array<HTMLElement> {
@@ -137,10 +121,10 @@ export class PageBackground extends PageElement {
   }
 
   private redraw(timestamp: DOMHighResTimeStamp) {
-    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.resizeBackground();
 
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     const deltaTime = this.getDeltaTime(timestamp);
-    this.backgroundSize.step(deltaTime);
     this.blobs.forEach(b => b.step(deltaTime));
 
     this.scrollPosition = this.parent.htmlRoot.scrollTop;
