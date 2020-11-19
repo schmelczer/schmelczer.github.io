@@ -23,6 +23,15 @@ export const generate = ({
       sizes="${sizes}"
       width="${imageWebP.width}"
       height="${imageWebP.height}"
+      type="image/webp"
+      alt="${alt}"
+    />
+    <source
+      srcset="${imageJpeg.srcSet}" 
+      sizes="${sizes}"
+      width="${imageJpeg.width}"
+      height="${imageJpeg.height}"
+      type="image/jpeg"
       alt="${alt}"
     />
     <img
