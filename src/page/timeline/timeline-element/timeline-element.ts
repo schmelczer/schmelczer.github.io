@@ -59,18 +59,6 @@ export class PageTimelineElement extends PageElement {
     );
   }
 
-  private static hide(element: HTMLElement) {
-    element.style.opacity = '0';
-    setTimeout(() => {
-      element.style.visibility = 'hidden';
-    }, 250);
-  }
-
-  private static show(element: HTMLElement) {
-    element.style.visibility = 'visible';
-    element.style.opacity = '1';
-  }
-
   private openMore() {
     const deltaHeight = this.more.scrollHeight;
     this.more.style.height = `${deltaHeight.toString()}px`;
