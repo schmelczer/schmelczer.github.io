@@ -24,7 +24,6 @@ section.timeline-element {
   .line-container {
     position: relative;
     @include q-dependent-line-container(33%);
-    min-width: 160px;
 
     .line {
       border-left: var(--line-width) solid var(--accent-color);
@@ -61,6 +60,10 @@ section.timeline-element {
   }
 
   @include on-large-screen {
+    .line-container {
+      min-width: 160px;
+    }
+
     &:not(:first-of-type) .card {
       margin-top: var(--large-margin);
     }
@@ -73,7 +76,7 @@ section.timeline-element {
     .line-container {
       @include q-dependent-line-container(50%);
       height: 150px;
-      width: 50%;
+      min-width: 64%;
 
       .date {
         transform: translateX(calc(var(--icon-size) / 2 + 12px)) translateY(-10%);
