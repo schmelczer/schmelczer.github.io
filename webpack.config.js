@@ -70,8 +70,8 @@ module.exports = (env, argv) => ({
         options: {
           adapter: Sharp,
           outputPath: 'static/',
-          sizes: [200, 400, 800, 1200, 2000],
-          placeholder: false,
+          sizes: [200, 400, 800, 1200, 1600, 2000],
+          format: 'webp',
         },
       },
       {
@@ -122,7 +122,6 @@ module.exports = (env, argv) => ({
         test: /\.svg$/i,
         use: 'raw-loader',
       },
-
       {
         test: /\.scss$/i,
         use: [

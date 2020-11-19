@@ -7,9 +7,22 @@ import { ResponsiveImage } from '../../../types/responsive-image';
 export class Image extends PageElement {
   private static readonly imageScreenRatio = 0.8;
 
-  public constructor(image: ResponsiveImage, alt: string, container = true) {
+  public constructor(
+    imageWebP: ResponsiveImage,
+    imageJpeg: ResponsiveImage,
+    alt: string,
+    container = true
+  ) {
     super(
-      createElement(generate({ image, alt, container, sizes: Image.getSizes(image) }))
+      createElement(
+        generate({
+          imageWebP,
+          imageJpeg,
+          alt,
+          container,
+          sizes: Image.getSizes(imageWebP),
+        })
+      )
     );
   }
 

@@ -6,10 +6,15 @@ import { ResponsiveImage } from '../../../types/responsive-image';
 import { OnLoadEvent } from '../../../events/concrete-events/on-load-event';
 
 export class Preview extends PageElement {
-  public constructor(poster: ResponsiveImage, private readonly url: string, alt: string) {
+  public constructor(
+    posterWebP: ResponsiveImage,
+    posterJpeg: ResponsiveImage,
+    private readonly url: string,
+    alt: string
+  ) {
     super(createElement(generate({ alt })));
     this.url += '?portfolioView';
-    this.attachElementByReplacing('.poster', new Image(poster, alt));
+    this.attachElementByReplacing('.poster', new Image(posterWebP, posterJpeg, alt));
     this.query('.load-button').addEventListener('click', this.loadContent.bind(this));
   }
 

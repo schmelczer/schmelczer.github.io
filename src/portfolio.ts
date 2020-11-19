@@ -11,29 +11,54 @@ import { Anchor } from './page/basics/anchor/anchor';
 import { Body } from './page/body/body';
 import { ImageAnchorFactory } from './page/basics/image-anchor/image-anchor';
 import { Preview } from './page/basics/preview/preview';
-import me from './static/media/me.jpg';
-import declared from './static/media/decla-red.png';
-import forexMP4 from './static/media/forex.mp4';
-import forexWEBM from './static/media/forex.webm';
-import thesis from './static/media/andras-schmelczer-thesis.pdf';
-import adAstraMP4 from './static/media/ad_astra_720.mp4';
-import cvIcon from './static/icons/cv.svg';
-import adAstraWEBM from './static/media/ad_astra_720.webm';
-import ad_astra_index from './static/media/ad_astra.jpg';
-import myNotes from './static/media/my-notes.png';
-import sdf2d from './static/media/sdf2d.png';
-import processSimulator from './static/media/process-simulator.jpg';
-import processSimulatorInput from './static/media/process-simulator-input.jpg';
-import citySimulation from './static/media/simulation.jpg';
-import colour from './static/media/color.jpg';
-import platform from './static/media/platform.png';
-import photos from './static/media/photos.jpg';
-import led from './static/media/led.jpg';
-import cvEnglish from './static/cv/cv_andras_schmelczer.pdf';
-import ledMP4 from './static/media/led.mp4';
-import ledWEBM from './static/media/led.webm';
+
+import meJpeg from './static/media/me.jpg?format=jpg';
+import meWebP from './static/media/me.jpg?format=webp';
+
+import declaredJpeg from './static/media/decla-red.png?format=jpg';
+import declaredWebP from './static/media/decla-red.png?format=webp';
+
+import sdf2dJpeg from './static/media/sdf2d.png?format=jpg';
+import sdf2dWebP from './static/media/sdf2d.png?format=webp';
+
+import myNotesJpeg from './static/media/my-notes.png?format=jpg';
+import myNotesWebP from './static/media/my-notes.png?format=webp';
+
+import processSimulatorJpeg from './static/media/process-simulator.jpg?format=jpg';
+import processSimulatorWebP from './static/media/process-simulator.jpg?format=webp';
+
+import processSimulatorInputJpeg from './static/media/process-simulator-input.jpg?format=jpg';
+import processSimulatorInputWebP from './static/media/process-simulator-input.jpg?format=webp';
+
+import citySimulationJpeg from './static/media/simulation.jpg?format=jpg';
+import citySimulationWebP from './static/media/simulation.jpg?format=webp';
+
+import colourJpeg from './static/media/color.jpg?format=jpg';
+import colourWebP from './static/media/color.jpg?format=webp';
+
+import platformJpeg from './static/media/platform.png?format=jpg';
+import platformWebP from './static/media/platform.png?format=webp';
+
+import photosJpeg from './static/media/photos.jpg?format=jpg';
+import photosWebP from './static/media/photos.jpg?format=webp';
+
+import cvEnglish from './static/media/cv_andras_schmelczer.pdf';
+import thesis from './static/media/andras_schmelczer_thesis.pdf';
+
+import forexMp4 from './static/media/forex.mp4';
+import forexWebM from './static/media/forex.webm';
+
+import adAstraPoster from './static/media/ad_astra.jpg?format=jpg';
+import adAstraMp4 from './static/media/ad_astra_720.mp4';
+import adAstraWebM from './static/media/ad_astra_720.webm';
+
+import ledPoster from './static/media/led.jpg?format=jpg';
+import ledMp4 from './static/media/led.mp4';
+import ledWebM from './static/media/led.webm';
+
 import githubIcon from './static/icons/github.svg';
 import openIcon from './static/icons/open.svg';
+import cvIcon from './static/icons/cv.svg';
 
 export const create = () => {
   const GitHub = ImageAnchorFactory(githubIcon, 'Open on GitHub');
@@ -44,7 +69,7 @@ export const create = () => {
     imageViewer: new PageImageViewer(),
     header: new PageHeader({
       name: `András Schmelczer`,
-      picture: new Image(me, `a picture of me`, false),
+      picture: new Image(meWebP, meJpeg, `a picture of me`, false),
       about: [
         new Text(`I have always been fascinated by the engineering feats that surround us and pervade every aspect
           of our lives. When I realised I might someday be able to contribute to this field, I knew that
@@ -62,7 +87,8 @@ export const create = () => {
           title: `Multiplayer game`,
           date: `2020 Autumn`,
           figure: new Preview(
-            declared,
+            declaredWebP,
+            declaredJpeg,
             'https://decla.red',
             'The website of the video game'
           ),
@@ -88,7 +114,8 @@ export const create = () => {
           title: `2D ray tracing`,
           date: `2020 Autumn`,
           figure: new Preview(
-            sdf2d,
+            sdf2dWebP,
+            sdf2dJpeg,
             'https://sdf2d.schmelczer.dev',
             'A webpage showcasing the SDF-2D project.'
           ),
@@ -112,9 +139,9 @@ export const create = () => {
           title: `Video game on an ATtiny85`,
           date: `2020 Spring`,
           figure: new Video(
-            last(ad_astra_index.images).path,
-            adAstraMP4,
-            adAstraWEBM,
+            last(adAstraPoster.images).path,
+            adAstraMp4,
+            adAstraWebM,
             `controls playsinline preload="none"`
           ),
           description: new Text(`A simple game engine with a sample game set in space. The greatest challenge was to overcome
@@ -142,8 +169,8 @@ export const create = () => {
           date: `2019 Autumn`,
           figure: new Video(
             null,
-            forexMP4,
-            forexWEBM,
+            forexMp4,
+            forexWebM,
             `autoplay loop muted playsinline controls`
           ),
           description: new Text(
@@ -167,7 +194,11 @@ export const create = () => {
         {
           date: `2019 November`,
           title: `My Notes`,
-          figure: new Image(myNotes, `two screenshots of the application`),
+          figure: new Image(
+            myNotesWebP,
+            myNotesJpeg,
+            `two screenshots of the application`
+          ),
           description: new Text(
             `A minimalist note organizer and editor powered by Markwon.`
           ),
@@ -189,7 +220,11 @@ export const create = () => {
         {
           date: `2018 October - November`,
           title: `Simulating the cooling system of a nuclear facility`,
-          figure: new Image(processSimulator, `a screenshot of the simulator`),
+          figure: new Image(
+            processSimulatorWebP,
+            processSimulatorJpeg,
+            `a screenshot of the simulator`
+          ),
           description: new Text(
             `Dynamically calculating the temperatures and flow velocities
           in a fluid-based cooling system based on a simple model.`
@@ -212,7 +247,11 @@ export const create = () => {
         {
           date: `2018 October - November`,
           title: `Graph editing application`,
-          figure: new Image(processSimulatorInput, `a picture of the simulator's UI`),
+          figure: new Image(
+            processSimulatorInputWebP,
+            processSimulatorInputJpeg,
+            `a picture of the simulator's UI`
+          ),
           description: new Text(
             `An intuitive editor to create and edit input files for the nuclear facility simulator.`
           ),
@@ -231,7 +270,11 @@ export const create = () => {
         {
           date: `2018 July - August`,
           title: `City simulation`,
-          figure: new Image(citySimulation, `a picture of a low-poly city`),
+          figure: new Image(
+            citySimulationWebP,
+            citySimulationJpeg,
+            `a picture of a low-poly city`
+          ),
           description: new Text(
             `Simulating a city where car crashes are more frequent than usual.`
           ),
@@ -260,7 +303,7 @@ export const create = () => {
         {
           date: `2018 June`,
           title: `Photo colour grader`,
-          figure: new Image(colour, `a picture of the app`),
+          figure: new Image(colourWebP, colourJpeg, `a picture of the app`),
           description: new Text(
             `An innovative (at least I thought so) colour grader web application.`
           ),
@@ -284,7 +327,7 @@ export const create = () => {
         {
           date: `2017 autumn`,
           title: `Platform game`,
-          figure: new Image(platform, `a picture of the app`),
+          figure: new Image(platformWebP, platformJpeg, `a picture of the app`),
           description: new Text(
             `A 3D game written in C with the help of SDL 1.2 (I haven't heard of GPU programming at the time).`
           ),
@@ -300,7 +343,7 @@ export const create = () => {
         {
           date: `2016 summer`,
           title: `Photos`,
-          figure: new Image(photos, `a picture of the website`),
+          figure: new Image(photosWebP, photosJpeg, `a picture of the website`),
           description: new Text(`A simple web page where you can view my photos.`),
           links: [new Open('https://photo.schmelczer.dev')],
         },
@@ -308,9 +351,9 @@ export const create = () => {
           date: `2016 spring`,
           title: `Lights synchronised to music`,
           figure: new Video(
-            last(led.images).path,
-            ledMP4,
-            ledWEBM,
+            last(ledPoster.images).path,
+            ledMp4,
+            ledWebM,
             `controls playsinline preload="none"`
           ),
           description: new Text(

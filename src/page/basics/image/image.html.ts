@@ -5,24 +5,36 @@ import { html } from '../../../types/html';
 
 export const generate = ({
   sizes,
-  image,
+  imageWebP,
+  imageJpeg,
   alt,
   container,
 }: {
   sizes: string;
-  image: ResponsiveImage;
+  imageWebP: ResponsiveImage;
+  imageJpeg: ResponsiveImage;
   alt: string;
   container: boolean;
 }): html => `
   ${container ? `<div class="figure-container">` : ''}
-  <img tabindex="0"
-    loading="lazy"
-    srcset="${image.srcSet}" 
-    sizes="${sizes}"
-    width="${image.width}"
-    height="${image.height}"
-    src="${last(image.images)?.path}" 
-    alt="${alt}"
-  />
+  <picture loading="lazy">
+    <source
+      srcset="${imageWebP.srcSet}" 
+      sizes="${sizes}"
+      width="${imageWebP.width}"
+      height="${imageWebP.height}"
+      alt="${alt}"
+    />
+    <img
+    tabindex="0"
+      loading="lazy"
+      srcset="${imageJpeg.srcSet}" 
+      sizes="${sizes}"
+      width="${imageJpeg.width}"
+      height="${imageJpeg.height}"
+      src="${last(imageJpeg.images)?.path}" 
+      alt="${alt}"
+    />
+  </picture>
   ${container ? `</div>` : ''}
 `;
