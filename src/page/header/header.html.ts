@@ -1,4 +1,4 @@
-import './about.scss';
+import './header.scss';
 import { Header } from '../../types/portfolio';
 import { html } from '../../types/html';
 

@@ -1,6 +1,6 @@
 @use '../../style/mixins' as *;
 
-input[type='checkbox']#theme-switcher {
+#theme-switcher {
   @include on-large-screen {
     position: absolute;
     top: calc(-1 * var(--small-margin));
@@ -11,10 +11,6 @@ input[type='checkbox']#theme-switcher {
   @include on-small-screen {
     position: relative;
     margin-top: var(--normal-margin);
-  }
-
-  &::-ms-check {
-    display: none;
   }
 
   background-color: var(--accent-color);
@@ -29,8 +25,7 @@ input[type='checkbox']#theme-switcher {
   $margin: calc((#{$size} - #{$icon-size}) / 2);
 
   border-radius: 1000px;
-  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175),
-    inset 0 0 1px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.175), inset 0 0 1px rgba(0, 0, 0, 0.4);
 
   &:before {
     // moon + sun
@@ -52,14 +47,12 @@ input[type='checkbox']#theme-switcher {
     top: 50%;
     transform: translateY(-50%);
 
-    transition: transform var(--transition-time),
-      background-color var(--transition-time);
+    transition: transform var(--transition-time), background-color var(--transition-time);
   }
 
   &:not(:checked) {
     &:before {
-      transform: translateY(-50%)
-        translateX(calc(3 * #{$margin} + #{$icon-size}));
+      transform: translateY(-50%) translateX(calc(3 * #{$margin} + #{$icon-size}));
 
       animation: shine 3s linear alternate infinite;
       background-color: var(--sun-color);
@@ -90,8 +83,7 @@ input[type='checkbox']#theme-switcher {
 
     &:after {
       background-color: var(--accent-color);
-      transform: translateY(-50%)
-        translateX(calc(#{$margin} + #{$icon-size} * 0.33));
+      transform: translateY(-50%) translateX(calc(#{$margin} + #{$icon-size} * 0.33));
     }
   }
 }

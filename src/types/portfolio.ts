@@ -6,12 +6,6 @@ import { PageElement } from '../page/page-element';
 import { url } from './url';
 import { Preview } from '../page/basics/preview/preview';
 
-export interface Portfolio {
-  header: Header;
-  timeline: Timeline;
-  footer: Footer;
-}
-
 export interface Header {
   name: string;
   picture: Image;
