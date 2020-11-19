@@ -1,15 +1,18 @@
 import { Vec2 } from './vec2';
 import { Vec3 } from './vec3';
-import { mixColors } from '../../helper/mix-colors';
+
 import { Random } from '../../helper/random';
 import { Animation } from './animation';
 import { PageBackground } from './background';
+import { mix } from '../../helper/mix';
 
 export class Blob {
-  private static readonly DARK_COLORS = ['#2c477a'];
-  private static readonly LIGHT_COLORS = ['#fff9e0', '#ffd6d6'];
-  private static readonly ROTATION = (-20 / 180) * Math.PI;
-  private static readonly CREATOR_RANDOM = new Random(51);
+  private static readonly darkColors = [new Vec3(44, 71, 122)];
+  private static readonly lightColors = [
+    new Vec3(255, 249, 224),
+    new Vec3(255, 214, 214),
+  ];
+  private static readonly creatorRandom = new Random(51);
 
   private static colorPickerRandom = new Random(132);
   private static isDarkThemed = false;
@@ -19,44 +22,43 @@ export class Blob {
     Blob.isDarkThemed = isDarkThemed;
   }
 
-  public readonly z = Blob.CREATOR_RANDOM.randomInInterval(
-    PageBackground.Z_MIN,
-    PageBackground.Z_MAX
+  public readonly z = Blob.creatorRandom.randomInInterval(
+    PageBackground.zMin,
+    PageBackground.zMax
   );
-  private color: Animation<string>;
+  private color: Animation<Vec3>;
 
-  private readonly positionQ = new Vec2(
-    Blob.CREATOR_RANDOM.next,
-    Blob.CREATOR_RANDOM.next
-  );
+  private readonly positionQ = new Vec2(Blob.creatorRandom.next, Blob.creatorRandom.next);
   private _positionScale = new Vec2(0, 0);
   private _positionOffset = new Vec2(0, 0);
+  private opacity: number;
 
-  private readonly _size = new Vec2(140, Blob.CREATOR_RANDOM.randomInInterval(260, 740));
+  private readonly _size = new Vec2(140, Blob.creatorRandom.randomInInterval(260, 740));
 
   public constructor() {
+    this.opacity =
+      1 - (this.z - PageBackground.zMin) / (PageBackground.zMax - PageBackground.zMin);
+
     this.decideColor();
   }
 
   public decideColor() {
-    const target = mixColors(
-      Blob.isDarkThemed ? '#242638' : '#ffffff',
-      Blob.colorPickerRandom.choose(
-        Blob.isDarkThemed ? Blob.DARK_COLORS : Blob.LIGHT_COLORS
-      ),
-      (this.z - PageBackground.Z_MIN) / (PageBackground.Z_MAX - PageBackground.Z_MIN)
+    const target = Blob.colorPickerRandom.choose(
+      Blob.isDarkThemed ? Blob.darkColors : Blob.lightColors
     );
 
-    this.color = new Animation<string>(
+    this.color = new Animation<Vec3>(
       this.color ? this.color.value : target,
       target,
-      250,
-      (f, t, q) => mixColors(f, t, 1 - q)
+      125,
+      (f, t, q) => {
+        return new Vec3(mix(f.x, t.x, q), mix(f.y, t.y, q), mix(f.z, t.z, q));
+      }
     );
   }
 
-  public step(value) {
-    this.color?.step(value);
+  public step(deltaTime: number) {
+    this.color?.step(deltaTime);
   }
 
   public get topLeft(): Vec3 {
@@ -82,14 +84,15 @@ export class Blob {
     ctx.save();
 
     ctx.translate(position.x, position.y);
-    ctx.rotate(Blob.ROTATION);
+    ctx.rotate((-20 / 180) * Math.PI);
 
     ctx.beginPath();
     ctx.arc(0, size.x / 2, size.x / 2, Math.PI, 0);
     ctx.arc(0, size.y - size.x / 2, size.x / 2, 0, Math.PI);
     ctx.closePath();
 
-    ctx.fillStyle = this.color.value;
+    const { x, y, z } = this.color.value;
+    ctx.fillStyle = `rgba(${x}, ${y}, ${z}, ${this.opacity})`;
     ctx.fill();
 
     ctx.restore();

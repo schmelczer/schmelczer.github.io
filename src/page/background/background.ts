@@ -12,12 +12,11 @@ import { OptionalEvent } from '../../events/optional-event';
 import { OnPageThemeChangedEvent } from '../../events/concrete-events/on-page-theme-changed-event';
 
 export class PageBackground extends PageElement {
-  public static readonly BLOB_SPACING = 325;
-  public static readonly MIN_BLOB_COUNT = 30;
-  public static readonly PERSPECTIVE = 5;
-  public static readonly Z_MIN = 10;
-  public static readonly Z_MAX = 30;
-  public static readonly ANIMATION_TIME = 250;
+  public static readonly blobSpacing = 325;
+  public static readonly minBlobCount = 30;
+  public static readonly perspective = 5;
+  public static readonly zMin = 10;
+  public static readonly zMax = 30;
 
   private backgroundSize: Vec2;
   private scrollPosition = 0;
@@ -39,7 +38,7 @@ export class PageBackground extends PageElement {
 
   public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
     this.parent = event.parent;
-    this.bindListeners();
+    requestAnimationFrame(this.draw.bind(this));
     return super.handleOnLoadEvent(event);
   }
 
@@ -49,28 +48,15 @@ export class PageBackground extends PageElement {
     return super.handleOnPageThemeChangedEvent(event);
   }
 
-  private bindListeners() {
-    addEventListener('load', e => {
-      this.resize();
-      this.createBlobs();
-      this.redraw(e.timeStamp);
-    });
-  }
-
   private createBlobs() {
     const requiredBlobCount = Math.max(
-      PageBackground.MIN_BLOB_COUNT,
-      (this.backgroundSize.x * this.backgroundSize.y) / PageBackground.BLOB_SPACING ** 2
+      PageBackground.minBlobCount,
+      (this.backgroundSize.x * this.backgroundSize.y) / PageBackground.blobSpacing ** 2
     );
 
     while (requiredBlobCount > this.blobs.length) {
       this.blobs.push(new Blob());
     }
-  }
-
-  private resize() {
-    this.resizeCanvas();
-    this.resizeBackground();
   }
 
   private resizeCanvas() {
@@ -96,8 +82,8 @@ export class PageBackground extends PageElement {
         Math.max(
           0,
           offset -
-            ((blob.z - PageBackground.Z_MIN) /
-              (PageBackground.Z_MAX - PageBackground.Z_MIN)) *
+            ((blob.z - PageBackground.zMin) /
+              (PageBackground.zMax - PageBackground.zMin)) *
               offset *
               q
         );
@@ -120,8 +106,10 @@ export class PageBackground extends PageElement {
     return [this.start, ...this.inBetween, this.end].map(e => e.htmlRoot);
   }
 
-  private redraw(timestamp: DOMHighResTimeStamp) {
+  private draw(timestamp: DOMHighResTimeStamp) {
+    this.resizeCanvas();
     this.resizeBackground();
+    this.createBlobs();
 
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     const deltaTime = this.getDeltaTime(timestamp);
@@ -142,7 +130,7 @@ export class PageBackground extends PageElement {
       }
     });
 
-    requestAnimationFrame(timestamp => this.redraw(timestamp));
+    requestAnimationFrame(this.draw.bind(this));
   }
 
   private getDeltaTime(timestamp: DOMHighResTimeStamp): number {
@@ -152,12 +140,12 @@ export class PageBackground extends PageElement {
   }
 
   private convertFrom3Dto2D(p: Vec3): Vec2 {
-    const m = PageBackground.PERSPECTIVE / (PageBackground.PERSPECTIVE + p.z);
+    const m = PageBackground.perspective / (PageBackground.perspective + p.z);
     return new Vec2(m * (p.z / 2 + p.x), m * (p.z / 2 + p.y - this.scrollPosition));
   }
 
   private convertFrom2Dto3D(p: Vec2, z: number, scrollPosition = 0): Vec2 {
-    const m = 1 + z / PageBackground.PERSPECTIVE;
+    const m = 1 + z / PageBackground.perspective;
     return new Vec2(p.x * m - z / 2, p.y * m - z / 2 + scrollPosition);
   }
 
