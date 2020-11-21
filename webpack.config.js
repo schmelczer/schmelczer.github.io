@@ -54,16 +54,7 @@ module.exports = (env, argv) => ({
   },
   module: {
     rules: [
-      {
-        test: /no-change.*(ico|html|txt|png|webmanifest)$/i,
-        use: {
-          loader: 'file-loader',
-          query: {
-            outputPath: '/',
-            name: '[name].[ext]',
-          },
-        },
-      },
+      
       {
         test: /\.(jpe?g|png)$/i,
         loader: 'responsive-loader',
@@ -121,6 +112,16 @@ module.exports = (env, argv) => ({
       {
         test: /\.svg$/i,
         use: 'raw-loader',
+      },
+      {
+        test: /no-change.*(ico|html|txt|png|webmanifest)$/i,
+        use: {
+          loader: 'file-loader',
+          query: {
+            outputPath: '/',
+            name: '[name].[ext]',
+          },
+        },
       },
       {
         test: /\.scss$/i,
