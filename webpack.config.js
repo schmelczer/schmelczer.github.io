@@ -45,8 +45,8 @@ module.exports = (env, argv) => ({
     }),
     new HtmlWebpackInlineSourcePlugin(),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
-      chunkFilename: '[id].[contenthash].css',
+      filename: '[name].css',
+      chunkFilename: '[id].css',
     }),
   ],
   entry: {
@@ -54,12 +54,12 @@ module.exports = (env, argv) => ({
   },
   module: {
     rules: [
-      
       {
         test: /\.(jpe?g|png)$/i,
         loader: 'responsive-loader',
         options: {
           adapter: Sharp,
+          name: '[contenthash]-[width].[ext]',
           outputPath: 'static/',
           sizes: [200, 400, 800, 1200, 1600, 2000],
           format: 'webp',
@@ -72,6 +72,7 @@ module.exports = (env, argv) => ({
             loader: 'file-loader',
             query: {
               outputPath: 'static/',
+              name: '[contenthash].[ext]',
             },
           },
           {

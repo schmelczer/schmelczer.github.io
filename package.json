@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "lint": "npx eslint --fix \"src/**/*.ts\" && npx prettier --write \"src/**/*\"",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production && rm dist/*.js && rm dist/*.css"
   },
   "repository": {
     "type": "git",
