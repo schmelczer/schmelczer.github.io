@@ -1,7 +1,7 @@
 @use '../../style/mixins' as *;
 
 @include on-large-screen {
-  div#timeline > :first-child {
+  #timeline > :first-child {
     margin-top: var(--large-margin);
   }
 }

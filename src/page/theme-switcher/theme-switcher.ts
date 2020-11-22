@@ -7,9 +7,6 @@ import {
   turnOnLightMode,
 } from '../../style/dark-mode/dark-mode';
 import { turnOffAnimations, turnOnAnimations } from '../../style/animations/animations';
-import { OnLoadEvent } from '../../events/concrete-events/on-load-event';
-import { OptionalEvent } from '../../events/optional-event';
-import { OnPageThemeChangedEvent } from '../../events/concrete-events/on-page-theme-changed-event';
 
 export class PageThemeSwitcher extends PageElement {
   private static readonly localStorageKey = 'dark-mode';
@@ -28,12 +25,10 @@ export class PageThemeSwitcher extends PageElement {
     } else {
       turnOnLightMode();
     }
-    this.htmlRoot.onchange = this.handleThemeChange.bind(this);
-  }
 
-  public handleOnLoadEvent(event: OnLoadEvent): OptionalEvent {
+    this.htmlRoot.onchange = this.handleThemeChange.bind(this);
+
     this.handleThemeChange();
-    return super.handleOnLoadEvent(event);
   }
 
   private handleThemeChange() {
@@ -44,7 +39,6 @@ export class PageThemeSwitcher extends PageElement {
       turnOnLightMode();
     }
 
-    this.eventBroadcaster.broadcastEvent(new OnPageThemeChangedEvent(isDark));
     PageThemeSwitcher.saveToLocalStorage(isDark);
   }
 
@@ -57,7 +51,7 @@ export class PageThemeSwitcher extends PageElement {
 
   private static loadFromLocalStorage(): boolean | null {
     try {
-      return JSON.parse(localStorage?.getItem(PageThemeSwitcher.localStorageKey));
+      return JSON.parse(localStorage!.getItem(PageThemeSwitcher.localStorageKey)!);
     } catch {
       return null;
     }

@@ -1,3 +1,6 @@
-.primitive-text {
+@use '../../../style/mixins' as *;
+
+.text {
+  @include main-font();
   text-align: left;
 }

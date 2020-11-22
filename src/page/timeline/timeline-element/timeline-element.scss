@@ -16,7 +16,7 @@
   }
 }
 
-section.timeline-element {
+.timeline-element {
   display: flex;
   width: var(--body-width);
   margin: auto;
@@ -85,14 +85,14 @@ section.timeline-element {
   }
 
   .card {
-    @include card-base();
+    text-align: center;
+    box-shadow: var(--shadow);
     border-radius: var(--border-radius);
 
     background-color: var(--blurred-card-color);
-    backdrop-filter: blur(var(--blur-radius));
-    @supports not (backdrop-filter: blur(var(--blur-radius))) {
-      background-color: var(--card-color);
-    }
+    transition: background-color var(--transition-time);
+
+    @include blurred-background();
 
     img,
     video,
@@ -131,12 +131,15 @@ section.timeline-element {
         display: flex;
         justify-content: center;
         border-top: $border-width solid var(--normal-text-color);
+        transition: border-color var(--transition-time);
+
         margin: 0;
         padding: 0;
         margin-top: var(--small-margin);
 
         .info-button {
           @include image-button(var(--icon-size));
+          @include main-font();
 
           .svgContainer {
             position: relative;
@@ -145,10 +148,12 @@ section.timeline-element {
 
             svg {
               stroke: var(--normal-text-color);
+              transition: stroke var(--transition-time);
             }
           }
 
           p {
+            @include main-font();
             padding-bottom: var(--small-margin);
             font-size: 0.9rem;
             font-style: italic;
@@ -162,6 +167,7 @@ section.timeline-element {
           padding-top: var(--small-margin);
           &:not(:last-child) {
             border-right: $border-width solid var(--normal-text-color);
+            transition: border-color var(--transition-time);
           }
         }
       }

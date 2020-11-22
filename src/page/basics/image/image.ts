@@ -31,7 +31,7 @@ export class Image extends PageElement {
       image.images
         .slice(0, -1)
         .map(d => `(max-width: ${d.width / Image.imageScreenRatio}px) ${d.width}px,`)
-        .join('\n') + `\n${last(image.images).width}px`
+        .join('\n') + `\n${last(image.images)!.width}px`
     );
   }
 }

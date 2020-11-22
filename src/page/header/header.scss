@@ -1,10 +1,16 @@
 @use '../../style/mixins' as *;
 
-section#about {
-  @include card-base();
+#about {
+  text-align: center;
+  box-shadow: var(--shadow);
   padding: var(--normal-margin);
   background-color: var(--accent-color);
   font-size: 0;
+
+  ::selection {
+    background-color: var(--very-light-text-color);
+    color: var(--accent-color);
+  }
 
   $img-size: 125px;
   h1,

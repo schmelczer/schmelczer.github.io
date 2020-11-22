@@ -32,10 +32,15 @@
       }
     }
 
-    .loading,
-    .loading > svg {
+    .loading {
       @include square(var(--large-icon-size));
       @include absolute-center;
+      visibility: hidden;
+
+      & > svg {
+        @include square(var(--large-icon-size));
+        @include absolute-center;
+      }
     }
 
     iframe {
@@ -52,9 +57,6 @@
     .load-button {
       visibility: hidden;
     }
-  }
-
-  &.waiting {
     .loading {
       visibility: visible;
     }

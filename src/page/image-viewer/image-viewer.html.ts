@@ -5,7 +5,7 @@ import { html } from '../../types/html';
 
 export const generate = (): html => `
   <section id="image-viewer">
-    <div id="container"></div>
+    <img image-viewer-ignore />
     <div tabindex="0" id="cancel">${cancel}</div>
   </section>
 `;

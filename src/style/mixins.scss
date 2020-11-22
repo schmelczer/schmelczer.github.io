@@ -43,11 +43,11 @@ $breakpoint-width: 925px !default;
   transform: translateX(-50%) translateY(-50%);
 }
 
-@mixin card-base() {
-  text-align: center;
-  box-shadow: var(--shadow);
-  z-index: 1;
-  width: 100%;
+@mixin blurred-background() {
+  backdrop-filter: blur(var(--blur-radius));
+  @supports not (backdrop-filter: blur(var(--blur-radius))) {
+    background-color: var(--card-color);
+  }
 }
 
 @mixin square($size) {
@@ -55,16 +55,12 @@ $breakpoint-width: 925px !default;
   height: $size;
 }
 
-@mixin max-square($size) {
-  max-width: $size;
-  max-height: $size;
-}
-
 @mixin title-font() {
   font: 400 3rem 'Comfortaa', serif;
   font-style: normal;
   color: var(--normal-text-color);
   line-height: 1;
+  transition: color var(--transition-time);
 
   @include on-small-screen {
     font-size: 3rem;
@@ -76,18 +72,23 @@ $breakpoint-width: 925px !default;
   font: 400 1.75rem 'Comfortaa', serif;
   color: var(--normal-text-color);
   font-style: normal;
+  hyphens: auto;
+  transition: color var(--transition-time);
 }
 
 @mixin main-font() {
   font: 400 1.1rem 'Open Sans', sans-serif;
   color: var(--normal-text-color);
   line-height: 1.8;
+  hyphens: auto;
+  transition: color var(--transition-time);
 }
 
 @mixin special-text-font() {
   font: 400 1rem 'Open Sans', sans-serif;
   color: var(--special-text-color);
   font-style: italic;
+  transition: color var(--transition-time);
 }
 
 @mixin link {

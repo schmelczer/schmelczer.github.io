@@ -9,16 +9,16 @@ export const generate = ({
   mp4,
   container,
 }: {
-  poster: url;
-  options: string;
+  poster?: url;
+  options?: string;
   webm: url;
   mp4: url;
-  container: boolean;
+  container?: boolean;
 }): html => `
-  ${container ? `<div class="figure-container">` : ''}
+  ${container === undefined || container ? `<div class="figure-container">` : ''}
     <video loading="lazy" ${options} ${poster ? `poster="${poster}` : ''}" >
         <source src="${webm}" type="video/webm"/>
         <source src="${mp4}" type="video/mp4"/>
     </video>
-  ${container ? `</div>` : ''}
+  ${container === undefined || container ? `</div>` : ''}
 `;

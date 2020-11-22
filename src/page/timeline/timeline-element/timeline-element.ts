@@ -6,7 +6,7 @@ import { createElement } from '../../../helper/create-element';
 
 export class PageTimelineElement extends PageElement {
   private isOpen: boolean;
-  private more: HTMLElement;
+  private more?: HTMLElement;
   private showMore: string;
   private showLess: string;
 
@@ -22,7 +22,7 @@ export class PageTimelineElement extends PageElement {
       super(root);
       this.children = [content];
       this.isOpen = false;
-      this.more = root.querySelector('.more');
+      this.more = this.query('.more');
       this.more.appendChild(content.htmlRoot);
       addEventListener('resize', this.handleResize.bind(this));
 
@@ -35,6 +35,7 @@ export class PageTimelineElement extends PageElement {
 
     this.showMore = showMore;
     this.showLess = showLess;
+    this.isOpen = false;
   }
 
   private toggleOpen() {
@@ -50,17 +51,17 @@ export class PageTimelineElement extends PageElement {
   }
 
   private openMore() {
-    const deltaHeight = this.more.scrollHeight;
-    this.more.style.height = `${deltaHeight.toString()}px`;
+    const deltaHeight = this.more!.scrollHeight;
+    this.more!.style.height = `${deltaHeight.toString()}px`;
   }
 
   private closeMore() {
-    this.more.style.height = '0';
+    this.more!.style.height = '0';
   }
 
   private handleResize() {
     if (this.isOpen) {
-      this.more.style.height = 'auto';
+      this.more!.style.height = 'auto';
       this.openMore.bind(this);
     }
   }

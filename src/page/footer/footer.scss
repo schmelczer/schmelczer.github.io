@@ -1,6 +1,6 @@
 @use '../../style/mixins' as *;
 
-footer#page-footer {
+#footer {
   text-align: center;
 
   margin-top: var(--large-margin);
@@ -30,7 +30,8 @@ footer#page-footer {
 
       img,
       svg {
-        @include max-square(var(--icon-size));
+        max-width: var(--icon-size);
+        max-height: var(--icon-size);
         margin-right: calc(var(--small-margin) / 2);
         stroke: var(--normal-text-color);
       }

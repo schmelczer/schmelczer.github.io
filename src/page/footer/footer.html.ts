@@ -11,7 +11,7 @@ export const generate = ({
   lastEditText,
   lastEdit,
 }: Footer): html => `
-  <footer id="page-footer">
+  <footer id="footer">
     <h2>${title}</h2>
     <ul>
         ${curriculaVitae
