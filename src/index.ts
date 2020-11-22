@@ -12,7 +12,7 @@ import './styles.scss';
 import { create } from './portfolio';
 
 const addSupportForTabNavigation = () =>
-  (document.onkeydown = e => {
+  document.addEventListener('keydown', e => {
     if (e.key === ' ') {
       (document.activeElement as HTMLElement)?.click();
       e.preventDefault();
@@ -20,8 +20,11 @@ const addSupportForTabNavigation = () =>
   });
 
 const removeUnnecessaryOutlines = () =>
-  (document.onclick = () => (document.activeElement as HTMLElement).blur?.());
+  document.addEventListener('click', () =>
+    (document.activeElement as HTMLElement).blur?.()
+  );
 
-create();
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();
+
+create();
