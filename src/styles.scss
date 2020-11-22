@@ -3,10 +3,16 @@
 @use 'style/animations/animations';
 @use 'style/dark-mode/dark-mode';
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   height: 100%;
-
-  transition: background-color linear var(--transition-time);
 
   @include on-small-screen {
     font-size: 0.8rem;
@@ -14,39 +20,30 @@ html {
 
   @media print {
     & {
-      font-size: 0.75rem;
+      font-size: 0.7rem;
     }
   }
 }
 
-:focus {
-  outline: none;
+body {
+  background-color: var(--background);
+  transition: background-color linear var(--transition-time);
 
-  &:not(:hover) {
-    outline: var(--accent-color) solid 2px;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
+    env(safe-area-inset-left);
+
+  height: 100%;
+
+  @media print {
+    & {
+      height: auto;
+    }
   }
 }
 
-::-moz-selection {
-  background-color: var(--accent-color);
-  color: var(--very-light-text-color);
-}
-::selection {
-  background-color: var(--accent-color);
-  color: var(--very-light-text-color);
-}
-
-*,
-*::before,
-*::after {
-  @include main-font();
-
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  transition: background-color linear var(--transition-time), color var(--transition-time);
-
-  hyphens: auto;
+noscript {
+  @include square(100%);
+  @include center-children();
 }
 
 .figure-container {
@@ -61,46 +58,27 @@ html {
   iframe {
     pointer-events: all;
     position: relative;
-    z-index: -2;
+    z-index: -1;
     width: 100%;
     height: auto;
   }
 }
 
-body {
-  background-color: var(--background);
+img,
+video,
+iframe {
+  user-select: none;
+}
 
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom)
-    env(safe-area-inset-left);
+:focus {
+  outline: none;
 
-  height: 100%;
-
-  @media print {
-    & {
-      height: auto;
-    }
+  &:not(:hover) {
+    outline: var(--accent-color) solid 2px;
   }
+}
 
-  main {
-    height: 100%;
-    overflow-x: hidden;
-    overflow-y: scroll;
-
-    noscript {
-      @include square(100%);
-      @include center-children();
-    }
-
-    @media (hover: hover) {
-      &::-webkit-scrollbar-track,
-      &::-webkit-scrollbar {
-        background-color: transparent;
-        width: 12px;
-      }
-      &::-webkit-scrollbar-thumb {
-        background-color: var(--accent-color);
-        border-radius: var(--border-radius);
-      }
-    }
-  }
+::selection {
+  background-color: var(--accent-color);
+  color: var(--very-light-text-color);
 }

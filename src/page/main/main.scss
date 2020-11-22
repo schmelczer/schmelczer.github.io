@@ -1,0 +1,21 @@
+@use '../../style/mixins' as *;
+
+main {
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  perspective: 5px;
+
+  @media (hover: hover) {
+    &::-webkit-scrollbar-track,
+    &::-webkit-scrollbar {
+      background-color: transparent;
+      width: 12px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--accent-color);
+      border-radius: var(--border-radius);
+    }
+  }
+}

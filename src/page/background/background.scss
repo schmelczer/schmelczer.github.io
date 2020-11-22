@@ -1,16 +1,30 @@
 @use '../../style/mixins' as *;
+@use '../../style/dark-mode/dark-mode' as *;
 
-canvas#background {
-  position: fixed;
-  top: 0;
+.blob {
+  position: absolute;
   left: 0;
-  height: 100%;
-  width: 100%;
-  z-index: -10;
+  top: 0;
+  border-radius: 1000px;
+  transition: background-color var(--transition-time);
+
+  &:nth-child(odd) {
+    background-color: #fff9e0;
+  }
+
+  &:nth-child(even) {
+    background-color: #ffd6d6;
+  }
 
   @media print {
     & {
       display: none;
     }
+  }
+}
+
+@include in-dark-mode {
+  .blob {
+    background-color: #2c477a;
   }
 }
