@@ -88,7 +88,7 @@
     text-align: center;
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
-
+    z-index: 1;
     background-color: var(--blurred-card-color);
     transition: background-color var(--transition-time);
 
