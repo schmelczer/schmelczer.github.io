@@ -7,7 +7,7 @@ import { PageTimeline } from './page/timeline/timeline';
 import { PageImageViewer } from './page/image-viewer/image-viewer';
 import { last } from './helper/last';
 import { PageBackground } from './page/background/background';
-import { Anchor } from './page/basics/anchor/anchor';
+
 import { Main } from './page/main/main';
 import { ImageAnchorFactory } from './page/basics/image-anchor/image-anchor';
 import { Preview } from './page/basics/preview/preview';
@@ -207,16 +207,12 @@ export const create = () => {
               new Text(
                 `A basic android app for creating and filtering notes written in markdown.`
               ),
-              new Anchor(
-                `https://github.com/schmelczerandras/my-notes`,
-                `MyNotes on GitHub`
-              ),
               new Text(
                 `It was my homework for BME's Android and web development course.
             It was also my first experience with Android development.`
               ),
             ],
-            links: [],
+            links: [new GitHub('https://github.com/schmelczerandras/my-notes')],
           },
           {
             date: `2018 October - November`,
