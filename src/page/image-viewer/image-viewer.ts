@@ -27,6 +27,8 @@ export class PageImageViewer extends PageElement {
   private showImage(source: HTMLImageElement) {
     const image = this.query('img') as HTMLImageElement;
     image.src = source.src;
+    image.height = source.height;
+    image.width = source.width;
     this.htmlRoot.style.visibility = 'visible';
   }
 
