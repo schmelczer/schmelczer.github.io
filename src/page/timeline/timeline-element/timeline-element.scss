@@ -108,8 +108,24 @@
         margin-top: var(--small-margin);
       }
 
-      h2 {
+      h2 > a {
         @include sub-title-font();
+        text-decoration: none;
+        position: relative;
+
+        &:before {
+          content: '#';
+          position: absolute;
+          left: -0.5ch;
+          top: 0;
+          opacity: 0;
+          transform: translateX(-100%);
+          transition: opacity var(--transition-time);
+        }
+
+        &:hover:before {
+          opacity: 0.5;
+        }
       }
 
       & > p {

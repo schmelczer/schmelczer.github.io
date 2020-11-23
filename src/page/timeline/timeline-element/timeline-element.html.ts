@@ -6,8 +6,10 @@ import { html } from '../../../types/html';
 export const generate = (
   { date, title, more }: TimelineElement,
   showMore: string
-): html => `
-  <section class="timeline-element">
+): html => {
+  const id = titleToFragment(title);
+  return `
+  <section id="${id}" class="timeline-element">
     <div class="line-container">
       <div class="line"></div>
       <p class="date">${date}</p>
@@ -15,7 +17,7 @@ export const generate = (
     <div class="card">
       <div class="figure"></div>
       <div class="lower">
-        <h2>${title}</h2>
+        <h2><a href="#${id}">${title}</a></h2>
         <div class="description"></div>
         ${more ? '<div class="more"></div>' : ''}
         <div class="buttons">
@@ -33,3 +35,7 @@ export const generate = (
     </div>
   </section>
 `;
+};
+
+const titleToFragment = (title: string): string =>
+  encodeURIComponent(title.toLocaleLowerCase().replace(/\W+/g, '-'));
