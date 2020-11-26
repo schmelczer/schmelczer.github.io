@@ -113,7 +113,7 @@ module.exports = (env, argv) => ({
       },
       {
         test: /\.svg$/i,
-        use: 'raw-loader',
+        use: 'svg-inline-loader',
       },
       {
         test: /no-change.*(ico|html|txt|png|webmanifest)$/i,
