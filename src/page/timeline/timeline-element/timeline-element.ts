@@ -11,41 +11,32 @@ export interface TimelineElementParameters {
   figure: Image | Video | Preview;
   title: string;
   description: string;
-  more?: Array<string>;
+  more: Array<string>;
   links: Array<PageElement>;
 }
 
 export class PageTimelineElement extends PageElement {
-  private isOpen: boolean;
-  private more?: HTMLElement;
-  private showMore: string;
-  private showLess: string;
+  private isOpen = false;
+  private more: HTMLElement;
 
   public constructor(
     timelineElement: TimelineElementParameters,
-    showMore: string,
-    showLess: string
+    private readonly showMore: string,
+    private readonly showLess: string
   ) {
-    const root = createElement(generate(timelineElement, showMore));
+    super(createElement(generate(timelineElement, showMore)));
+    const content = new PageContent(timelineElement.more);
+    this.children = [content];
+    this.isOpen = false;
+    this.more = this.query('.more');
+    this.more.appendChild(content.htmlRoot);
+    addEventListener('resize', this.handleResize.bind(this));
 
-    if (timelineElement.more) {
-      const content = new PageContent(timelineElement.more);
-      super(root);
-      this.children = [content];
-      this.isOpen = false;
-      this.more = this.query('.more');
-      this.more.appendChild(content.htmlRoot);
-      addEventListener('resize', this.handleResize.bind(this));
-
-      this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
-    } else super(root);
-
+    this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
     this.attachElementByReplacing('.figure', timelineElement.figure);
     this.query('.description').innerText = timelineElement.description;
     timelineElement.links.forEach(l => this.attachElementAsChildOf('.buttons', l));
 
-    this.showMore = showMore;
-    this.showLess = showLess;
     this.isOpen = false;
   }
 
