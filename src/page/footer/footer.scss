@@ -30,8 +30,7 @@
 
       img,
       svg {
-        max-width: var(--icon-size);
-        max-height: var(--icon-size);
+        @include square(var(--icon-size));
         margin-right: calc(var(--small-margin) / 2);
         stroke: var(--normal-text-color);
       }
