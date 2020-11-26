@@ -24,7 +24,16 @@ const removeUnnecessaryOutlines = () =>
     (document.activeElement as HTMLElement).blur?.()
   );
 
+// it might be necessary when the page takes too long to load
+const scrollToFragment = () => {
+  if (location.hash) {
+    document.getElementById(location.hash.slice(1))?.scrollIntoView();
+  }
+};
+
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();
 
 create();
+
+scrollToFragment();
