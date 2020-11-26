@@ -1,375 +1,65 @@
+import meJpeg from './static/media/me.jpg?format=jpg';
+import meWebP from './static/media/me.jpg?format=webp';
+import cvEnglish from './static/media/cv_andras_schmelczer.pdf';
+
 import { PageFooter } from './page/footer/footer';
-import { Video } from './page/basics/video/video';
-import { Text } from './page/basics/text/text';
 import { Image } from './page/basics/image/image';
 import { PageHeader } from './page/header/header';
 import { PageTimeline } from './page/timeline/timeline';
 import { PageImageViewer } from './page/image-viewer/image-viewer';
-import { last } from './helper/last';
 import { PageBackground } from './page/background/background';
-
 import { Main } from './page/main/main';
-import { ImageAnchorFactory } from './page/basics/image-anchor/image-anchor';
-import { Preview } from './page/basics/preview/preview';
-
-import meJpeg from './static/media/me.jpg?format=jpg';
-import meWebP from './static/media/me.jpg?format=webp';
-
-import declaredJpeg from './static/media/decla-red.png?format=jpg';
-import declaredWebP from './static/media/decla-red.png?format=webp';
-
-import sdf2dJpeg from './static/media/sdf2d.png?format=jpg';
-import sdf2dWebP from './static/media/sdf2d.png?format=webp';
-
-import myNotesJpeg from './static/media/my-notes.png?format=jpg';
-import myNotesWebP from './static/media/my-notes.png?format=webp';
-
-import processSimulatorJpeg from './static/media/process-simulator.jpg?format=jpg';
-import processSimulatorWebP from './static/media/process-simulator.jpg?format=webp';
-
-import processSimulatorInputJpeg from './static/media/process-simulator-input.jpg?format=jpg';
-import processSimulatorInputWebP from './static/media/process-simulator-input.jpg?format=webp';
-
-import citySimulationJpeg from './static/media/simulation.jpg?format=jpg';
-import citySimulationWebP from './static/media/simulation.jpg?format=webp';
-
-import colourJpeg from './static/media/color.jpg?format=jpg';
-import colourWebP from './static/media/color.jpg?format=webp';
-
-import platformJpeg from './static/media/platform.png?format=jpg';
-import platformWebP from './static/media/platform.png?format=webp';
-
-import photosJpeg from './static/media/photos.jpg?format=jpg';
-import photosWebP from './static/media/photos.jpg?format=webp';
-
-import cvEnglish from './static/media/cv_andras_schmelczer.pdf';
-import thesis from './static/media/andras_schmelczer_thesis.pdf';
-
-import forexMp4 from './static/media/forex.mp4';
-import forexWebM from './static/media/forex.webm';
-
-import adAstraPoster from './static/media/ad_astra.jpg?format=jpg';
-import adAstraMp4 from './static/media/ad_astra_720.mp4';
-import adAstraWebM from './static/media/ad_astra_720.webm';
-
-import ledPoster from './static/media/led.jpg?format=jpg';
-import ledMp4 from './static/media/led.mp4';
-import ledWebM from './static/media/led.webm';
-
-import githubIcon from './static/icons/github.svg';
-import openIcon from './static/icons/open.svg';
-import cvIcon from './static/icons/cv.svg';
 import { Body } from './page/body/body';
+import { declaredTimelineElement } from './data/declared';
+import { sdf2dTimelineElement } from './data/sdf2d';
+import { adAstraTimelineElement } from './data/ad-astra';
+import { forexTimelineElement } from './data/forex';
+import { myNotesTimelineElement } from './data/my-notes';
+import { nuclearTimelineElement } from './data/nuclear';
+import { nuclearEditorTimelineElement } from './data/nuclear-editor';
+import { citySimulationTimelineElement } from './data/city-simulation';
+import { colorsTimelineElement } from './data/colors';
+import { platformGameTimelineElement } from './data/platform-game';
+import { photosTimelineElement } from './data/photos';
+import { ledsTimelineElement } from './data/leds';
 
 export const create = () => {
-  const GitHub = ImageAnchorFactory(githubIcon, 'Open on GitHub');
-  const Open = ImageAnchorFactory(openIcon, 'Open in new tab');
-  const Thesis = ImageAnchorFactory(cvIcon, 'Download thesis');
-
   new Body(
     new Main(
       new PageBackground(1, 1),
       new PageHeader({
         name: `András Schmelczer`,
-        picture: new Image(meWebP, meJpeg, `a picture of me`, false),
+        photo: new Image(meWebP, meJpeg, `a picture of me`, false),
         about: [
-          new Text(`I have always been fascinated by the engineering feats that surround us and pervade every aspect
-          of our lives. When I realised I might someday be able to contribute to this field, I knew that
-          this would become my life’s ambition. As I am finishing my last semester at the 
-          Budapest University of Technology and Economics, I feel I am getting closer to it every day.`),
-          new Text(`Look at some of the more interesting projects I have worked on. They are all listed below. 
-          Further information about me can be found at the bottom of the page.`),
+          `
+            I have always been fascinated by the engineering feats that surround us and pervade every aspect
+            of our lives. When I realised I might someday be able to contribute to this field, I knew that
+            this would become my life’s ambition. 
+            As I am finishing my last semester at the Budapest University of Technology and Economics, 
+            I feel I am getting closer to my ambition every day.
+          `,
+          `
+            Discover some of my more interesting projects. They are all listed below.
+            Further information about me can be found at the bottom of the page.
+          `,
         ],
       }),
       new PageTimeline({
         showMoreText: `Show details`,
         showLessText: `Show less`,
         elements: [
-          {
-            title: `Multiplayer game`,
-            date: `2020 Autumn`,
-            figure: new Preview(
-              declaredWebP,
-              declaredJpeg,
-              'https://decla.red',
-              'The website of the video game'
-            ),
-            description: new Text(
-              `Using SDF-2D, I developed a conquest-style multiplayer browser game. It even runs on mobiles.`
-            ),
-            more: [
-              new Text(`The scene is set in space, two teams have to conquer small planets, while they can also shoot at the other team. 
-            Points are given based on the number of planets controlled, 
-            and the first team which reaches a predefined score wins.`),
-              new Text(`As for the communication, a server-client architecture is used. Messaging is provided by Socket.IO and a custom
-              serialisation solution.`),
-              new Text(`This (along with SDF-2D) was my BSc thesis project, so more in-depth information about them
-               can be found in my thesis linked below.`),
-            ],
-            links: [
-              new GitHub('https://github.com/schmelczerandras/decla.red'),
-              new Thesis(thesis),
-              new Open('https://decla.red'),
-            ],
-          },
-          {
-            title: `2D ray tracing`,
-            date: `2020 Autumn`,
-            figure: new Preview(
-              sdf2dWebP,
-              sdf2dJpeg,
-              'https://sdf2d.schmelczer.dev',
-              'A webpage showcasing the SDF-2D project.'
-            ),
-            description: new Text(`I created the SDF-2D library for efficiently rendering 2D scenes using ray tracing. 
-            My solution relies on signed distance fields (SDF-s), it supports both WebGL and WebGL2,
-            and is an easily reusable and extendible NPM package.`),
-            more: [
-              new Text(`A multitude of optimisations were needed to achieve real-time performance even on low-end mobile devices.
-              These include deferred shading, tile-based rendering, and dynamic shader generation to eliminate unnecessary
-              instructions. Additionally, there were some interesting quirks of specific hardware that also needed to be overcome.`),
-              new Text(`The end result is a reusable library written in TypeScript with a — subjectively — simple and elegant API. 
-            For more information please check out the GitHub repository or the NPM package itself. Or simply enjoy the
-            mesmerizing demo scenes.`),
-            ],
-            links: [
-              new GitHub('https://github.com/schmelczerandras/sdf-2d'),
-              new Open('https://sdf2d.schmelczer.dev'),
-            ],
-          },
-          {
-            title: `Video game on an ATtiny85`,
-            date: `2020 Spring`,
-            figure: new Video({
-              poster: last(adAstraPoster.images)!.path,
-              mp4: adAstraMp4,
-              webm: adAstraWebM,
-              options: `controls playsinline preload="none"`,
-            }),
-            description: new Text(`A simple game engine with a sample game set in space. The greatest challenge was to overcome
-            the very limited resources of the hardware, this was also the most rewarding part.`),
-            more: [
-              new Text(`For reducing complexity while maintaining performance, a balance had to be found between object-oriented
-              and structural programming. For example, a simple prototype-based inheritance is used for the game objects. 
-              Meanwhile, an optimized SIMD utilizing low-level driver is used for drawing on the display. 
-              I think the codebase is quite readable and at the same time the 
-              maximum frame times are between 15 ms and 20 ms at 8 MHz clock speed, which I find quite impressive.`),
-              new Text(`As for the hardware, it is rather simple. Aside from the ATtiny85V, a D096-12864-SPI7 display is used for
-              output and a TSOP4838 for input. The circuit runs on 3.3V, so a regulator is also needed. It uses a current
-              of 8mA to 11mA on full brightness and around 1.5mA on standby mode.`),
-              new Text(
-                `There is also fault-tolerant persistent data storage using the built-in EEPROM. 
-              For creating sprites (which are also stored in EEPROM) I made a tool to convert PNG-s into C code. 
-              This can also be found on GitHub as well as the entire project.`
-              ),
-            ],
-            links: [new GitHub('https://github.com/schmelczerandras/ad_astra')],
-          },
-
-          {
-            title: `Predicting foreign exchange rates`,
-            date: `2019 Autumn`,
-            figure: new Video({
-              mp4: forexMp4,
-              webm: forexWebM,
-              options: `autoplay loop muted playsinline controls`,
-            }),
-            description: new Text(
-              `From the animation we can see that my algorithm does a somewhat acceptable job at
-          predicting (blue graph) the EUR/USD rates (green graph).`
-            ),
-            more: [
-              new Text(
-                `In a nutshell, the algorithm (written with Python - NumPy, SciPy, Flask), 
-            extrapolates in the frequency domain. The steps are the following: smoothing the input values, 
-            differentiating, applying a short-time Fourier-transformation with overlapped (and Hanning-windowed) windows,
-            extrapolating and then applying the inverse of these transformations to the extrapolated values.`
-              ),
-              new Text(
-                `Of course, there is still plenty of room for improvement, but even with this simple algorithm
-            a mostly profitable trading strategy is viable. In my free time I may put more work into it.`
-              ),
-            ],
-            links: [],
-          },
-          {
-            date: `2019 November`,
-            title: `My Notes`,
-            figure: new Image(
-              myNotesWebP,
-              myNotesJpeg,
-              `two screenshots of the application`
-            ),
-            description: new Text(
-              `A minimalist note organizer and editor powered by Markwon.`
-            ),
-            more: [
-              new Text(
-                `A basic android app for creating and filtering notes written in markdown.`
-              ),
-              new Text(
-                `It was my homework for BME's Android and web development course.
-            It was also my first experience with Android development.`
-              ),
-            ],
-            links: [new GitHub('https://github.com/schmelczerandras/my-notes')],
-          },
-          {
-            date: `2018 October - November`,
-            title: `Simulating the cooling system of a nuclear facility`,
-            figure: new Image(
-              processSimulatorWebP,
-              processSimulatorJpeg,
-              `a screenshot of the simulator`
-            ),
-            description: new Text(
-              `Dynamically calculating the temperatures and flow velocities
-          in a fluid-based cooling system based on a simple model.`
-            ),
-            more: [
-              new Text(
-                `A simulated system can contain reactors (heaters / coolers), pumps, heat exchangers,
-            drains sources, and of course, pipes.`
-              ),
-              new Text(
-                `The algorithm takes advantages of graphs and matrices to get to a next time frame.`
-              ),
-              new Text(
-                `Python is used for the backend along with Flask and NumPy. A REST API facilitates 
-             the communication between the layers. For drawing the frontend HTML5 canvas is utilized.`
-              ),
-            ],
-            links: [],
-          },
-          {
-            date: `2018 October - November`,
-            title: `Graph editing application`,
-            figure: new Image(
-              processSimulatorInputWebP,
-              processSimulatorInputJpeg,
-              `a picture of the simulator's UI`
-            ),
-            description: new Text(
-              `An intuitive editor to create and edit input files for the nuclear facility simulator.`
-            ),
-            more: [
-              new Text(
-                `Nodes can be moved with drag&drop gestures. Editing the parameters of elements 
-            can be done on the right panel.`
-              ),
-              new Text(
-                `The UI is built with JavaFX. The output can be exported as JSON or 
-            directly uploaded to the simulation backend.`
-              ),
-            ],
-            links: [],
-          },
-          {
-            date: `2018 July - August`,
-            title: `City simulation`,
-            figure: new Image(
-              citySimulationWebP,
-              citySimulationJpeg,
-              `a picture of a low-poly city`
-            ),
-            description: new Text(
-              `Simulating a city where car crashes are more frequent than usual.`
-            ),
-            more: [
-              new Text(
-                `Through a REST API the state of the traffic lights can be changed. 
-            The drivers follow the instructions of the traffic lights, so if a mistake is made,
-            there will be collisions. There is also support for displaying tweets on a HUD.`
-              ),
-              new Text(
-                `This was created for a Cybersecurity challenge. With the help of this program 
-            the contestants could instantly see the effect of their work.`
-              ),
-              new Text(
-                `The most interesting aspect of this project was building it in a server-client architecture.
-            The decisions of the agents is calculated server-side. The real challenge was broadcasting 
-            these decisions in a fault-tolerant way using minimal bandwidth.`
-              ),
-              new Text(
-                `The program is made with Unity using C# as the scripting language. The models and animations
-            were also made by me using Blender.`
-              ),
-            ],
-            links: [],
-          },
-          {
-            date: `2018 June`,
-            title: `Photo colour grader`,
-            figure: new Image(colourWebP, colourJpeg, `a picture of the app`),
-            description: new Text(
-              `An innovative (at least I thought so) colour grader web application.`
-            ),
-            more: [
-              new Text(
-                `The most noteworthy feature of this application is the colour selector UI. 
-            This program is only intended as a proof-of-concept, I wanted to experiment with 
-            some ideas and this was the outcome.`
-              ),
-              new Text(
-                `You can select some colours and then apply transformations to the other colours as a 
-            function of their distance to the selected colour.`
-              ),
-              new Text(
-                `By clicking on a coloured circle you can change its settings. 
-            New circles can be created by clicking in the large circle (and they can also be moved by drag & drop).`
-              ),
-            ],
-            links: [new Open('color.schmelczer.dev')],
-          },
-          {
-            date: `2017 autumn`,
-            title: `Platform game`,
-            figure: new Image(platformWebP, platformJpeg, `a picture of the app`),
-            description: new Text(
-              `A 3D game written in C with the help of SDL 1.2 (I haven't heard of GPU programming at the time).`
-            ),
-            more: [
-              new Text(
-                `The maps are randomly generated and fully destroyable. 
-            The player is getting chased by flying enemies. Overall, I find it a really enjoyable game.`
-              ),
-              new Text(`I did this as a homework for my Basics of Programming course.`),
-            ],
-            links: [],
-          },
-          {
-            date: `2016 summer`,
-            title: `Photos`,
-            figure: new Image(photosWebP, photosJpeg, `a picture of the website`),
-            description: new Text(`A simple web page where you can view my photos.`),
-            links: [new Open('https://photo.schmelczer.dev')],
-          },
-          {
-            date: `2016 spring`,
-            title: `Lights synchronised to music`,
-            figure: new Video({
-              poster: last(ledPoster.images)!.path,
-              mp4: ledMp4,
-              webm: ledWebM,
-              options: `controls playsinline preload="none"`,
-            }),
-            description: new Text(
-              `A full stack application with a built-in 
-          music player which music controls the colour of some RGB LED strips.`
-            ),
-            more: [
-              new Text(
-                `This was my first non-trivial project which got finished. Obviously, 
-            it is rather far from perfect, but I am still proud that I was able to build it on my own.`
-              ),
-              new Text(
-                `The backend logic is written in Python, the FFT implementation is provided by NumPy. 
-            A quite simple frontend for accessing the music player and changing 
-            the settings also got built using vanilla web development technologies.`
-              ),
-            ],
-            links: [],
-          },
+          declaredTimelineElement,
+          sdf2dTimelineElement,
+          adAstraTimelineElement,
+          forexTimelineElement,
+          myNotesTimelineElement,
+          nuclearTimelineElement,
+          nuclearEditorTimelineElement,
+          citySimulationTimelineElement,
+          colorsTimelineElement,
+          platformGameTimelineElement,
+          photosTimelineElement,
+          ledsTimelineElement,
         ],
       }),
       new PageFooter({
@@ -377,7 +67,8 @@ export const create = () => {
         curriculaVitae: [{ name: `Curriculum vitae`, url: cvEnglish }],
         email: `andras@schmelczer.dev`,
         lastEditText: `Last modified on `,
-        lastEdit: new Date(2020, 11 - 1, 17), // months are 0 indexed
+        // @ts-ignore: injected by webpack
+        lastEdit: new Date(__CURRENT_DATE__),
       })
     ),
     new PageImageViewer()

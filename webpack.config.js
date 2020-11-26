@@ -6,10 +6,8 @@ const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const Sharp = require('responsive-loader/sharp');
+const webpack = require('webpack');
 const Sass = require('sass');
-
-const isProduction = process.env.NODE_ENV === 'production';
-const isDevelopment = !isProduction;
 
 module.exports = (env, argv) => ({
   watchOptions: {
@@ -23,7 +21,7 @@ module.exports = (env, argv) => ({
   optimization: {
     minimizer: [
       new TerserJSPlugin({
-        sourceMap: isDevelopment,
+        sourceMap: argv.mode === 'development',
       }),
       new OptimizeCSSAssetsPlugin({}),
     ],
@@ -47,6 +45,9 @@ module.exports = (env, argv) => ({
     new MiniCssExtractPlugin({
       filename: '[name].css',
       chunkFilename: '[id].css',
+    }),
+    new webpack.DefinePlugin({
+      __CURRENT_DATE__: Date.now(),
     }),
   ],
   entry: {
@@ -78,7 +79,7 @@ module.exports = (env, argv) => ({
           {
             loader: 'image-webpack-loader',
             options: {
-              disable: !isProduction,
+              disable: argv.mode === 'development',
               mozjpeg: {
                 progressive: true,
                 quality: 65,
@@ -147,7 +148,19 @@ module.exports = (env, argv) => ({
       },
       {
         test: /\.ts$/,
-        use: 'ts-loader',
+        use: [
+          {
+            loader: 'ts-loader',
+          },
+          {
+            // for removing whitespace from template strings
+            loader: 'string-replace-loader',
+            options: {
+              search: /`.*?`/gs,
+              replace: match => match.replace(/\s\s+/g, ' ').trim(),
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
     ],

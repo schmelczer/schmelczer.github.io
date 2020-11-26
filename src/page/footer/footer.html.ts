@@ -1,8 +1,8 @@
-import { Footer } from '../../types/portfolio';
 import './footer.scss';
 import cvIcon from '../../static/icons/cv.svg';
 import emailIcon from '../../static/icons/email.svg';
 import { html } from '../../types/html';
+import { FooterParameters } from './footer';
 
 export const generate = ({
   title,
@@ -10,7 +10,7 @@ export const generate = ({
   curriculaVitae,
   lastEditText,
   lastEdit,
-}: Footer): html => `
+}: FooterParameters): html => `
   <footer id="footer">
     <h2>${title}</h2>
     <ul>

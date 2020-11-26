@@ -1,8 +1,19 @@
-import { TimelineElement } from '../../../types/portfolio';
 import { PageContent } from '../../content/content';
 import { PageElement } from '../../page-element';
 import { generate } from './timeline-element.html';
 import { createElement } from '../../../helper/create-element';
+import { Video } from '../../basics/video/video';
+import { Image } from '../../basics/image/image';
+import { Preview } from '../../basics/preview/preview';
+
+export interface TimelineElementParameters {
+  date: string;
+  figure: Image | Video | Preview;
+  title: string;
+  description: string;
+  more?: Array<string>;
+  links: Array<PageElement>;
+}
 
 export class PageTimelineElement extends PageElement {
   private isOpen: boolean;
@@ -11,7 +22,7 @@ export class PageTimelineElement extends PageElement {
   private showLess: string;
 
   public constructor(
-    timelineElement: TimelineElement,
+    timelineElement: TimelineElementParameters,
     showMore: string,
     showLess: string
   ) {
@@ -30,7 +41,7 @@ export class PageTimelineElement extends PageElement {
     } else super(root);
 
     this.attachElementByReplacing('.figure', timelineElement.figure);
-    this.attachElementByReplacing('.description', timelineElement.description);
+    this.query('.description').innerText = timelineElement.description;
     timelineElement.links.forEach(l => this.attachElementAsChildOf('.buttons', l));
 
     this.showMore = showMore;

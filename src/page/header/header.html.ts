@@ -1,8 +1,8 @@
 import './header.scss';
-import { Header } from '../../types/portfolio';
+
 import { html } from '../../types/html';
 
-export const generate = ({ name }: Header): html => `
+export const generate = (name: string): html => `
   <section id="about">
     <div class="picture"></div>
     <div class="placeholder"></div>

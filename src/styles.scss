@@ -42,6 +42,10 @@ body {
   }
 }
 
+p {
+  @include main-font();
+}
+
 noscript {
   @include square(100%);
   @include center-children();

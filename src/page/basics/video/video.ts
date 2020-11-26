@@ -8,7 +8,7 @@ export class Video extends PageElement {
     poster?: url;
     mp4: url;
     webm: url;
-    options?: string;
+    shouldActLikeGif?: boolean;
     container?: boolean;
   }) {
     super(createElement(generate(options)));

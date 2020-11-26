@@ -1,10 +1,10 @@
-import { TimelineElement } from '../../../types/portfolio';
 import info from '../../../static/icons/info.svg';
 import './timeline-element.scss';
 import { html } from '../../../types/html';
+import { TimelineElementParameters } from './timeline-element';
 
 export const generate = (
-  { date, title, more }: TimelineElement,
+  { date, title, more }: TimelineElementParameters,
   showMore: string
 ): html => {
   const id = titleToFragment(title);
@@ -18,7 +18,7 @@ export const generate = (
       <div class="figure"></div>
       <div class="lower">
         <h2><a href="#${id}">${title}</a></h2>
-        <div class="description"></div>
+        <p class="description"></p>
         ${more ? '<div class="more"></div>' : ''}
         <div class="buttons">
         ${
