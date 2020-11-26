@@ -57,11 +57,12 @@ noscript {
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   pointer-events: none;
   cursor: pointer;
+  position: relative;
 
   img,
   video,
   iframe {
-    pointer-events: all;
+    pointer-events: auto;
     position: relative;
     z-index: -1;
     width: 100%;
