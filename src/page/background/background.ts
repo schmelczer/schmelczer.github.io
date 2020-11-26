@@ -47,7 +47,6 @@ export class PageBackground extends PageElement {
 
     if (
       window.innerWidth !== this.windowWidth ||
-      window.innerHeight !== this.windowHeight ||
       currentContentHeight !== this.contentHeight
     ) {
       this.windowWidth = window.innerWidth;
