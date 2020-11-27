@@ -60,43 +60,22 @@ module.exports = (env, argv) => ({
         loader: 'responsive-loader',
         options: {
           adapter: Sharp,
-          name: '[contenthash]-[width].[ext]',
+          name: '[contenthash].[ext]',
           outputPath: 'static/',
           sizes: [200, 400, 800, 1200, 1600, 2000],
+          quality: 0.9,
           format: 'webp',
+          progressive: true,
         },
       },
       {
-        test: /\.(webm|mp4|gif)$/i,
+        test: /\.(webm|mp4)$/i,
         use: [
           {
             loader: 'file-loader',
             query: {
               outputPath: 'static/',
               name: '[contenthash].[ext]',
-            },
-          },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              disable: argv.mode === 'development',
-              mozjpeg: {
-                progressive: true,
-                quality: 65,
-              },
-              optipng: {
-                enabled: true,
-              },
-              pngquant: {
-                quality: [0.65, 0.9],
-                speed: 4,
-              },
-              gifsicle: {
-                interlaced: false,
-              },
-              webp: {
-                quality: 65,
-              },
             },
           },
         ],
