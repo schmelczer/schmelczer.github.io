@@ -16,7 +16,13 @@ export const generate = ({
   alt: string;
   container: boolean;
 }): html => `
-  ${container ? `<div class="figure-container">` : ''}
+  ${
+    container
+      ? `<div class="figure-container" style="padding-top:${(imageJpeg.height /
+          imageJpeg.width) *
+          100}%">`
+      : ''
+  }
   <picture loading="lazy">
     <source
       srcset="${imageWebP.srcSet}" 

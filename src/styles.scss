@@ -51,6 +51,26 @@ noscript {
   @include center-children();
 }
 
+.start-button {
+  @include image-button(var(--large-icon-size));
+  @include absolute-center;
+  @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
+
+  &:hover svg {
+    box-shadow: var(--shadow);
+  }
+
+  svg {
+    border-radius: 10000px;
+    backdrop-filter: blur(16px);
+    transition: transform var(--transition-time), box-shadow var(--transition-time);
+  }
+
+  &.inverted svg {
+    fill: var(--accent-color);
+  }
+}
+
 .figure-container {
   font-size: 0;
   box-shadow: var(--inset-shadow);
@@ -59,14 +79,19 @@ noscript {
   cursor: pointer;
   position: relative;
 
+  * {
+    pointer-events: auto;
+  }
+
   img,
   video,
   iframe {
-    pointer-events: auto;
-    position: relative;
     z-index: -1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
     width: 100%;
-    height: auto;
   }
 }
 

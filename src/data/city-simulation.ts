@@ -1,15 +1,14 @@
 import citySimulationPoster from '../static/media/simulation.jpg?format=jpg';
-import citySimulationWebM from '../static/media/simulation.webm';
-import citySimulationMp4 from '../static/media/simulation.mp4';
+import citySimulationMp4 from '../static/media/mp4/simulation.mp4';
+import citySimulationWebM from '../static/media/webm/simulation.webm';
 
 import { Video } from '../page/basics/video/video';
-import { last } from '../helper/last';
 
 export const citySimulationTimelineElement = {
   date: `2018 July - August`,
   title: `City simulation`,
   figure: new Video({
-    poster: last(citySimulationPoster.images)!.path,
+    poster: citySimulationPoster,
     mp4: citySimulationMp4,
     webm: citySimulationWebM,
   }),

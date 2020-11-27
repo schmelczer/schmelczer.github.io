@@ -14,7 +14,7 @@ export class Preview extends PageElement {
     super(createElement(generate({ alt })));
     this.url += '?portfolioView';
     this.attachElementByReplacing('.poster', new Image(posterWebP, posterJpeg, alt));
-    this.query('.load-button').addEventListener('click', this.loadContent.bind(this));
+    this.query('.start-button').addEventListener('click', this.loadContent.bind(this));
   }
 
   public setParent(parent: PageElement) {

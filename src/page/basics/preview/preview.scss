@@ -9,27 +9,9 @@
     left: 0;
     top: 0;
 
-    * {
+    iframe {
       position: absolute;
       left: 0;
-      right: 0;
-    }
-
-    .load-button {
-      @include image-button(var(--large-icon-size));
-      @include absolute-center;
-      @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
-
-      &:hover svg {
-        box-shadow: var(--shadow);
-      }
-
-      svg {
-        border-radius: 10000px;
-        backdrop-filter: blur(16px);
-        transition: transform var(--transition-time), box-shadow var(--transition-time);
-        stroke: var(--normal-text-color);
-      }
     }
 
     .loading {
@@ -54,9 +36,10 @@
 
   &.loaded {
     .figure-container,
-    .load-button {
+    .start-button {
       visibility: hidden;
     }
+
     .loading {
       visibility: visible;
     }

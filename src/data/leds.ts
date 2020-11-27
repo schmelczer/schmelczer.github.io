@@ -1,15 +1,14 @@
 import ledPoster from '../static/media/led.jpg?format=jpg';
-import ledMp4 from '../static/media/led.mp4';
-import ledWebM from '../static/media/led.webm';
+import ledMp4 from '../static/media/mp4/led.mp4';
+import ledWebM from '../static/media/webm/led.webm';
 
-import { last } from '../helper/last';
 import { Video } from '../page/basics/video/video';
 
 export const ledsTimelineElement = {
   date: `2016 spring`,
   title: `Lights synchronised to music`,
   figure: new Video({
-    poster: last(ledPoster.images)!.path,
+    poster: ledPoster,
     mp4: ledMp4,
     webm: ledWebM,
   }),

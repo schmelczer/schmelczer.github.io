@@ -8,8 +8,8 @@ export const generate = ({ alt }: { alt: string }): html => `
     <img image-viewer-ignore class="poster" />
     <div class="overlay">
       <div class="loading">${loading}</div>
-      <iframe title="${alt}" height=300 allowfullscreen loading="lazy"></iframe>
-      <div class="load-button">${play}</div>
+      <iframe title="${alt}" allowfullscreen loading="lazy"></iframe>
+      <div class="start-button">${play}</div>
     </div>
   </div>
 `;

@@ -1,14 +1,17 @@
-import forexMp4 from '../static/media/forex.mp4';
-import forexWebM from '../static/media/forex.webm';
+import forexMp4 from '../static/media/mp4/forex.mp4';
+import forexWebM from '../static/media/webm/forex.webm';
+import forexPoster from '../static/media/forex.jpg';
+
 import { Video } from '../page/basics/video/video';
 
 export const forexTimelineElement = {
   title: `Predicting foreign exchange rates`,
   date: `2019 Autumn`,
   figure: new Video({
+    poster: forexPoster,
     mp4: forexMp4,
     webm: forexWebM,
-    shouldActLikeGif: true,
+    invertButton: true,
   }),
   description: `
     From the animation, we can see that my implementation does a somewhat acceptable job at
