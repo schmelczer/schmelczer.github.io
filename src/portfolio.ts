@@ -1,6 +1,6 @@
 import meJpeg from './static/media/me.jpg?format=jpg';
 import meWebP from './static/media/me.jpg?format=webp';
-import cvEnglish from './static/media/cv_andras_schmelczer.pdf';
+import cvEnglish from './static/media/cv-andras-schmelczer.pdf';
 
 import { PageFooter } from './page/footer/footer';
 import { Image } from './page/basics/image/image';

@@ -1,6 +1,6 @@
 import declaredJpeg from '../static/media/decla-red.png?format=jpg';
 import declaredWebP from '../static/media/decla-red.png?format=webp';
-import thesis from '../static/media/andras_schmelczer_thesis.pdf';
+import thesis from '../static/media/thesis-andras-schmelczer.pdf';
 
 import { Preview } from '../page/basics/preview/preview';
 import { GitHub, Thesis, Open } from './shared';
