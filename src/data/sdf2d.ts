@@ -2,7 +2,7 @@ import sdf2dJpeg from '../static/media/sdf2d.png?format=jpg';
 import sdf2dWebP from '../static/media/sdf2d.png?format=webp';
 
 import { Preview } from '../page/basics/preview/preview';
-import { GitHub, Open, NPM } from './shared';
+import { Open, NPM, Youtube } from './shared';
 
 export const sdf2dTimelineElement = {
   title: `2D ray tracing`,
@@ -34,8 +34,8 @@ export const sdf2dTimelineElement = {
     `,
   ],
   links: [
-    new GitHub('https://github.com/schmelczerandras/sdf-2d'),
     new NPM('https://www.npmjs.com/package/sdf-2d'),
+    new Youtube('https://www.youtube.com/watch?v=K3cEtnZUNR0'),
     new Open('https://sdf2d.schmelczer.dev'),
   ],
 };
