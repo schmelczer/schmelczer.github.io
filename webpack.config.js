@@ -95,7 +95,7 @@ module.exports = (env, argv) => ({
         use: 'svg-inline-loader',
       },
       {
-        test: /no-change.*(ico|html|txt|png|webmanifest)$/i,
+        test: /no-change.*$/i,
         use: {
           loader: 'file-loader',
           query: {
