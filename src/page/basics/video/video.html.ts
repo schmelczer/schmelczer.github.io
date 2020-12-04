@@ -1,14 +1,23 @@
 import './video.scss';
 
+import loading from '../../../static/icons/loading.svg';
+
 import { html } from '../../../types/html';
 import play from '../../../static/icons/play-button.svg';
 import { VideoParameters } from './video';
-import { last } from '../../../helper/last';
 
-export const generate = ({ webm, mp4, poster, invertButton }: VideoParameters): html => `
-  <div class="figure-container" style="padding-top:${(poster.height / poster.width) *
+export const generate = ({
+  webm,
+  mp4,
+  posterJpeg,
+  invertButton,
+}: VideoParameters): html => `
+  <div class="figure-container video-container" style="padding-top:${(posterJpeg.height /
+    posterJpeg.width) *
     100}%">
-    <video playsinline preload="none" poster="${last(poster.images)!.path}">
+    <img image-viewer-ignore class="poster"/>
+    <div class="loading">${loading}</div>
+    <video playsinline preload="none">
         <source src="${webm}" type="video/webm"/>
         <source src="${mp4}" type="video/mp4"/>
     </video>

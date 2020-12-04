@@ -5,7 +5,7 @@ import { html } from '../../../types/html';
 
 export const generate = ({ alt }: { alt: string }): html => `
   <div class="preview">
-    <img image-viewer-ignore class="poster" />
+    <img image-viewer-ignore class="poster"/>
     <div class="overlay">
       <div class="loading">${loading}</div>
       <iframe title="${alt}" allowfullscreen loading="lazy"></iframe>

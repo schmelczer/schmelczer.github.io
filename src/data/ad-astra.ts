@@ -1,4 +1,5 @@
-import adAstraPoster from '../static/media/ad_astra.jpg?format=jpg';
+import adAstraWebP from '../static/media/ad_astra.jpg?format=webp';
+import adAstraJpeg from '../static/media/ad_astra.jpg?format=jpg';
 import adAstraMp4 from '../static/media/mp4/ad_astra.mp4';
 import adAstraWebM from '../static/media/webm/ad_astra.webm';
 
@@ -9,7 +10,8 @@ export const adAstraTimelineElement = {
   title: `Gaming on an ATtiny85`,
   date: `2020 Spring`,
   figure: new Video({
-    poster: adAstraPoster,
+    posterWebP: adAstraWebP,
+    posterJpeg: adAstraJpeg,
     mp4: adAstraMp4,
     webm: adAstraWebM,
   }),

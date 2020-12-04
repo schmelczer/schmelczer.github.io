@@ -1,13 +1,15 @@
 import { PageElement } from '../../page-element';
 import { createElement } from '../../../helper/create-element';
 import { generate } from './video.html';
+import { Image } from '../image/image';
 import { url } from '../../../types/url';
 import { ResponsiveImage } from '../../../types/responsive-image';
 
 export interface VideoParameters {
   mp4: url;
   webm: url;
-  poster: ResponsiveImage;
+  posterWebP: ResponsiveImage;
+  posterJpeg: ResponsiveImage;
   invertButton?: boolean;
 }
 
@@ -16,8 +18,16 @@ export class Video extends PageElement {
 
   public constructor(options: VideoParameters) {
     super(createElement(generate(options)));
+    this.attachElementByReplacing(
+      '.poster',
+      new Image(options.posterWebP, options.posterJpeg, `thumbnail for the video`, false)
+    );
+
     this.video = this.query('video') as HTMLVideoElement;
     this.video.addEventListener('click', this.startVideo.bind(this));
+    this.video.addEventListener('play', () =>
+      this.htmlRoot.classList.add('fully-loaded')
+    );
     this.query('.start-button').addEventListener('click', this.startVideo.bind(this));
     this.video.addEventListener('pause', this.stopVideo.bind(this));
   }
@@ -25,6 +35,7 @@ export class Video extends PageElement {
   private startVideo(e: Event) {
     if (this.video.paused) {
       this.query('.start-button').style.visibility = 'hidden';
+      this.htmlRoot.classList.add('loaded');
       this.video.play();
       this.video.controls = true;
       e.preventDefault();

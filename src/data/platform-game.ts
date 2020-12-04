@@ -1,4 +1,5 @@
-import platformJpeg from '../static/media/platform.png?format=jpg';
+import platformPosterWebP from '../static/media/platform.png?format=webp';
+import platformPosterJpeg from '../static/media/platform.png?format=jpg';
 import platformMp4 from '../static/media/mp4/platform.mp4';
 import platformWebM from '../static/media/webm/platform.webm';
 
@@ -8,7 +9,8 @@ export const platformGameTimelineElement = {
   date: `2017 autumn`,
   title: `Platform game`,
   figure: new Video({
-    poster: platformJpeg,
+    posterWebP: platformPosterWebP,
+    posterJpeg: platformPosterJpeg,
     mp4: platformMp4,
     webm: platformWebM,
   }),
