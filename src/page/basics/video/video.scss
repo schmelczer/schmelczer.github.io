@@ -17,15 +17,15 @@
     visibility: hidden;
   }
 
+  .start-button {
+    z-index: 1;
+  }
+
   &.loaded .loading {
     visibility: visible;
   }
 
   &.fully-loaded video {
     visibility: visible;
-  }
-
-  .start-button {
-    z-index: 1;
   }
 }
