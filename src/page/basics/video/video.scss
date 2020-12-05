@@ -1,14 +1,6 @@
 @use '../../../style/mixins' as *;
 
 .video-container {
-  & > *:not(.start-button) {
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-  }
-
   .loading {
     @include square(var(--large-icon-size));
     @include absolute-center;
@@ -31,5 +23,9 @@
 
   &.fully-loaded video {
     visibility: visible;
+  }
+
+  .start-button {
+    z-index: 1;
   }
 }
