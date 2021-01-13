@@ -2,7 +2,6 @@ import colourJpeg from '../static/media/color.jpg?format=jpg';
 import colourWebP from '../static/media/color.jpg?format=webp';
 
 import { Image } from '../page/basics/image/image';
-import { Open } from './shared';
 
 export const colorsTimelineElement = {
   date: `2018 June`,
@@ -25,5 +24,4 @@ export const colorsTimelineElement = {
       (and they can also be moved by drag & drop).
     `,
   ],
-  links: [new Open('color.schmelczer.dev')],
 };
