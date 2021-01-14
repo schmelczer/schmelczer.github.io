@@ -65,6 +65,7 @@ export const create = () => {
         title: `Learn more`,
         curriculaVitae: [{ name: `Curriculum vitae`, url: cvEnglish }],
         email: `andras@schmelczer.dev`,
+        linkedin: `https://www.linkedin.com/in/andras-schmelczer-35487017b`,
         lastEditText: `Last modified on `,
         // @ts-ignore: injected by webpack
         lastEdit: new Date(__CURRENT_DATE__),

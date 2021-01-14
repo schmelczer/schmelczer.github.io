@@ -5,7 +5,8 @@ import { url } from '../../types/url';
 
 export interface FooterParameters {
   title: string;
-  email: string;
+  email: url;
+  linkedin: url;
   curriculaVitae: Array<{
     name: string;
     url: url;
