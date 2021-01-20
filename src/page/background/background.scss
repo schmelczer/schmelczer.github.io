@@ -1,6 +1,12 @@
 @use '../../style/mixins' as *;
 @use '../../style/dark-mode/dark-mode' as *;
 
+#background {
+  // chrome scrolling does not work on PC without these two
+  z-index: 0;
+  position: absolute;
+}
+
 .blob {
   position: absolute;
   left: 0;

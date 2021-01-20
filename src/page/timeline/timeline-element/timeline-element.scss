@@ -23,6 +23,7 @@
 
   .line-container {
     position: relative;
+    z-index: 2;
     @include q-dependent-line-container(33%);
 
     .line {
