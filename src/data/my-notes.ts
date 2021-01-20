@@ -5,8 +5,8 @@ import { Image } from '../page/basics/image/image';
 import { GitHub } from './shared';
 
 export const myNotesTimelineElement = {
-  date: `2019 November`,
   title: `My Notes`,
+  date: `2019 November`,
   figure: new Image(myNotesWebP, myNotesJpeg, `two screenshots of the application`),
   description: `A minimalist note organiser and editor powered by Markwon.`,
   more: [

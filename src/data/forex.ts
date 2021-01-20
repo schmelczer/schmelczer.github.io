@@ -7,7 +7,7 @@ import { Video } from '../page/basics/video/video';
 
 export const forexTimelineElement = {
   title: `Predicting foreign exchange rates`,
-  date: `2019 Autumn`,
+  date: `2019 autumn`,
   figure: new Video({
     posterWebP: forexPosterWebP,
     posterJpeg: forexPosterJpeg,

@@ -6,7 +6,7 @@ import { Open, NPM, Youtube } from './shared';
 
 export const sdf2dTimelineElement = {
   title: `2D ray tracing`,
-  date: `2020 Autumn`,
+  date: `2020 autumn`,
   figure: new Preview(
     sdf2dWebP,
     sdf2dJpeg,

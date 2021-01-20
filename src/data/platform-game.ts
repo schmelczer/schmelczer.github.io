@@ -6,8 +6,8 @@ import platformWebM from '../static/media/webm/platform.webm';
 import { Video } from '../page/basics/video/video';
 
 export const platformGameTimelineElement = {
-  date: `2017 autumn`,
   title: `Platform game`,
+  date: `2017 autumn`,
   figure: new Video({
     posterWebP: platformPosterWebP,
     posterJpeg: platformPosterJpeg,

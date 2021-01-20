@@ -5,8 +5,8 @@ import { Image } from '../page/basics/image/image';
 import { Open } from './shared';
 
 export const photosTimelineElement = {
-  date: `2016 summer`,
   title: `Photos`,
+  date: `2016 summer`,
   figure: new Image(photosWebP, photosJpeg, `a picture of the website`),
   description: `A simple webpage where you can view my photos.`,
   more: [

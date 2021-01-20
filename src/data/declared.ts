@@ -7,7 +7,7 @@ import { GitHub, Thesis, Open } from './shared';
 
 export const declaredTimelineElement = {
   title: `Multiplayer game`,
-  date: `2020 Autumn`,
+  date: `2020 autumn`,
   figure: new Preview(
     declaredWebP,
     declaredJpeg,

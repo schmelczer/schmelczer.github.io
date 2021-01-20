@@ -4,8 +4,8 @@ import processSimulatorInputWebP from '../static/media/process-simulator-input.j
 import { Image } from '../page/basics/image/image';
 
 export const nuclearEditorTimelineElement = {
-  date: `2018 October - November`,
   title: `Graph editing application`,
+  date: `2018 October - November`,
   figure: new Image(
     processSimulatorInputWebP,
     processSimulatorInputJpeg,

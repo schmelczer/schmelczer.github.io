@@ -4,8 +4,8 @@ import colourWebP from '../static/media/color.jpg?format=webp';
 import { Image } from '../page/basics/image/image';
 
 export const colorsTimelineElement = {
-  date: `2018 June`,
   title: `Photo colour grader`,
+  date: `2018 June`,
   figure: new Image(colourWebP, colourJpeg, `a picture of the app`),
   description: `An innovative (at least I thought so) colour grader web application.`,
   more: [

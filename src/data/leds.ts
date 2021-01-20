@@ -6,8 +6,8 @@ import ledWebM from '../static/media/webm/led.webm';
 import { Video } from '../page/basics/video/video';
 
 export const ledsTimelineElement = {
-  date: `2016 spring`,
   title: `Lights synchronised to music`,
+  date: `2016 spring`,
   figure: new Video({
     posterWebP: ledPosterWebP,
     posterJpeg: ledPosterJpeg,

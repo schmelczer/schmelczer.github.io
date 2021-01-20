@@ -4,8 +4,8 @@ import processSimulatorWebP from '../static/media/process-simulator.jpg?format=w
 import { Image } from '../page/basics/image/image';
 
 export const nuclearTimelineElement = {
-  date: `2018 October - November`,
   title: `Simulating the cooling system of a nuclear facility`,
+  date: `2018 October - November`,
   figure: new Image(
     processSimulatorWebP,
     processSimulatorJpeg,

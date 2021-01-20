@@ -8,7 +8,7 @@ import { Video } from '../page/basics/video/video';
 
 export const adAstraTimelineElement = {
   title: `Gaming on an ATtiny85`,
-  date: `2020 Spring`,
+  date: `2020 spring`,
   figure: new Video({
     posterWebP: adAstraWebP,
     posterJpeg: adAstraJpeg,

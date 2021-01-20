@@ -6,8 +6,8 @@ import citySimulationWebM from '../static/media/webm/simulation.webm';
 import { Video } from '../page/basics/video/video';
 
 export const citySimulationTimelineElement = {
-  date: `2018 July - August`,
   title: `City simulation`,
+  date: `2018 July - August`,
   figure: new Video({
     posterWebP: citySimulationPosterWebP,
     posterJpeg: citySimulationPosterJpeg,
