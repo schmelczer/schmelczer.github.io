@@ -6,6 +6,9 @@ main {
   overflow-y: scroll;
   perspective: 5px;
 
+  // chrome scrolling does not work on PC without this
+  background: rgba(0, 0, 0, 0.005);
+
   @media (hover: hover) {
     &::-webkit-scrollbar-track,
     &::-webkit-scrollbar {
