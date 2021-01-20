@@ -22,6 +22,7 @@ import { citySimulationTimelineElement } from './data/city-simulation';
 import { platformGameTimelineElement } from './data/platform-game';
 import { photosTimelineElement } from './data/photos';
 import { ledsTimelineElement } from './data/leds';
+import { towersTimelineElement } from './data/towers';
 
 export const create = () => {
   new Body(
@@ -53,6 +54,7 @@ export const create = () => {
           adAstraTimelineElement,
           forexTimelineElement,
           myNotesTimelineElement,
+          towersTimelineElement,
           nuclearTimelineElement,
           nuclearEditorTimelineElement,
           citySimulationTimelineElement,
