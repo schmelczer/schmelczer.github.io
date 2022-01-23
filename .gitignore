@@ -1,4 +1,4 @@
 node_modules
 dist
 target
-package-lock.json
+.DS_Store
