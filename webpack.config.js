@@ -1,58 +1,42 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const TerserJSPlugin = require('terser-webpack-plugin');
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
 const Sharp = require('responsive-loader/sharp');
+const InlineSourceWebpackPlugin = require('inline-source-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
-const Sass = require('sass');
 
 module.exports = (env, argv) => ({
   watchOptions: {
     ignored: /node_modules/,
   },
-  devtool: argv.mode === 'development' ? 'inline-source-map' : '',
+  devtool: argv.mode === 'development' ? 'inline-source-map' : false,
+  entry: {
+    index: './src/index.ts',
+  },
   devServer: {
-    host: '0.0.0.0',
-    disableHostCheck: true,
+    hot: false,
   },
   optimization: {
     minimizer: [
       new TerserJSPlugin({
-        sourceMap: argv.mode === 'development',
+        terserOptions: { sourceMap: argv.mode === 'development' },
       }),
-      new OptimizeCSSAssetsPlugin({}),
     ],
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
-      xhtml: true,
       template: './src/index.html',
-      minify: {
-        collapseWhitespace: true,
-        removeComments: true,
-        removeRedundantAttributes: true,
-        removeScriptTypeAttributes: true,
-        removeStyleLinkTypeAttributes: true,
-        useShortDoctype: true,
-      },
-      inlineSource: argv.mode === 'development' ? '' : '.(js|css)$',
     }),
-    new HtmlWebpackInlineSourcePlugin(),
-    new MiniCssExtractPlugin({
-      filename: '[name].css',
-      chunkFilename: '[id].css',
+    new MiniCssExtractPlugin(),
+    new InlineSourceWebpackPlugin({
+      compress: true,
     }),
     new webpack.DefinePlugin({
       __CURRENT_DATE__: Date.now(),
     }),
   ],
-  entry: {
-    index: './src/index.ts',
-  },
+
   module: {
     rules: [
       {
@@ -73,7 +57,7 @@ module.exports = (env, argv) => ({
         use: [
           {
             loader: 'file-loader',
-            query: {
+            options: {
               outputPath: 'static/',
               name: '[contenthash].[ext]',
             },
@@ -84,7 +68,7 @@ module.exports = (env, argv) => ({
         test: /\.(pdf)$/i,
         use: {
           loader: 'file-loader',
-          query: {
+          options: {
             outputPath: 'static/',
             name: '[name].[ext]',
           },
@@ -98,7 +82,7 @@ module.exports = (env, argv) => ({
         test: /no-change.*$/i,
         use: {
           loader: 'file-loader',
-          query: {
+          options: {
             outputPath: '/',
             name: '[name].[ext]',
           },
@@ -109,18 +93,11 @@ module.exports = (env, argv) => ({
         use: [
           MiniCssExtractPlugin.loader,
           'css-loader',
-          'postcss-loader',
-          {
-            loader: 'resolve-url-loader',
-            options: {
-              keepQuery: true,
-            },
-          },
+          'resolve-url-loader',
           {
             loader: 'sass-loader',
             options: {
-              sourceMap: true,
-              implementation: Sass,
+              sourceMap: true, // required by resolve-url-loader
             },
           },
         ],
@@ -136,7 +113,14 @@ module.exports = (env, argv) => ({
             loader: 'string-replace-loader',
             options: {
               search: /`.*?`/gs,
-              replace: match => match.replace(/\s\s+/g, ' ').trim(),
+              replace: (match) => match.replace(/\s+/g, ' '),
+            },
+          },
+          {
+            loader: 'string-replace-loader',
+            options: {
+              search: /`.*?`/gs,
+              replace: (match) => match.replace(/>\s+</g, '><'),
             },
           },
         ],
@@ -148,7 +132,9 @@ module.exports = (env, argv) => ({
     extensions: ['.ts', '.js'],
   },
   output: {
-    filename: '[name].[contenthash].js',
+    clean: true,
+    filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '',
   },
 });
