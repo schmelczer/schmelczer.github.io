@@ -1,6 +1,10 @@
 @use '../../style/mixins' as *;
 @use '../../style/dark-mode/dark-mode' as *;
 
+#background {
+  transform-style: preserve-3d;
+}
+
 .blob {
   position: absolute;
   left: 0;
