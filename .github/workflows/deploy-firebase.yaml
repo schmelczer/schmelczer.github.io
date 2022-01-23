@@ -1,18 +1,21 @@
-name: Deploy site
+name: Deploy to Firebase
 on:
   push:
     branches:
       - main
+
 jobs:
   firebase-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout current branch with lfs
         uses: actions/checkout@master
+
       - name: Build site
         run: |
-          npm install
+          npm ci
           npm run build
+
       - name: Deploy html
         uses: w9jds/firebase-action@master
         with:
