@@ -18,7 +18,6 @@ import { myNotesTimelineElement } from './data/my-notes';
 import { nuclearTimelineElement } from './data/nuclear';
 import { nuclearEditorTimelineElement } from './data/nuclear-editor';
 import { citySimulationTimelineElement } from './data/city-simulation';
-
 import { platformGameTimelineElement } from './data/platform-game';
 import { photosTimelineElement } from './data/photos';
 import { ledsTimelineElement } from './data/leds';
@@ -35,8 +34,8 @@ export const create = () => {
           `
             I have always been fascinated by the engineering feats that surround us and pervade every aspect
             of our lives. When I realised I might someday be able to contribute to this field, I knew that
-            this would become my life’s ambition. 
-            As I am starting my first semester at Leiden University,
+            this would become my life's ambition. 
+            As I am starting my third semester at Leiden University,
             I feel I am getting closer to my ambition every day.
           `,
           `
