@@ -17,7 +17,7 @@ export class PageTimeline extends PageElement {
     elements: Array<TimelineElementParameters>;
   }) {
     super(createElement(generate()));
-    elements.forEach(e =>
+    elements.forEach((e) =>
       this.attachElement(new PageTimelineElement(e, showMoreText, showLessText))
     );
   }

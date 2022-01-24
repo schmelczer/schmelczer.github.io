@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "webpack serve --open --mode development",
-    "lint": "npx eslint --fix \"src/**/*.ts\" && npx prettier --write \"src/**/*\"",
+    "lint": "npx eslint --fix \"src/**/*.ts\" && npx prettier --write \"src/**/*.(ts|scss|json|html)\"",
     "build": "webpack --mode production"
   },
   "repository": {

@@ -77,7 +77,7 @@ export class PageBackground extends PageElement {
 
   private randomizeBlobs(topOffset: number, bottomOffset: number) {
     this.random.seed = 50;
-    this.blobs.forEach(b => {
+    this.blobs.forEach((b) => {
       const z = -Number.parseInt(b.style.zIndex);
       const [x, y] = this.randomXY(z, topOffset, bottomOffset);
       b.style.transform = `translate3D(${x}px, ${y}px, ${-z}px) rotate(-20deg)`;

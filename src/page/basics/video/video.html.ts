@@ -12,9 +12,9 @@ export const generate = ({
   posterJpeg,
   invertButton,
 }: VideoParameters): html => `
-  <div class="figure-container video-container" style="padding-top:${(posterJpeg.height /
-    posterJpeg.width) *
-    100}%">
+  <div class="figure-container video-container" style="padding-top:${
+    (posterJpeg.height / posterJpeg.width) * 100
+  }%">
     <img image-viewer-ignore class="poster"/>
     <div class="loading">${loading}</div>
     <video playsinline preload="none">

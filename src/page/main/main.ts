@@ -5,6 +5,6 @@ import { createElement } from '../../helper/create-element';
 export class Main extends PageElement {
   constructor(...children: Array<PageElement>) {
     super(createElement(generate()), children);
-    children.forEach(c => this.attachElement(c));
+    children.forEach((c) => this.attachElement(c));
   }
 }

@@ -35,7 +35,7 @@ export class PageTimelineElement extends PageElement {
     this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
     this.attachElementByReplacing('.figure', timelineElement.figure);
     this.query('.description').innerText = timelineElement.description;
-    timelineElement.links.forEach(l => this.attachElementAsChildOf('.buttons', l));
+    timelineElement.links.forEach((l) => this.attachElementAsChildOf('.buttons', l));
 
     this.isOpen = false;
   }

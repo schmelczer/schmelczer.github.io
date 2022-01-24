@@ -6,7 +6,7 @@ export abstract class PageElement {
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected setParent(parent?: PageElement): void {
-    this.children.forEach(c => c.setParent(this));
+    this.children.forEach((c) => c.setParent(this));
   }
 
   protected query(query: string): HTMLElement {

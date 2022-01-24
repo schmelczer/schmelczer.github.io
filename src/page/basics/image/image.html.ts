@@ -18,9 +18,9 @@ export const generate = ({
 }): html => `
   ${
     container
-      ? `<div class="figure-container" style="padding-top:${(imageJpeg.height /
-          imageJpeg.width) *
-          100}%">`
+      ? `<div class="figure-container" style="padding-top:${
+          (imageJpeg.height / imageJpeg.width) * 100
+        }%">`
       : ''
   }
   <picture loading="lazy">

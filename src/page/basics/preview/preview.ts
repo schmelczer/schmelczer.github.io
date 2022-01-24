@@ -18,7 +18,7 @@ export class Preview extends PageElement {
   }
 
   public setParent(parent: PageElement) {
-    new IntersectionObserver(e => {
+    new IntersectionObserver((e) => {
       if (!e[0].isIntersecting) {
         this.unloadContent();
       }
