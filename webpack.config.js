@@ -29,14 +29,15 @@ module.exports = (env, argv) => ({
       template: './src/index.html',
     }),
     new MiniCssExtractPlugin(),
-    new InlineSourceWebpackPlugin({
-      compress: true,
-    }),
+    argv.mode === 'production'
+      ? new InlineSourceWebpackPlugin({
+          compress: true,
+        })
+      : null,
     new webpack.DefinePlugin({
       __CURRENT_DATE__: Date.now(),
     }),
-  ],
-
+  ].filter(Boolean),
   module: {
     rules: [
       {
@@ -105,9 +106,7 @@ module.exports = (env, argv) => ({
       {
         test: /\.ts$/,
         use: [
-          {
-            loader: 'ts-loader',
-          },
+          'ts-loader',
           {
             // for removing whitespace from template strings
             loader: 'string-replace-loader',
