@@ -79,23 +79,30 @@ export class PageBackground extends PageElement {
     this.random.seed = 50;
     this.blobs.forEach((b) => {
       const z = -Number.parseInt(b.style.zIndex);
-      const [x, y] = this.randomXY(z, topOffset, bottomOffset);
+      const [x, y] = this.randomXY(z, topOffset, bottomOffset, parseInt(b.style.height));
       b.style.transform = `translate3D(${x}px, ${y}px, ${-z}px) rotate(-20deg)`;
     });
   }
 
-  private randomXY(z: number, topOffset: number, bottomOffset: number): [number, number] {
+  private randomXY(
+    z: number,
+    topOffset: number,
+    bottomOffset: number,
+    height: number
+  ): [number, number] {
     const farTop = -(
       ((this.windowHeight / 2 - topOffset) / PageBackground.perspective) *
         (PageBackground.zMax + PageBackground.perspective) -
       this.windowHeight / 2
     );
 
-    const farBottom =
+    const farBottom = Math.min(
       ((this.windowHeight / 2 - bottomOffset) / PageBackground.perspective) *
         (PageBackground.zMax + PageBackground.perspective) -
-      this.windowHeight / 2 +
-      this.contentHeight;
+        this.windowHeight / 2 +
+        this.contentHeight,
+      this.contentHeight - height
+    );
 
     const endXSpan =
       ((this.windowWidth / PageBackground.perspective) *
