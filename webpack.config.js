@@ -1,28 +1,17 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const TerserJSPlugin = require('terser-webpack-plugin');
 const Sharp = require('responsive-loader/sharp');
 const InlineSourceWebpackPlugin = require('inline-source-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
 
 module.exports = (env, argv) => ({
-  watchOptions: {
-    ignored: /node_modules/,
-  },
   devtool: argv.mode === 'development' ? 'inline-source-map' : false,
   entry: {
     index: './src/index.ts',
   },
   devServer: {
     hot: false,
-  },
-  optimization: {
-    minimizer: [
-      new TerserJSPlugin({
-        terserOptions: { sourceMap: argv.mode === 'development' },
-      }),
-    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -111,19 +100,18 @@ module.exports = (env, argv) => ({
             // for removing whitespace from template strings
             loader: 'string-replace-loader',
             options: {
-              search: /`.*?`/gs,
-              replace: (match) => match.replace(/\s+/g, ' '),
+              search: /`\s+`/gs,
+              replace: ' ',
             },
           },
           {
             loader: 'string-replace-loader',
             options: {
-              search: /`.*?`/gs,
-              replace: (match) => match.replace(/>\s+</g, '><'),
+              search: /`>\s+<`/gs,
+              replace: '><',
             },
           },
         ],
-        exclude: /node_modules/,
       },
     ],
   },
