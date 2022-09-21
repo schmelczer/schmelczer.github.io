@@ -1,7 +1,7 @@
 $breakpoint-width: 925px !default;
 
 @mixin on-small-screen() {
-  @media (max-width: $breakpoint-width - 1px) {
+  @media (max-width: ($breakpoint-width - 1px)) {
     @content;
   }
 }
@@ -56,7 +56,7 @@ $breakpoint-width: 925px !default;
 }
 
 @mixin title-font() {
-  font: 400 3rem 'Comfortaa', serif;
+  font: 400 3rem 'Comfortaa', sans-serif;
   font-style: normal;
   color: var(--normal-text-color);
   line-height: 1;
@@ -69,7 +69,7 @@ $breakpoint-width: 925px !default;
 }
 
 @mixin sub-title-font() {
-  font: 400 1.75rem 'Comfortaa', serif;
+  font: 400 1.75rem 'Comfortaa', sans-serif;
   color: var(--normal-text-color);
   font-style: normal;
   hyphens: auto;
