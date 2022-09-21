@@ -1,10 +1,10 @@
+import { createElement } from '../../../helper/create-element';
+import { Image } from '../../basics/image/image';
+import { Preview } from '../../basics/preview/preview';
+import { Video } from '../../basics/video/video';
 import { PageContent } from '../../content/content';
 import { PageElement } from '../../page-element';
 import { generate } from './timeline-element.html';
-import { createElement } from '../../../helper/create-element';
-import { Video } from '../../basics/video/video';
-import { Image } from '../../basics/image/image';
-import { Preview } from '../../basics/preview/preview';
 
 export interface TimelineElementParameters {
   date: string;

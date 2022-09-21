@@ -1,7 +1,7 @@
-import { PageElement } from '../page-element';
-import { generate } from './footer.html';
 import { createElement } from '../../helper/create-element';
 import { url } from '../../types/url';
+import { PageElement } from '../page-element';
+import { generate } from './footer.html';
 
 export interface FooterParameters {
   title: string;

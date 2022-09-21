@@ -1,8 +1,8 @@
 import info from '../../../../static/icons/info.svg';
-import './timeline-element.scss';
+import { titleToFragment } from '../../../helper/title-to-fragment';
 import { html } from '../../../types/html';
 import { TimelineElementParameters } from './timeline-element';
-import { titleToFragment } from '../../../helper/title-to-fragment';
+import './timeline-element.scss';
 
 export const generate = (
   { date, title, description, more }: TimelineElementParameters,

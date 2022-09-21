@@ -1,10 +1,10 @@
+import { createElement } from '../../helper/create-element';
+import { PageElement } from '../page-element';
 import {
   PageTimelineElement,
   TimelineElementParameters,
 } from './timeline-element/timeline-element';
 import { generate } from './timeline.html';
-import { createElement } from '../../helper/create-element';
-import { PageElement } from '../page-element';
 
 export class PageTimeline extends PageElement {
   public constructor({

@@ -1,8 +1,8 @@
-import { PageElement } from '../../page-element';
 import { createElement } from '../../../helper/create-element';
-import { generate } from './preview.html';
-import { Image } from '../image/image';
 import { ResponsiveImage } from '../../../types/responsive-image';
+import { PageElement } from '../../page-element';
+import { Image } from '../image/image';
+import { generate } from './preview.html';
 
 export class Preview extends PageElement {
   public constructor(

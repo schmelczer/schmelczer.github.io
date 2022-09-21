@@ -1,9 +1,8 @@
+import { Image } from '../../page/basics/image/image';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 import photosJpeg from '../media/photos.jpg?format=jpg';
 import photosWebP from '../media/photos.jpg?format=webp';
-
-import { Image } from '../../page/basics/image/image';
 import { Open } from '../shared';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
 export const photosTimelineElement: TimelineElementParameters = {
   title: `Photos`,

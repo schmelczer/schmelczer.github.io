@@ -1,10 +1,9 @@
-import platformPosterWebP from '../media/platform.png?format=webp';
-import platformPosterJpeg from '../media/platform.png?format=jpg';
-import platformMp4 from '../media/mp4/platform.mp4';
-import platformWebM from '../media/webm/platform.webm';
-
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import platformMp4 from '../media/mp4/platform.mp4';
+import platformPosterJpeg from '../media/platform.png?format=jpg';
+import platformPosterWebP from '../media/platform.png?format=webp';
+import platformWebM from '../media/webm/platform.webm';
 
 export const platformGameTimelineElement: TimelineElementParameters = {
   title: `Platform game`,

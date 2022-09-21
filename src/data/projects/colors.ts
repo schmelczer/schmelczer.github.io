@@ -1,8 +1,7 @@
-import colourJpeg from '../media/color.jpg?format=jpg';
-import colourWebP from '../media/color.jpg?format=webp';
-
 import { Image } from '../../page/basics/image/image';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import colourJpeg from '../media/color.jpg?format=jpg';
+import colourWebP from '../media/color.jpg?format=webp';
 
 export const colorsTimelineElement: TimelineElementParameters = {
   title: `Photo colour grader`,

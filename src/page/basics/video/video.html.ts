@@ -1,10 +1,8 @@
-import './video.scss';
-
 import loading from '../../../../static/icons/loading.svg';
-
-import { html } from '../../../types/html';
 import play from '../../../../static/icons/play-button.svg';
+import { html } from '../../../types/html';
 import { VideoParameters } from './video';
+import './video.scss';
 
 export const generate = ({
   webm,

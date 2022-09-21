@@ -1,12 +1,12 @@
-import { PageElement } from '../page-element';
 import { createElement } from '../../helper/create-element';
-import { generate } from './theme-switcher.html';
+import { turnOffAnimations, turnOnAnimations } from '../../style/animations/animations';
 import {
   isSystemLevelDarkModeEnabled,
   turnOnDarkMode,
   turnOnLightMode,
 } from '../../style/dark-mode/dark-mode';
-import { turnOffAnimations, turnOnAnimations } from '../../style/animations/animations';
+import { PageElement } from '../page-element';
+import { generate } from './theme-switcher.html';
 
 export class PageThemeSwitcher extends PageElement {
   private static readonly localStorageKey = 'dark-mode';

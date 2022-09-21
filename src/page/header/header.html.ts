@@ -1,6 +1,5 @@
-import './header.scss';
-
 import { html } from '../../types/html';
+import './header.scss';
 
 export const generate = (name: string): html => `
   <section id="about">

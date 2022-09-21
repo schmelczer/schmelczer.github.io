@@ -1,9 +1,8 @@
+import { Image } from '../../page/basics/image/image';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 import towersJpeg from '../media/towers.png?format=jpg';
 import towersWebP from '../media/towers.png?format=webp';
-
-import { Image } from '../../page/basics/image/image';
-import { Open, GitHub } from '../shared';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { GitHub, Open } from '../shared';
 
 export const towersTimelineElement: TimelineElementParameters = {
   title: `Towers tracking app`,

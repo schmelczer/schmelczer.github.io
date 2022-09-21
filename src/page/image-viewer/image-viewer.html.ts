@@ -1,7 +1,6 @@
 import cancel from '../../../static/icons/cancel.svg';
-
-import './image-viewer.scss';
 import { html } from '../../types/html';
+import './image-viewer.scss';
 
 export const generate = (): html => `
   <section id="image-viewer">

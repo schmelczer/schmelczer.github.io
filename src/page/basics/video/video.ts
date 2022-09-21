@@ -1,9 +1,9 @@
-import { PageElement } from '../../page-element';
 import { createElement } from '../../../helper/create-element';
-import { generate } from './video.html';
-import { Image } from '../image/image';
-import { url } from '../../../types/url';
 import { ResponsiveImage } from '../../../types/responsive-image';
+import { url } from '../../../types/url';
+import { PageElement } from '../../page-element';
+import { Image } from '../image/image';
+import { generate } from './video.html';
 
 export interface VideoParameters {
   mp4: url;

@@ -1,10 +1,9 @@
-import ledPosterWebP from '../media/led.jpg?format=webp';
-import ledPosterJpeg from '../media/led.jpg?format=jpg';
-import ledMp4 from '../media/mp4/led.mp4';
-import ledWebM from '../media/webm/led.webm';
-
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import ledPosterJpeg from '../media/led.jpg?format=jpg';
+import ledPosterWebP from '../media/led.jpg?format=webp';
+import ledMp4 from '../media/mp4/led.mp4';
+import ledWebM from '../media/webm/led.webm';
 
 export const ledsTimelineElement: TimelineElementParameters = {
   title: `Lights synchronised to music`,

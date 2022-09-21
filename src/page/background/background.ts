@@ -1,12 +1,10 @@
-import { PageElement } from '../page-element';
-import { generate } from './background.html';
-
 import { createElement } from '../../helper/create-element';
-import { sum } from '../../helper/sum';
 import { getHeight } from '../../helper/get-height';
-
 import { mix } from '../../helper/mix';
 import { Random } from '../../helper/random';
+import { sum } from '../../helper/sum';
+import { PageElement } from '../page-element';
+import { generate } from './background.html';
 
 export class PageBackground extends PageElement {
   private static readonly perspective = 5;

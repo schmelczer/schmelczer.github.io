@@ -1,11 +1,10 @@
-import adAstraWebP from '../media/ad_astra.jpg?format=webp';
-import adAstraJpeg from '../media/ad_astra.jpg?format=jpg';
-import adAstraMp4 from '../media/mp4/ad_astra.mp4';
-import adAstraWebM from '../media/webm/ad_astra.webm';
-
-import { GitHub } from '../shared';
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import adAstraJpeg from '../media/ad_astra.jpg?format=jpg';
+import adAstraWebP from '../media/ad_astra.jpg?format=webp';
+import adAstraMp4 from '../media/mp4/ad_astra.mp4';
+import adAstraWebM from '../media/webm/ad_astra.webm';
+import { GitHub } from '../shared';
 
 export const adAstraTimelineElement: TimelineElementParameters = {
   title: `Gaming on an ATtiny85`,

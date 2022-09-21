@@ -1,9 +1,8 @@
+import { Image } from '../../page/basics/image/image';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 import myNotesJpeg from '../media/my-notes.png?format=jpg';
 import myNotesWebP from '../media/my-notes.png?format=webp';
-
-import { Image } from '../../page/basics/image/image';
 import { GitHub } from '../shared';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
 export const myNotesTimelineElement: TimelineElementParameters = {
   title: `My Notes`,

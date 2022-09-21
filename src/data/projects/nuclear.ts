@@ -1,8 +1,7 @@
-import processSimulatorJpeg from '../media/process-simulator.jpg?format=jpg';
-import processSimulatorWebP from '../media/process-simulator.jpg?format=webp';
-
 import { Image } from '../../page/basics/image/image';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import processSimulatorJpeg from '../media/process-simulator.jpg?format=jpg';
+import processSimulatorWebP from '../media/process-simulator.jpg?format=webp';
 
 export const nuclearTimelineElement: TimelineElementParameters = {
   title: `Simulating the cooling system of a nuclear facility`,

@@ -1,9 +1,9 @@
-import './footer.scss';
 import cvIcon from '../../../static/icons/cv.svg';
 import emailIcon from '../../../static/icons/email.svg';
 import linkedinIcon from '../../../static/icons/linkedin.svg';
 import { html } from '../../types/html';
 import { FooterParameters } from './footer';
+import './footer.scss';
 
 export const generate = ({
   title,

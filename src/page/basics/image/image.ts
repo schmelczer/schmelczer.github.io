@@ -1,8 +1,8 @@
-import { PageElement } from '../../page-element';
 import { createElement } from '../../../helper/create-element';
-import { generate } from './image.html';
 import { last } from '../../../helper/last';
 import { ResponsiveImage } from '../../../types/responsive-image';
+import { PageElement } from '../../page-element';
+import { generate } from './image.html';
 
 export class Image extends PageElement {
   private static readonly imageScreenRatio = 0.8;

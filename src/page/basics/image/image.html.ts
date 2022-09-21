@@ -1,7 +1,7 @@
-import './image.scss';
 import { last } from '../../../helper/last';
-import { ResponsiveImage } from '../../../types/responsive-image';
 import { html } from '../../../types/html';
+import { ResponsiveImage } from '../../../types/responsive-image';
+import './image.scss';
 
 export const generate = ({
   sizes,
