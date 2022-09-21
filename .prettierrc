@@ -1,7 +1,10 @@
 {
   "trailingComma": "es5",
-  "tabWidth": 2,
   "printWidth": 90,
+  "tabWidth": 2,
   "singleQuote": true,
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "importOrder": ["^[./]", ".*", ".scss$"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

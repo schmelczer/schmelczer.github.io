@@ -1,12 +1,15 @@
 {
   "cSpell.words": [
-    "EEPROM",
-    "Glsl",
     "andras",
+    "astra",
+    "colour",
+    "colours",
     "decla",
+    "EEPROM",
     "favicons",
     "forex",
     "froms",
+    "Glsl",
     "leds",
     "linkedin",
     "mesmerising",
@@ -24,5 +27,8 @@
     "webm",
     "webp",
     "youtube"
-  ]
+  ],
+  "files.exclude": {
+    "node_modules": true
+  }
 }
