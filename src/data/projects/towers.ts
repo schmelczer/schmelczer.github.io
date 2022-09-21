@@ -1,6 +1,5 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import towersJpeg from '../media/towers.png?format=jpg';
 import towersWebP from '../media/towers.png?format=webp';
 import { GitHub, Open } from '../shared';
 
@@ -9,7 +8,6 @@ export const towersTimelineElement: TimelineElementParameters = {
   date: `2019 August - September`,
   figure: Image({
     imageWebP: towersWebP,
-    imageJpeg: towersJpeg,
     alt: `a picture of the website`,
     container: true,
   }),

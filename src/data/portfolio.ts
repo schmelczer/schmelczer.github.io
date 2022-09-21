@@ -7,7 +7,6 @@ import { Main } from '../page/main/main';
 import { PageElement } from '../page/page-element';
 import { PageTimeline } from '../page/timeline/timeline';
 import cvEnglish from './media/cv-andras-schmelczer.pdf';
-import meJpeg from './media/me.jpg?format=jpg';
 import meWebP from './media/me.jpg?format=webp';
 import { adAstraTimelineElement } from './projects/ad-astra';
 import { citySimulationTimelineElement } from './projects/city-simulation';
@@ -30,7 +29,6 @@ export const create = (): Array<PageElement> => [
       name: `András Schmelczer`,
       photo: Image({
         imageWebP: meWebP,
-        imageJpeg: meJpeg,
         alt: `a picture of me`,
       }),
       about: [

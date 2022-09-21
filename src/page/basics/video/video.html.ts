@@ -9,15 +9,13 @@ export const generate = ({
   webm,
   mp4,
   posterWebP,
-  posterJpeg,
   invertButton,
 }: VideoParameters): html => `
   <div class="figure-container video-container" style="padding-top:${
-    (posterJpeg.height / posterJpeg.width) * 100
+    (posterWebP.height / posterWebP.width) * 100
   }%">
     ${Image({
       imageWebP: posterWebP,
-      imageJpeg: posterJpeg,
       alt: `thumbnail for the video`,
       isIgnoredByImageViewer: true,
     })}

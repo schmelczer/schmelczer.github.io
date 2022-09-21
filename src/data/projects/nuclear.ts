@@ -1,6 +1,5 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import processSimulatorJpeg from '../media/process-simulator.jpg?format=jpg';
 import processSimulatorWebP from '../media/process-simulator.jpg?format=webp';
 
 export const nuclearTimelineElement: TimelineElementParameters = {
@@ -8,7 +7,6 @@ export const nuclearTimelineElement: TimelineElementParameters = {
   date: `2018 October - November`,
   figure: Image({
     imageWebP: processSimulatorWebP,
-    imageJpeg: processSimulatorJpeg,
     alt: `a screenshot of the simulator`,
     container: true,
   }),

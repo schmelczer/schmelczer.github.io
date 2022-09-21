@@ -1,6 +1,5 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import photosJpeg from '../media/photos.jpg?format=jpg';
 import photosWebP from '../media/photos.jpg?format=webp';
 import { Open } from '../shared';
 
@@ -9,7 +8,6 @@ export const photosTimelineElement: TimelineElementParameters = {
   date: `2016 summer`,
   figure: Image({
     imageWebP: photosWebP,
-    imageJpeg: photosJpeg,
     alt: `a picture of the website`,
     container: true,
   }),

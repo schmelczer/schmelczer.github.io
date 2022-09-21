@@ -8,16 +8,13 @@ import './preview.scss';
 export const generate = ({
   alt,
   posterWebP,
-  posterJpeg,
 }: {
   alt: string;
   posterWebP: ResponsiveImage;
-  posterJpeg: ResponsiveImage;
 }): html => `
   <div class="preview">
     ${Image({
       imageWebP: posterWebP,
-      imageJpeg: posterJpeg,
       alt,
       container: true,
       isIgnoredByImageViewer: true,

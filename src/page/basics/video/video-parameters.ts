@@ -5,6 +5,5 @@ export interface VideoParameters {
   mp4: url;
   webm: url;
   posterWebP: ResponsiveImage;
-  posterJpeg: ResponsiveImage;
   invertButton?: boolean;
 }

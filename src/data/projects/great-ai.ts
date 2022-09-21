@@ -1,7 +1,6 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import mscThesis from '../media/great-ai-andras-schmelczer.pdf';
-import greatAiJpeg from '../media/great-ai.png?format=jpg';
 import greatAiWebP from '../media/great-ai.png?format=webp';
 import { Open, PyPi, Thesis } from '../shared';
 
@@ -10,7 +9,6 @@ export const greatAiTimelineElement: TimelineElementParameters = {
   date: `2022`,
   figure: Image({
     imageWebP: greatAiWebP,
-    imageJpeg: greatAiJpeg,
     alt: `some example code using GreatAI`,
     container: true,
   }),

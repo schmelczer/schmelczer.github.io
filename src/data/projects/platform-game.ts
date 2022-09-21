@@ -1,7 +1,6 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import platformMp4 from '../media/mp4/platform.mp4';
-import platformPosterJpeg from '../media/platform.png?format=jpg';
 import platformPosterWebP from '../media/platform.png?format=webp';
 import platformWebM from '../media/webm/platform.webm';
 
@@ -10,7 +9,6 @@ export const platformGameTimelineElement: TimelineElementParameters = {
   date: `2017 autumn`,
   figure: new Video({
     posterWebP: platformPosterWebP,
-    posterJpeg: platformPosterJpeg,
     mp4: platformMp4,
     webm: platformWebM,
   }),

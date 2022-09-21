@@ -1,6 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const Sharp = require('responsive-loader/sharp');
+const TerserPlugin = require('terser-webpack-plugin');
 const InlineSourceWebpackPlugin = require('inline-source-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const webpack = require('webpack');
@@ -10,8 +10,15 @@ module.exports = (env, argv) => ({
   entry: {
     index: './src/index.ts',
   },
-  devServer: {
-    hot: false,
+  optimization: {
+    minimize: true,
+    minimizer: [
+      new TerserPlugin({
+        terserOptions: {
+          module: true,
+        },
+      }),
+    ],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -31,37 +38,24 @@ module.exports = (env, argv) => ({
     rules: [
       {
         test: /\.(jpe?g|png)$/i,
+        exclude: /no-change/i,
         loader: 'responsive-loader',
         options: {
-          adapter: Sharp,
-          name: '[contenthash].[ext]',
-          outputPath: 'static/',
-          sizes: [200, 400, 800, 1200, 1600, 2000],
-          quality: 0.9,
+          adapter: require('responsive-loader/sharp'),
+          sizes: [200, 400, 800, 1200, 1920],
+          placeholder: true,
+          placeholderSize: 64,
+          quality: 90,
           format: 'webp',
           progressive: true,
+          name: '[hash:8].[ext]',
         },
       },
       {
         test: /\.(webm|mp4)$/i,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {
-              outputPath: 'static/',
-              name: '[contenthash].[ext]',
-            },
-          },
-        ],
-      },
-      {
-        test: /\.pdf$/i,
-        use: {
-          loader: 'file-loader',
-          options: {
-            outputPath: 'static/',
-            name: '[name].[ext]',
-          },
+        type: 'asset/resource',
+        generator: {
+          filename: '[hash:8][ext]',
         },
       },
       {
@@ -69,13 +63,10 @@ module.exports = (env, argv) => ({
         use: 'svg-inline-loader',
       },
       {
-        test: /no-change/i,
-        use: {
-          loader: 'file-loader',
-          options: {
-            outputPath: '/',
-            name: '[name].[ext]',
-          },
+        test: /(\/no-change\/|.pdf$)/i,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name][ext]',
         },
       },
       {
@@ -109,7 +100,10 @@ module.exports = (env, argv) => ({
     ],
   },
   resolve: {
-    extensions: ['.ts'],
+    extensions: [
+      '.ts',
+      '.js', // required for development
+    ],
   },
   output: {
     clean: true,

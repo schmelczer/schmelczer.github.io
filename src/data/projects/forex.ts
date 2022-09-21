@@ -1,6 +1,5 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import forexPosterJpeg from '../media/forex.jpg?format=jpg';
 import forexPosterWebP from '../media/forex.jpg?format=webp';
 import forexMp4 from '../media/mp4/forex.mp4';
 import forexWebM from '../media/webm/forex.webm';
@@ -10,7 +9,6 @@ export const forexTimelineElement: TimelineElementParameters = {
   date: `2019 autumn`,
   figure: new Video({
     posterWebP: forexPosterWebP,
-    posterJpeg: forexPosterJpeg,
     mp4: forexMp4,
     webm: forexWebM,
     invertButton: true,

@@ -3,19 +3,7 @@ declare module '*.svg' {
   export default content;
 }
 
-declare module '*.jpg' {
-  import { ResponsiveImage } from 'src/types/responsive-image';
-  const content: ResponsiveImage;
-  export default content;
-}
-
 declare module '*.jpg?format=webp' {
-  import { ResponsiveImage } from 'src/types/responsive-image';
-  const content: ResponsiveImage;
-  export default content;
-}
-
-declare module '*.jpg?format=jpg' {
   import { ResponsiveImage } from 'src/types/responsive-image';
   const content: ResponsiveImage;
   export default content;
@@ -28,18 +16,6 @@ declare module '*.png' {
 }
 
 declare module '*.png?format=webp' {
-  import { ResponsiveImage } from 'src/types/responsive-image';
-  const content: ResponsiveImage;
-  export default content;
-}
-
-declare module '*.png?format=jpg' {
-  import { ResponsiveImage } from 'src/types/responsive-image';
-  const content: ResponsiveImage;
-  export default content;
-}
-
-declare module '*.jpeg' {
   import { ResponsiveImage } from 'src/types/responsive-image';
   const content: ResponsiveImage;
   export default content;

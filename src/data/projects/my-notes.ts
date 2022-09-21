@@ -1,6 +1,5 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import myNotesJpeg from '../media/my-notes.png?format=jpg';
 import myNotesWebP from '../media/my-notes.png?format=webp';
 import { GitHub } from '../shared';
 
@@ -9,7 +8,6 @@ export const myNotesTimelineElement: TimelineElementParameters = {
   date: `2019 November`,
   figure: Image({
     imageWebP: myNotesWebP,
-    imageJpeg: myNotesJpeg,
     alt: `two screenshots of the application`,
     container: true,
   }),

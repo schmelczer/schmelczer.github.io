@@ -1,6 +1,5 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import ledPosterJpeg from '../media/led.jpg?format=jpg';
 import ledPosterWebP from '../media/led.jpg?format=webp';
 import ledMp4 from '../media/mp4/led.mp4';
 import ledWebM from '../media/webm/led.webm';
@@ -10,7 +9,6 @@ export const ledsTimelineElement: TimelineElementParameters = {
   date: `2016 spring`,
   figure: new Video({
     posterWebP: ledPosterWebP,
-    posterJpeg: ledPosterJpeg,
     mp4: ledMp4,
     webm: ledWebM,
   }),

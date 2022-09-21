@@ -1,6 +1,5 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import colourJpeg from '../media/color.jpg?format=jpg';
 import colourWebP from '../media/color.jpg?format=webp';
 
 export const colorsTimelineElement: TimelineElementParameters = {
@@ -8,7 +7,6 @@ export const colorsTimelineElement: TimelineElementParameters = {
   date: `2018 June`,
   figure: Image({
     imageWebP: colourWebP,
-    imageJpeg: colourJpeg,
     alt: `a picture of the app`,
     container: true,
   }),

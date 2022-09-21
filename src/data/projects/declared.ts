@@ -1,6 +1,5 @@
 import { Preview } from '../../page/basics/preview/preview';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import declaredJpeg from '../media/decla-red.png?format=jpg';
 import declaredWebP from '../media/decla-red.png?format=webp';
 import bscThesis from '../media/sdf2d-andras-schmelczer.pdf';
 import { GitHub, Open, Thesis } from '../shared';
@@ -8,12 +7,7 @@ import { GitHub, Open, Thesis } from '../shared';
 export const declaredTimelineElement: TimelineElementParameters = {
   title: `Multiplayer game`,
   date: `2020 autumn`,
-  figure: new Preview(
-    declaredWebP,
-    declaredJpeg,
-    'https://decla.red',
-    'The website of the video game'
-  ),
+  figure: new Preview(declaredWebP, 'https://decla.red', 'The website of the video game'),
   description: `
     Using SDF-2D (my ray tracing graphics library), I created a conquest-style multiplayer browser game. 
     It even runs on mobiles.

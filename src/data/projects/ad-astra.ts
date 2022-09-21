@@ -1,6 +1,5 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import adAstraJpeg from '../media/ad_astra.jpg?format=jpg';
 import adAstraWebP from '../media/ad_astra.jpg?format=webp';
 import adAstraMp4 from '../media/mp4/ad_astra.mp4';
 import adAstraWebM from '../media/webm/ad_astra.webm';
@@ -11,7 +10,6 @@ export const adAstraTimelineElement: TimelineElementParameters = {
   date: `2020 spring`,
   figure: new Video({
     posterWebP: adAstraWebP,
-    posterJpeg: adAstraJpeg,
     mp4: adAstraMp4,
     webm: adAstraWebM,
   }),

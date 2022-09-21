@@ -1,6 +1,5 @@
 import { Preview } from '../../page/basics/preview/preview';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import sdf2dJpeg from '../media/sdf2d.png?format=jpg';
 import sdf2dWebP from '../media/sdf2d.png?format=webp';
 import { NPM, Open, Youtube } from '../shared';
 
@@ -9,7 +8,6 @@ export const sdf2dTimelineElement: TimelineElementParameters = {
   date: `2020 autumn`,
   figure: new Preview(
     sdf2dWebP,
-    sdf2dJpeg,
     'https://sdf2d.schmelczer.dev',
     'A webpage showcasing the SDF-2D project.'
   ),
