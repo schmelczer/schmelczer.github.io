@@ -6,15 +6,18 @@ export const generate = ({
   href,
   svg,
   title,
+  shouldDownload,
 }: {
   href: url;
   svg: url;
   title: string;
+  shouldDownload: boolean;
 }): html => `
   <a class="image-anchor" 
     href="${href}"
     rel="noopener"
     target="_blank"
+    ${shouldDownload ? 'download' : ''}
   >
     <div class="svgContainer">
       ${svg}
