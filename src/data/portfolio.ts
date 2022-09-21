@@ -1,29 +1,30 @@
-import meJpeg from './static/media/me.jpg?format=jpg';
-import meWebP from './static/media/me.jpg?format=webp';
-import cvEnglish from './static/media/cv-andras-schmelczer.pdf';
+import meJpeg from './media/me.jpg?format=jpg';
+import meWebP from './media/me.jpg?format=webp';
+import cvEnglish from './media/cv-andras-schmelczer.pdf';
 
-import { PageFooter } from './page/footer/footer';
-import { Image } from './page/basics/image/image';
-import { PageHeader } from './page/header/header';
-import { PageTimeline } from './page/timeline/timeline';
-import { PageImageViewer } from './page/image-viewer/image-viewer';
-import { PageBackground } from './page/background/background';
-import { Main } from './page/main/main';
-import { Body } from './page/body/body';
-import { declaredTimelineElement } from './data/declared';
-import { sdf2dTimelineElement } from './data/sdf2d';
-import { adAstraTimelineElement } from './data/ad-astra';
-import { forexTimelineElement } from './data/forex';
-import { myNotesTimelineElement } from './data/my-notes';
-import { nuclearTimelineElement } from './data/nuclear';
-import { nuclearEditorTimelineElement } from './data/nuclear-editor';
-import { citySimulationTimelineElement } from './data/city-simulation';
-import { platformGameTimelineElement } from './data/platform-game';
-import { photosTimelineElement } from './data/photos';
-import { ledsTimelineElement } from './data/leds';
-import { towersTimelineElement } from './data/towers';
+import { PageFooter } from '../page/footer/footer';
+import { Image } from '../page/basics/image/image';
+import { PageHeader } from '../page/header/header';
+import { PageTimeline } from '../page/timeline/timeline';
+import { PageImageViewer } from '../page/image-viewer/image-viewer';
+import { PageBackground } from '../page/background/background';
+import { Main } from '../page/main/main';
+import { Body } from '../page/body/body';
+import { declaredTimelineElement } from './projects/declared';
+import { sdf2dTimelineElement } from './projects/sdf2d';
+import { adAstraTimelineElement } from './projects/ad-astra';
+import { forexTimelineElement } from './projects/forex';
+import { myNotesTimelineElement } from './projects/my-notes';
+import { nuclearTimelineElement } from './projects/nuclear';
+import { nuclearEditorTimelineElement } from './projects/nuclear-editor';
+import { citySimulationTimelineElement } from './projects/city-simulation';
+import { platformGameTimelineElement } from './projects/platform-game';
+import { photosTimelineElement } from './projects/photos';
+import { ledsTimelineElement } from './projects/leds';
+import { towersTimelineElement } from './projects/towers';
+import { greatAiTimelineElement } from './projects/great-ai';
 
-export const create = () => {
+export const create = () =>
   new Body(
     new Main(
       new PageBackground(1, 1),
@@ -48,6 +49,7 @@ export const create = () => {
         showMoreText: `Show details`,
         showLessText: `Show less`,
         elements: [
+          greatAiTimelineElement,
           declaredTimelineElement,
           sdf2dTimelineElement,
           adAstraTimelineElement,
@@ -74,4 +76,3 @@ export const create = () => {
     ),
     new PageImageViewer()
   );
-};

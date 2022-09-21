@@ -1,9 +1,10 @@
-import processSimulatorInputJpeg from '../static/media/process-simulator-input.jpg?format=jpg';
-import processSimulatorInputWebP from '../static/media/process-simulator-input.jpg?format=webp';
+import processSimulatorInputJpeg from '../media/process-simulator-input.jpg?format=jpg';
+import processSimulatorInputWebP from '../media/process-simulator-input.jpg?format=webp';
 
-import { Image } from '../page/basics/image/image';
+import { Image } from '../../page/basics/image/image';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const nuclearEditorTimelineElement = {
+export const nuclearEditorTimelineElement: TimelineElementParameters = {
   title: `Graph editing application`,
   date: `2018 October - November`,
   figure: new Image(

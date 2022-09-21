@@ -1,11 +1,12 @@
-import forexPosterWebP from '../static/media/forex.jpg?format=webp';
-import forexPosterJpeg from '../static/media/forex.jpg?format=jpg';
-import forexMp4 from '../static/media/mp4/forex.mp4';
-import forexWebM from '../static/media/webm/forex.webm';
+import forexPosterWebP from '../media/forex.jpg?format=webp';
+import forexPosterJpeg from '../media/forex.jpg?format=jpg';
+import forexMp4 from '../media/mp4/forex.mp4';
+import forexWebM from '../media/webm/forex.webm';
 
-import { Video } from '../page/basics/video/video';
+import { Video } from '../../page/basics/video/video';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const forexTimelineElement = {
+export const forexTimelineElement: TimelineElementParameters = {
   title: `Predicting foreign exchange rates`,
   date: `2019 autumn`,
   figure: new Video({

@@ -1,4 +1,4 @@
-import cancel from '../../static/icons/cancel.svg';
+import cancel from '../../../static/icons/cancel.svg';
 
 import './image-viewer.scss';
 import { html } from '../../types/html';

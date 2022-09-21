@@ -1,10 +1,11 @@
-import sdf2dJpeg from '../static/media/sdf2d.png?format=jpg';
-import sdf2dWebP from '../static/media/sdf2d.png?format=webp';
+import sdf2dJpeg from '../media/sdf2d.png?format=jpg';
+import sdf2dWebP from '../media/sdf2d.png?format=webp';
 
-import { Preview } from '../page/basics/preview/preview';
-import { Open, NPM, Youtube } from './shared';
+import { Preview } from '../../page/basics/preview/preview';
+import { Open, NPM, Youtube } from '../shared';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const sdf2dTimelineElement = {
+export const sdf2dTimelineElement: TimelineElementParameters = {
   title: `2D ray tracing`,
   date: `2020 autumn`,
   figure: new Preview(

@@ -1,9 +1,9 @@
 import './video.scss';
 
-import loading from '../../../static/icons/loading.svg';
+import loading from '../../../../static/icons/loading.svg';
 
 import { html } from '../../../types/html';
-import play from '../../../static/icons/play-button.svg';
+import play from '../../../../static/icons/play-button.svg';
 import { VideoParameters } from './video';
 
 export const generate = ({

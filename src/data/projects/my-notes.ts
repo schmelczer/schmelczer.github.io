@@ -1,10 +1,11 @@
-import myNotesJpeg from '../static/media/my-notes.png?format=jpg';
-import myNotesWebP from '../static/media/my-notes.png?format=webp';
+import myNotesJpeg from '../media/my-notes.png?format=jpg';
+import myNotesWebP from '../media/my-notes.png?format=webp';
 
-import { Image } from '../page/basics/image/image';
-import { GitHub } from './shared';
+import { Image } from '../../page/basics/image/image';
+import { GitHub } from '../shared';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const myNotesTimelineElement = {
+export const myNotesTimelineElement: TimelineElementParameters = {
   title: `My Notes`,
   date: `2019 November`,
   figure: new Image(myNotesWebP, myNotesJpeg, `two screenshots of the application`),

@@ -1,10 +1,11 @@
-import towersJpeg from '../static/media/towers.png?format=jpg';
-import towersWebP from '../static/media/towers.png?format=webp';
+import towersJpeg from '../media/towers.png?format=jpg';
+import towersWebP from '../media/towers.png?format=webp';
 
-import { Image } from '../page/basics/image/image';
-import { Open, GitHub } from './shared';
+import { Image } from '../../page/basics/image/image';
+import { Open, GitHub } from '../shared';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const towersTimelineElement = {
+export const towersTimelineElement: TimelineElementParameters = {
   title: `Towers tracking app`,
   date: `2019 August - September`,
   figure: new Image(towersWebP, towersJpeg, `a picture of the website`),

@@ -1,6 +1,6 @@
 import './preview.scss';
-import play from '../../../static/icons/play-button.svg';
-import loading from '../../../static/icons/loading.svg';
+import play from '../../../../static/icons/play-button.svg';
+import loading from '../../../../static/icons/loading.svg';
 import { html } from '../../../types/html';
 
 export const generate = ({ alt }: { alt: string }): html => `

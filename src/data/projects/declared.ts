@@ -1,11 +1,12 @@
-import declaredJpeg from '../static/media/decla-red.png?format=jpg';
-import declaredWebP from '../static/media/decla-red.png?format=webp';
-import thesis from '../static/media/thesis-andras-schmelczer.pdf';
+import declaredJpeg from '../media/decla-red.png?format=jpg';
+import declaredWebP from '../media/decla-red.png?format=webp';
+import thesis from '../media/thesis-andras-schmelczer.pdf';
 
-import { Preview } from '../page/basics/preview/preview';
-import { GitHub, Thesis, Open } from './shared';
+import { Preview } from '../../page/basics/preview/preview';
+import { GitHub, Thesis, Open } from '../shared';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const declaredTimelineElement = {
+export const declaredTimelineElement: TimelineElementParameters = {
   title: `Multiplayer game`,
   date: `2020 autumn`,
   figure: new Preview(

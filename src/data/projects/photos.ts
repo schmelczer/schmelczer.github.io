@@ -1,10 +1,11 @@
-import photosJpeg from '../static/media/photos.jpg?format=jpg';
-import photosWebP from '../static/media/photos.jpg?format=webp';
+import photosJpeg from '../media/photos.jpg?format=jpg';
+import photosWebP from '../media/photos.jpg?format=webp';
 
-import { Image } from '../page/basics/image/image';
-import { Open } from './shared';
+import { Image } from '../../page/basics/image/image';
+import { Open } from '../shared';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const photosTimelineElement = {
+export const photosTimelineElement: TimelineElementParameters = {
   title: `Photos`,
   date: `2016 summer`,
   figure: new Image(photosWebP, photosJpeg, `a picture of the website`),

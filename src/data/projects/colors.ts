@@ -1,9 +1,10 @@
-import colourJpeg from '../static/media/color.jpg?format=jpg';
-import colourWebP from '../static/media/color.jpg?format=webp';
+import colourJpeg from '../media/color.jpg?format=jpg';
+import colourWebP from '../media/color.jpg?format=webp';
 
-import { Image } from '../page/basics/image/image';
+import { Image } from '../../page/basics/image/image';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const colorsTimelineElement = {
+export const colorsTimelineElement: TimelineElementParameters = {
   title: `Photo colour grader`,
   date: `2018 June`,
   figure: new Image(colourWebP, colourJpeg, `a picture of the app`),
@@ -24,4 +25,5 @@ export const colorsTimelineElement = {
       (and they can also be moved by drag & drop).
     `,
   ],
+  links: [],
 };

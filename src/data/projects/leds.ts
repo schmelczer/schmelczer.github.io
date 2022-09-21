@@ -1,11 +1,12 @@
-import ledPosterWebP from '../static/media/led.jpg?format=webp';
-import ledPosterJpeg from '../static/media/led.jpg?format=jpg';
-import ledMp4 from '../static/media/mp4/led.mp4';
-import ledWebM from '../static/media/webm/led.webm';
+import ledPosterWebP from '../media/led.jpg?format=webp';
+import ledPosterJpeg from '../media/led.jpg?format=jpg';
+import ledMp4 from '../media/mp4/led.mp4';
+import ledWebM from '../media/webm/led.webm';
 
-import { Video } from '../page/basics/video/video';
+import { Video } from '../../page/basics/video/video';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const ledsTimelineElement = {
+export const ledsTimelineElement: TimelineElementParameters = {
   title: `Lights synchronised to music`,
   date: `2016 spring`,
   figure: new Video({

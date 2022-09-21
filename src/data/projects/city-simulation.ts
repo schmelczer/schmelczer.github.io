@@ -1,11 +1,12 @@
-import citySimulationPosterWebP from '../static/media/simulation.jpg?format=webp';
-import citySimulationPosterJpeg from '../static/media/simulation.jpg?format=jpg';
-import citySimulationMp4 from '../static/media/mp4/simulation.mp4';
-import citySimulationWebM from '../static/media/webm/simulation.webm';
+import citySimulationPosterWebP from '../media/simulation.jpg?format=webp';
+import citySimulationPosterJpeg from '../media/simulation.jpg?format=jpg';
+import citySimulationMp4 from '../media/mp4/simulation.mp4';
+import citySimulationWebM from '../media/webm/simulation.webm';
 
-import { Video } from '../page/basics/video/video';
+import { Video } from '../../page/basics/video/video';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const citySimulationTimelineElement = {
+export const citySimulationTimelineElement: TimelineElementParameters = {
   title: `City simulation`,
   date: `2018 July - August`,
   figure: new Video({

@@ -1,11 +1,12 @@
-import platformPosterWebP from '../static/media/platform.png?format=webp';
-import platformPosterJpeg from '../static/media/platform.png?format=jpg';
-import platformMp4 from '../static/media/mp4/platform.mp4';
-import platformWebM from '../static/media/webm/platform.webm';
+import platformPosterWebP from '../media/platform.png?format=webp';
+import platformPosterJpeg from '../media/platform.png?format=jpg';
+import platformMp4 from '../media/mp4/platform.mp4';
+import platformWebM from '../media/webm/platform.webm';
 
-import { Video } from '../page/basics/video/video';
+import { Video } from '../../page/basics/video/video';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
 
-export const platformGameTimelineElement = {
+export const platformGameTimelineElement: TimelineElementParameters = {
   title: `Platform game`,
   date: `2017 autumn`,
   figure: new Video({

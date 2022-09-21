@@ -1,4 +1,4 @@
-import info from '../../../static/icons/info.svg';
+import info from '../../../../static/icons/info.svg';
 import './timeline-element.scss';
 import { html } from '../../../types/html';
 import { TimelineElementParameters } from './timeline-element';
