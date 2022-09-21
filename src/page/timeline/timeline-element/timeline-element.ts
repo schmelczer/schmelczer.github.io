@@ -34,7 +34,6 @@ export class PageTimelineElement extends PageElement {
 
     this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
     this.attachElementByReplacing('.figure', timelineElement.figure);
-    this.query('.description').innerText = timelineElement.description;
     timelineElement.links.forEach((l) => this.attachElementAsChildOf('.buttons', l));
 
     this.isOpen = false;
@@ -53,17 +52,17 @@ export class PageTimelineElement extends PageElement {
   }
 
   private openMore() {
-    const deltaHeight = this.more!.scrollHeight;
-    this.more!.style.height = `${deltaHeight.toString()}px`;
+    const deltaHeight = this.more.scrollHeight;
+    this.more.style.height = `${deltaHeight.toString()}px`;
   }
 
   private closeMore() {
-    this.more!.style.height = '0';
+    this.more.style.height = '0';
   }
 
   private handleResize() {
     if (this.isOpen) {
-      this.more!.style.height = 'auto';
+      this.more.style.height = 'auto';
       this.openMore.bind(this);
     }
   }
