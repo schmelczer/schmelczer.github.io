@@ -5,13 +5,11 @@ import './image.scss';
 
 export const Image = ({
   imageWebP,
-  imageJpeg,
   alt,
   container = false,
   isIgnoredByImageViewer = false,
 }: {
   imageWebP: ResponsiveImage;
-  imageJpeg: ResponsiveImage;
   alt: string;
   container?: boolean;
   isIgnoredByImageViewer?: boolean;
@@ -19,37 +17,31 @@ export const Image = ({
   ${
     container
       ? `<div class="figure-container" style="padding-top:${
-          (imageJpeg.height / imageJpeg.width) * 100
+          (imageWebP.height / imageWebP.width) * 100
         }%">`
       : ''
   }
-    <picture loading="lazy">
-      <source
-        srcset="${imageWebP.srcSet}" 
-        sizes="${getSizes(imageWebP)}"
-        width="${imageWebP.width}"
-        height="${imageWebP.height}"
-        type="image/webp"
-        alt="${alt}"
-      />
-      <source
-        srcset="${imageJpeg.srcSet}" 
-        sizes="${getSizes(imageJpeg)}"
-        width="${imageJpeg.width}"
-        height="${imageJpeg.height}"
-        type="image/jpeg"
-        alt="${alt}"
-      />
-      <img
-        ${isIgnoredByImageViewer ? 'image-viewer-ignore' : ''}
-        tabindex="0"
-        loading="lazy"
-        width="${imageJpeg.width}"
-        height="${imageJpeg.height}"
-        src="${last(imageJpeg.images)?.path}" 
-        alt="${alt}"
-      />
-    </picture>
+    <div
+      class="image"
+      style="background-size: cover; background-image: url('${imageWebP.placeholder}')",
+    }}>
+      <picture loading="lazy">
+        <source
+          srcset="${imageWebP.srcSet}" 
+          sizes="${getSizes(imageWebP)}"
+          type="image/webp"
+        />
+        <img
+          ${isIgnoredByImageViewer ? 'image-viewer-ignore' : ''}
+          tabindex="0"
+          loading="lazy"
+          width="${imageWebP.width}"
+          height="${imageWebP.height}"
+          src="${last(imageWebP.images)?.path}" 
+          alt="${alt}"
+        />
+      </picture>
+    </div>
   ${container ? `</div>` : ''}
 `;
 

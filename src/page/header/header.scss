@@ -15,12 +15,12 @@
 
   $img-size: 125px;
   h1,
-  img,
+  .image,
   .placeholder {
     @include title-font();
   }
 
-  img {
+  .image {
     @include square($img-size);
     border-radius: 100%;
     cursor: pointer;
@@ -50,7 +50,7 @@
     position: relative;
     border-radius: var(--border-radius);
 
-    img {
+    .image {
       @include square($img-size);
       position: absolute;
       left: 0;

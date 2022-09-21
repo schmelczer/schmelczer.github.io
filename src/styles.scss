@@ -86,7 +86,7 @@ noscript {
     pointer-events: auto;
   }
 
-  img,
+  .image,
   video,
   iframe {
     z-index: -1;
@@ -104,7 +104,7 @@ iframe {
   transform: translate3d(0, 0, 0.00001px);
 }
 
-img,
+.image,
 video,
 iframe {
   user-select: none;

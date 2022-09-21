@@ -93,7 +93,7 @@
 
     @include blurred-background();
 
-    img,
+    .image,
     video,
     iframe {
       border-radius: var(--border-radius) var(--border-radius) 0 0;
