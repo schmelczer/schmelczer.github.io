@@ -55,7 +55,7 @@ module.exports = (env, argv) => ({
         ],
       },
       {
-        test: /\.(pdf)$/i,
+        test: /\.pdf$/i,
         use: {
           loader: 'file-loader',
           options: {
@@ -69,7 +69,7 @@ module.exports = (env, argv) => ({
         use: 'svg-inline-loader',
       },
       {
-        test: /no-change.*$/i,
+        test: /no-change/i,
         use: {
           loader: 'file-loader',
           options: {
@@ -97,18 +97,11 @@ module.exports = (env, argv) => ({
         use: [
           'ts-loader',
           {
-            // for removing whitespace from template strings
+            // for removing whitespace (mainly from template strings) which are not part of comments
             loader: 'string-replace-loader',
             options: {
-              search: /`\s+`/gs,
+              search: /(?<!\/\/[^\n]*)\s+/gs,
               replace: ' ',
-            },
-          },
-          {
-            loader: 'string-replace-loader',
-            options: {
-              search: /`>\s+<`/gs,
-              replace: '><',
             },
           },
         ],
@@ -116,7 +109,7 @@ module.exports = (env, argv) => ({
     ],
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts'],
   },
   output: {
     clean: true,
