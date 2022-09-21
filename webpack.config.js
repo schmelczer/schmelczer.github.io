@@ -20,6 +20,11 @@ module.exports = (env, argv) => ({
       }),
     ],
   },
+  performance: {
+    assetFilter: (f) => !/\.(webm|mp4|pdf)$/.test(f),
+    maxEntrypointSize: 100000,
+    maxAssetSize: 512000,
+  },
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/index.html',
