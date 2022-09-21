@@ -1,4 +1,4 @@
-import { Image } from '../../page/basics/image/image';
+import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import myNotesJpeg from '../media/my-notes.png?format=jpg';
 import myNotesWebP from '../media/my-notes.png?format=webp';
@@ -7,7 +7,12 @@ import { GitHub } from '../shared';
 export const myNotesTimelineElement: TimelineElementParameters = {
   title: `My Notes`,
   date: `2019 November`,
-  figure: new Image(myNotesWebP, myNotesJpeg, `two screenshots of the application`),
+  figure: Image({
+    imageWebP: myNotesWebP,
+    imageJpeg: myNotesJpeg,
+    alt: `two screenshots of the application`,
+    container: true,
+  }),
   description: `A minimalist note organiser and editor powered by Markwon.`,
   more: [
     `

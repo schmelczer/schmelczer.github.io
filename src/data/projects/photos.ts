@@ -1,4 +1,4 @@
-import { Image } from '../../page/basics/image/image';
+import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import photosJpeg from '../media/photos.jpg?format=jpg';
 import photosWebP from '../media/photos.jpg?format=webp';
@@ -7,7 +7,12 @@ import { Open } from '../shared';
 export const photosTimelineElement: TimelineElementParameters = {
   title: `Photos`,
   date: `2016 summer`,
-  figure: new Image(photosWebP, photosJpeg, `a picture of the website`),
+  figure: Image({
+    imageWebP: photosWebP,
+    imageJpeg: photosJpeg,
+    alt: `a picture of the website`,
+    container: true,
+  }),
   description: `A simple webpage where you can view my photos.`,
   more: [
     `

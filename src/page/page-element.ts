@@ -1,4 +1,4 @@
-export abstract class PageElement {
+export class PageElement {
   public constructor(
     public readonly htmlRoot: HTMLElement,
     protected children: Array<PageElement> = []

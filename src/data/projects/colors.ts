@@ -1,4 +1,4 @@
-import { Image } from '../../page/basics/image/image';
+import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import colourJpeg from '../media/color.jpg?format=jpg';
 import colourWebP from '../media/color.jpg?format=webp';
@@ -6,7 +6,12 @@ import colourWebP from '../media/color.jpg?format=webp';
 export const colorsTimelineElement: TimelineElementParameters = {
   title: `Photo colour grader`,
   date: `2018 June`,
-  figure: new Image(colourWebP, colourJpeg, `a picture of the app`),
+  figure: Image({
+    imageWebP: colourWebP,
+    imageJpeg: colourJpeg,
+    alt: `a picture of the app`,
+    container: true,
+  }),
   description: `An innovative (at least I thought so) colour grader web application.`,
   more: [
     `

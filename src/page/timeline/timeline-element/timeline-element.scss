@@ -109,6 +109,7 @@
 
       h2 {
         text-align: center;
+        margin-bottom: -10px;
 
         > a {
           @include sub-title-font();
@@ -131,7 +132,8 @@
         }
       }
 
-      .description {
+      .description,
+      .info-button {
         text-align: center;
       }
 

@@ -1,6 +1,6 @@
 import { PageBackground } from '../page/background/background';
-import { Image } from '../page/basics/image/image';
-import { PageFooter } from '../page/footer/footer';
+import { Image } from '../page/basics/image/image.html';
+import { Footer } from '../page/footer/footer.html';
 import { PageHeader } from '../page/header/header';
 import { PageImageViewer } from '../page/image-viewer/image-viewer';
 import { Main } from '../page/main/main';
@@ -28,7 +28,11 @@ export const create = (): Array<PageElement> => [
     new PageBackground(1, 1),
     new PageHeader({
       name: `András Schmelczer`,
-      photo: new Image(meWebP, meJpeg, `a picture of me`, false),
+      photo: Image({
+        imageWebP: meWebP,
+        imageJpeg: meJpeg,
+        alt: `a picture of me`,
+      }),
       about: [
         `
             I have always been fascinated by the engineering feats that surround us and pervade every aspect
@@ -62,7 +66,7 @@ export const create = (): Array<PageElement> => [
         ledsTimelineElement,
       ],
     }),
-    new PageFooter({
+    Footer({
       title: `Learn more`,
       curriculaVitae: [{ name: `Curriculum vitae`, url: cvEnglish }],
       email: `andras@schmelczer.dev`,

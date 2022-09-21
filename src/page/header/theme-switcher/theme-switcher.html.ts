@@ -1,4 +1,4 @@
-import { html } from '../../types/html';
+import { html } from '../../../types/html';
 import './theme-switcher.scss';
 
 export const generate = (): html => `

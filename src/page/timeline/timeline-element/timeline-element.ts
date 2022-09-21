@@ -18,7 +18,12 @@ export class PageTimelineElement extends PageElement {
     addEventListener('resize', this.handleResize.bind(this));
 
     this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
-    this.attachElementByReplacing('.figure', timelineElement.figure);
+    this.attachElementByReplacing(
+      '.figure',
+      timelineElement.figure instanceof PageElement
+        ? timelineElement.figure
+        : new PageElement(createElement(timelineElement.figure))
+    );
     this.isOpen = false;
   }
 

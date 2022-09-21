@@ -1,18 +1,14 @@
-import { html } from '../../../types/html';
 import { url } from '../../../types/url';
 import './image-anchor.scss';
 
-export const generate = ({
-  href,
-  svg,
-  title,
-  shouldDownload,
-}: {
-  href: url;
-  svg: url;
-  title: string;
-  shouldDownload: boolean;
-}): html => `
+export const ImageAnchorFactory =
+  (
+    svg: string,
+    title: string,
+    { shouldDownload = false }: { shouldDownload?: boolean } = {}
+  ) =>
+  (href: url) =>
+    `
   <a class="image-anchor" 
     href="${href}"
     rel="noopener"

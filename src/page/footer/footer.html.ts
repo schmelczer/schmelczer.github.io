@@ -2,17 +2,27 @@ import cvIcon from '../../../static/icons/cv.svg';
 import emailIcon from '../../../static/icons/email.svg';
 import linkedinIcon from '../../../static/icons/linkedin.svg';
 import { html } from '../../types/html';
-import { FooterParameters } from './footer';
+import { url } from '../../types/url';
 import './footer.scss';
 
-export const generate = ({
+export const Footer = ({
   title,
   email,
   curriculaVitae,
   linkedin,
   lastEditText,
   lastEdit,
-}: FooterParameters): html => `
+}: {
+  title: string;
+  email: url;
+  linkedin: url;
+  curriculaVitae: Array<{
+    name: string;
+    url: url;
+  }>;
+  lastEditText: string;
+  lastEdit: Date;
+}): html => `
   <footer id="footer">
     <h2>${title}</h2>
     <ul>
@@ -25,7 +35,7 @@ export const generate = ({
               </li>
             `
           )
-          .join('\n')}
+          .join('')}
       <li>
         ${linkedinIcon}
         <a id="linkedin" target="_blank" href="${linkedin}">Find me on LinkedIn</a>

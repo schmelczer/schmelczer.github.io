@@ -4,7 +4,7 @@ import openIcon from '../../static/icons/open.svg';
 import packageIcon from '../../static/icons/package.svg';
 import pythonIcon from '../../static/icons/python.svg';
 import youtubeIcon from '../../static/icons/youtube.svg';
-import { ImageAnchorFactory } from '../page/basics/image-anchor/image-anchor';
+import { ImageAnchorFactory } from '../page/basics/image-anchor/image-anchor.html';
 
 export const GitHub = ImageAnchorFactory(githubIcon, 'Open on GitHub');
 export const NPM = ImageAnchorFactory(packageIcon, 'Open on npm');

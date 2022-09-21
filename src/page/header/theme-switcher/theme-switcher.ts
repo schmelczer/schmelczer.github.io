@@ -1,11 +1,14 @@
-import { createElement } from '../../helper/create-element';
-import { turnOffAnimations, turnOnAnimations } from '../../style/animations/animations';
+import { createElement } from '../../../helper/create-element';
+import {
+  turnOffAnimations,
+  turnOnAnimations,
+} from '../../../style/animations/animations';
 import {
   isSystemLevelDarkModeEnabled,
   turnOnDarkMode,
   turnOnLightMode,
-} from '../../style/dark-mode/dark-mode';
-import { PageElement } from '../page-element';
+} from '../../../style/dark-mode/dark-mode';
+import { PageElement } from '../../page-element';
 import { generate } from './theme-switcher.html';
 
 export class PageThemeSwitcher extends PageElement {

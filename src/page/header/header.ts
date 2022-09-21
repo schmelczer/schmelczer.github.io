@@ -1,8 +1,8 @@
 import { createElement } from '../../helper/create-element';
-import { Image } from '../basics/image/image';
+import { html } from '../../types/html';
 import { PageElement } from '../page-element';
-import { PageThemeSwitcher } from '../theme-switcher/theme-switcher';
 import { generate } from './header.html';
+import { PageThemeSwitcher } from './theme-switcher/theme-switcher';
 
 export class PageHeader extends PageElement {
   public constructor({
@@ -11,12 +11,10 @@ export class PageHeader extends PageElement {
     about,
   }: {
     name: string;
-    photo: Image;
+    photo: html;
     about: Array<string>;
   }) {
-    super(createElement(generate({ name, about })));
-
-    this.attachElementByReplacing('.picture', photo);
+    super(createElement(generate({ name, about, photo })));
     this.attachElement(new PageThemeSwitcher());
   }
 }

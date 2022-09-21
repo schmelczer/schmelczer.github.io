@@ -1,4 +1,4 @@
-@use '../../style/mixins' as *;
+@use '../../../style/mixins' as *;
 
 #theme-switcher {
   @include on-large-screen {

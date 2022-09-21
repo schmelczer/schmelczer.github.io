@@ -1,7 +1,6 @@
 import { createElement } from '../../../helper/create-element';
 import { ResponsiveImage } from '../../../types/responsive-image';
 import { PageElement } from '../../page-element';
-import { Image } from '../image/image';
 import { generate } from './preview.html';
 
 export class Preview extends PageElement {
@@ -11,9 +10,8 @@ export class Preview extends PageElement {
     private readonly url: string,
     alt: string
   ) {
-    super(createElement(generate({ alt })));
+    super(createElement(generate({ posterWebP, posterJpeg, alt })));
     this.url += '?portfolioView';
-    this.attachElementByReplacing('.poster', new Image(posterWebP, posterJpeg, alt));
     this.query('.start-button').addEventListener('click', this.loadContent.bind(this));
   }
 

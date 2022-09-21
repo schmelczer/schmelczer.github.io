@@ -26,7 +26,7 @@ export const generate = (
           more
             ? `
             <div class="more">
-              ${more.map((t) => `<p>${t}</p>`).join('\n')}
+              ${more.map((t) => `<p>${t}</p>`).join('')}
             </div>`
             : ''
         }

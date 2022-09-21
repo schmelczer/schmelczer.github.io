@@ -1,28 +1,13 @@
 import { createElement } from '../../../helper/create-element';
-import { ResponsiveImage } from '../../../types/responsive-image';
-import { url } from '../../../types/url';
 import { PageElement } from '../../page-element';
-import { Image } from '../image/image';
+import { VideoParameters } from './video-parameters';
 import { generate } from './video.html';
-
-export interface VideoParameters {
-  mp4: url;
-  webm: url;
-  posterWebP: ResponsiveImage;
-  posterJpeg: ResponsiveImage;
-  invertButton?: boolean;
-}
 
 export class Video extends PageElement {
   private video: HTMLVideoElement;
 
   public constructor(options: VideoParameters) {
     super(createElement(generate(options)));
-    this.attachElementByReplacing(
-      '.poster',
-      new Image(options.posterWebP, options.posterJpeg, `thumbnail for the video`, false)
-    );
-
     this.video = this.query('video') as HTMLVideoElement;
     this.video.addEventListener('click', this.startVideo.bind(this));
     this.video.addEventListener('play', () =>
