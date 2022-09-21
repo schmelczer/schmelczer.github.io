@@ -1,5 +1,5 @@
 import { Image } from '../../page/basics/image/image';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import photosJpeg from '../media/photos.jpg?format=jpg';
 import photosWebP from '../media/photos.jpg?format=webp';
 import { Open } from '../shared';
@@ -20,5 +20,5 @@ export const photosTimelineElement: TimelineElementParameters = {
       automatic resizing to multiple quality settings is also part of the pipeline.
     `,
   ],
-  links: [new Open('https://photo.schmelczer.dev')],
+  links: [Open('https://photo.schmelczer.dev')],
 };

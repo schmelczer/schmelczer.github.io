@@ -1,9 +1,7 @@
 import { createElement } from '../../helper/create-element';
 import { PageElement } from '../page-element';
-import {
-  PageTimelineElement,
-  TimelineElementParameters,
-} from './timeline-element/timeline-element';
+import { PageTimelineElement } from './timeline-element/timeline-element';
+import { TimelineElementParameters } from './timeline-element/timeline-element-parameters';
 import { generate } from './timeline.html';
 
 export class PageTimeline extends PageElement {

@@ -1,5 +1,5 @@
 import { Preview } from '../../page/basics/preview/preview';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import sdf2dJpeg from '../media/sdf2d.png?format=jpg';
 import sdf2dWebP from '../media/sdf2d.png?format=webp';
 import { NPM, Open, Youtube } from '../shared';
@@ -34,8 +34,8 @@ export const sdf2dTimelineElement: TimelineElementParameters = {
     `,
   ],
   links: [
-    new NPM('https://www.npmjs.com/package/sdf-2d'),
-    new Youtube('https://www.youtube.com/watch?v=K3cEtnZUNR0'),
-    new Open('https://sdf2d.schmelczer.dev'),
+    NPM('https://www.npmjs.com/package/sdf-2d'),
+    Youtube('https://www.youtube.com/watch?v=K3cEtnZUNR0'),
+    Open('https://sdf2d.schmelczer.dev'),
   ],
 };

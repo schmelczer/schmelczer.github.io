@@ -17,7 +17,7 @@ export class Preview extends PageElement {
     this.query('.start-button').addEventListener('click', this.loadContent.bind(this));
   }
 
-  public setParent(parent: PageElement) {
+  protected setParent(parent: PageElement) {
     new IntersectionObserver((e) => {
       if (!e[0].isIntersecting) {
         this.unloadContent();

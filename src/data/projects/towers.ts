@@ -1,5 +1,5 @@
 import { Image } from '../../page/basics/image/image';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import towersJpeg from '../media/towers.png?format=jpg';
 import towersWebP from '../media/towers.png?format=webp';
 import { GitHub, Open } from '../shared';
@@ -22,7 +22,7 @@ export const towersTimelineElement: TimelineElementParameters = {
     `,
   ],
   links: [
-    new GitHub('https://github.com/schmelczerandras/life-towers/'),
-    new Open('https://towers.schmelczer.dev'),
+    GitHub('https://github.com/schmelczerandras/life-towers/'),
+    Open('https://towers.schmelczer.dev'),
   ],
 };

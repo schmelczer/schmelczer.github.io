@@ -1,10 +1,9 @@
+import { Preview } from '../../page/basics/preview/preview';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import declaredJpeg from '../media/decla-red.png?format=jpg';
 import declaredWebP from '../media/decla-red.png?format=webp';
-import thesis from '../media/thesis-andras-schmelczer.pdf';
-
-import { Preview } from '../../page/basics/preview/preview';
-import { GitHub, Thesis, Open } from '../shared';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import bscThesis from '../media/sdf2d-andras-schmelczer.pdf';
+import { GitHub, Open, Thesis } from '../shared';
 
 export const declaredTimelineElement: TimelineElementParameters = {
   title: `Multiplayer game`,
@@ -34,8 +33,8 @@ export const declaredTimelineElement: TimelineElementParameters = {
     `,
   ],
   links: [
-    new GitHub('https://github.com/schmelczerandras/decla.red'),
-    new Thesis(thesis),
-    new Open('https://decla.red'),
+    GitHub('https://github.com/schmelczerandras/decla.red'),
+    Thesis(bscThesis),
+    Open('https://decla.red'),
   ],
 };

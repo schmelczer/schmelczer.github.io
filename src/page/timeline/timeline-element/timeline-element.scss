@@ -85,7 +85,6 @@
   }
 
   .card {
-    text-align: center;
     box-shadow: var(--shadow);
     border-radius: var(--border-radius);
     z-index: 1;
@@ -108,27 +107,31 @@
         margin-top: var(--small-margin);
       }
 
-      h2 > a {
-        @include sub-title-font();
-        text-decoration: none;
-        position: relative;
+      h2 {
+        text-align: center;
 
-        &:before {
-          content: '#';
-          position: absolute;
-          left: -0.5ch;
-          top: 0;
-          opacity: 0;
-          transform: translateX(-100%);
-          transition: opacity var(--transition-time);
-        }
+        > a {
+          @include sub-title-font();
+          text-decoration: none;
+          position: relative;
 
-        &:hover:before {
-          opacity: 0.5;
+          &:before {
+            content: '#';
+            position: absolute;
+            left: -0.5ch;
+            top: 0;
+            opacity: 0;
+            transform: translateX(-100%);
+            transition: opacity var(--transition-time);
+          }
+
+          &:hover:before {
+            opacity: 0.5;
+          }
         }
       }
 
-      & > p {
+      .description {
         text-align: center;
       }
 
@@ -138,7 +141,7 @@
         height: 0;
         transition: height var(--transition-time);
 
-        .content p {
+        > p {
           margin-top: var(--line-height);
         }
       }

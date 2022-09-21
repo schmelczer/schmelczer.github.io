@@ -1,5 +1,5 @@
 import { Video } from '../../page/basics/video/video';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import adAstraJpeg from '../media/ad_astra.jpg?format=jpg';
 import adAstraWebP from '../media/ad_astra.jpg?format=webp';
 import adAstraMp4 from '../media/mp4/ad_astra.mp4';
@@ -38,5 +38,5 @@ export const adAstraTimelineElement: TimelineElementParameters = {
       This can also be found on GitHub along with the entire project.
     `,
   ],
-  links: [new GitHub('https://github.com/schmelczerandras/ad_astra')],
+  links: [GitHub('https://github.com/schmelczerandras/ad_astra')],
 };

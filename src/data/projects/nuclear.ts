@@ -1,5 +1,5 @@
 import { Image } from '../../page/basics/image/image';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import processSimulatorJpeg from '../media/process-simulator.jpg?format=jpg';
 import processSimulatorWebP from '../media/process-simulator.jpg?format=webp';
 

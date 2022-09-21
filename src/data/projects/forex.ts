@@ -1,5 +1,5 @@
 import { Video } from '../../page/basics/video/video';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import forexPosterJpeg from '../media/forex.jpg?format=jpg';
 import forexPosterWebP from '../media/forex.jpg?format=webp';
 import forexMp4 from '../media/mp4/forex.mp4';

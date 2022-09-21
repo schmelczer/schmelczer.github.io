@@ -1,6 +1,6 @@
+import { createElement } from '../../helper/create-element';
 import { PageElement } from '../page-element';
 import { generate } from './image-viewer.html';
-import { createElement } from '../../helper/create-element';
 
 export class PageImageViewer extends PageElement {
   public constructor() {
@@ -9,7 +9,7 @@ export class PageImageViewer extends PageElement {
     document.body.addEventListener('click', (event: MouseEvent) => {
       if (
         event.target instanceof HTMLImageElement &&
-        !event.target.attributes['image-viewer-ignore']
+        !(event.target.attributes['image-viewer-ignore'] as boolean | undefined)
       ) {
         this.showImage(event.target);
       }

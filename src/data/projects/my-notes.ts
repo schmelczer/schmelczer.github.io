@@ -1,5 +1,5 @@
 import { Image } from '../../page/basics/image/image';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import myNotesJpeg from '../media/my-notes.png?format=jpg';
 import myNotesWebP from '../media/my-notes.png?format=webp';
 import { GitHub } from '../shared';
@@ -20,5 +20,5 @@ export const myNotesTimelineElement: TimelineElementParameters = {
       adventure.
     `,
   ],
-  links: [new GitHub('https://github.com/schmelczerandras/my-notes')],
+  links: [GitHub('https://github.com/schmelczerandras/my-notes')],
 };

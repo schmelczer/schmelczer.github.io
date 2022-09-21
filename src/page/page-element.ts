@@ -4,6 +4,11 @@ export abstract class PageElement {
     protected children: Array<PageElement> = []
   ) {}
 
+  public attachToDOM(target: HTMLElement) {
+    target.appendChild(this.htmlRoot);
+    this.setParent(null);
+  }
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   protected setParent(parent?: PageElement | null): void {
     this.children.forEach((c) => c.setParent(this));

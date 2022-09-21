@@ -1,19 +1,7 @@
 import { createElement } from '../../../helper/create-element';
-import { Image } from '../../basics/image/image';
-import { Preview } from '../../basics/preview/preview';
-import { Video } from '../../basics/video/video';
-import { PageContent } from '../../content/content';
 import { PageElement } from '../../page-element';
+import { TimelineElementParameters } from './timeline-element-parameters';
 import { generate } from './timeline-element.html';
-
-export interface TimelineElementParameters {
-  date: string;
-  figure: Image | Video | Preview;
-  title: string;
-  description: string;
-  more: Array<string>;
-  links: Array<PageElement>;
-}
 
 export class PageTimelineElement extends PageElement {
   private isOpen = false;
@@ -25,17 +13,12 @@ export class PageTimelineElement extends PageElement {
     private readonly showLess: string
   ) {
     super(createElement(generate(timelineElement, showMore)));
-    const content = new PageContent(timelineElement.more);
-    this.children = [content];
     this.isOpen = false;
     this.more = this.query('.more');
-    this.more.appendChild(content.htmlRoot);
     addEventListener('resize', this.handleResize.bind(this));
 
     this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
     this.attachElementByReplacing('.figure', timelineElement.figure);
-    timelineElement.links.forEach((l) => this.attachElementAsChildOf('.buttons', l));
-
     this.isOpen = false;
   }
 

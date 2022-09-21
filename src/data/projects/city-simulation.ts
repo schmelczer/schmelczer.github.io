@@ -1,5 +1,5 @@
 import { Video } from '../../page/basics/video/video';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import citySimulationMp4 from '../media/mp4/simulation.mp4';
 import citySimulationPosterJpeg from '../media/simulation.jpg?format=jpg';
 import citySimulationPosterWebP from '../media/simulation.jpg?format=webp';

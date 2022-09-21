@@ -1,5 +1,5 @@
 import { Image } from '../../page/basics/image/image';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element';
+import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import colourJpeg from '../media/color.jpg?format=jpg';
 import colourWebP from '../media/color.jpg?format=webp';
 
