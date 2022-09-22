@@ -13,18 +13,17 @@
     color: var(--accent-color);
   }
 
-  $img-size: 125px;
   h1,
-  .image,
   .placeholder {
     @include title-font();
   }
 
+  $img-size: 125px;
   .image {
     @include square($img-size);
     border-radius: 100%;
-    cursor: pointer;
     box-shadow: var(--shadow);
+    margin: auto;
   }
 
   p {
@@ -62,7 +61,7 @@
       @include square(calc(#{$img-size} * 2 / 3 - #{var(--normal-margin)}));
       box-sizing: content-box;
       float: left;
-      margin: 0 0.75ex 0.75ex 0;
+      margin: 0 0.75ex 0.5ex 0;
     }
 
     h1 {

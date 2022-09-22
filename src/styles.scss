@@ -8,7 +8,6 @@
 *::before,
 *::after {
   margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -79,7 +78,6 @@ noscript {
   box-shadow: var(--inset-shadow);
   border-radius: var(--border-radius) var(--border-radius) 0 0;
   pointer-events: none;
-  cursor: pointer;
   position: relative;
 
   * {
