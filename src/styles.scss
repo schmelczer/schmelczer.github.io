@@ -1,14 +1,17 @@
 @use 'style/fonts';
 @use 'style/vars';
 @use 'style/mixins' as *;
-@use 'style/animations/animations';
-@use 'style/dark-mode/dark-mode';
 
 *,
 *::before,
 *::after {
   margin: 0;
   box-sizing: border-box;
+
+  @media (prefers-reduced-motion) {
+    transition: none !important;
+    animation: none !important;
+  }
 }
 
 html {
@@ -64,7 +67,7 @@ noscript {
 
   svg {
     border-radius: 10000px;
-    backdrop-filter: blur(16px);
+    @include blurred-background;
     transition: transform var(--transition-time), box-shadow var(--transition-time);
   }
 

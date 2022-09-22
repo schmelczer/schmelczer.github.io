@@ -1,13 +1,4 @@
 import { createElement } from '../../../helper/create-element';
-import {
-  turnOffAnimations,
-  turnOnAnimations,
-} from '../../../style/animations/animations';
-import {
-  isSystemLevelDarkModeEnabled,
-  turnOnDarkMode,
-  turnOnLightMode,
-} from '../../../style/dark-mode/dark-mode';
 import { PageElement } from '../../page-element';
 import { generate } from './theme-switcher.html';
 
@@ -60,3 +51,18 @@ export class PageThemeSwitcher extends PageElement {
     }
   }
 }
+
+export const isSystemLevelDarkModeEnabled = (): boolean =>
+  matchMedia && matchMedia('(prefers-color-scheme: dark)').matches;
+
+export const turnOnDarkMode = () =>
+  document.documentElement.setAttribute('theme', 'dark');
+
+export const turnOnLightMode = () =>
+  document.documentElement.setAttribute('theme', 'light');
+
+export const turnOnAnimations = () =>
+  document.documentElement.setAttribute('animations', 'on');
+
+export const turnOffAnimations = () =>
+  document.documentElement.setAttribute('animations', 'off');

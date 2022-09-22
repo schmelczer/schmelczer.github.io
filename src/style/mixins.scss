@@ -12,6 +12,22 @@ $breakpoint-width: 925px !default;
   }
 }
 
+@mixin in-dark-mode() {
+  html[theme='dark'] {
+    @content;
+  }
+}
+
+html[animations='off'] {
+  &,
+  *,
+  *::before,
+  *::after {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
 @mixin image-button($icon-size) {
   display: block;
   box-sizing: content-box;
@@ -45,7 +61,12 @@ $breakpoint-width: 925px !default;
 
 @mixin blurred-background() {
   backdrop-filter: blur(var(--blur-radius));
-  @supports not (backdrop-filter: blur(var(--blur-radius))) {
+  -webkit-backdrop-filter: blur(var(--blur-radius));
+
+  @supports not (
+    (backdrop-filter: blur(var(--blur-radius))) or
+      (-webkit-backdrop-filter: blur(var(--blur-radius)))
+  ) {
     background-color: var(--card-color);
   }
 }
