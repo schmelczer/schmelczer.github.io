@@ -8,11 +8,13 @@ export const Image = ({
   alt,
   container = false,
   isIgnoredByImageViewer = false,
+  imageScreenRatio = 0.8,
 }: {
   imageWebP: ResponsiveImage;
   alt: string;
   container?: boolean;
   isIgnoredByImageViewer?: boolean;
+  imageScreenRatio?: number;
 }): html => `
   ${
     container
@@ -28,7 +30,7 @@ export const Image = ({
       <picture loading="lazy">
         <source
           srcset="${imageWebP.srcSet}" 
-          sizes="${getSizes(imageWebP)}"
+          sizes="${getSizes(imageWebP, imageScreenRatio)}"
           type="image/webp"
         />
         <img
@@ -45,9 +47,8 @@ export const Image = ({
   ${container ? `</div>` : ''}
 `;
 
-const IMAGE_SCREEN_RATIO = 0.8;
-const getSizes = (image: ResponsiveImage): string =>
+const getSizes = (image: ResponsiveImage, imageScreenRatio: number): string =>
   image.images
     .slice(0, -1)
-    .map((d) => `(max-width: ${d.width / IMAGE_SCREEN_RATIO}px) ${d.width}px,`)
+    .map((d) => `(max-width: ${d.width / imageScreenRatio}px) ${d.width}px,`)
     .join('\n') + `\n${last(image.images)!.width}px`;

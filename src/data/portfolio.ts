@@ -30,6 +30,7 @@ export const create = (): Array<PageElement> => [
       photo: Image({
         imageWebP: meWebP,
         alt: `a picture of me`,
+        imageScreenRatio: 0.3,
       }),
       about: [
         `
