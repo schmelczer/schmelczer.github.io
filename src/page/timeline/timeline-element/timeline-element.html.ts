@@ -35,7 +35,7 @@ export const generate = (
         ${
           more &&
           `<div tabindex=0 class="info-button">
-              <div class="svgContainer">${info}</div>
+              <div class="svg-container">${info}</div>
               <p>${showMore}</p>
             </div>`
         }

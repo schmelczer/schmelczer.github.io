@@ -141,7 +141,7 @@
         overflow: hidden;
         margin: 0;
         height: 0;
-        transition: height var(--transition-time);
+        transition: height var(--transition-time-long);
 
         > p {
           margin-top: var(--line-height);
@@ -162,14 +162,14 @@
           @include image-button(var(--icon-size));
           @include main-font();
 
-          .svgContainer {
+          .svg-container {
             position: relative;
             margin: auto;
             @include square(var(--icon-size));
 
             svg {
               stroke: var(--normal-text-color);
-              transition: stroke var(--transition-time);
+              transition: stroke var(--transition-time), transform var(--transition-time);
             }
           }
 
