@@ -3,14 +3,14 @@
 .image-anchor {
   @include image-button(var(--icon-size));
 
-  .svgContainer {
+  .svg-container {
     position: relative;
     margin: auto;
     @include square(var(--icon-size));
 
     svg {
       stroke: var(--normal-text-color);
-      transition: stroke var(--transition-time);
+      transition: stroke var(--transition-time), transform var(--transition-time);
     }
   }
 

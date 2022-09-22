@@ -15,7 +15,7 @@ export const ImageAnchorFactory =
     target="_blank"
     ${shouldDownload ? 'download' : ''}
   >
-    <div class="svgContainer">
+    <div class="svg-container">
       ${svg}
     </div>
     <p>${title}</p>
