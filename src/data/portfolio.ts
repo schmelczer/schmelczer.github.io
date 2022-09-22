@@ -1,5 +1,4 @@
 import { PageBackground } from '../page/background/background';
-import { Image } from '../page/basics/image/image.html';
 import { Footer } from '../page/footer/footer.html';
 import { PageHeader } from '../page/header/header';
 import { PageImageViewer } from '../page/image-viewer/image-viewer';
@@ -27,23 +26,19 @@ export const create = (): Array<PageElement> => [
     new PageBackground(1, 1),
     new PageHeader({
       name: `András Schmelczer`,
-      photo: Image({
-        imageWebP: meWebP,
-        alt: `a picture of me`,
-        imageScreenRatio: 0.3,
-      }),
+      imageWebP: meWebP,
+      imageAltText: `a picture of me`,
       about: [
         `
-            I have always been fascinated by the engineering feats that surround us and pervade every aspect
-            of our lives. When I realised I might someday be able to contribute to this field, I knew that
-            this would become my life's ambition. 
-            As I am starting my third semester at Leiden University,
-            I feel I am getting closer to my ambition every day.
-          `,
+          With more than six years of professional experience and a degree in Computer Science, I can confidently tackle any challenge regardless of its complexity. My interests span diverse areas, making me able to architect vast and sophisticated systems with a clear understanding. I'm keen on designing distributed systems, especially when AI/ML is involved.
+        `,
         `
-            Discover some of my more interesting projects. They are all listed below.
-            Further information about me can be found at the bottom of the page.
-          `,
+          I'm excited to take my part in connecting people and providing them with AI/ML solutions along with the necessary computing capabilities which were unimaginable even a decade ago.
+        `,
+        `
+          Discover some of my more interesting earlier projects. They are all listed below.
+          Further information about me can be found at the bottom of the page.
+        `,
       ],
     }),
     new PageTimeline({
@@ -71,8 +66,6 @@ export const create = (): Array<PageElement> => [
       email: `andras@schmelczer.dev`,
       linkedin: `https://www.linkedin.com/in/andras-schmelczer-35487017b`,
       lastEditText: `Last modified on `,
-      // @ts-ignore: injected by webpack
-      lastEdit: new Date(__CURRENT_DATE__),
     })
   ),
   new PageImageViewer(),

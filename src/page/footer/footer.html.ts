@@ -5,13 +5,15 @@ import { html } from '../../types/html';
 import { url } from '../../types/url';
 import './footer.scss';
 
+// @ts-ignore: injected by webpack
+const LAST_EDIT = new Date(__CURRENT_DATE__);
+
 export const Footer = ({
   title,
   email,
   curriculaVitae,
   linkedin,
   lastEditText,
-  lastEdit,
 }: {
   title: string;
   email: url;
@@ -21,7 +23,6 @@ export const Footer = ({
     url: url;
   }>;
   lastEditText: string;
-  lastEdit: Date;
 }): html => `
   <footer id="footer">
     <h2>${title}</h2>
@@ -46,7 +47,7 @@ export const Footer = ({
       </li>
     </ul>
     <aside class="other">
-      <p>${lastEditText} <time datetime="${lastEdit.toISOString()}">${lastEdit.toLocaleDateString()}</time></p>
+      <p>${lastEditText} <time datetime="${LAST_EDIT.toISOString()}">${LAST_EDIT.toLocaleDateString()}</time></p>
     </aside>
   </footer>
 `;
