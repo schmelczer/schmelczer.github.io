@@ -5,17 +5,12 @@ import { Image } from '../../basics/image/image.html';
 import { VideoParameters } from './video-parameters';
 import './video.scss';
 
-export const generate = ({
-  webm,
-  mp4,
-  posterWebP,
-  invertButton,
-}: VideoParameters): html => `
+export const generate = ({ webm, mp4, poster, invertButton }: VideoParameters): html => `
   <div class="figure-container video-container" style="padding-top:${
-    (posterWebP.height / posterWebP.width) * 100
+    (poster.height / poster.width) * 100
   }%">
     ${Image({
-      imageWebP: posterWebP,
+      image: poster,
       alt: `thumbnail for the video`,
       isIgnoredByImageViewer: true,
     })}

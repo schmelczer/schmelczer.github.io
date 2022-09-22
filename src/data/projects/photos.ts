@@ -1,13 +1,13 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import photosWebP from '../media/photos.jpg?format=webp';
+import photos from '../media/photos.jpg';
 import { Open } from '../shared';
 
 export const photosTimelineElement: TimelineElementParameters = {
   title: `Photos`,
   date: `2016 summer`,
   figure: Image({
-    imageWebP: photosWebP,
+    image: photos,
     alt: `a picture of the website`,
     container: true,
   }),

@@ -7,14 +7,14 @@ import './preview.scss';
 
 export const generate = ({
   alt,
-  posterWebP,
+  poster,
 }: {
   alt: string;
-  posterWebP: ResponsiveImage;
+  poster: ResponsiveImage;
 }): html => `
   <div class="preview">
     ${Image({
-      imageWebP: posterWebP,
+      image: poster,
       alt,
       container: true,
       isIgnoredByImageViewer: true,

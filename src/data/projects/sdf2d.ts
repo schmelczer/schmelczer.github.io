@@ -1,13 +1,13 @@
 import { Preview } from '../../page/basics/preview/preview';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import sdf2dWebP from '../media/sdf2d.png?format=webp';
+import sdf2d from '../media/sdf2d.png';
 import { NPM, Open, Youtube } from '../shared';
 
 export const sdf2dTimelineElement: TimelineElementParameters = {
   title: `2D ray tracing`,
   date: `2020 autumn`,
   figure: new Preview(
-    sdf2dWebP,
+    sdf2d,
     'https://sdf2d.schmelczer.dev',
     'A webpage showcasing the SDF-2D project.'
   ),

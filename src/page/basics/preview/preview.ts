@@ -4,12 +4,8 @@ import { PageElement } from '../../page-element';
 import { generate } from './preview.html';
 
 export class Preview extends PageElement {
-  public constructor(
-    posterWebP: ResponsiveImage,
-    private readonly url: string,
-    alt: string
-  ) {
-    super(createElement(generate({ posterWebP, alt })));
+  public constructor(poster: ResponsiveImage, private readonly url: string, alt: string) {
+    super(createElement(generate({ poster, alt })));
     this.url += '?portfolioView';
     this.query('.start-button').addEventListener('click', this.loadContent.bind(this));
   }

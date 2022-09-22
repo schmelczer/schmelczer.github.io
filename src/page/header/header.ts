@@ -8,12 +8,12 @@ import { PageThemeSwitcher } from './theme-switcher/theme-switcher';
 export class PageHeader extends PageElement {
   public constructor({
     name,
-    imageWebP,
+    image,
     imageAltText,
     about,
   }: {
     name: string;
-    imageWebP: ResponsiveImage;
+    image: ResponsiveImage;
     imageAltText: string;
     about: Array<string>;
   }) {
@@ -23,7 +23,7 @@ export class PageHeader extends PageElement {
           name,
           about,
           photo: Image({
-            imageWebP,
+            image,
             alt: imageAltText,
             imageScreenRatio: 0.2,
           }),

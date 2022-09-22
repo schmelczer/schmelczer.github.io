@@ -1,14 +1,14 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
 import citySimulationMp4 from '../media/mp4/simulation.mp4';
-import citySimulationPosterWebP from '../media/simulation.jpg?format=webp';
+import citySimulationPoster from '../media/simulation.jpg';
 import citySimulationWebM from '../media/webm/simulation.webm';
 
 export const citySimulationTimelineElement: TimelineElementParameters = {
   title: `City simulation`,
   date: `2018 July - August`,
   figure: new Video({
-    posterWebP: citySimulationPosterWebP,
+    poster: citySimulationPoster,
     mp4: citySimulationMp4,
     webm: citySimulationWebM,
   }),

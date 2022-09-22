@@ -1,13 +1,13 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import towersWebP from '../media/towers.png?format=webp';
+import towers from '../media/towers.png';
 import { GitHub, Open } from '../shared';
 
 export const towersTimelineElement: TimelineElementParameters = {
   title: `Towers tracking app`,
   date: `2019 August - September`,
   figure: Image({
-    imageWebP: towersWebP,
+    image: towers,
     alt: `a picture of the website`,
     container: true,
   }),

@@ -1,12 +1,12 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import processSimulatorInputWebP from '../media/process-simulator-input.jpg?format=webp';
+import processSimulatorInput from '../media/process-simulator-input.jpg';
 
 export const nuclearEditorTimelineElement: TimelineElementParameters = {
   title: `Graph editing application`,
   date: `2018 October - November`,
   figure: Image({
-    imageWebP: processSimulatorInputWebP,
+    image: processSimulatorInput,
     alt: `a picture of the simulator's UI`,
     container: true,
   }),

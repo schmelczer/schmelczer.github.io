@@ -4,13 +4,13 @@ import { ResponsiveImage } from '../../../types/responsive-image';
 import './image.scss';
 
 export const Image = ({
-  imageWebP,
+  image,
   alt,
   container = false,
   isIgnoredByImageViewer = false,
   imageScreenRatio = 0.8,
 }: {
-  imageWebP: ResponsiveImage;
+  image: ResponsiveImage;
   alt: string;
   container?: boolean;
   isIgnoredByImageViewer?: boolean;
@@ -19,27 +19,27 @@ export const Image = ({
   ${
     container
       ? `<div class="figure-container" style="padding-top:${
-          (imageWebP.height / imageWebP.width) * 100
+          (image.height / image.width) * 100
         }%">`
       : ''
   }
     <div
       class="image"
-      style="background-size: cover; background-image: url('${imageWebP.placeholder}')",
+      style="background-size: cover; background-image: url('${image.placeholder}')",
     }}>
       <picture loading="lazy">
         <source
-          srcset="${imageWebP.srcSet}" 
-          sizes="${getSizes(imageWebP, imageScreenRatio)}"
-          type="image/webp"
+          srcset="${image.srcSet}" 
+          sizes="${getSizes(image, imageScreenRatio)}"
+          type="image/"
         />
         <img
           ${isIgnoredByImageViewer ? 'image-viewer-ignore' : ''}
           tabindex="0"
           loading="lazy"
-          width="${imageWebP.width}"
-          height="${imageWebP.height}"
-          src="${last(imageWebP.images)?.path}" 
+          width="${image.width}"
+          height="${image.height}"
+          src="${last(image.images)?.path}" 
           alt="${alt}"
         />
       </picture>

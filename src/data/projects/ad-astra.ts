@@ -1,6 +1,6 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import adAstraWebP from '../media/ad_astra.jpg?format=webp';
+import adAstra from '../media/ad_astra.jpg';
 import adAstraMp4 from '../media/mp4/ad_astra.mp4';
 import adAstraWebM from '../media/webm/ad_astra.webm';
 import { GitHub } from '../shared';
@@ -9,7 +9,7 @@ export const adAstraTimelineElement: TimelineElementParameters = {
   title: `Gaming on an ATtiny85`,
   date: `2020 spring`,
   figure: new Video({
-    posterWebP: adAstraWebP,
+    poster: adAstra,
     mp4: adAstraMp4,
     webm: adAstraWebM,
   }),

@@ -1,6 +1,6 @@
 import { Video } from '../../page/basics/video/video';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import forexPosterWebP from '../media/forex.jpg?format=webp';
+import forexPoster from '../media/forex.jpg';
 import forexMp4 from '../media/mp4/forex.mp4';
 import forexWebM from '../media/webm/forex.webm';
 
@@ -8,7 +8,7 @@ export const forexTimelineElement: TimelineElementParameters = {
   title: `Predicting foreign exchange rates`,
   date: `2019 autumn`,
   figure: new Video({
-    posterWebP: forexPosterWebP,
+    poster: forexPoster,
     mp4: forexMp4,
     webm: forexWebM,
     invertButton: true,

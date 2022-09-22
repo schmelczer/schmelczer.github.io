@@ -6,7 +6,7 @@ import { Main } from '../page/main/main';
 import { PageElement } from '../page/page-element';
 import { PageTimeline } from '../page/timeline/timeline';
 import cvEnglish from './media/cv-andras-schmelczer.pdf';
-import meWebP from './media/me.jpg?format=webp';
+import me from './media/me.jpg';
 import { adAstraTimelineElement } from './projects/ad-astra';
 import { citySimulationTimelineElement } from './projects/city-simulation';
 import { declaredTimelineElement } from './projects/declared';
@@ -26,7 +26,7 @@ export const create = (): Array<PageElement> => [
     new PageBackground(1, 1),
     new PageHeader({
       name: `András Schmelczer`,
-      imageWebP: meWebP,
+      image: me,
       imageAltText: `a picture of me`,
       about: [
         `

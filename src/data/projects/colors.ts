@@ -1,12 +1,12 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import colourWebP from '../media/color.jpg?format=webp';
+import colour from '../media/color.jpg';
 
 export const colorsTimelineElement: TimelineElementParameters = {
   title: `Photo colour grader`,
   date: `2018 June`,
   figure: Image({
-    imageWebP: colourWebP,
+    image: colour,
     alt: `a picture of the app`,
     container: true,
   }),

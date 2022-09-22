@@ -1,12 +1,12 @@
 import { Image } from '../../page/basics/image/image.html';
 import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
-import processSimulatorWebP from '../media/process-simulator.jpg?format=webp';
+import processSimulator from '../media/process-simulator.jpg';
 
 export const nuclearTimelineElement: TimelineElementParameters = {
   title: `Simulating the cooling system of a nuclear facility`,
   date: `2018 October - November`,
   figure: Image({
-    imageWebP: processSimulatorWebP,
+    image: processSimulator,
     alt: `a screenshot of the simulator`,
     container: true,
   }),

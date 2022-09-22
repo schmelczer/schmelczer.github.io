@@ -4,6 +4,6 @@ import { url } from '../../../types/url';
 export interface VideoParameters {
   mp4: url;
   webm: url;
-  posterWebP: ResponsiveImage;
+  poster: ResponsiveImage;
   invertButton?: boolean;
 }
