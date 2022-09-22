@@ -62,9 +62,12 @@ export const create = (): Array<PageElement> => [
     }),
     Footer({
       title: `Learn more`,
-      curriculaVitae: [{ name: `Curriculum vitae`, url: cvEnglish }],
+      curriculaVitae: [{ name: `Download my CV`, url: cvEnglish }],
       email: `andras@schmelczer.dev`,
-      linkedin: `https://www.linkedin.com/in/andras-schmelczer-35487017b`,
+      linkedInLink: `https://www.linkedin.com/in/andras-schmelczer`,
+      linkedInText: 'Find me on LinkedIn',
+      gitHubLink: `https://github.com/schmelczer`,
+      gitHubText: 'Find me on GitHub',
       lastEditText: `Last modified on `,
     })
   ),

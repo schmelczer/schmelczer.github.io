@@ -1,5 +1,6 @@
 import cvIcon from '../../../static/icons/cv.svg';
 import emailIcon from '../../../static/icons/email.svg';
+import githubIcon from '../../../static/icons/github.svg';
 import linkedinIcon from '../../../static/icons/linkedin.svg';
 import { html } from '../../types/html';
 import { url } from '../../types/url';
@@ -12,16 +13,22 @@ export const Footer = ({
   title,
   email,
   curriculaVitae,
-  linkedin,
+  linkedInLink,
+  linkedInText,
+  gitHubLink,
+  gitHubText,
   lastEditText,
 }: {
   title: string;
-  email: url;
-  linkedin: url;
+  email: string;
   curriculaVitae: Array<{
     name: string;
     url: url;
   }>;
+  linkedInLink: url;
+  linkedInText: string;
+  gitHubLink: url;
+  gitHubText: string;
   lastEditText: string;
 }): html => `
   <footer id="footer">
@@ -29,21 +36,25 @@ export const Footer = ({
     <ul>
         ${curriculaVitae
           .map(
-            (cv, i) => `
+            (cv) => `
               <li>
                ${cvIcon}
-                <a id="cv-${i}" href="${cv.url}" target="_blank">${cv.name}</a>
+                <a rel="noopener" href="${cv.url}" download>${cv.name}</a>
               </li>
             `
           )
           .join('')}
       <li>
+        ${githubIcon}
+        <a rel="noopener" target="_blank" href="${gitHubLink}">${gitHubText}</a>
+      </li>
+      <li>
         ${linkedinIcon}
-        <a id="linkedin" target="_blank" href="${linkedin}">Find me on LinkedIn</a>
+        <a rel="noopener" target="_blank" href="${linkedInLink}">${linkedInText}</a>
       </li>
       <li>
         ${emailIcon}
-        <a id="email" href="mailto:${email}">${email}</a>
+        <a rel="noopener" href="mailto:${email}">${email}</a>
       </li>
     </ul>
     <aside class="other">
