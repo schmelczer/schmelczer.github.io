@@ -9,8 +9,7 @@ export class PageElement {
     this.setParent(null);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  protected setParent(parent?: PageElement | null): void {
+  protected setParent(_parent?: PageElement | null): void {
     this.children.forEach((c) => c.setParent(this));
   }
 
