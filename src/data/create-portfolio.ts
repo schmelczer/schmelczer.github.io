@@ -20,8 +20,9 @@ import { photosTimelineElement } from './projects/photos';
 import { platformGameTimelineElement } from './projects/platform-game';
 import { sdf2dTimelineElement } from './projects/sdf2d';
 import { towersTimelineElement } from './projects/towers';
+import { CV, Email, GitHubLink, LinkedIn } from './shared';
 
-export const create = (): Array<PageElement> => [
+export const createPortfolio = (): Array<PageElement> => [
   new Main(
     new PageBackground(1, 1),
     new PageHeader({
@@ -62,12 +63,12 @@ export const create = (): Array<PageElement> => [
     }),
     Footer({
       title: `Learn more`,
-      curriculaVitae: [{ name: `Download my CV`, url: cvEnglish }],
-      email: `andras@schmelczer.dev`,
-      linkedInLink: `https://www.linkedin.com/in/andras-schmelczer`,
-      linkedInText: 'Find me on LinkedIn',
-      gitHubLink: `https://github.com/schmelczer`,
-      gitHubText: 'Find me on GitHub',
+      links: [
+        CV(cvEnglish),
+        GitHubLink('https://github.com/schmelczer'),
+        LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
+        Email('mailto:andras@schmelczer.dev'),
+      ],
       lastEditText: `Last modified on `,
     })
   ),

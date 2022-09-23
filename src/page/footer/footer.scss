@@ -1,57 +1,24 @@
 @use '../../style/mixins' as *;
 
-footer#footer {
+#footer {
   text-align: center;
   margin-top: var(--large-margin);
-
-  a {
-    @include link;
-  }
 
   h2 {
     @include title-font();
   }
 
-  ul {
-    margin-top: var(--normal-margin);
-    list-style: none;
+  .links {
+    margin: var(--normal-margin) 0 0 var(--normal-margin);
     display: inline-block;
-    text-align: left;
-
-    li {
-      @include center-children();
-      justify-content: flex-start;
-
-      &:not(:first-child) {
-        padding-top: var(--line-height);
-      }
-
-      svg {
-        @include square(var(--icon-size));
-        margin-right: calc(var(--small-margin) / 2);
-        stroke: var(--normal-text-color);
-      }
-
-      a {
-        font-size: 1.4rem;
-      }
-    }
   }
 
-  aside.other {
-    @include center-children();
-    flex-direction: column;
-    margin: var(--large-margin) auto 0 auto;
-    padding-bottom: var(--line-height);
-    width: var(--body-width);
+  aside {
+    margin: var(--large-margin) auto var(--line-height) auto;
 
     p {
-      display: inline;
-      &,
-      * {
-        @include special-text-font();
-        color: var(--normal-text-color);
-      }
+      @include special-text-font();
+      color: var(--normal-text-color);
       opacity: 0.75;
     }
   }

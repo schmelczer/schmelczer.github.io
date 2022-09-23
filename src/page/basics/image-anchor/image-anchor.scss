@@ -1,25 +1,21 @@
 @use '../../../style/mixins' as *;
 
 .image-anchor {
-  @include image-button(var(--icon-size));
+  display: flex;
+  align-items: center;
 
-  .svg-container {
-    position: relative;
-    margin: auto;
-    @include square(var(--icon-size));
-
-    svg {
-      stroke: var(--normal-text-color);
-      transition: stroke var(--transition-time), transform var(--transition-time);
-    }
+  &:not(:first-child) {
+    padding-top: var(--line-height);
   }
 
-  p {
-    @include main-font();
-    padding-bottom: var(--small-margin);
-    font-size: 0.9rem;
-    font-style: italic;
-    padding: 0 8px 8px 8px;
-    text-align: center;
+  svg {
+    @include square(var(--icon-size));
+    margin-right: calc(var(--small-margin) / 2);
+    stroke: var(--normal-text-color);
+  }
+
+  a {
+    @include link;
+    font-size: 1.4rem;
   }
 }

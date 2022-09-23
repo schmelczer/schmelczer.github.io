@@ -9,15 +9,10 @@ export const ImageAnchorFactory =
   ) =>
   (href: url) =>
     `
-  <a class="image-anchor" 
-    href="${href}"
-    rel="noopener"
-    target="_blank"
-    ${shouldDownload ? 'download' : ''}
-  >
-    <div class="svg-container">
+    <div class="image-anchor">
       ${svg}
+      <a rel="noopener" target="_blank" href="${href}" ${
+      shouldDownload ? 'download' : ''
+    }>${title}</a>
     </div>
-    <p>${title}</p>
-  </a>
 `;
