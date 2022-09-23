@@ -10,14 +10,14 @@ export class Preview extends PageElement {
     this.query('.start-button').addEventListener('click', this.loadContent.bind(this));
   }
 
-  protected setParent(parent: PageElement) {
+  protected initialize() {
     new IntersectionObserver((e) => {
       if (!e[0].isIntersecting) {
         this.unloadContent();
       }
     }).observe(this.htmlRoot.parentElement!);
 
-    super.setParent(parent);
+    super.initialize();
   }
 
   public loadContent() {

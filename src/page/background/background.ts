@@ -60,16 +60,14 @@ export class PageBackground extends PageElement {
     requestAnimationFrame(this.drawIfNecessary.bind(this));
   }
 
-  private parent?: HTMLElement;
-  protected setParent(parent: PageElement) {
-    this.parent = parent.htmlRoot;
+  protected initialize() {
+    super.initialize();
     requestAnimationFrame(this.drawIfNecessary.bind(this));
-    super.setParent(parent);
   }
 
   private getSiblings(): Array<HTMLElement> {
     return Array.prototype.slice
-      .call(this.parent!.childNodes)
+      .call(this.htmlRoot.parentElement!.childNodes)
       .filter((n: HTMLElement) => n !== this.htmlRoot);
   }
 
