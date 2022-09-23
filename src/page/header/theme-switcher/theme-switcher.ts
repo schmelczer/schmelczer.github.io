@@ -9,20 +9,18 @@ export class PageThemeSwitcher extends PageElement {
     super(createElement(generate()));
 
     const storedIsDark = PageThemeSwitcher.loadFromLocalStorage();
-    const isDark = storedIsDark !== null ? storedIsDark : isSystemLevelDarkModeEnabled();
+    const isDark = storedIsDark ?? isSystemLevelDarkModeEnabled();
 
     if (isDark) {
       (this.htmlRoot as HTMLInputElement).checked = true;
       turnOffAnimations();
       turnOnDarkMode();
-      turnOnAnimations();
+      setTimeout(turnOnAnimations, 0);
     } else {
       turnOnLightMode();
     }
 
     this.htmlRoot.onchange = this.handleThemeChange.bind(this);
-
-    this.handleThemeChange();
   }
 
   private handleThemeChange() {
