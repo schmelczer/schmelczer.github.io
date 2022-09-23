@@ -1,7 +1,7 @@
 @use 'mixins' as *;
 
 :root {
-  --transition-time: 150ms;
+  --transition-time: 200ms;
   --transition-time-long: 300ms;
   --line-width: 3px;
   --line-height: 18px;
@@ -20,7 +20,7 @@
 @include on-large-screen {
   :root {
     --border-radius: 15px;
-    --large-margin: 70px;
+    --large-margin: 80px;
     --normal-margin: 45px;
     --small-margin: 25px;
     --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
