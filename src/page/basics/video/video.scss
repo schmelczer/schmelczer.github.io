@@ -5,11 +5,6 @@
     @include square(var(--large-icon-size));
     @include absolute-center;
     visibility: hidden;
-
-    & > svg {
-      @include square(var(--large-icon-size));
-      @include absolute-center;
-    }
   }
 
   video {
@@ -21,7 +16,7 @@
     z-index: 1;
   }
 
-  &.loaded .loading {
+  &.loaded:not(.fully-loaded) .loading {
     visibility: visible;
   }
 
