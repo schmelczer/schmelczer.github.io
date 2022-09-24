@@ -9,8 +9,10 @@ import '../static/no-change/favicons/site.webmanifest';
 import '../static/no-change/og-image.jpg';
 import '../static/no-change/robots.txt';
 import { createPortfolio } from './data/create-portfolio';
-import { addSupportForTabNavigation } from './helper/add-support-for-tab-navigation';
-import { removeUnnecessaryOutlines } from './helper/remove-unnecessary-outlines';
+import {
+  addSupportForTabNavigation,
+  removeUnnecessaryOutlines,
+} from './helper/accessibility';
 import { scrollToFragment } from './helper/scroll-to-fragment';
 import './styles.scss';
 
