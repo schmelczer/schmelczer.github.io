@@ -1,6 +1,6 @@
 import { createElement } from '../../helper/create-element';
 import { ResponsiveImage } from '../../types/responsive-image';
-import { Image } from '../basics/image/image.html';
+import { Image } from '../image-viewer/image/image.html';
 import { PageElement } from '../page-element';
 import { generate } from './header.html';
 import { PageThemeSwitcher } from './theme-switcher/theme-switcher';

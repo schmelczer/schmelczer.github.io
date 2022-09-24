@@ -10,10 +10,13 @@ export const generate = ({
   about: Array<string>;
   photo: html;
 }): html => `
-  <section id="about">
+  <header id="about">
     ${photo}
+
     <div class="placeholder"></div>
+
     <h1>${name}</h1>
+
     ${about.map((t) => `<p>${t}</p>`).join('')}
-  </section>
+  </header>
 `;

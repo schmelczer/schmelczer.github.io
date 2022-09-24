@@ -7,11 +7,14 @@ export class PageImageViewer extends PageElement {
     super(createElement(generate()));
 
     document.body.addEventListener('click', (event: MouseEvent) => {
-      if (
-        event.target instanceof HTMLImageElement &&
-        !(event.target.attributes['image-viewer-ignore'] as boolean | undefined)
-      ) {
-        this.showImage(event.target);
+      const element = event.target as HTMLElement;
+
+      if (element.classList?.contains('image')) {
+        this.showImage(element.querySelector('img')!);
+      }
+
+      if (element instanceof HTMLImageElement) {
+        this.showImage(element);
       }
     });
 
@@ -25,6 +28,10 @@ export class PageImageViewer extends PageElement {
   }
 
   private showImage(source: HTMLImageElement) {
+    if (source.attributes['image-viewer-ignore'] as boolean | undefined) {
+      return;
+    }
+
     const image = this.query('img') as HTMLImageElement;
     image.src = '';
     image.src = source.src;

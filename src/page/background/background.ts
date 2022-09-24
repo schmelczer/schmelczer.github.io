@@ -20,10 +20,8 @@ export class PageBackground extends PageElement {
   ) {
     super(createElement(generate()));
 
-    for (let i = 0; i < window.innerWidth / 10; i++) {
+    for (let i = 0; i < Math.max(30, window.innerWidth / 10); i++) {
       const blob = document.createElement('div');
-      blob.classList.add('blob');
-      blob.style.width = '140px';
       const z = this.random.inInterval(PageBackground.zMin, PageBackground.zMax);
       blob.style.zIndex = (-z).toFixed(0);
       blob.style.opacity = (
@@ -62,7 +60,7 @@ export class PageBackground extends PageElement {
 
   protected initialize() {
     super.initialize();
-    requestAnimationFrame(this.drawIfNecessary.bind(this));
+    this.drawIfNecessary();
   }
 
   private getSiblings(): Array<HTMLElement> {
