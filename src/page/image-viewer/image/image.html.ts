@@ -45,7 +45,7 @@ export const Image = ({
         />
       </picture>
     </div>
-  ${container ? `</div>` : ''}
+  ${container ? '</div>' : ''}
 `;
 
 const getSizes = (image: ResponsiveImage, imageScreenRatio: number): string =>

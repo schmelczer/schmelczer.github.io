@@ -6,8 +6,8 @@ import openIcon from '../../static/icons/open.svg';
 import packageIcon from '../../static/icons/package.svg';
 import pythonIcon from '../../static/icons/python.svg';
 import youtubeIcon from '../../static/icons/youtube.svg';
-import { ImageAnchorFactory } from '../page/basics/image-anchor/image-anchor.html';
-import { ImageButtonFactory } from '../page/basics/image-button/image-button.html';
+import { ImageAnchorFactory } from '../page/image-anchor/image-anchor.html';
+import { ImageButtonFactory } from '../page/image-button/image-button.html';
 
 export const GitHub = ImageButtonFactory(gitHubIcon, 'Open on GitHub');
 export const NPM = ImageButtonFactory(packageIcon, 'Open on npm');
@@ -22,3 +22,5 @@ export const CV = ImageAnchorFactory(cvIcon, 'Download my CV');
 export const GitHubLink = ImageAnchorFactory(gitHubIcon, 'Find me on GitHub');
 export const LinkedIn = ImageAnchorFactory(linkedInIcon, 'Find me on LinkedIn');
 export const Email = ImageAnchorFactory(emailIcon, 'andras@schmelczer.dev');
+
+export const videoPosterAltText = 'thumbnail for the video';
