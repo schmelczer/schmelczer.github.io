@@ -4,19 +4,19 @@
   text-align: center;
   margin-top: var(--large-margin);
 
-  h2 {
+  > h2 {
     @include title-font();
   }
 
-  .links {
+  > .links {
     margin: var(--normal-margin) 0 0 var(--normal-margin);
     display: inline-block;
   }
 
-  aside {
+  > aside {
     margin: var(--large-margin) auto var(--line-height) auto;
 
-    p {
+    > p {
       @include special-text-font();
       color: var(--normal-text-color);
       opacity: 0.75;

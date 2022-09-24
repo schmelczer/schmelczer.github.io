@@ -13,6 +13,10 @@
     color: var(--accent-color);
   }
 
+  :focus:not(:hover) {
+    outline: var(--very-light-text-color) solid 3px !important;
+  }
+
   h1,
   .placeholder {
     @include title-font();
@@ -27,7 +31,6 @@
   }
 
   p {
-    @include main-font();
     text-align: justify;
   }
 

@@ -2,34 +2,29 @@
 
 #background {
   transform-style: preserve-3d;
-  z-index: -1;
-  position: absolute;
-}
-
-.blob {
-  position: absolute;
-  left: 0;
-  top: 0;
-  border-radius: 1000px;
-  transition: background-color var(--transition-time);
-
-  &:nth-child(odd) {
-    background-color: #fff9e0;
-  }
-
-  &:nth-child(even) {
-    background-color: #ffd6d6;
-  }
 
   @media print {
-    & {
-      display: none;
+    display: none;
+  }
+
+  > div {
+    position: absolute;
+    width: 140px;
+    border-radius: 1000px;
+    transition: background-color var(--transition-time);
+
+    &:nth-child(odd) {
+      background-color: #fff9e0;
+    }
+
+    &:nth-child(even) {
+      background-color: #ffd6d6;
     }
   }
 }
 
 @include in-dark-mode {
-  .blob {
+  #background > div {
     background-color: #2c477a;
   }
 }

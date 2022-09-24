@@ -32,8 +32,8 @@
     right: 0;
     top: 0;
 
-    svg {
-      stroke: var(--normal-text-color);
+    &:focus:not(:hover) {
+      outline: var(--very-light-text-color) solid 3px !important;
     }
   }
 }

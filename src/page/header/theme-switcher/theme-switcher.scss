@@ -54,7 +54,7 @@
     &:before {
       transform: translateY(-50%) translateX(calc(3 * #{$margin} + #{$icon-size}));
 
-      animation: shine 3s linear alternate infinite;
+      animation: shine 2s linear alternate infinite;
       background-color: var(--sun-color);
       @keyframes shine {
         from {
@@ -63,7 +63,7 @@
         }
 
         to {
-          filter: brightness(1.1);
+          filter: brightness(1.2);
           box-shadow: 0 0 15px 2px var(--sun-color);
         }
       }

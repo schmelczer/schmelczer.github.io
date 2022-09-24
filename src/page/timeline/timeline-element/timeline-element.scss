@@ -168,13 +168,11 @@
             @include square(var(--icon-size));
 
             svg {
-              stroke: var(--normal-text-color);
               transition: stroke var(--transition-time), transform var(--transition-time);
             }
           }
 
           p {
-            @include main-font();
             padding-bottom: var(--small-margin);
             font-size: 0.9rem;
             font-style: italic;
