@@ -1,4 +1,4 @@
-import { url } from '../../../types/url';
+import { url } from '../../types/url';
 import './image-anchor.scss';
 
 export const ImageAnchorFactory =
@@ -8,11 +8,9 @@ export const ImageAnchorFactory =
     { shouldDownload = false }: { shouldDownload?: boolean } = {}
   ) =>
   (href: url) =>
-    `
-    <div class="image-anchor">
-      ${svg}
-      <a rel="noopener" target="_blank" href="${href}" ${
+    `<a rel="noopener" target="_blank" href="${href}" ${
       shouldDownload ? 'download' : ''
-    }>${title}</a>
-    </div>
-`;
+    } class="image-anchor">
+      ${svg}
+      <span>${title}</span>
+    </a>`;

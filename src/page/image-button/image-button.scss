@@ -1,21 +1,19 @@
-@use '../../../style/mixins' as *;
+@use '../../style/mixins' as *;
 
 .image-button {
   @include image-button(var(--icon-size));
 
-  .svg-container {
+  > .svg-container {
     position: relative;
     margin: auto;
     @include square(var(--icon-size));
 
-    svg {
-      stroke: var(--normal-text-color);
+    > svg {
       transition: stroke var(--transition-time), transform var(--transition-time);
     }
   }
 
-  p {
-    @include main-font();
+  > p {
     padding-bottom: var(--small-margin);
     font-size: 0.9rem;
     font-style: italic;

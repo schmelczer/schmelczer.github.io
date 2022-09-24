@@ -1,8 +1,9 @@
-@use '../../../style/mixins' as *;
+@use '../../style/mixins' as *;
 
 .image-anchor {
   display: flex;
   align-items: center;
+  text-decoration: none;
 
   &:not(:first-child) {
     padding-top: var(--line-height);
@@ -11,10 +12,9 @@
   svg {
     @include square(var(--icon-size));
     margin-right: calc(var(--small-margin) / 2);
-    stroke: var(--normal-text-color);
   }
 
-  a {
+  span {
     @include link;
     font-size: 1.4rem;
   }

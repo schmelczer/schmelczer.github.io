@@ -1,13 +1,12 @@
 .image {
-  font-size: 0;
   overflow: hidden;
-
-  &:not([image-viewer-ignore]) {
-    cursor: pointer;
-  }
 
   img {
     max-width: 100%;
     max-height: 100%;
+
+    &:not([image-viewer-ignore]) {
+      cursor: pointer;
+    }
   }
 }

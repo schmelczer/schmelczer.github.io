@@ -1,4 +1,4 @@
-@use '../../../style/mixins' as *;
+@use '../../style/mixins' as *;
 
 .preview {
   position: relative;
@@ -18,11 +18,6 @@
       @include square(var(--large-icon-size));
       @include absolute-center;
       visibility: hidden;
-
-      & > svg {
-        @include square(var(--large-icon-size));
-        @include absolute-center;
-      }
     }
 
     iframe {

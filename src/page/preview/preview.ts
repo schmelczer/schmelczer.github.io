@@ -1,6 +1,6 @@
-import { createElement } from '../../../helper/create-element';
-import { ResponsiveImage } from '../../../types/responsive-image';
-import { PageElement } from '../../page-element';
+import { createElement } from '../../helper/create-element';
+import { ResponsiveImage } from '../../types/responsive-image';
+import { PageElement } from '../page-element';
 import { generate } from './preview.html';
 
 export class Preview extends PageElement {

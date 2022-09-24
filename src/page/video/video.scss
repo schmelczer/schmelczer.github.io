@@ -1,0 +1,16 @@
+@use '../../style/mixins' as *;
+
+.video-container {
+  video {
+    z-index: 1;
+    visibility: hidden;
+  }
+
+  .start-button {
+    z-index: 1;
+  }
+
+  &.fully-loaded video {
+    visibility: visible;
+  }
+}

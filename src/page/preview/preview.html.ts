@@ -1,8 +1,8 @@
-import loading from '../../../../static/icons/loading.svg';
-import play from '../../../../static/icons/play-button.svg';
-import { html } from '../../../types/html';
-import { ResponsiveImage } from '../../../types/responsive-image';
-import { Image } from '../../basics/image/image.html';
+import loading from '../../../static/icons/loading.svg';
+import play from '../../../static/icons/play-button.svg';
+import { html } from '../../types/html';
+import { ResponsiveImage } from '../../types/responsive-image';
+import { Image } from '../image-viewer/image/image.html';
 import './preview.scss';
 
 export const generate = ({

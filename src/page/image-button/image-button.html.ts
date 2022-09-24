@@ -1,4 +1,4 @@
-import { url } from '../../../types/url';
+import { url } from '../../types/url';
 import './image-button.scss';
 
 export const ImageButtonFactory =

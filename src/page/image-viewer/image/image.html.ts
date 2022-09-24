@@ -25,8 +25,9 @@ export const Image = ({
   }
     <div
       class="image"
-      style="background-size: cover; background-image: url('${image.placeholder}')",
-    }}>
+      style="background-size: cover; background-image: url('${image.placeholder}')"
+      ${isIgnoredByImageViewer ? '' : 'tabindex="0"'}
+    >
       <picture loading="lazy">
         <source
           srcset="${image.srcSet}" 
@@ -35,7 +36,7 @@ export const Image = ({
         />
         <img
           ${isIgnoredByImageViewer ? 'image-viewer-ignore' : ''}
-          tabindex="0"
+         
           loading="lazy"
           width="${image.width}"
           height="${image.height}"

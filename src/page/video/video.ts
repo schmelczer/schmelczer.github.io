@@ -1,5 +1,5 @@
-import { createElement } from '../../../helper/create-element';
-import { PageElement } from '../../page-element';
+import { createElement } from '../../helper/create-element';
+import { PageElement } from '../page-element';
 import { VideoParameters } from './video-parameters';
 import { generate } from './video.html';
 
@@ -9,12 +9,10 @@ export class Video extends PageElement {
   public constructor(options: VideoParameters) {
     super(createElement(generate(options)));
     this.video = this.query('video') as HTMLVideoElement;
-    this.video.addEventListener('click', this.startVideo.bind(this));
 
-    this.video.addEventListener('play', () =>
-      this.htmlRoot.classList.add('fully-loaded')
-    );
+    this.htmlRoot.addEventListener('click', this.startVideo.bind(this));
     this.query('.start-button').addEventListener('click', this.startVideo.bind(this));
+
     this.video.addEventListener('pause', this.pauseVideo.bind(this));
   }
 
