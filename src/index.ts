@@ -14,7 +14,7 @@ import {
   removeUnnecessaryOutlines,
 } from './helper/accessibility';
 import { scrollToFragment } from './helper/scroll-to-fragment';
-import './styles.scss';
+import './index.scss';
 
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();
