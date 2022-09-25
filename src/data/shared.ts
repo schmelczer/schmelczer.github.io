@@ -18,7 +18,7 @@ export const Thesis = ImageButtonFactory(cvIcon, 'Download thesis', {
 });
 export const Youtube = ImageButtonFactory(youtubeIcon, 'Open on YouTube');
 
-export const CV = ImageAnchorFactory(cvIcon, 'Download my CV');
+export const CV = ImageAnchorFactory(cvIcon, 'Download my CV', { shouldDownload: true });
 export const GitHubLink = ImageAnchorFactory(gitHubIcon, 'Find me on GitHub');
 export const LinkedIn = ImageAnchorFactory(linkedInIcon, 'Find me on LinkedIn');
 export const Email = ImageAnchorFactory(emailIcon, 'andras@schmelczer.dev');
