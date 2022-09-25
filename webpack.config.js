@@ -59,10 +59,10 @@ module.exports = (env, argv) => ({
         loader: 'responsive-loader',
         options: {
           adapter: require('responsive-loader/sharp'),
-          sizes: [200, 500, 1200, 1920],
+          sizes: [200, 500, 900, 1400, 1920],
           placeholder: true,
           placeholderSize: 64,
-          quality: 90,
+          quality: 85,
           format: 'webp',
           progressive: true,
           name: '[hash:8].[ext]',

@@ -7,11 +7,13 @@ export const Image = ({
   alt,
   container = false,
   isIgnoredByImageViewer = false,
+  sizes = null,
 }: {
   image: ResponsiveImage;
   alt: string;
   container?: boolean;
   isIgnoredByImageViewer?: boolean;
+  sizes?: string | null;
 }): html => `
   ${
     container
@@ -28,9 +30,8 @@ export const Image = ({
       <img
         ${isIgnoredByImageViewer ? 'image-viewer-ignore' : ''}
         loading="lazy"
-        width="${image.width}"
-        height="${image.height}"
         srcset="${image.srcSet}"
+        ${sizes ? `sizes="${sizes}"` : ''}
         src="${image.src}"
         alt="${alt}"
       />

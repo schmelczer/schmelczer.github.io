@@ -23,6 +23,7 @@ export class Header extends PageElement {
         photo: Image({
           image,
           alt: imageAltText,
+          sizes: '(max-width: 924px) 125px, 190px',
         }),
       })
     );
