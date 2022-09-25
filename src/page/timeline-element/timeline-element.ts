@@ -31,7 +31,7 @@ export class TimelineElement extends PageElement {
     super.initialize();
 
     if (titleToFragment(this.timelineElement.title) === window.location.hash) {
-      this.openMore();
+      setTimeout(this.openMore.bind(this), 100);
     }
   }
 
@@ -63,7 +63,7 @@ export class TimelineElement extends PageElement {
   private handleResize() {
     if (this.isOpen) {
       this.more.style.height = 'auto';
-      this.openMore();
+      setTimeout(this.openMore.bind(this), 100);
     }
   }
 }
