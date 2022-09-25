@@ -22,7 +22,7 @@ import { sdf2d } from './projects/sdf2d';
 import { towers } from './projects/towers';
 import { CV, Email, GitHubLink, LinkedIn } from './shared';
 
-export const createPortfolio = (): Array<PageElement> => [
+export const portfolio: Array<PageElement> = [
   new Main(
     new Background(1, 1),
     new Header({
@@ -30,9 +30,11 @@ export const createPortfolio = (): Array<PageElement> => [
       image: me,
       imageAltText: 'a picture of me',
       about: [
-        "With more than six years of professional experience and a degree in Computer Science, I can confidently tackle any challenge regardless of its complexity. My interests span diverse areas, making me able to architect vast and sophisticated systems with a clear understanding. I'm keen on designing distributed systems, especially when AI/ML is involved.",
-        "I'm excited to take my part in connecting people and providing them with AI/ML solutions along with the necessary computing capabilities which were unimaginable even a decade ago.",
-        ' Discover some of my more interesting earlier projects. They are all listed below. Further information about me can be found at the bottom of the page.',
+        'With more than six years of professional software engineering experience and a degree in Computer Science, I can confidently undertake any challenge. My interests span diverse areas, allowing me to design complex &mdash; even multidisciplinary &mdash; systems with a clear understanding.',
+
+        "I'm passionate about architecting and building large-scale systems, especially in the context of AI/ML. However, in my free time, I also enjoy working with shaders, data visualisation, and sometimes even microcontrollers.",
+
+        "Discover some of my more exciting projects below. If you'd like to reach out to me, my contact details are at the bottom of the page.",
       ],
     }),
 
@@ -60,7 +62,7 @@ export const createPortfolio = (): Array<PageElement> => [
         LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
         Email('mailto:andras@schmelczer.dev'),
       ],
-      lastEditText: 'Last modified on ',
+      lastEditText: 'Last modified on',
     })
   ),
   new ImageViewer(),

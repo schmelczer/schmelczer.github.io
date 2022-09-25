@@ -8,7 +8,7 @@ import '../static/no-change/favicons/favicon.ico';
 import '../static/no-change/favicons/site.webmanifest';
 import '../static/no-change/og-image.jpg';
 import '../static/no-change/robots.txt';
-import { createPortfolio } from './data/create-portfolio';
+import { portfolio } from './data/create-portfolio';
 import {
   addSupportForTabNavigation,
   removeUnnecessaryOutlines,
@@ -18,5 +18,5 @@ import './index.scss';
 
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();
-createPortfolio().forEach((e) => e.attachToDOM(document.body));
+portfolio.forEach((e) => e.attachToDOM(document.body));
 scrollToFragment();
