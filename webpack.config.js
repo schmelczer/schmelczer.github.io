@@ -59,7 +59,7 @@ module.exports = (env, argv) => ({
         loader: 'responsive-loader',
         options: {
           adapter: require('responsive-loader/sharp'),
-          sizes: [200, 400, 800, 1200, 1920],
+          sizes: [200, 500, 1200, 1920],
           placeholder: true,
           placeholderSize: 64,
           quality: 90,
@@ -69,7 +69,7 @@ module.exports = (env, argv) => ({
         },
       },
       {
-        test: /\.(webm|mp4)$/i,
+        test: /\.(webm|mp4|woff2?)$/i,
         type: 'asset/resource',
         generator: {
           filename: '[hash:8][ext]',
