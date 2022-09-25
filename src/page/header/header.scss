@@ -13,10 +13,6 @@
     color: var(--accent-color);
   }
 
-  :focus:not(:hover) {
-    outline: var(--very-light-text-color) solid 3px !important;
-  }
-
   h1,
   .placeholder {
     @include title-font();
@@ -42,6 +38,12 @@
   h1 {
     color: var(--very-light-text-color);
     margin-top: var(--line-height);
+  }
+
+  @include on-small-screen {
+    :focus:not(:hover) {
+      outline: var(--very-light-text-color) solid 3px !important;
+    }
   }
 
   @include on-large-screen {
