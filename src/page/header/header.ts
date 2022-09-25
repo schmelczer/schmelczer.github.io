@@ -25,7 +25,6 @@ export class Header extends PageElement {
           photo: Image({
             image,
             alt: imageAltText,
-            imageScreenRatio: 0.2,
           }),
         })
       )
