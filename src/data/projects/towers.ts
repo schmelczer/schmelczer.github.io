@@ -1,5 +1,5 @@
 import { Image } from '../../page/image-viewer/image/image.html';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import towersPoster from '../media/towers.png';
 import { GitHub, Open } from '../shared';
 

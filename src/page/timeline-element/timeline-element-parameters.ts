@@ -1,6 +1,6 @@
-import { html } from '../../../types/html';
-import { Preview } from '../../preview/preview';
-import { Video } from '../../video/video';
+import { html } from '../../types/html';
+import { Preview } from '../preview/preview';
+import { Video } from '../video/video';
 
 export interface TimelineElementParameters {
   date: string;

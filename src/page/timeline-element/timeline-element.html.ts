@@ -1,6 +1,6 @@
-import info from '../../../../static/icons/info.svg';
-import { titleToFragment } from '../../../helper/title-to-fragment';
-import { html } from '../../../types/html';
+import info from '../../../static/icons/info.svg';
+import { titleToFragment } from '../../helper/title-to-fragment';
+import { html } from '../../types/html';
 import { TimelineElementParameters } from './timeline-element-parameters';
 import './timeline-element.scss';
 
@@ -8,7 +8,7 @@ export const generate = (
   { date, title, description, more, links }: TimelineElementParameters,
   showMore: string
 ): html => `
-  <section id="${titleToFragment(title)}" class="timeline-element">
+  <article id="${titleToFragment(title)}" class="timeline-element">
     <div class="line-container">
       <div class="line"></div>
       <p class="date">${date}</p>
@@ -33,15 +33,16 @@ export const generate = (
 
         <div class="buttons">
         ${
-          more &&
-          `<div tabindex=0 class="info-button">
+          more
+            ? `<div tabindex=0 class="info-button">
               <div class="svg-container">${info}</div>
               <p>${showMore}</p>
             </div>`
+            : ''
         }
         ${links.join('')}
         </div>
       </div>
     </div>
-  </section>
+  </article>
 `;

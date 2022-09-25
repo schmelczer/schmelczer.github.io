@@ -6,7 +6,7 @@ import { sum } from '../../helper/sum';
 import { PageElement } from '../page-element';
 import { generate } from './background.html';
 
-export class PageBackground extends PageElement {
+export class Background extends PageElement {
   private static readonly perspective = 5;
   private static readonly zMin = 6;
   private static readonly zMax = 50;
@@ -22,11 +22,11 @@ export class PageBackground extends PageElement {
 
     for (let i = 0; i < Math.max(30, window.innerWidth / 10); i++) {
       const blob = document.createElement('div');
-      const z = this.random.inInterval(PageBackground.zMin, PageBackground.zMax);
+      const z = this.random.inInterval(Background.zMin, Background.zMax);
       blob.style.zIndex = (-z).toFixed(0);
       blob.style.opacity = (
         1 -
-        (z - PageBackground.zMin) / (PageBackground.zMax - PageBackground.zMin)
+        (z - Background.zMin) / (Background.zMax - Background.zMin)
       ).toString();
       blob.style.height = `${this.random.inInterval(360, 740)}px`;
       this.blobs.push(blob);
@@ -85,36 +85,36 @@ export class PageBackground extends PageElement {
     height: number
   ): [number, number] {
     const farTop = -(
-      ((this.windowHeight / 2 - topOffset) / PageBackground.perspective) *
-        (PageBackground.zMax + PageBackground.perspective) -
+      ((this.windowHeight / 2 - topOffset) / Background.perspective) *
+        (Background.zMax + Background.perspective) -
       this.windowHeight / 2
     );
 
     const farBottom = Math.min(
-      ((this.windowHeight / 2 - bottomOffset) / PageBackground.perspective) *
-        (PageBackground.zMax + PageBackground.perspective) -
+      ((this.windowHeight / 2 - bottomOffset) / Background.perspective) *
+        (Background.zMax + Background.perspective) -
         this.windowHeight / 2 +
         this.contentHeight,
       this.contentHeight - height
     );
 
     const endXSpan =
-      ((this.windowWidth / PageBackground.perspective) *
-        (PageBackground.zMax + PageBackground.perspective)) /
+      ((this.windowWidth / Background.perspective) *
+        (Background.zMax + Background.perspective)) /
       2;
 
     return [
       this.random.inInterval(
-        mix(0, -(endXSpan - this.windowWidth / 2), z / PageBackground.zMax),
+        mix(0, -(endXSpan - this.windowWidth / 2), z / Background.zMax),
         mix(
           this.windowWidth,
           this.windowWidth + endXSpan - this.windowWidth / 2,
-          z / PageBackground.zMax
+          z / Background.zMax
         )
       ),
       this.random.inInterval(
-        mix(topOffset, farTop, z / PageBackground.zMax),
-        mix(this.contentHeight - bottomOffset, farBottom, z / PageBackground.zMax)
+        mix(topOffset, farTop, z / Background.zMax),
+        mix(this.contentHeight - bottomOffset, farBottom, z / Background.zMax)
       ),
     ];
   }

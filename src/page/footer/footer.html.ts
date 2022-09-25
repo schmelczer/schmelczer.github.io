@@ -13,7 +13,7 @@ export const Footer = ({
   links: Array<html>;
   lastEditText: string;
 }): html => `
-  <footer id="footer">
+  <footer id="contact">
     <h2>${title}</h2>
 
     <div class="links">

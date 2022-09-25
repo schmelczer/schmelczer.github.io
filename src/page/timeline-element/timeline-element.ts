@@ -1,9 +1,9 @@
-import { createElement } from '../../../helper/create-element';
-import { PageElement } from '../../page-element';
+import { createElement } from '../../helper/create-element';
+import { PageElement } from '../page-element';
 import { TimelineElementParameters } from './timeline-element-parameters';
 import { generate } from './timeline-element.html';
 
-export class PageTimelineElement extends PageElement {
+export class TimelineElement extends PageElement {
   private isOpen = false;
   private more: HTMLElement;
 

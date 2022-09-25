@@ -26,6 +26,8 @@
   }
 
   #cancel {
+    background: none;
+    border: none;
     @include image-button(var(--large-icon-size));
     @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
     position: absolute;

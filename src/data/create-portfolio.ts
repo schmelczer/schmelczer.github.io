@@ -1,10 +1,10 @@
-import { PageBackground } from '../page/background/background';
+import { Background } from '../page/background/background';
 import { Footer } from '../page/footer/footer.html';
-import { PageHeader } from '../page/header/header';
-import { PageImageViewer } from '../page/image-viewer/image-viewer';
+import { Header } from '../page/header/header';
+import { ImageViewer } from '../page/image-viewer/image-viewer';
 import { Main } from '../page/main/main';
 import { PageElement } from '../page/page-element';
-import { PageTimeline } from '../page/timeline/timeline';
+import { TimelineElement } from '../page/timeline-element/timeline-element';
 import cvEnglish from './media/cv-andras-schmelczer.pdf';
 import me from './media/me.jpg';
 import { adAstra } from './projects/ad-astra';
@@ -24,8 +24,8 @@ import { CV, Email, GitHubLink, LinkedIn } from './shared';
 
 export const createPortfolio = (): Array<PageElement> => [
   new Main(
-    new PageBackground(1, 1),
-    new PageHeader({
+    new Background(1, 1),
+    new Header({
       name: 'András Schmelczer',
       image: me,
       imageAltText: 'a picture of me',
@@ -35,25 +35,23 @@ export const createPortfolio = (): Array<PageElement> => [
         ' Discover some of my more interesting earlier projects. They are all listed below. Further information about me can be found at the bottom of the page.',
       ],
     }),
-    new PageTimeline({
-      showMoreText: 'Show details',
-      showLessText: 'Show less',
-      elements: [
-        greatAi,
-        declared,
-        sdf2d,
-        adAstra,
-        forex,
-        myNotes,
-        towers,
-        nuclear,
-        nuclearEditor,
-        citySimulation,
-        platformGame,
-        photos,
-        leds,
-      ],
-    }),
+
+    ...[
+      greatAi,
+      declared,
+      sdf2d,
+      adAstra,
+      forex,
+      myNotes,
+      towers,
+      nuclear,
+      nuclearEditor,
+      citySimulation,
+      platformGame,
+      photos,
+      leds,
+    ].map((p) => new TimelineElement(p, 'Show details', 'Show less')),
+
     Footer({
       title: 'Learn more',
       links: [
@@ -65,5 +63,5 @@ export const createPortfolio = (): Array<PageElement> => [
       lastEditText: 'Last modified on ',
     })
   ),
-  new PageImageViewer(),
+  new ImageViewer(),
 ];

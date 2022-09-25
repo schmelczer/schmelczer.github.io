@@ -1,5 +1,5 @@
 import { Preview } from '../../page/preview/preview';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import declaredPoster from '../media/decla-red.png';
 import bscThesis from '../media/sdf2d-andras-schmelczer.pdf';
 import { GitHub, Open, Thesis } from '../shared';

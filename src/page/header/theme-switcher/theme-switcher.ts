@@ -2,13 +2,13 @@ import { createElement } from '../../../helper/create-element';
 import { PageElement } from '../../page-element';
 import { generate } from './theme-switcher.html';
 
-export class PageThemeSwitcher extends PageElement {
+export class ThemeSwitcher extends PageElement {
   private static readonly localStorageKey = 'dark-mode';
 
   public constructor() {
     super(createElement(generate()));
 
-    const storedIsDark = PageThemeSwitcher.loadFromLocalStorage();
+    const storedIsDark = ThemeSwitcher.loadFromLocalStorage();
     const isDark = storedIsDark ?? isSystemLevelDarkModeEnabled();
 
     if (isDark) {
@@ -31,19 +31,16 @@ export class PageThemeSwitcher extends PageElement {
       turnOnLightMode();
     }
 
-    PageThemeSwitcher.saveToLocalStorage(isDark);
+    ThemeSwitcher.saveToLocalStorage(isDark);
   }
 
   private static saveToLocalStorage(darkModeEnabled: boolean) {
-    localStorage?.setItem(
-      PageThemeSwitcher.localStorageKey,
-      JSON.stringify(darkModeEnabled)
-    );
+    localStorage?.setItem(ThemeSwitcher.localStorageKey, JSON.stringify(darkModeEnabled));
   }
 
   private static loadFromLocalStorage(): boolean | null {
     try {
-      return JSON.parse(localStorage!.getItem(PageThemeSwitcher.localStorageKey)!);
+      return JSON.parse(localStorage!.getItem(ThemeSwitcher.localStorageKey)!);
     } catch {
       return null;
     }

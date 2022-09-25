@@ -1,5 +1,5 @@
 import { Image } from '../../page/image-viewer/image/image.html';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import processSimulatorPoster from '../media/process-simulator.jpg';
 
 export const nuclear: TimelineElementParameters = {

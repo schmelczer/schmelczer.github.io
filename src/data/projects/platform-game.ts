@@ -1,4 +1,4 @@
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import { Video } from '../../page/video/video';
 import platformMp4 from '../media/mp4/platform.mp4';
 import platformPoster from '../media/platform.png';

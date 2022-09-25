@@ -1,4 +1,4 @@
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import { Video } from '../../page/video/video';
 import forexPoster from '../media/forex.jpg';
 import forexMp4 from '../media/mp4/forex.mp4';

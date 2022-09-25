@@ -1,4 +1,4 @@
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import { Video } from '../../page/video/video';
 import adAstraPoster from '../media/ad_astra.jpg';
 import adAstraMp4 from '../media/mp4/ad_astra.mp4';

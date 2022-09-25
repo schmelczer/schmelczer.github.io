@@ -1,5 +1,5 @@
 import { Image } from '../../page/image-viewer/image/image.html';
-import { TimelineElementParameters } from '../../page/timeline/timeline-element/timeline-element-parameters';
+import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import mscThesis from '../media/great-ai-andras-schmelczer.pdf';
 import greatAiPoster from '../media/great-ai.png';
 import { Open, PyPi, Thesis } from '../shared';

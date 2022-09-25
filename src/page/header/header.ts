@@ -3,9 +3,9 @@ import { ResponsiveImage } from '../../types/responsive-image';
 import { Image } from '../image-viewer/image/image.html';
 import { PageElement } from '../page-element';
 import { generate } from './header.html';
-import { PageThemeSwitcher } from './theme-switcher/theme-switcher';
+import { ThemeSwitcher } from './theme-switcher/theme-switcher';
 
-export class PageHeader extends PageElement {
+export class Header extends PageElement {
   public constructor({
     name,
     image,
@@ -30,6 +30,6 @@ export class PageHeader extends PageElement {
         })
       )
     );
-    this.attachElement(new PageThemeSwitcher());
+    this.attachElement(new ThemeSwitcher());
   }
 }
