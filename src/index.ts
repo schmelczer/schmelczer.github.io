@@ -8,7 +8,7 @@ import '../static/no-change/favicons/favicon.ico';
 import '../static/no-change/favicons/site.webmanifest';
 import '../static/no-change/og-image.jpg';
 import '../static/no-change/robots.txt';
-import { portfolio } from './data/create-portfolio';
+import { portfolio } from './data/portfolio';
 import {
   addSupportForTabNavigation,
   removeUnnecessaryOutlines,
