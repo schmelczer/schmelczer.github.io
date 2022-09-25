@@ -14,6 +14,7 @@ export const nuclearEditor: TimelineElementParameters = {
     'An intuitive editor to create and edit input for the nuclear facility simulator.',
   more: [
     'Nodes can be moved with drag & drop gestures. Editing the parameters of elements can be done on the right panel.',
+
     'The UI is built with JavaFX. The output can be exported as JSON or directly uploaded to the simulation backend.',
   ],
   links: [],

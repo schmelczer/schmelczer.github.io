@@ -15,7 +15,9 @@ export const sdf2d: TimelineElementParameters = {
     'I created the SDF-2D library for efficiently rendering 2D scenes using ray tracing. My solution relies on signed distance fields (SDF-s), it supports both WebGL and WebGL2, and is an easily reusable and extensible NPM package.',
   more: [
     'A multitude of optimisations were needed to achieve real-time performance even on low-end mobile devices. These include deferred shading, tile-based rendering, and dynamic shader generation to eliminate unnecessary instructions.',
+
     'The result is a reusable library written in TypeScript with a — subjectively — simple and elegant API. For more information please check out the GitHub repository or the NPM package itself. Or simply enjoy the mesmerising demo scenes.',
+
     'Creating this library package is also covered in my thesis (available above).',
   ],
   links: [

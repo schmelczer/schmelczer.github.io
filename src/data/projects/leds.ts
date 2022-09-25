@@ -18,6 +18,7 @@ export const leds: TimelineElementParameters = {
     'A full stack application with a built-in music player the output of which controls the colour of a couple of RGB LED strips.',
   more: [
     'This was my first non-trivial project which got finished. Obviously, it is rather far from perfect, but I am still proud that I was able to build it on my own.',
+
     'The backend logic is written in Python, the FFT implementation is provided by NumPy. A quite simple frontend for accessing the music player and changing the settings also got built using vanilla web development technologies.',
   ],
   links: [],
