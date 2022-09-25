@@ -1,6 +1,6 @@
-# Timeline 
+# Portfolio 
 
-> An easy-to-configure portfolio.
+> An easy-to-configure timeline for your projects.
 
 [![Check, build and deploy to GitHub Pages](https://github.com/schmelczer/schmelczer.github.io/actions/workflows/lint-and-deploy.yaml/badge.svg)](https://github.com/schmelczer/schmelczer.github.io/actions/workflows/lint-and-deploy.yaml)
 
