@@ -46,6 +46,7 @@
     "sass": "^1.55.0",
     "sass-loader": "^13.0.2",
     "sharp": "^0.31.0",
+    "sitemap-webpack-plugin": "^1.1.1",
     "string-replace-loader": "^3.1.0",
     "svg-inline-loader": "^0.8.2",
     "terser-webpack-plugin": "^5.3.6",

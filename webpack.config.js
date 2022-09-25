@@ -2,8 +2,10 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const InlineSourceWebpackPlugin = require('inline-source-webpack-plugin');
+const SitemapPlugin = require('sitemap-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const webpack = require('webpack');
+
+const domain = 'schmelczer.dev';
 
 module.exports = (env, argv) => ({
   devtool: argv.mode === 'development' ? 'inline-source-map' : false,
@@ -26,6 +28,16 @@ module.exports = (env, argv) => ({
     maxAssetSize: 512000,
   },
   plugins: [
+    new SitemapPlugin({
+      base: `https://${domain}`,
+      paths: [
+        {
+          path: '/',
+          priority: 1,
+          changefreq: 'daily',
+        },
+      ],
+    }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
@@ -35,7 +47,7 @@ module.exports = (env, argv) => ({
           compress: true,
         })
       : null,
-    new webpack.DefinePlugin({
+    new (require('webpack').DefinePlugin)({
       __CURRENT_DATE__: Date.now(),
     }),
   ].filter(Boolean),
