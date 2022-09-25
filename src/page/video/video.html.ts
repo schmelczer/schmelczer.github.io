@@ -19,7 +19,7 @@ export const generate = ({
       alt: altText,
       isIgnoredByImageViewer: true,
     })}
-    <video playsinline preload="none">
+    <video playsinline controls preload="none">
         <source src="${webm}" type="video/webm"/>
         <source src="${mp4}" type="video/mp4"/>
     </video>
