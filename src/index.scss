@@ -130,7 +130,7 @@ iframe {
   outline: none;
 
   &:not(:hover) {
-    outline: var(--accent-color) solid 3px;
+    outline: var(--accent-color) solid var(--line-width);
   }
 }
 

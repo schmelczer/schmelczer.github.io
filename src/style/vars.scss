@@ -3,7 +3,7 @@
 :root {
   --transition-time: 200ms;
   --transition-time-long: 300ms;
-  --line-width: 3px;
+  --line-width: 4px;
   --line-height: 18px;
   --accent-color: #b7455e;
   --sun-color: #f7f78c;
@@ -49,8 +49,8 @@
   --background: #242638;
   --normal-text-color: #ffffff;
   --card-color: #263551;
-  --blurred-card-color: #26355155;
-  --blur-radius: 24px;
+  --blurred-card-color: #212f4a77;
+  --blur-radius: 30px;
   --special-text-color: #ffffff;
   --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.25), inset 0 0 1px rgba(0, 0, 0, 0.4);
 }

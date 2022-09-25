@@ -42,7 +42,7 @@
 
   @include on-small-screen {
     :focus:not(:hover) {
-      outline: var(--very-light-text-color) solid 3px !important;
+      outline: var(--very-light-text-color) solid var(--line-width);
     }
   }
 
