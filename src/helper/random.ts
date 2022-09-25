@@ -1,4 +1,5 @@
 export class Random {
+  // don't set the seed 0
   public constructor(public seed: number = 42) {}
 
   public get next(): number {
