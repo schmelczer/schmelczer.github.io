@@ -72,13 +72,18 @@ export class Background extends PageElement {
   private randomizeBlobs(topOffset: number, bottomOffset: number) {
     this.random.seed = 50;
     this.blobs.forEach((b) => {
-      const z = -Number.parseInt(b.style.zIndex);
-      const [x, y] = this.randomXY(z, topOffset, bottomOffset, parseInt(b.style.height));
+      const z = -parseFloat(b.style.zIndex);
+      const [x, y] = this.getRandomPosition(
+        z,
+        topOffset,
+        bottomOffset,
+        parseFloat(b.style.height)
+      );
       b.style.transform = `translate3D(${x}px, ${y}px, ${-z}px) rotate(-20deg)`;
     });
   }
 
-  private randomXY(
+  private getRandomPosition(
     z: number,
     topOffset: number,
     bottomOffset: number,
@@ -112,10 +117,7 @@ export class Background extends PageElement {
           z / Background.zMax
         )
       ),
-      this.random.inInterval(
-        mix(topOffset, farTop, z / Background.zMax),
-        mix(this.contentHeight - bottomOffset, farBottom, z / Background.zMax)
-      ),
+      this.random.inInterval(mix(topOffset, farTop, z / Background.zMax), farBottom),
     ];
   }
 }
