@@ -1,10 +1,9 @@
-import { createElement } from '../../helper/create-element';
 import { PageElement } from '../page-element';
 import { generate } from './image-viewer.html';
 
 export class ImageViewer extends PageElement {
   public constructor() {
-    super(createElement(generate()));
+    super(generate());
 
     document.body.addEventListener('click', (event: MouseEvent) => {
       const element = event.target as HTMLElement;

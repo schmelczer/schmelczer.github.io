@@ -1,4 +1,3 @@
-import { createElement } from '../../helper/create-element';
 import { getHeight } from '../../helper/get-height';
 import { mix } from '../../helper/mix';
 import { Random } from '../../helper/random';
@@ -27,7 +26,7 @@ export class Background extends PageElement {
     private readonly topOffsetElementCount: number,
     private readonly bottomOffsetElementCount: number
   ) {
-    super(createElement(generate()));
+    super(generate());
   }
 
   protected initialize() {

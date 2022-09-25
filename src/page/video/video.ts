@@ -1,11 +1,10 @@
-import { createElement } from '../../helper/create-element';
 import { PageElement } from '../page-element';
 import { VideoParameters } from './video-parameters';
 import { generate } from './video.html';
 
 export class Video extends PageElement {
   public constructor(options: VideoParameters) {
-    super(createElement(generate(options)));
+    super(generate(options));
 
     this.query('.start-button').addEventListener('click', this.startVideo.bind(this));
   }

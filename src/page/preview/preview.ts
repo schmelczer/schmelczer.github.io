@@ -1,11 +1,10 @@
-import { createElement } from '../../helper/create-element';
 import { ResponsiveImage } from '../../types/responsive-image';
 import { PageElement } from '../page-element';
 import { generate } from './preview.html';
 
 export class Preview extends PageElement {
   public constructor(poster: ResponsiveImage, private readonly url: string, alt: string) {
-    super(createElement(generate({ poster, alt })));
+    super(generate({ poster, alt }));
     this.url += '?portfolioView';
     this.query('.start-button').addEventListener('click', this.loadContent.bind(this));
   }

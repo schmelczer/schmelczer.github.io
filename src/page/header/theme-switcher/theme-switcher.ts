@@ -1,4 +1,3 @@
-import { createElement } from '../../../helper/create-element';
 import { PageElement } from '../../page-element';
 import { generate } from './theme-switcher.html';
 
@@ -6,7 +5,7 @@ export class ThemeSwitcher extends PageElement {
   private static readonly localStorageKey = 'dark-mode';
 
   public constructor() {
-    super(createElement(generate()));
+    super(generate());
 
     const storedIsDark = ThemeSwitcher.loadFromLocalStorage();
     const isDark = storedIsDark ?? isSystemLevelDarkModeEnabled();

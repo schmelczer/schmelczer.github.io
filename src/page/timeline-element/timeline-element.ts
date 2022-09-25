@@ -1,4 +1,3 @@
-import { createElement } from '../../helper/create-element';
 import { titleToFragment } from '../../helper/title-to-fragment';
 import { PageElement } from '../page-element';
 import { TimelineElementParameters } from './timeline-element-parameters';
@@ -13,7 +12,7 @@ export class TimelineElement extends PageElement {
     private readonly showMore: string,
     private readonly showLess: string
   ) {
-    super(createElement(generate(timelineElement, showMore)));
+    super(generate(timelineElement, showMore));
     this.more = this.query('.more');
     addEventListener('resize', this.handleResize.bind(this));
 
@@ -23,7 +22,7 @@ export class TimelineElement extends PageElement {
       '.figure',
       timelineElement.figure instanceof PageElement
         ? timelineElement.figure
-        : new PageElement(createElement(timelineElement.figure))
+        : new PageElement(timelineElement.figure)
     );
   }
 

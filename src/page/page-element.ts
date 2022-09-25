@@ -1,8 +1,11 @@
+import { html } from '../types/html';
+
 export class PageElement {
-  public constructor(
-    public readonly htmlRoot: HTMLElement,
-    protected children: Array<PageElement> = []
-  ) {}
+  public readonly htmlRoot: HTMLElement;
+
+  public constructor(content: html, protected children: Array<PageElement> = []) {
+    this.htmlRoot = PageElement.createElement(content);
+  }
 
   public attachToDOM(target: HTMLElement) {
     target.appendChild(this.htmlRoot);
@@ -26,5 +29,12 @@ export class PageElement {
     const old = this.query(query);
     old.parentElement!.replaceChild(element.htmlRoot, old);
     this.children.push(element);
+  }
+
+  private static createElement(from: html): HTMLElement {
+    // won't work for all elements, eg.: <td>
+    const element: HTMLElement = document.createElement('div');
+    element.innerHTML = from;
+    return element.firstElementChild as HTMLElement;
   }
 }
