@@ -8,7 +8,7 @@ export const generate = (
   { date, title, description, more, links }: TimelineElementParameters,
   showMore: string
 ): html => `
-  <article id="${titleToFragment(title)}" class="timeline-element">
+  <article id="${titleToFragment(title).replace('#', '')}" class="timeline-element">
     <div class="line-container">
       <div class="line"></div>
       <p class="date">${date}</p>
@@ -17,7 +17,7 @@ export const generate = (
       <div class="figure"></div>
       <div class="lower">
         <h2>
-          <a href="#${titleToFragment(title)}">${title}</a>
+          <a href="${titleToFragment(title)}">${title}</a>
         </h2>
 
         <p class="description">${description}</p>
