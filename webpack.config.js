@@ -105,17 +105,26 @@ module.exports = (env, argv) => ({
       {
         test: /\.ts$/,
         use: [
-          'ts-loader',
+          argv.mode === 'production'
+            ? {
+                loader: 'string-replace-loader',
+                options: {
+                  search: /(['">])\s+([<'"])/gs,
+                  replace: '$1$2',
+                },
+              }
+            : null,
           argv.mode === 'production'
             ? {
                 // for removing whitespace (mainly from template strings) which are not part of comments
                 loader: 'string-replace-loader',
                 options: {
-                  search: /(?<!\/\/[^\n]*)\s+/gs,
+                  search: /(?<!\/\/[^\n]*)(\\n|\s)+/gs,
                   replace: ' ',
                 },
               }
             : null,
+          'ts-loader',
         ].filter(Boolean),
       },
     ],
