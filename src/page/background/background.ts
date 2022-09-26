@@ -19,7 +19,6 @@ export class Background extends PageElement {
   private stableRandom = new Random();
   private blobs: Array<HTMLElement> = [];
   private windowHeight = 0;
-  private windowWidth = 0;
   private contentHeight = 0;
 
   public constructor(
@@ -55,6 +54,15 @@ export class Background extends PageElement {
   private createBlob(): HTMLElement {
     const blob = document.createElement('div');
     const z = this.random.inInterval(Background.zMin, Background.zMax);
+    const endXSpan =
+      ((1 / Background.perspective) * (Background.zMax + Background.perspective)) / 2;
+
+    const x = this.stableRandom.inInterval(
+      mix(0, -(endXSpan - 0.5), z / Background.zMax),
+      mix(1, 1 + endXSpan - 0.5, z / Background.zMax)
+    );
+
+    blob.style.left = `${x * 100}%`;
     blob.style.zIndex = (-z).toFixed(0);
     blob.style.opacity = (
       1 -
@@ -73,10 +81,9 @@ export class Background extends PageElement {
     const currentContentHeight = sum(siblings.map(getHeight));
 
     if (
-      window.innerWidth !== this.windowWidth ||
+      window.innerHeight !== this.windowHeight ||
       currentContentHeight !== this.contentHeight
     ) {
-      this.windowWidth = window.innerWidth;
       this.windowHeight = window.innerHeight;
       this.contentHeight = currentContentHeight;
       this.maintainBlobCount();
@@ -100,22 +107,23 @@ export class Background extends PageElement {
     this.stableRandom.seed = Background.stableSeed;
     this.blobs.forEach((b) => {
       const z = -parseFloat(b.style.zIndex);
-      const [x, y] = this.getRandomPositionInSafeArea(
+      const y = this.getRandomYInSafeArea(
         z,
         topOffset,
         bottomOffset,
         parseFloat(b.style.height)
       );
-      b.style.transform = `translate3D(${x}px, ${y}px, ${-z}px) rotate(-20deg)`;
+
+      b.style.transform = `translate3D(0, ${y}px, ${-z}px) rotate(-20deg)`;
     });
   }
 
-  private getRandomPositionInSafeArea(
+  private getRandomYInSafeArea(
     z: number,
     topOffset: number,
     bottomOffset: number,
     height: number
-  ): [number, number] {
+  ): number {
     const farTop = -(
       ((this.windowHeight / 2 - topOffset) / Background.perspective) *
         (Background.zMax + Background.perspective) -
@@ -130,24 +138,9 @@ export class Background extends PageElement {
       this.contentHeight - height
     );
 
-    const endXSpan =
-      ((this.windowWidth / Background.perspective) *
-        (Background.zMax + Background.perspective)) /
-      2;
-
-    return [
-      this.stableRandom.inInterval(
-        mix(0, -(endXSpan - this.windowWidth / 2), z / Background.zMax),
-        mix(
-          this.windowWidth,
-          this.windowWidth + endXSpan - this.windowWidth / 2,
-          z / Background.zMax
-        )
-      ),
-      this.stableRandom.inInterval(
-        mix(topOffset, farTop, z / Background.zMax),
-        farBottom
-      ),
-    ];
+    return this.stableRandom.inInterval(
+      mix(topOffset, farTop, z / Background.zMax),
+      farBottom
+    );
   }
 }
