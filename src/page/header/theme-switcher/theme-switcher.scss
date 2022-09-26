@@ -3,9 +3,9 @@
 #theme-switcher {
   @include on-large-screen {
     position: absolute;
-    top: calc(-1 * var(--small-margin));
-    right: calc(-1 * (50vw - var(--body-width) / 2) + var(--normal-margin));
-    transform: translateY(-100%);
+    top: calc(-1 * var(--normal-margin));
+    left: calc(50% + 50vw);
+    transform: translateX(calc(-100% - var(--normal-margin))) translateY(-50%);
   }
 
   @include on-small-screen {

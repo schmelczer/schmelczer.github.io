@@ -1,4 +1,4 @@
-$breakpoint-width: 925px !default;
+$breakpoint-width: 800px !default;
 
 @mixin on-small-screen() {
   @media (max-width: ($breakpoint-width - 1px)) {
@@ -44,9 +44,9 @@ $breakpoint-width: 925px !default;
     content: '#';
     position: absolute;
     left: -0.5ch;
-    top: 0;
+    top: 50%;
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateX(-100%) translateY(-50%);
     transition: opacity var(--transition-time);
   }
 
@@ -87,7 +87,6 @@ $breakpoint-width: 925px !default;
 
 @mixin title-font() {
   font: 400 3rem 'Comfortaa', sans-serif;
-  font-style: normal;
   color: var(--normal-text-color);
   line-height: 1;
   transition: color var(--transition-time);
@@ -101,7 +100,6 @@ $breakpoint-width: 925px !default;
 @mixin sub-title-font() {
   font: 400 1.75rem 'Comfortaa', sans-serif;
   color: var(--normal-text-color);
-  font-style: normal;
   hyphens: auto;
   transition: color var(--transition-time);
 }
@@ -117,6 +115,7 @@ $breakpoint-width: 925px !default;
 @mixin special-text-font() {
   font: 400 1rem 'Open Sans', sans-serif;
   color: var(--special-text-color);
+  hyphens: auto;
   font-style: italic;
   transition: color var(--transition-time);
 }
@@ -160,9 +159,7 @@ $breakpoint-width: 925px !default;
     );
   }
 
-  &:hover {
-    &:before {
-      transform: translateX(-$border-shift);
-    }
+  &:hover:before {
+    transform: translateX(-$border-shift);
   }
 }
