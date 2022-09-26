@@ -11,6 +11,7 @@ export const greatAi: TimelineElementParameters = {
     image: greatAiPoster,
     alt: 'some example code using GreatAI',
     container: true,
+    isEagerLoaded: true,
   }),
   description:
     'I investigated an approach for increasing the adoption rate of ML deployment libraries and hence the overall quality of industrial deployments. I did this by simultaneously focusing on providing robust, automated implementations of best practices and an accessible API. One of the outcomes of my research is the GreatAI framework.',

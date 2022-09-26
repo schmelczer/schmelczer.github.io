@@ -8,12 +8,14 @@ export const Image = ({
   container = false,
   isIgnoredByImageViewer = false,
   sizes = null,
+  isEagerLoaded = false,
 }: {
   image: ResponsiveImage;
   alt: string;
   container?: boolean;
   isIgnoredByImageViewer?: boolean;
   sizes?: string | null;
+  isEagerLoaded?: boolean;
 }): html => `
   ${
     container
@@ -29,10 +31,12 @@ export const Image = ({
     >
       <img
         ${isIgnoredByImageViewer ? 'image-viewer-ignore' : ''}
-        loading="lazy"
+        ${isEagerLoaded ? '' : 'loading="lazy"'}
         srcset="${image.srcSet}"
         ${sizes ? `sizes="${sizes}"` : ''}
         src="${image.src}"
+        width="${image.width}"
+        height="${image.height}"
         alt="${alt}"
       />
     </div>
