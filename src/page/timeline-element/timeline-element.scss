@@ -7,10 +7,12 @@
     &:before {
       height: calc(100% - #{$q} - var(--icon-size) / 2);
     }
+
     &:after {
       top: calc(#{$q} - var(--icon-size) / 2);
     }
   }
+
   .date {
     top: calc(#{$q} - 0.5ch);
   }
@@ -21,12 +23,16 @@
   width: var(--body-width);
   margin: auto;
 
-  .line-container {
+  > .line-container {
     position: relative;
     @include q-dependent-line-container(33%);
 
-    .line {
-      border-left: var(--line-width) solid var(--accent-color);
+    > .line {
+      &,
+      &:before {
+        background: var(--accent-color);
+        width: var(--line-width);
+      }
 
       &:before,
       &:after {
@@ -37,7 +43,6 @@
       &:before {
         left: 0;
         bottom: 0;
-        border-left: var(--line-width) solid var(--accent-color);
       }
 
       &:after {
@@ -60,6 +65,14 @@
   }
 
   @include on-large-screen {
+    &:first-of-type > .line-container > .line {
+      border-radius: 100px 100px 0 0;
+    }
+
+    &:last-of-type > .line-container > .line:before {
+      border-radius: 0 0 100px 100px;
+    }
+
     .line-container {
       min-width: 160px;
     }
