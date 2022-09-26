@@ -14,7 +14,10 @@ export const Contact = ({
   lastEditText: string;
 }): html => `
   <section id="contact">
-    <h2>${title}</h2>
+    
+  <h2>
+    <a href="#contact">${title}</a>
+  </h2>
 
     <div class="links">
       ${links.join('')}

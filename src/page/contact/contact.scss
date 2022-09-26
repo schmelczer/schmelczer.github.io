@@ -2,14 +2,18 @@
 
 #contact {
   text-align: center;
-  margin-top: var(--large-margin);
+  margin: var(--large-margin) auto 0 auto;
 
   > h2 {
-    @include title-font();
+    margin-bottom: var(--normal-margin);
+
+    > a {
+      @include title-font();
+      @include title-fragment-link();
+    }
   }
 
   > .links {
-    margin: var(--normal-margin) 0 0 var(--normal-margin);
     display: inline-block;
   }
 

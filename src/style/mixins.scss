@@ -36,6 +36,25 @@ $breakpoint-width: 925px !default;
   }
 }
 
+@mixin title-fragment-link() {
+  text-decoration: none;
+  position: relative;
+
+  &:before {
+    content: '#';
+    position: absolute;
+    left: -0.5ch;
+    top: 0;
+    opacity: 0;
+    transform: translateX(-100%);
+    transition: opacity var(--transition-time);
+  }
+
+  &:hover:before {
+    opacity: 0.5;
+  }
+}
+
 @mixin center-children() {
   display: flex;
   align-items: center;
