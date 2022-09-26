@@ -1,10 +1,10 @@
 import { html } from '../../types/html';
-import './footer.scss';
+import './contact.scss';
 
 // @ts-ignore: injected by webpack
 const LAST_EDIT = new Date(__CURRENT_DATE__);
 
-export const Footer = ({
+export const Contact = ({
   title,
   links,
   lastEditText,
@@ -13,7 +13,7 @@ export const Footer = ({
   links: Array<html>;
   lastEditText: string;
 }): html => `
-  <footer id="contact">
+  <section id="contact">
     <h2>${title}</h2>
 
     <div class="links">
@@ -26,5 +26,5 @@ export const Footer = ({
         <time datetime="${LAST_EDIT.toISOString()}">${LAST_EDIT.toLocaleDateString()}</time>
       </p>
     </aside>
-  </footer>
+  </section>
 `;

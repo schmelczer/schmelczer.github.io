@@ -1,5 +1,5 @@
 import { Background } from '../page/background/background';
-import { Footer } from '../page/footer/footer.html';
+import { Contact } from '../page/contact/contact.html';
 import { Header } from '../page/header/header';
 import { ImageViewer } from '../page/image-viewer/image-viewer';
 import { Main } from '../page/main/main';
@@ -54,7 +54,7 @@ export const portfolio: Array<PageElement> = [
       leds,
     ].map((p) => new TimelineElement(p, 'Show details', 'Show less')),
 
-    Footer({
+    Contact({
       title: 'Learn more',
       links: [
         CV(cvEnglish),
