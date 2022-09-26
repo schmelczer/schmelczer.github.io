@@ -7,6 +7,6 @@ export interface TimelineElementParameters {
   figure: html | Video | Preview;
   title: string;
   description: string;
-  more: Array<string>;
+  more?: Array<html>;
   links: Array<html>;
 }

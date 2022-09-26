@@ -10,6 +10,7 @@ import { UpArrowButton } from '../page/up-arrow-button/up-arrow-button';
 import cvEnglish from './media/cv-andras-schmelczer.pdf';
 import me from './media/me.jpg';
 import { adAstra } from './projects/ad-astra';
+import { avoid } from './projects/avoid';
 import { citySimulation } from './projects/city-simulation';
 import { declared } from './projects/declared';
 import { forex } from './projects/forex';
@@ -53,6 +54,7 @@ const main = new Main(
     nuclear,
     nuclearEditor,
     citySimulation,
+    avoid,
     platformGame,
     photos,
     leds,

@@ -5,7 +5,7 @@ import { generate } from './timeline-element.html';
 
 export class TimelineElement extends PageElement {
   private isOpen = false;
-  private more: HTMLElement;
+  private readonly more?: HTMLElement;
 
   public constructor(
     private timelineElement: TimelineElementParameters,
@@ -14,9 +14,12 @@ export class TimelineElement extends PageElement {
   ) {
     super(generate(timelineElement, showMore));
     this.more = this.query('.more');
+
     addEventListener('resize', this.handleResize.bind(this));
 
-    this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
+    if (this.more) {
+      this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
+    }
 
     this.attachElementByReplacing(
       '.figure',
@@ -43,6 +46,10 @@ export class TimelineElement extends PageElement {
   }
 
   private openMore() {
+    if (!this.more) {
+      return;
+    }
+
     this.isOpen = true;
 
     this.query('.info-button > p').innerText = this.showLess;
@@ -52,6 +59,10 @@ export class TimelineElement extends PageElement {
   }
 
   private closeMore() {
+    if (!this.more) {
+      return;
+    }
+
     this.isOpen = false;
 
     this.query('.info-button > p').innerText = this.showMore;
@@ -60,6 +71,10 @@ export class TimelineElement extends PageElement {
   }
 
   private handleResize() {
+    if (!this.more) {
+      return;
+    }
+
     if (this.isOpen) {
       this.more.style.height = 'auto';
       setTimeout(this.openMore.bind(this), 100);
