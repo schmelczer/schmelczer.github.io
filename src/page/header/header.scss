@@ -30,12 +30,9 @@
     text-align: justify;
   }
 
-  h1 {
-    hyphens: none;
-  }
-
+  h1,
   p,
-  h1 {
+  a {
     color: var(--very-light-text-color);
     margin-top: var(--line-height);
   }

@@ -1,0 +1,6 @@
+@use '../../style/mixins' as *;
+
+.link {
+  text-decoration: none;
+  border-bottom: 2px solid var(--special-text-color);
+}

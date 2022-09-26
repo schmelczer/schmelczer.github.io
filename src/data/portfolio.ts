@@ -2,6 +2,7 @@ import { Background } from '../page/background/background';
 import { Contact } from '../page/contact/contact.html';
 import { Header } from '../page/header/header';
 import { ImageViewer } from '../page/image-viewer/image-viewer';
+import { Link } from '../page/link/link.html';
 import { Main } from '../page/main/main';
 import { PageElement } from '../page/page-element';
 import { TimelineElement } from '../page/timeline-element/timeline-element';
@@ -34,7 +35,10 @@ export const portfolio: Array<PageElement> = [
 
         "I'm passionate about architecting and building large-scale systems, especially in the context of AI/ML. However, in my free time, I also enjoy working with shaders, data visualisation, and sometimes even microcontrollers.",
 
-        "Discover some of my more exciting projects below. And if you'd like to reach out to me, you can find my contact details at the bottom of the page.",
+        `Discover some of my more exciting projects below. And if you'd like to reach out to me, you can find my contact details at ${Link(
+          'the bottom of the page',
+          '#contact'
+        )}.`,
       ],
     }),
 
