@@ -1,0 +1,27 @@
+@use '../../style/mixins' as *;
+
+#up-arrow-button {
+  @include blurred-background();
+
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  transition: opacity var(--transition-time), visibility var(--transition-time),
+    transform var(--transition-time);
+
+  border-radius: var(--border-radius);
+  background: none;
+  border: none;
+
+  position: fixed;
+  bottom: var(--small-margin);
+  right: var(--small-margin);
+  padding: 4px;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  svg {
+    @include square(var(--large-icon-size));
+  }
+}
