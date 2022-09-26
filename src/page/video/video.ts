@@ -9,9 +9,10 @@ export class Video extends PageElement {
     this.query('.start-button').addEventListener('click', this.startVideo.bind(this));
   }
 
-  private startVideo() {
+  private async startVideo() {
     this.query('.start-button').style.visibility = 'hidden';
     this.htmlRoot.classList.add('loaded');
-    (this.query('video') as HTMLVideoElement).play();
+
+    await (this.query('video') as HTMLVideoElement).play();
   }
 }
