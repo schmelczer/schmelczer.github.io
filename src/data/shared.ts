@@ -10,8 +10,8 @@ import { ImageAnchorFactory } from '../page/image-anchor/image-anchor.html';
 import { ImageButtonFactory } from '../page/image-button/image-button.html';
 
 export const GitHub = ImageButtonFactory(gitHubIcon, 'Open on GitHub');
-export const NPM = ImageButtonFactory(packageIcon, 'Open on npm');
-export const PyPi = ImageButtonFactory(pythonIcon, 'Open on PyPi');
+export const NPM = ImageButtonFactory(packageIcon, 'Open on NPM');
+export const PyPi = ImageButtonFactory(pythonIcon, 'Open on PyPI');
 export const Open = ImageButtonFactory(openIcon, 'Open in new tab');
 export const Thesis = ImageButtonFactory(cvIcon, 'Download thesis', {
   shouldDownload: true,
