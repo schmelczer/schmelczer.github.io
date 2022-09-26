@@ -11,9 +11,10 @@ export const generate = ({
   photo: html;
 }): html => `
   <header id="about">
-    ${photo}
-
-    <div class="placeholder"></div>
+    <div class="photo-container">
+      ${photo}
+      <div class="placeholder"></div>
+    </div>
 
     <h1>${name}</h1>
 

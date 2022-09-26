@@ -18,7 +18,8 @@
   }
 
   > aside {
-    margin: var(--large-margin) auto var(--line-height) auto;
+    margin: var(--large-margin) auto 0 auto;
+    padding-bottom: var(--line-height); // margin-bottom doesn't work in Firefox
 
     > p {
       @include special-text-font();

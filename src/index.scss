@@ -37,6 +37,15 @@ a {
 html {
   height: 100%;
 
+  overflow: hidden;
+  @media (min-width: $breakpoint-width) and (max-width: 999px) {
+    @include zoom(0.8);
+  }
+
+  @media (min-width: 1000px) and (max-width: 1440px) {
+    @include zoom(0.875);
+  }
+
   @include on-small-screen {
     font-size: 0.8rem;
   }

@@ -1,4 +1,6 @@
-$breakpoint-width: 800px !default;
+@use 'sass:math';
+
+$breakpoint-width: 700px !default;
 
 @mixin on-small-screen() {
   @media (max-width: ($breakpoint-width - 1px)) {
@@ -16,6 +18,13 @@ $breakpoint-width: 800px !default;
   html[theme='dark'] {
     @content;
   }
+}
+
+@mixin zoom($q) {
+  transform: scale($q);
+  transform-origin: top center;
+  height: math.div(100%, $q);
+  margin: 0 (0.5 - math.div(0.5, $q)) * 100%;
 }
 
 @mixin image-button($icon-size) {
