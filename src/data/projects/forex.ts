@@ -16,11 +16,13 @@ export const forex: TimelineElementParameters = {
     altText: videoPosterAltText,
   }),
   description:
-    'From the animation, we can see that my implementation does a somewhat acceptable job at predicting (blue graph) the EUR/USD rates (green graph).',
+    "The animation shows that my implementation does a somewhat good job predicting (blue graph) the EUR/USD rates (green chart). Of course, I wouldn't trust it with my money.",
   more: [
-    'In a nutshell, the algorithm (written in Python using NumPy, SciPy, and Flask) predicts in the frequency domain. The steps are the following: smoothing the input values, differentiating, applying a short-time Fourier-transformation with overlapped (and Hanning-windowed) windows, extrapolating and then applying the inverse of these transformations to the resulting values.',
+    'The algorithm is a fancy linear regression in the frequency domain. The steps are the following: smoothing the input values, differentiating, applying a short-time Fourier transformation with overlapped (and Hanning-windowed) windows, extrapolating and then applying the inverse of these transformations to the resulting values.',
 
-    'Of course, there is still plenty of room for improvement, but even with this simple algorithm a mostly profitable trading strategy is viable. In my free time I may put more work into it.',
+    'This prediction server, written in Python using NumPy, SciPy, and Flask, communicates with an MQL4 client responsible for handling the financial transaction based on this data.',
+
+    "Of course, there is still plenty of room for improvement, but even with this simple algorithm, a sometimes profitable trading strategy is viable. Nonetheless, the project gave me an exciting insight into the world of trading algorithms, the field's complexity, and the fierce competition surrounding it.",
   ],
   links: [],
 };
