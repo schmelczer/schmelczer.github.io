@@ -55,12 +55,12 @@ export const portfolio: Array<PageElement> = [
     ].map((p) => new TimelineElement(p, 'Show details', 'Show less')),
 
     Contact({
-      title: 'Learn more',
+      title: 'Get in touch',
       links: [
         CV(cvEnglish),
-        GitHubLink('https://github.com/schmelczer'),
-        LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
         Email('mailto:andras@schmelczer.dev'),
+        LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
+        GitHubLink('https://github.com/schmelczer'),
       ],
       lastEditText: 'Last modified on',
     })
