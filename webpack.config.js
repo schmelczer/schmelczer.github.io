@@ -12,8 +12,10 @@ module.exports = (env, argv) => ({
   entry: {
     index: './src/index.ts',
   },
+  watchOptions: {
+    ignored: '**/node_modules',
+  },
   optimization: {
-    minimize: true,
     minimizer: [
       new TerserPlugin({
         terserOptions: {
@@ -104,15 +106,17 @@ module.exports = (env, argv) => ({
         test: /\.ts$/,
         use: [
           'ts-loader',
-          {
-            // for removing whitespace (mainly from template strings) which are not part of comments
-            loader: 'string-replace-loader',
-            options: {
-              search: /(?<!\/\/[^\n]*)\s+/gs,
-              replace: ' ',
-            },
-          },
-        ],
+          argv.mode === 'production'
+            ? {
+                // for removing whitespace (mainly from template strings) which are not part of comments
+                loader: 'string-replace-loader',
+                options: {
+                  search: /(?<!\/\/[^\n]*)\s+/gs,
+                  replace: ' ',
+                },
+              }
+            : null,
+        ].filter(Boolean),
       },
     ],
   },
