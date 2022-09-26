@@ -12,7 +12,7 @@ export class Background extends PageElement {
   private static readonly minHeight = 360;
   private static readonly maxHeight = 740;
   private static readonly minBlobCount = 30;
-  private static readonly blobCountScaler = 0.1;
+  private static readonly blobCountScaler = 0.05;
   private static readonly stableSeed = 50;
 
   private random = new Random();
