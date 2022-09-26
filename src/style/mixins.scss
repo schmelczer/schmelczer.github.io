@@ -22,7 +22,6 @@ $breakpoint-width: 800px !default;
   display: block;
   box-sizing: content-box;
   cursor: pointer;
-  text-decoration: none;
 
   &:hover svg {
     transform: translateX(-50%) translateY(-50%) scale(1.15);
@@ -37,7 +36,6 @@ $breakpoint-width: 800px !default;
 }
 
 @mixin title-fragment-link() {
-  text-decoration: none;
   position: relative;
 
   &:before {
@@ -125,7 +123,6 @@ $breakpoint-width: 800px !default;
   $line-width: 2px;
 
   @include special-text-font();
-  text-decoration: none;
   cursor: pointer;
   position: relative;
   display: inline-block;

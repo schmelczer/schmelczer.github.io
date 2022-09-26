@@ -3,7 +3,6 @@
 .image-anchor {
   display: flex;
   align-items: center;
-  text-decoration: none;
 
   &:not(:first-child) {
     padding-top: var(--line-height);

@@ -35,6 +35,14 @@
   a {
     color: var(--very-light-text-color);
     margin-top: var(--line-height);
+
+    :focus:not(:hover) {
+      outline: var(--very-light-text-color) solid var(--line-width);
+    }
+  }
+
+  a {
+    border-bottom: 2px solid var(--very-light-text-color);
   }
 
   @include on-small-screen {

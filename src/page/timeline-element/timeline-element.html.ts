@@ -1,6 +1,7 @@
 import info from '../../../static/icons/info.svg';
 import { titleToFragment } from '../../helper/title-to-fragment';
 import { html } from '../../types/html';
+import { ImageButtonFactory } from '../image-button/image-button.html';
 import { TimelineElementParameters } from './timeline-element-parameters';
 import './timeline-element.scss';
 
@@ -32,14 +33,7 @@ export const generate = (
         }
 
         <div class="buttons">
-        ${
-          more
-            ? `<div tabindex=0 class="info-button">
-              <div class="svg-container">${info}</div>
-              <p>${showMore}</p>
-            </div>`
-            : ''
-        }
+        ${more ? ImageButtonFactory(info, showMore)() : ''}
         ${links.join('')}
         </div>
       </div>

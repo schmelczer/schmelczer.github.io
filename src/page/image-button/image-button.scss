@@ -2,22 +2,26 @@
 
 .image-button {
   @include image-button(var(--icon-size));
+  padding: var(--small-margin) 8px;
+  text-align: center;
 
-  > .svg-container {
-    position: relative;
-    margin: auto;
-    @include square(var(--icon-size));
+  > button {
+    cursor: pointer;
 
-    > svg {
-      transition: stroke var(--transition-time), transform var(--transition-time);
+    > .svg-container {
+      position: relative;
+      margin: auto;
+      @include square(var(--icon-size));
+
+      > svg {
+        transition: stroke var(--transition-time), transform var(--transition-time);
+      }
     }
-  }
 
-  > p {
-    padding-bottom: var(--small-margin);
-    font-size: 0.9rem;
-    font-style: italic;
-    padding: 0 8px 8px 8px;
-    text-align: center;
+    > p {
+      font-size: 0.9rem;
+      font-style: italic;
+      text-align: center;
+    }
   }
 }

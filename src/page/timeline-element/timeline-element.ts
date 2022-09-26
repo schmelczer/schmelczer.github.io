@@ -13,12 +13,15 @@ export class TimelineElement extends PageElement {
     private readonly showLess: string
   ) {
     super(generate(timelineElement, showMore));
-    this.more = this.query('.more');
 
     addEventListener('resize', this.handleResize.bind(this));
 
+    this.more = this.query('.more');
     if (this.more) {
-      this.query('.info-button').addEventListener('click', this.toggleOpen.bind(this));
+      this.query('.buttons > .image-button').addEventListener(
+        'click',
+        this.toggleOpen.bind(this)
+      );
     }
 
     this.attachElementByReplacing(
@@ -52,7 +55,7 @@ export class TimelineElement extends PageElement {
 
     this.isOpen = true;
 
-    this.query('.info-button > p').innerText = this.showLess;
+    this.query('.buttons > .image-button p').innerText = this.showLess;
 
     const deltaHeight = this.more.scrollHeight;
     this.more.style.height = `${deltaHeight.toString()}px`;
@@ -65,7 +68,7 @@ export class TimelineElement extends PageElement {
 
     this.isOpen = false;
 
-    this.query('.info-button > p').innerText = this.showMore;
+    this.query('.buttons > .image-button p').innerText = this.showMore;
 
     this.more.style.height = '0';
   }

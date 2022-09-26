@@ -1,7 +1,7 @@
 @use '../../style/mixins' as *;
 
 @mixin q-dependent-line-container($q) {
-  .line {
+  > .line {
     height: calc(#{$q} - var(--icon-size) / 2);
 
     &:before {
@@ -13,7 +13,7 @@
     }
   }
 
-  .date {
+  > .date {
     top: calc(#{$q} - 0.5ch);
   }
 }
@@ -53,7 +53,7 @@
       }
     }
 
-    .date {
+    > .date {
       @include special-text-font();
       position: absolute;
       transform-origin: left center;
@@ -73,11 +73,11 @@
       border-radius: 0 0 100px 100px;
     }
 
-    .line-container {
+    > .line-container {
       min-width: 160px;
     }
 
-    &:not(:first-of-type) .card {
+    &:not(:first-of-type) > .card {
       margin-top: var(--large-margin);
     }
   }
@@ -86,43 +86,34 @@
     flex-direction: column;
     align-items: center;
 
-    .line-container {
+    > .line-container {
       @include q-dependent-line-container(50%);
       height: 150px;
       min-width: 64%;
 
-      .date {
+      > .date {
         transform: translateX(calc(var(--icon-size) / 2 + 12px)) translateY(-10%);
       }
     }
   }
 
-  .card {
+  > .card {
+    @include blurred-background();
     box-shadow: var(--shadow);
+    overflow: hidden;
     border-radius: var(--border-radius);
-    z-index: 1;
     background-color: var(--blurred-card-color);
     transition: background-color var(--transition-time);
 
-    @include blurred-background();
-
-    .image,
-    video,
-    iframe {
-      border-radius: var(--border-radius) var(--border-radius) 0 0;
-    }
-
-    $border-width: 1px;
-
-    .lower {
-      & > * {
+    > .lower {
+      > * {
         padding: 0 var(--normal-margin);
         margin-top: var(--small-margin);
       }
 
-      h2 {
+      > h2 {
         text-align: center;
-        margin-bottom: -10px;
+        margin-bottom: -6px;
 
         > a {
           @include sub-title-font();
@@ -130,12 +121,11 @@
         }
       }
 
-      .description,
-      .info-button {
+      > .description {
         text-align: center;
       }
 
-      .more {
+      > .more {
         overflow: hidden;
         margin: 0;
         height: 0;
@@ -146,7 +136,9 @@
         }
       }
 
-      .buttons {
+      $border-width: 1px;
+
+      > .buttons {
         display: flex;
         justify-content: center;
         border-top: $border-width solid var(--normal-text-color);
@@ -156,32 +148,9 @@
         padding: 0;
         margin-top: var(--small-margin);
 
-        .info-button {
-          @include image-button(var(--icon-size));
-          @include main-font();
-
-          .svg-container {
-            position: relative;
-            margin: auto;
-            @include square(var(--icon-size));
-
-            svg {
-              transition: stroke var(--transition-time), transform var(--transition-time);
-            }
-          }
-
-          p {
-            padding-bottom: var(--small-margin);
-            font-size: 0.9rem;
-            font-style: italic;
-            padding: 0 8px var(--small-margin) 8px;
-          }
-        }
-
-        & > * {
+        > * {
           flex: 1;
 
-          padding-top: var(--small-margin);
           &:not(:last-child) {
             border-right: $border-width solid var(--normal-text-color);
             transition: border-color var(--transition-time);
