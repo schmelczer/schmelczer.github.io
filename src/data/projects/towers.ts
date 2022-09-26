@@ -4,7 +4,7 @@ import towersPoster from '../media/towers.png';
 import { GitHub, Open } from '../shared';
 
 export const towers: TimelineElementParameters = {
-  title: 'Towers tracking app',
+  title: 'Multi-device life tracking',
   date: '2019 August - September',
   figure: Image({
     image: towersPoster,
@@ -13,9 +13,9 @@ export const towers: TimelineElementParameters = {
   }),
   description: 'An aesthetic representation of your previous and current goals/tasks.',
   more: [
-    'This project served me with an opportunity to deepen my Angular knowledge. The most interesting aspect of it (apart from designing and implementing the pleasing visuals) was coming up with its data structure and persistence. Finally, I decided on using a trie. Its properties make it fairly simple to find the difference between the server stored and client stored versions and then only send this delta through the network. Also, its immutable nature helped with the code quality as well.',
+    'This project allowed me to deepen my Python &amp; Angular knowledge. The most exciting part of it &mdash; apart from designing and implementing the pleasing visuals &mdash; was coming up with its data structure and method of synchronising state between the clients and servers.',
 
-    'In hindsight, I would certainly add some finishing touches to it. For instance, dark mode, a tutorial, and PWA features.',
+    "In the end, I decided on using a trie. Its properties make it reasonably simple to find the difference between the server's and client's stored versions, reconcile the differences and then only send this delta through the network. Additionally, its immutable nature helped simplify much of the logic.",
   ],
   links: [
     GitHub('https://github.com/schmelczer/life-towers/'),

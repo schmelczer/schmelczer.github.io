@@ -5,7 +5,7 @@ import bscThesis from '../media/sdf2d-andras-schmelczer.pdf';
 import { GitHub, Open, Thesis } from '../shared';
 
 export const declared: TimelineElementParameters = {
-  title: 'Multiplayer game',
+  title: 'Multiplayer mobile game',
   date: '2020 autumn',
   figure: new Preview(declaredPoster, 'https://decla.red', 'The UI of the video game'),
   description:

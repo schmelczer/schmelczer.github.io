@@ -5,7 +5,7 @@ import greatAiPoster from '../media/great-ai.png';
 import { Open, PyPi, Thesis } from '../shared';
 
 export const greatAi: TimelineElementParameters = {
-  title: 'GreatAI',
+  title: 'GreatAI &mdash; AI deployment framework',
   date: '2022',
   figure: Image({
     image: greatAiPoster,

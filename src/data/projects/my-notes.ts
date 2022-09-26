@@ -4,18 +4,18 @@ import myNotesPoster from '../media/my-notes.png';
 import { GitHub } from '../shared';
 
 export const myNotes: TimelineElementParameters = {
-  title: 'My Notes',
+  title: 'My Notes &mdash; Android app',
   date: '2019 November',
   figure: Image({
     image: myNotesPoster,
     alt: 'two screenshots of the application',
     container: true,
   }),
-  description: 'A minimalist note organiser and editor powered by Markwon.',
+  description: 'A minimalist Android note organiser and editor powered by Markwon.',
   more: [
-    'This is a basic android app for creating and filtering markdown notes (based on #hashtags). It was my first exposure to Android development.',
+    'It is a basic app for creating and filtering markdown notes (based on #hashtags). It was my first exposure to Android development.',
 
-    "All in all, it is not a tremendous engineering feat, but at least it's usable. The knowledge gained while working on it was the more significant outcome of this adventure.",
+    "All in all, it's not a unique idea, but at least it's functional and has exposed me to a wildly different paradigm than I was used to with full-stack web development. Thus, the knowledge I gained while working on it made its development a worthwhile adventure.",
   ],
   links: [GitHub('https://github.com/schmelczer/my-notes')],
 };
