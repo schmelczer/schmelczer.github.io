@@ -13,9 +13,9 @@ export const photos: TimelineElementParameters = {
   }),
   description: 'A simple webpage where you can view my photos.',
   more: [
-    "Taking time to appreciate the world around us fills me with joy. That's why I like to go on walks with a camera. I might not end up with great photos, nonetheless, I usually end up with some inspiration regarding my current or next project.",
+    "Taking time to appreciate the world around us fills me with joy. That's why I like to go on walks with a camera. I might not end up with great photos. Nonetheless, I usually end up with some inspiration regarding my current or next project.",
 
-    'As for the webpage, a webpack script generates the site from the photos in a directory, automatic resizing to multiple quality settings is also part of the pipeline.',
+    'As for the webpage, a Webpack script generates the site from the photos in a directory, automatic resizing to multiple quality settings is also part of the pipeline.',
   ],
   links: [Open('https://photo.schmelczer.dev')],
 };

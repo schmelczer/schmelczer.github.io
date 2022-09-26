@@ -3,7 +3,7 @@ import { TimelineElementParameters } from '../../page/timeline-element/timeline-
 import nuclearEditorPoster from '../media/process-simulator-input.jpg';
 
 export const nuclearEditor: TimelineElementParameters = {
-  title: 'Graph editing application',
+  title: 'Graph editor &mdash; JavaFX',
   date: '2018 October - November',
   figure: Image({
     image: nuclearEditorPoster,
@@ -11,7 +11,7 @@ export const nuclearEditor: TimelineElementParameters = {
     container: true,
   }),
   description:
-    'An intuitive editor to create and edit input for the nuclear facility simulator.',
+    'An intuitive editor to create and edit input for the nuclear facility simulator (see above).',
   more: [
     'Nodes can be moved with drag & drop gestures. Editing the parameters of elements can be done on the right panel.',
 

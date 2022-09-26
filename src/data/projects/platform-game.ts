@@ -15,11 +15,11 @@ export const platformGame: TimelineElementParameters = {
     altText: videoPosterAltText,
   }),
   description:
-    "A 3D game written in C with the help of SDL 1.2 (I haven't heard of GPU programming at the time).",
+    'This was my first proper project. I created an actually fun, 3D game written in pure C with the help of SDL 1.2',
   more: [
-    'The maps are randomly generated and fully destroyable. The player is getting chased by flying enemies. Overall, I find it a really enjoyable game.',
+    'The maps are randomly generated and fully destroyable voxel-by-voxel. This also allows for creating structures for hiding from flying enemies who chase the player and also can destroy the terrain after merging together and growing larger. After collecting enough powerups, they can shoot and even slow down time in exchange for losing some points.',
 
-    'I did this as a homework for my Basics of Programming course.',
+    'I did this as my final project for my Basics of Programming course. Through making this, I learned a lot about pointers after an adequate number of segmentation faults. But it also made me realise my passion for programming.',
   ],
   links: [],
 };
