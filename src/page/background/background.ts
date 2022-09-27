@@ -13,7 +13,7 @@ export class Background extends PageElement {
   private static readonly maxHeight = 740;
   private static readonly minBlobCount = 30;
   private static readonly blobCountScaler = 0.05;
-  private static readonly stableSeed = 50;
+  private static readonly stableSeed = 51;
 
   private random = new Random();
   private stableRandom = new Random();
@@ -57,7 +57,7 @@ export class Background extends PageElement {
     const endXSpan =
       ((1 / Background.perspective) * (Background.zMax + Background.perspective)) / 2;
 
-    const x = this.stableRandom.inInterval(
+    const x = this.random.inInterval(
       mix(0, -(endXSpan - 0.5), z / Background.zMax),
       mix(1, 1 + endXSpan - 0.5, z / Background.zMax)
     );
