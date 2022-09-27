@@ -68,7 +68,7 @@ const main = new Main(
       LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
       GitHubLink('https://github.com/schmelczer'),
     ],
-    lastEditText: 'Last modified on',
+    lastEditText: 'Last modified on ',
   })
 );
 
