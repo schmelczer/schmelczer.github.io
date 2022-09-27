@@ -2,7 +2,7 @@ import { PageElement } from '../page-element';
 import { generate } from './up-arrow-button.html';
 
 export class UpArrowButton extends PageElement {
-  private static readonly defaultTimeToLive = 2000;
+  private static readonly defaultTimeToLive = 3500;
   private static readonly interval = 50;
   private timeToLive = 0;
 

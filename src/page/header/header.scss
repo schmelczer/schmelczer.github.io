@@ -18,6 +18,7 @@
 
     > h1 {
       text-align: center;
+      margin-top: calc(var(--line-height) + 4px);
     }
   }
 
@@ -45,10 +46,6 @@
         float: left;
         margin: 0 0.75ex 0.5ex 0;
       }
-    }
-
-    > h1 {
-      margin-top: 0;
     }
   }
 
