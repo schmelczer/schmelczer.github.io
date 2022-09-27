@@ -13,9 +13,9 @@ export const declared: TimelineElementParameters = {
   more: [
     'The scene is set in space. Two large teams have to conquer tiny planets, while they can also shoot at the other team. Points are given based on the number of planets controlled, and the first team which reaches a predefined score wins.',
 
-    "The architecture consists of multiple servers, each of which communicates with 16-32 clients over WebSockets; Firebase is used to reach consensus on the set of active servers. The project uses Typescript compiled into a website and a Node application. There is a shared library which contains the game logic. This way, both the client and server can link to this library, allowing to use of the same code for calculating the actual next state on the server and client-side-predicting it on the users' devices.",
+    "The architecture consists of multiple servers, each of which communicates with 16-32 clients over WebSockets; Firebase is used to reach consensus on the set of active servers. The project uses TypeScript compiled into a website and a Node application. There is a shared library which contains the game logic. This way, both the client and server can link to this library, allowing to use of the same code for calculating the actual next state on the server and client-side-predicting it on the users' devices.",
 
-    'My favourite part of the project was handling the increasingly complex and heavy-weight game logic. To tackle the former, I decided to borrow inspiration from Smalltalk\'s message passing, including the concept of "messageNotUnderstood". To improve the performance, I implemented k-d trees to decrease spatial operations\' complexity.',
+    'My favourite part of the project was handling the increasingly complex and heavy-weight game logic. To tackle the former, I decided to borrow inspiration from Smalltalk\'s message passing, including the concept of "messageNotUnderstood". To improve the performance, I implemented k-d trees to decrease the spatial operations\' complexity.',
 
     'This game (along with SDF-2D) was my BSc thesis project, so more in-depth information about them can be found in my thesis linked below.',
   ],
