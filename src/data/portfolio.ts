@@ -1,4 +1,3 @@
-import { Background } from '../page/background/background';
 import { Contact } from '../page/contact/contact.html';
 import { Header } from '../page/header/header';
 import { ImageViewer } from '../page/image-viewer/image-viewer';
@@ -26,7 +25,6 @@ import { towers } from './projects/towers';
 import { CV, Email, GitHubLink, LinkedIn } from './shared';
 
 const main = new Main(
-  new Background(1, 1),
   new Header({
     name: 'András Schmelczer',
     image: me,
