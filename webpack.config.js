@@ -107,15 +107,6 @@ module.exports = (env, argv) => ({
         use: [
           argv.mode === 'production'
             ? {
-                loader: 'string-replace-loader',
-                options: {
-                  search: /(['">])\s+([<'"])/gs,
-                  replace: '$1$2',
-                },
-              }
-            : null,
-          argv.mode === 'production'
-            ? {
                 // for removing whitespace (mainly from template strings) which are not part of comments
                 loader: 'string-replace-loader',
                 options: {
