@@ -8,12 +8,12 @@ import { generate } from './main.html';
 export class Main extends PageElement {
   private static readonly perspective = 5;
   private static readonly zMin = 6;
-  private static readonly zMax = 50;
+  private static readonly zMax = 40;
   private static readonly minHeight = 360;
   private static readonly maxHeight = 740;
   private static readonly minBlobCount = 30;
   private static readonly blobCountScaler = 0.05;
-  private static readonly stableSeed = 51;
+  private static readonly stableSeed = 42551;
 
   private readonly topOffsetElementCount = 1;
   private readonly bottomOffsetElementCount = 1;
@@ -21,7 +21,6 @@ export class Main extends PageElement {
   private random = new Random();
   private stableRandom = new Random();
   private blobs: Array<HTMLElement> = [];
-  private windowHeight = 0;
   private contentHeight = 0;
 
   constructor(...children: Array<PageElement | string>) {
@@ -30,12 +29,13 @@ export class Main extends PageElement {
     );
 
     super(generate(Main.perspective), actualChildren);
+
     actualChildren.forEach((c) => this.attachElement(c));
   }
 
   protected initialize() {
     super.initialize();
-    this.drawIfNecessary();
+    this.maintainYPosition();
   }
 
   private maintainBlobCount() {
@@ -59,15 +59,18 @@ export class Main extends PageElement {
   private createBlob(): HTMLElement {
     const blob = document.createElement('div');
     blob.className = 'blob';
+
     const z = this.random.inInterval(Main.zMin, Main.zMax);
-    const endXSpan = ((1 / Main.perspective) * (Main.zMax + Main.perspective)) / 2;
+    const halfScreenWidthAtFarPlane = Main.zMax / Main.perspective / 2 + 0.5;
 
     const x = this.random.inInterval(
-      mix(0, -(endXSpan - 0.5), z / Main.zMax),
-      mix(1, 1 + endXSpan - 0.5, z / Main.zMax)
+      mix(0, 0.5 - halfScreenWidthAtFarPlane, z / Main.zMax),
+      mix(1, 0.5 + halfScreenWidthAtFarPlane, z / Main.zMax)
     );
 
     blob.style.left = `${x * 100}%`;
+    blob.style.transform = `translate3D(-50%, 0, ${-z}px) rotate(-20deg)`;
+
     blob.style.zIndex = (-z).toFixed(0);
     blob.style.opacity = (1 - (z - Main.zMin) / (Main.zMax - Main.zMin)).toString();
     blob.style.height = `${this.random.inInterval(Main.minHeight, Main.maxHeight)}px`;
@@ -75,68 +78,36 @@ export class Main extends PageElement {
     return blob;
   }
 
-  private drawIfNecessary() {
-    const siblings = this.getSiblings();
-    const currentContentHeight = sum(siblings.map(getHeight));
-
-    if (
-      window.innerHeight !== this.windowHeight ||
-      currentContentHeight !== this.contentHeight
-    ) {
-      this.windowHeight = window.innerHeight;
-      this.contentHeight = currentContentHeight;
-      this.maintainBlobCount();
-
-      this.randomizeBlobs(
-        sum(siblings.slice(0, this.topOffsetElementCount).map(getHeight)),
-        sum(siblings.slice(-this.bottomOffsetElementCount).map(getHeight))
-      );
-    }
-
-    requestAnimationFrame(this.drawIfNecessary.bind(this));
-  }
-
-  private getSiblings(): Array<HTMLElement> {
-    return Array.prototype.slice
+  private maintainYPosition() {
+    const siblings = Array.prototype.slice
       .call(this.htmlRoot.childNodes)
       .filter((n: HTMLElement) => !n.classList.contains('blob'));
-  }
 
-  private randomizeBlobs(topOffset: number, bottomOffset: number) {
-    this.stableRandom.seed = Main.stableSeed;
-    this.blobs.forEach((b) => {
-      const z = -parseFloat(b.style.zIndex);
-      const y = this.getRandomYInSafeArea(
-        z,
-        topOffset,
-        bottomOffset,
-        parseFloat(b.style.height)
-      );
+    const viewHeight = getHeight(this.htmlRoot);
+    const currentContentHeight = this.htmlRoot.scrollHeight / viewHeight;
 
-      b.style.transform = `translate3D(0, ${y}px, ${-z}px) rotate(-20deg)`;
-    });
-  }
+    if (currentContentHeight !== this.contentHeight) {
+      this.contentHeight = currentContentHeight;
 
-  private getRandomYInSafeArea(
-    z: number,
-    topOffset: number,
-    bottomOffset: number,
-    height: number
-  ): number {
-    const farTop = -(
-      ((this.windowHeight / 2 - topOffset) / Main.perspective) *
-        (Main.zMax + Main.perspective) -
-      this.windowHeight / 2
-    );
+      this.maintainBlobCount();
 
-    const farBottom = Math.min(
-      ((this.windowHeight / 2 - bottomOffset) / Main.perspective) *
-        (Main.zMax + Main.perspective) -
-        this.windowHeight / 2 +
-        this.contentHeight,
-      this.contentHeight - height
-    );
+      const topOffset =
+        sum(siblings.slice(0, this.topOffsetElementCount).map(getHeight)) / viewHeight;
+      const bottomOffset =
+        sum(siblings.slice(-this.bottomOffsetElementCount).map(getHeight)) / viewHeight;
 
-    return this.stableRandom.inInterval(mix(topOffset, farTop, z / Main.zMax), farBottom);
+      this.stableRandom.seed = Main.stableSeed;
+
+      this.blobs.forEach((b) => {
+        const y = this.stableRandom.inInterval(
+          topOffset,
+          this.contentHeight - bottomOffset - parseFloat(b.style.height) / viewHeight
+        );
+
+        b.style.top = `${y * 100}%`;
+      });
+    }
+
+    requestAnimationFrame(this.maintainYPosition.bind(this));
   }
 }
