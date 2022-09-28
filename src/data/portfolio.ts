@@ -36,10 +36,10 @@ const main = new Main(
 
       "I'm passionate about architecting and building large-scale systems, especially in the context of AI/ML. However, in my free time, I also enjoy working with shaders, data visualisation, and sometimes even microcontrollers.",
 
-      `Discover some of my more exciting projects below. And if you'd like to reach out to me, you can find my contact details at ${Link(
-        'the bottom of the page',
+      `Discover some of my more exciting projects below. And if you'd like to reach out to me, you can find my ${Link(
+        'CV and contact details',
         '#contact'
-      )}.`,
+      )} at the bottom of the page.`,
     ],
   }),
 
