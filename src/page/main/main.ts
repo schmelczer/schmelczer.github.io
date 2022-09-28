@@ -11,8 +11,8 @@ export class Main extends PageElement {
   private static readonly zMax = 40;
   private static readonly minHeight = 360;
   private static readonly maxHeight = 740;
-  private static readonly minBlobCount = 30;
-  private static readonly blobCountScaler = 0.05;
+  private static readonly minBlobCount = 20;
+  private static readonly blobCountScaler = 0.035;
   private static readonly stableSeed = 42551;
 
   private readonly topOffsetElementCount = 1;
