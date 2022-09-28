@@ -27,10 +27,13 @@ html[animations='off'] {
 
 html {
   height: 100%;
-
   overflow: hidden;
 
-  @include on-small-screen {
+  @media (min-width: 1000px) and (max-width: 1440px) {
+    font-size: 0.875rem;
+  }
+
+  @media (max-width: 999px) {
     font-size: 0.8rem;
   }
 
@@ -42,14 +45,6 @@ html {
 }
 
 body {
-  @media (min-width: $breakpoint-width) and (max-width: 999px) {
-    @include zoom(0.8);
-  }
-
-  @media (min-width: 1000px) and (max-width: 1440px) {
-    @include zoom(0.875);
-  }
-
   background-color: var(--background);
   transition: background-color linear var(--transition-time);
 

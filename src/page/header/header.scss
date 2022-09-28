@@ -11,7 +11,7 @@
       outline: var(--very-light-text-color) solid var(--line-width);
     }
 
-    $img-size: 125px;
+    $img-size: 11rem;
     > .profile-picture {
       @include square($img-size);
       margin: auto;
@@ -24,7 +24,7 @@
   }
 
   @include on-large-screen {
-    $img-size: 190px;
+    $img-size: 12.5rem;
 
     width: var(--body-width);
     margin: calc(#{var(--normal-margin)} + #{$img-size} * 1 / 3) auto var(--large-margin)
@@ -44,8 +44,12 @@
         @include square(calc(#{$img-size} * 2 / 3 - #{var(--normal-margin)}));
         box-sizing: content-box;
         float: left;
-        margin: 0 0.75ex 0.5ex 0;
+        margin: 0 0.75ex 0.2ex 0;
       }
+    }
+
+    > p {
+      text-align: justify;
     }
   }
 
@@ -82,7 +86,6 @@
   }
 
   > p {
-    text-align: justify;
     margin-top: var(--line-height);
   }
 

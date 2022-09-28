@@ -32,7 +32,7 @@ export class Header extends PageElement {
         {
           image,
           alt: imageAltText,
-          sizes: '(max-width: 924px) 125px, 190px',
+          sizes: '(max-width: 924px) 11rem, 12.5rem',
         },
         imageViewer
       )

@@ -4,7 +4,7 @@
   --transition-time: 200ms;
   --transition-time-long: 300ms;
   --line-width: 4px;
-  --line-height: 18px;
+  --line-height: 1.125rem;
   --accent-color: #b7455e;
   --sun-color: #f7f78c;
   --very-light-text-color: #ffffff;
@@ -15,31 +15,22 @@
   --blur-radius: 16px;
   --special-text-color: var(--accent-color);
   --inset-shadow: inset 0 0 4px 1px rgba(0, 0, 0, 0.05), inset 0 0 5px rgba(0, 0, 0, 0.2);
-}
+  --border-radius: 0.85rem;
 
-@include on-large-screen {
-  :root {
-    --border-radius: 15px;
-    --large-margin: 80px;
-    --normal-margin: 45px;
-    --small-margin: 25px;
-    --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
-    --icon-size: 45px;
-    --large-icon-size: 60px;
-    --body-width: min(80%, 900px);
-  }
+  --large-margin: 4.6rem;
+  --normal-margin: 2.8rem;
+  --small-margin: 1.4rem;
+  --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1), 0 0 1px rgba(0, 0, 0, 0.2);
+  --icon-size: 2.8rem;
+  --large-icon-size: 3.75rem;
+  --body-width: min(80%, 60rem);
 }
 
 @include on-small-screen {
   :root {
-    --border-radius: 10px;
-    --large-margin: 60px;
-    --normal-margin: 30px;
-    --small-margin: 15px;
-    --shadow: 0 0 10px 2px rgba(0, 0, 0, 0.075), 0 0 1px rgba(0, 0, 0, 0.125);
-    --icon-size: 35px;
-    --large-icon-size: 55px;
     --body-width: 90%;
+    --large-margin: 2.8rem;
+    --normal-margin: 2rem;
   }
 }
 
@@ -48,7 +39,6 @@
   --normal-text-color: #ffffff;
   --card-color: #263551;
   --blurred-card-color: #212f4a77;
-  --blur-radius: 30px;
   --special-text-color: #ffffff;
   --inset-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.3), inset 0 0 4px rgba(0, 0, 0, 0.5);
 }

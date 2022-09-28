@@ -20,13 +20,6 @@ $breakpoint-width: 700px !default;
   }
 }
 
-@mixin zoom($q) {
-  transform: scale($q);
-  transform-origin: top center;
-  height: math.div(100%, $q);
-  margin: 0 (0.5 - math.div(0.5, $q)) * 100%;
-}
-
 @mixin image-button($icon-size) {
   display: block;
   box-sizing: content-box;
@@ -96,7 +89,6 @@ $breakpoint-width: 700px !default;
   font: 400 3rem 'Comfortaa', sans-serif;
   color: var(--normal-text-color);
   line-height: 1;
-  transition: color var(--transition-time);
 
   @include on-small-screen {
     font-size: 3rem;
@@ -108,7 +100,6 @@ $breakpoint-width: 700px !default;
   font: 400 1.75rem 'Comfortaa', sans-serif;
   color: var(--normal-text-color);
   hyphens: auto;
-  transition: color var(--transition-time);
 }
 
 @mixin main-font() {
@@ -116,7 +107,6 @@ $breakpoint-width: 700px !default;
   color: var(--normal-text-color);
   line-height: 1.8;
   hyphens: auto;
-  transition: color var(--transition-time);
 }
 
 @mixin special-text-font() {
@@ -124,7 +114,6 @@ $breakpoint-width: 700px !default;
   color: var(--special-text-color);
   hyphens: auto;
   font-style: italic;
-  transition: color var(--transition-time);
 }
 
 @mixin link {
