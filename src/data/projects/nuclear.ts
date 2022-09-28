@@ -4,7 +4,7 @@ import processSimulatorPoster from '../media/process-simulator.jpg';
 
 export const nuclear: TimelineElementParameters = {
   title: 'Simulating the cooling system of a nuclear facility',
-  date: '2018 October - November',
+  date: 'October - November 2018',
   figure: new BorderedImage({
     image: processSimulatorPoster,
     alt: 'a screenshot of the simulator',

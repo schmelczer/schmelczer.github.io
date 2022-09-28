@@ -5,7 +5,7 @@ import { GitHub } from '../shared';
 
 export const myNotes: TimelineElementParameters = {
   title: 'My Notes &mdash; Android app',
-  date: '2019 November',
+  date: 'November 2019',
   figure: new BorderedImage({
     image: myNotesPoster,
     alt: 'two screenshots of the application',

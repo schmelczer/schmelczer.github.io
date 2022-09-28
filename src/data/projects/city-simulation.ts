@@ -7,7 +7,7 @@ import { videoPosterAltText } from '../shared';
 
 export const citySimulation: TimelineElementParameters = {
   title: 'City simulation &mdash; Unity',
-  date: '2018 July - August',
+  date: 'July - August 2018',
   figure: new Video({
     poster: citySimulationPoster,
     mp4: citySimulationMp4,

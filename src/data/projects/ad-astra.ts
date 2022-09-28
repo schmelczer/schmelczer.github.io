@@ -7,7 +7,7 @@ import { GitHub, videoPosterAltText } from '../shared';
 
 export const adAstra: TimelineElementParameters = {
   title: 'Embedded game engine',
-  date: '2020 spring',
+  date: 'Spring 2020',
   figure: new Video({
     poster: adAstraPoster,
     mp4: adAstraMp4,

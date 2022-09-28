@@ -5,7 +5,7 @@ import { Open } from '../shared';
 
 export const avoid: TimelineElementParameters = {
   title: 'Avoid',
-  date: '2018 January',
+  date: 'January 2018',
   figure: new Preview(
     avoidPoster,
     'https://schmelczer.dev/avoid',

@@ -5,7 +5,7 @@ import { Open } from '../shared';
 
 export const photos: TimelineElementParameters = {
   title: 'Photos',
-  date: '2016 summer',
+  date: 'Summer 2016',
   figure: new BorderedImage({
     image: photosPoster,
     alt: 'a picture of the website',

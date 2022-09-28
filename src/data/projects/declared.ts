@@ -6,7 +6,7 @@ import { GitHub, Open, Thesis } from '../shared';
 
 export const declared: TimelineElementParameters = {
   title: 'Multiplayer mobile game',
-  date: '2020 autumn',
+  date: 'Autumn - Winter 2020',
   figure: new Preview(declaredPoster, 'https://decla.red', 'The UI of the video game'),
   description:
     'I created a conquest-style online multiplayer browser game using my ray-tracing library (see below). It even runs on mobiles.',

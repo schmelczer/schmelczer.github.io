@@ -4,7 +4,7 @@ import colorsPoster from '../media/color.jpg';
 
 export const colors: TimelineElementParameters = {
   title: 'Photo colour grader',
-  date: '2018 June',
+  date: 'June 2018',
   figure: new BorderedImage({
     image: colorsPoster,
     alt: 'a picture of the app',

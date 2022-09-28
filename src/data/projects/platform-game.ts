@@ -7,7 +7,7 @@ import { videoPosterAltText } from '../shared';
 
 export const platformGame: TimelineElementParameters = {
   title: 'Platform game',
-  date: '2017 autumn',
+  date: 'Autumn 2017',
   figure: new Video({
     poster: platformPoster,
     mp4: platformMp4,

@@ -5,7 +5,7 @@ import { NPM, Open, Youtube } from '../shared';
 
 export const sdf2d: TimelineElementParameters = {
   title: 'Optimising 2D ray tracing',
-  date: '2020 autumn',
+  date: 'Autumn - Winter 2020',
   figure: new Preview(
     sdf2dPoster,
     'https://sdf2d.schmelczer.dev',

@@ -4,7 +4,7 @@ import nuclearEditorPoster from '../media/process-simulator-input.jpg';
 
 export const nuclearEditor: TimelineElementParameters = {
   title: 'Graph editor &mdash; JavaFX',
-  date: '2018 October - November',
+  date: 'October - November 2018',
   figure: new BorderedImage({
     image: nuclearEditorPoster,
     alt: "a picture of the simulator's UI",

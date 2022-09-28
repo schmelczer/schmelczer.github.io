@@ -5,7 +5,7 @@ import { GitHub, Open } from '../shared';
 
 export const towers: TimelineElementParameters = {
   title: 'Multi-device life tracking',
-  date: '2019 August - September',
+  date: 'August - September 2019',
   figure: new BorderedImage({
     image: towersPoster,
     alt: 'a picture of the website',

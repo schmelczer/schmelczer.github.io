@@ -7,7 +7,7 @@ import { videoPosterAltText } from '../shared';
 
 export const forex: TimelineElementParameters = {
   title: 'Predicting foreign exchange rates',
-  date: '2019 autumn',
+  date: 'Autumn 2019',
   figure: new Video({
     poster: forexPoster,
     mp4: forexMp4,

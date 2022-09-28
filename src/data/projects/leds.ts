@@ -7,7 +7,7 @@ import { videoPosterAltText } from '../shared';
 
 export const leds: TimelineElementParameters = {
   title: 'Lights synchronised to music',
-  date: '2016 spring',
+  date: 'Spring 2016',
   figure: new Video({
     poster: ledPoster,
     mp4: ledMp4,
