@@ -17,15 +17,13 @@ export const Image = ({
     class="image"
     style="background-size: cover; background-image: url('${
       image.placeholder
-    }'); aspect-ratio: ${image.width / image.height}"
+    }'); aspect-ratio: ${image.width / image.height};"
   >
     <img
       ${isEagerLoaded ? '' : 'loading="lazy"'}
       srcset="${image.srcSet}"
       ${sizes ? `sizes="${sizes}"` : ''}
       src="${image.src}"
-      width="${image.width}"
-      height="${image.height}"
       alt="${alt}"
     />
   </div>`;
