@@ -1,42 +1,38 @@
-@use '../../style/mixins' as *;
+@use '../../../style/mixins' as *;
 
-.preview {
-  position: relative;
-
-  .overlay {
+.figure-container {
+  > .overlay {
     @include square(100%);
     position: absolute;
     left: 0;
     top: 0;
+    pointer-events: none;
 
-    iframe {
-      position: absolute;
-      left: 0;
-    }
-
-    .loading {
+    > .loading {
       @include square(var(--large-icon-size));
       @include absolute-center;
       visibility: hidden;
     }
 
-    iframe {
+    > iframe {
       @include square(100%);
       border: none;
-      &:fullscreen {
-        border-radius: 0;
-      }
+      position: absolute;
+      left: 0;
     }
   }
 
   &.loaded {
-    .figure-container,
-    .start-button {
+    > .start-button {
       visibility: hidden;
     }
 
-    .loading {
-      visibility: visible;
+    > .overlay {
+      pointer-events: all;
+
+      > .loading {
+        visibility: visible;
+      }
     }
   }
 }

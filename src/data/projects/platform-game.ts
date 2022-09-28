@@ -1,5 +1,5 @@
+import { Video } from '../../page/figure/video/video';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
-import { Video } from '../../page/video/video';
 import platformMp4 from '../media/mp4/platform.mp4';
 import platformPoster from '../media/platform.png';
 import platformWebM from '../media/webm/platform.webm';

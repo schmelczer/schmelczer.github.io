@@ -1,5 +1,5 @@
+import { Video } from '../../page/figure/video/video';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
-import { Video } from '../../page/video/video';
 import ledPoster from '../media/led.jpg';
 import ledMp4 from '../media/mp4/led.mp4';
 import ledWebM from '../media/webm/led.webm';

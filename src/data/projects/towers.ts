@@ -1,4 +1,4 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import towersPoster from '../media/towers.png';
 import { GitHub, Open } from '../shared';
@@ -6,10 +6,9 @@ import { GitHub, Open } from '../shared';
 export const towers: TimelineElementParameters = {
   title: 'Multi-device life tracking',
   date: '2019 August - September',
-  figure: Image({
+  figure: new BorderedImage({
     image: towersPoster,
     alt: 'a picture of the website',
-    container: true,
   }),
   description: 'An aesthetic representation of your previous and current goals/tasks.',
   more: [

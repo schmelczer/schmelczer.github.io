@@ -1,0 +1,29 @@
+@use '../../style/mixins' as *;
+
+.figure-container {
+  box-shadow: var(--inset-shadow);
+  transition: box-shadow var(--transition-time);
+
+  position: relative;
+  cursor: pointer;
+
+  > .start-button {
+    @include image-button(var(--large-icon-size));
+    @include absolute-center;
+    @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
+
+    &:hover > svg {
+      box-shadow: var(--shadow);
+    }
+
+    > svg {
+      border-radius: 1000px;
+      @include blurred-background;
+      transition: transform var(--transition-time), box-shadow var(--transition-time);
+    }
+
+    &.inverted > svg {
+      fill: var(--accent-color);
+    }
+  }
+}

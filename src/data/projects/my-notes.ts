@@ -1,4 +1,4 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import myNotesPoster from '../media/my-notes.png';
 import { GitHub } from '../shared';
@@ -6,10 +6,9 @@ import { GitHub } from '../shared';
 export const myNotes: TimelineElementParameters = {
   title: 'My Notes &mdash; Android app',
   date: '2019 November',
-  figure: Image({
+  figure: new BorderedImage({
     image: myNotesPoster,
     alt: 'two screenshots of the application',
-    container: true,
   }),
   description: 'A minimalist Android note organiser and editor powered by Markwon.',
   more: [

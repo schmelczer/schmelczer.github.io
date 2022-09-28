@@ -12,8 +12,9 @@
     }
 
     $img-size: 125px;
-    > .photo-container > .image {
+    > .profile-picture {
       @include square($img-size);
+      margin: auto;
     }
 
     > h1 {
@@ -30,11 +31,10 @@
       auto;
     border-radius: var(--border-radius);
 
-    > .photo-container {
-      position: relative;
-
-      > .image {
+    > .profile-picture {
+      > .figure-container {
         @include square($img-size);
+
         position: absolute;
         left: calc(#{math.div(-$img-size, 3)} - var(--normal-margin));
         top: calc(#{math.div(-$img-size, 3)} - var(--normal-margin));
@@ -55,15 +55,19 @@
   }
 
   > h1,
-  > .photo-container > .placeholder {
+  > .profile-picture > .placeholder {
     @include title-font();
   }
 
-  > .photo-container {
-    > .image {
-      border-radius: 100%;
-      box-shadow: var(--shadow);
-      margin: auto;
+  > .profile-picture {
+    position: relative;
+    z-index: 1;
+
+    .figure-container {
+      &,
+      > .image {
+        border-radius: 100%;
+      }
     }
   }
 

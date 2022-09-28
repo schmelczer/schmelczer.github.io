@@ -1,14 +1,13 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import processSimulatorPoster from '../media/process-simulator.jpg';
 
 export const nuclear: TimelineElementParameters = {
   title: 'Simulating the cooling system of a nuclear facility',
   date: '2018 October - November',
-  figure: Image({
+  figure: new BorderedImage({
     image: processSimulatorPoster,
     alt: 'a screenshot of the simulator',
-    container: true,
   }),
   description:
     'The temperatures and flow volumes are dynamically calculated by two graph models on a remote server while multiple "monitoring" clients update in real-time.',

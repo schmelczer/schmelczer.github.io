@@ -105,6 +105,10 @@
     background-color: var(--blurred-card-color);
     transition: background-color var(--transition-time);
 
+    > .figure-container {
+      border-radius: var(--border-radius) var(--border-radius) 0 0;
+    }
+
     > .lower {
       > * {
         padding: 0 var(--normal-margin);

@@ -4,7 +4,7 @@ import './image-viewer.scss';
 
 export const generate = (): html => `
   <div id="image-viewer">
-    <img height="0" width="0" image-viewer-ignore />
+    <img height="0" width="0" />
     <button id="cancel">${cancel}</button>
   </div>
 `;

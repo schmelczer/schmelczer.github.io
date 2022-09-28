@@ -25,15 +25,6 @@ html[animations='off'] {
   }
 }
 
-button {
-  border: none;
-  background: none;
-}
-
-a {
-  text-decoration: none;
-}
-
 html {
   height: 100%;
 
@@ -74,6 +65,23 @@ body {
   }
 }
 
+noscript {
+  @include square(100%);
+  @include center-children();
+  @include sub-title-font();
+}
+
+.image,
+video,
+iframe {
+  user-select: none;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
 svg {
   stroke: var(--normal-text-color);
 }
@@ -82,68 +90,8 @@ p {
   @include main-font();
 }
 
-noscript {
-  @include square(100%);
-  @include center-children();
-  @include sub-title-font();
-}
-
-.start-button {
-  @include image-button(var(--large-icon-size));
-  @include absolute-center;
-  @include square(calc(var(--large-icon-size) + var(--normal-margin) * 2));
-
-  // as a result of the firefox fix, it is required for iOS devices
-  transform: translate3d(-50%, -50%, 0.00001px);
-
-  &:hover svg {
-    box-shadow: var(--shadow);
-  }
-
-  svg {
-    border-radius: 10000px;
-    @include blurred-background;
-    transition: transform var(--transition-time), box-shadow var(--transition-time);
-  }
-
-  &.inverted svg {
-    fill: var(--accent-color);
-  }
-}
-
-.figure-container {
-  font-size: 0;
-  box-shadow: var(--inset-shadow);
-  border-radius: var(--border-radius) var(--border-radius) 0 0;
-  pointer-events: none;
-  position: relative;
-
-  * {
-    pointer-events: auto;
-  }
-
-  .image,
-  video,
-  iframe {
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-  }
-}
-
-video,
-iframe {
-  // the picture of videos is not always visible on firefox mobile without this
-  transform: translate3d(0, 0, 0.00001px);
-}
-
-.image,
-video,
-iframe {
-  user-select: none;
+a {
+  text-decoration: none;
 }
 
 :focus {

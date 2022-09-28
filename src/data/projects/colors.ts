@@ -1,14 +1,13 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import colorsPoster from '../media/color.jpg';
 
 export const colors: TimelineElementParameters = {
   title: 'Photo colour grader',
   date: '2018 June',
-  figure: Image({
+  figure: new BorderedImage({
     image: colorsPoster,
     alt: 'a picture of the app',
-    container: true,
   }),
   description: 'An innovative (at least I thought so) colour grader web application.',
   more: [

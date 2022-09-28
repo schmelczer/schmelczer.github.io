@@ -1,4 +1,4 @@
-import { Preview } from '../../page/preview/preview';
+import { Preview } from '../../page/figure/preview/preview';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import declaredPoster from '../media/decla-red.png';
 import bscThesis from '../media/sdf2d-andras-schmelczer.pdf';

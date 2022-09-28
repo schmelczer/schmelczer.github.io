@@ -5,18 +5,6 @@ export class ImageViewer extends PageElement {
   public constructor() {
     super(generate());
 
-    document.body.addEventListener('click', (event: MouseEvent) => {
-      const element = event.target as HTMLElement;
-
-      if (element.classList?.contains('image')) {
-        this.showImage(element.querySelector('img')!);
-      }
-
-      if (element instanceof HTMLImageElement) {
-        this.showImage(element);
-      }
-    });
-
     document.body.addEventListener('keydown', (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         this.hideImage();
@@ -26,11 +14,7 @@ export class ImageViewer extends PageElement {
     this.htmlRoot.addEventListener('click', this.hideImage.bind(this));
   }
 
-  private showImage(source: HTMLImageElement) {
-    if (source.attributes['image-viewer-ignore'] as boolean | undefined) {
-      return;
-    }
-
+  public showImage(source: HTMLImageElement) {
     const image = this.query('img') as HTMLImageElement;
     image.src = '';
     image.src = source.src;

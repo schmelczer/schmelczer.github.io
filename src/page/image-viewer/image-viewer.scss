@@ -13,11 +13,9 @@
 
   img {
     @include square(auto);
-
-    @include on-large-screen {
-      max-width: 80%;
-      max-height: 80%;
-    }
+    box-shadow: var(--shadow);
+    max-width: 80%;
+    max-height: 80%;
 
     @include on-small-screen {
       max-width: 95%;

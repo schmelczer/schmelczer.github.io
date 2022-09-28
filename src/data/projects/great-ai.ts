@@ -1,4 +1,4 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import mscThesis from '../media/great-ai-andras-schmelczer.pdf';
 import greatAiPoster from '../media/great-ai.png';
@@ -7,10 +7,9 @@ import { Open, PyPi, Thesis } from '../shared';
 export const greatAi: TimelineElementParameters = {
   title: 'GreatAI &mdash; AI deployment framework',
   date: '2022',
-  figure: Image({
+  figure: new BorderedImage({
     image: greatAiPoster,
     alt: 'some example code using GreatAI',
-    container: true,
     isEagerLoaded: true,
   }),
   description:

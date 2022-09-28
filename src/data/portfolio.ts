@@ -24,11 +24,13 @@ import { sdf2d } from './projects/sdf2d';
 import { towers } from './projects/towers';
 import { CV, Email, GitHubLink, LinkedIn } from './shared';
 
+const imageViewer = new ImageViewer();
 const main = new Main(
   new Header({
     name: 'András Schmelczer',
     image: me,
     imageAltText: 'a picture of me',
+    imageViewer,
     about: [
       'With more than six years of professional software engineering experience and a degree in Computer Science, I can confidently undertake any challenge. My interests span diverse areas, allowing me to design complex &mdash; even multidisciplinary &mdash; systems with a clear understanding.',
 
@@ -56,7 +58,7 @@ const main = new Main(
     platformGame,
     photos,
     leds,
-  ].map((p) => new TimelineElement(p, 'Show details', 'Show less')),
+  ].map((p) => new TimelineElement(p, 'Show details', 'Show less', imageViewer)),
 
   Contact({
     title: 'Get in touch',
@@ -72,6 +74,6 @@ const main = new Main(
 
 export const portfolio: Array<PageElement> = [
   main,
-  new ImageViewer(),
   new UpArrowButton(main, 'go up'),
+  imageViewer,
 ];

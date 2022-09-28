@@ -4,15 +4,13 @@ import './header.scss';
 export const generate = ({
   name,
   about,
-  photo,
 }: {
   name: string;
   about: Array<string>;
-  photo: html;
 }): html => `
   <header id="about">
-    <div class="photo-container">
-      ${photo}
+    <div class="profile-picture">
+      <img/>
       <div class="placeholder"></div>
     </div>
 

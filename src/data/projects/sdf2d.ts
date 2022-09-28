@@ -1,4 +1,4 @@
-import { Preview } from '../../page/preview/preview';
+import { Preview } from '../../page/figure/preview/preview';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import sdf2dPoster from '../media/sdf2d.png';
 import { NPM, Open, Youtube } from '../shared';

@@ -1,8 +1,0 @@
-@use '../../style/mixins' as *;
-
-.video-container {
-  &.loaded > .start-button,
-  &:not(.loaded) > video {
-    visibility: hidden;
-  }
-}

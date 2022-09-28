@@ -1,14 +1,13 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import nuclearEditorPoster from '../media/process-simulator-input.jpg';
 
 export const nuclearEditor: TimelineElementParameters = {
   title: 'Graph editor &mdash; JavaFX',
   date: '2018 October - November',
-  figure: Image({
+  figure: new BorderedImage({
     image: nuclearEditorPoster,
     alt: "a picture of the simulator's UI",
-    container: true,
   }),
   description:
     'An intuitive editor to create and edit input for the nuclear facility simulator (see above).',

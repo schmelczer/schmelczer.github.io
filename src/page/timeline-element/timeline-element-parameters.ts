@@ -1,10 +1,9 @@
 import { html } from '../../types/html';
-import { Preview } from '../preview/preview';
-import { Video } from '../video/video';
+import { Figure } from '../figure/figure';
 
 export interface TimelineElementParameters {
   date: string;
-  figure: html | Video | Preview;
+  figure: Figure;
   title: string;
   description: string;
   more?: Array<html>;

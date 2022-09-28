@@ -1,5 +1,5 @@
+import { Video } from '../../page/figure/video/video';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
-import { Video } from '../../page/video/video';
 import adAstraPoster from '../media/ad_astra.jpg';
 import adAstraMp4 from '../media/mp4/ad_astra.mp4';
 import adAstraWebM from '../media/webm/ad_astra.webm';

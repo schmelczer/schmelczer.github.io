@@ -1,15 +1,16 @@
-import { PageElement } from '../page-element';
+import { Figure } from '../figure';
 import { VideoParameters } from './video-parameters';
 import { generate } from './video.html';
 
-export class Video extends PageElement {
+export class Video extends Figure {
   public constructor(options: VideoParameters) {
-    super(generate(options));
-
-    this.query('.start-button').addEventListener('click', this.startVideo.bind(this));
+    super(generate(options), {
+      hasButton: true,
+      invertButton: options.invertButton,
+    });
   }
 
-  private async startVideo() {
+  protected async onClick() {
     this.query('.start-button').style.visibility = 'hidden';
     this.htmlRoot.classList.add('loaded');
 

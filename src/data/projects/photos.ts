@@ -1,4 +1,4 @@
-import { Image } from '../../page/image-viewer/image/image.html';
+import { BorderedImage } from '../../page/figure/bordered-image/bordered-image';
 import { TimelineElementParameters } from '../../page/timeline-element/timeline-element-parameters';
 import photosPoster from '../media/photos.jpg';
 import { Open } from '../shared';
@@ -6,10 +6,9 @@ import { Open } from '../shared';
 export const photos: TimelineElementParameters = {
   title: 'Photos',
   date: '2016 summer',
-  figure: Image({
+  figure: new BorderedImage({
     image: photosPoster,
     alt: 'a picture of the website',
-    container: true,
   }),
   description: 'A simple webpage where you can view my photos.',
   more: [

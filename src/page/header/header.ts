@@ -1,5 +1,6 @@
 import { ResponsiveImage } from '../../types/responsive-image';
-import { Image } from '../image-viewer/image/image.html';
+import { BorderedImage } from '../figure/bordered-image/bordered-image';
+import { ImageViewer } from '../image-viewer/image-viewer';
 import { PageElement } from '../page-element';
 import { generate } from './header.html';
 import { ThemeSwitcher } from './theme-switcher/theme-switcher';
@@ -10,22 +11,31 @@ export class Header extends PageElement {
     image,
     imageAltText,
     about,
+    imageViewer,
   }: {
     name: string;
     image: ResponsiveImage;
     imageAltText: string;
     about: Array<string>;
+    imageViewer?: ImageViewer;
   }) {
     super(
       generate({
         name,
         about,
-        photo: Image({
+      })
+    );
+
+    this.attachElementByReplacing(
+      'img',
+      new BorderedImage(
+        {
           image,
           alt: imageAltText,
           sizes: '(max-width: 924px) 125px, 190px',
-        }),
-      })
+        },
+        imageViewer
+      )
     );
     this.attachElement(new ThemeSwitcher());
   }

@@ -1,4 +1,6 @@
 import { titleToFragment } from '../../helper/title-to-fragment';
+import { BorderedImage } from '../figure/bordered-image/bordered-image';
+import { ImageViewer } from '../image-viewer/image-viewer';
 import { PageElement } from '../page-element';
 import { TimelineElementParameters } from './timeline-element-parameters';
 import { generate } from './timeline-element.html';
@@ -10,7 +12,8 @@ export class TimelineElement extends PageElement {
   public constructor(
     private timelineElement: TimelineElementParameters,
     private readonly showMore: string,
-    private readonly showLess: string
+    private readonly showLess: string,
+    imageViewer?: ImageViewer
   ) {
     super(generate(timelineElement, showMore));
 
@@ -24,12 +27,11 @@ export class TimelineElement extends PageElement {
       );
     }
 
-    this.attachElementByReplacing(
-      '.figure',
-      timelineElement.figure instanceof PageElement
-        ? timelineElement.figure
-        : new PageElement(timelineElement.figure)
-    );
+    if (timelineElement.figure instanceof BorderedImage) {
+      timelineElement.figure.imageViewer = imageViewer;
+    }
+
+    this.attachElementByReplacing('.figure', timelineElement.figure);
   }
 
   protected initialize(): void {
