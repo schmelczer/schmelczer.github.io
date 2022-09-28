@@ -5,23 +5,19 @@
   padding: var(--small-margin) 8px;
   text-align: center;
 
-  > button {
-    cursor: pointer;
+  .svg-container {
+    position: relative;
+    margin: auto;
+    @include square(var(--icon-size));
 
-    > .svg-container {
-      position: relative;
-      margin: auto;
-      @include square(var(--icon-size));
-
-      > svg {
-        transition: stroke var(--transition-time), transform var(--transition-time);
-      }
+    > svg {
+      transition: stroke var(--transition-time), transform var(--transition-time);
     }
+  }
 
-    > p {
-      font-size: 0.9rem;
-      font-style: italic;
-      text-align: center;
-    }
+  p {
+    font-size: 0.9rem;
+    font-style: italic;
+    text-align: center;
   }
 }

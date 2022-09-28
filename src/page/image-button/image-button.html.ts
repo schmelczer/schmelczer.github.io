@@ -8,12 +8,16 @@ export const ImageButtonFactory =
     { shouldDownload = false }: { shouldDownload?: boolean } = {}
   ) =>
   (href?: url) =>
-    `<a ${href ? `href="${href}"` : ''}
-      class="image-button" tabindex="-1" rel="noopener" target="_blank" ${
-        shouldDownload ? 'download' : ''
-      }>
-      <button>
+    `
+    <button class="image-button">
+     ${
+       href
+         ? `<a href="${href}" tabindex="-1" rel="noopener" target="_blank" ${
+             shouldDownload ? 'download' : ''
+           }>`
+         : ''
+     }
         <div class="svg-container">${svg}</div>
         <p>${title}</p>
-      </button>
-    </a>`;
+        ${href ? '</a>' : ''}
+    </button>`;
