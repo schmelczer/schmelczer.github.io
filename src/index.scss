@@ -28,6 +28,7 @@ html[animations='off'] {
 html {
   height: 100%;
   overflow: hidden;
+  -webkit-font-smooth: antialiased;
 
   @media (min-width: 1000px) and (max-width: 1440px) {
     font-size: 0.875rem;
@@ -66,10 +67,11 @@ noscript {
   @include sub-title-font();
 }
 
-.image,
+img,
 video,
 iframe {
   user-select: none;
+  -webkit-user-select: none;
 }
 
 button {
