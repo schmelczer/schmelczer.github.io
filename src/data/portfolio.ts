@@ -32,7 +32,7 @@ const main = new Main(
     imageAltText: 'a picture of me',
     imageViewer,
     about: [
-      'With more than six years of professional software engineering experience and a degree in Computer Science, I can confidently undertake any challenge. My interests span diverse areas, allowing me to design complex &mdash; even multidisciplinary &mdash; systems with a clear understanding.',
+      "With a Master's degree in Computer Science and more than six years of professional software engineering experience, I can confidently undertake any challenge. My interests span diverse areas, allowing me to design complex &mdash; even multidisciplinary &mdash; systems with a clear understanding.",
 
       "I'm passionate about architecting and building large-scale systems, especially in the context of AI/ML. However, in my free time, I also enjoy working with shaders, data visualisation, and sometimes even microcontrollers.",
 
