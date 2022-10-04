@@ -5,8 +5,7 @@
 
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: opacity var(--transition-time), visibility var(--transition-time),
-    transform var(--transition-time);
+  transition: opacity var(--transition-time), transform var(--transition-time-long);
 
   border-radius: var(--border-radius);
 
@@ -17,6 +16,13 @@
 
   &:hover {
     transform: scale(1.1);
+  }
+
+  &.down {
+    transform: rotate(180deg);
+    &:hover {
+      transform: scale(1.1) rotate(180deg);
+    }
   }
 
   svg {

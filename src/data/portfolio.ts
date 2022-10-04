@@ -25,6 +25,19 @@ import { towers } from './projects/towers';
 import { CV, Email, GitHubLink, LinkedIn } from './shared';
 
 const imageViewer = new ImageViewer();
+const contact = new PageElement(
+  Contact({
+    title: 'Get in touch',
+    links: [
+      CV(cvEnglish),
+      Email('mailto:andras@schmelczer.dev'),
+      LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
+      GitHubLink('https://github.com/schmelczer'),
+    ],
+    lastEditText: 'Last modified on ',
+  })
+);
+
 const main = new Main(
   new Header({
     name: 'Andras Schmelczer',
@@ -60,20 +73,11 @@ const main = new Main(
     leds,
   ].map((p) => new TimelineElement(p, 'Show details', 'Show less', imageViewer)),
 
-  Contact({
-    title: 'Get in touch',
-    links: [
-      CV(cvEnglish),
-      Email('mailto:andras@schmelczer.dev'),
-      LinkedIn('https://www.linkedin.com/in/andras-schmelczer'),
-      GitHubLink('https://github.com/schmelczer'),
-    ],
-    lastEditText: 'Last modified on ',
-  })
+  contact
 );
 
 export const portfolio: Array<PageElement> = [
   main,
-  new UpArrowButton(main, 'go up'),
+  new UpArrowButton(main, contact, 'go up'),
   imageViewer,
 ];
