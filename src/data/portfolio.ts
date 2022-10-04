@@ -27,7 +27,7 @@ import { CV, Email, GitHubLink, LinkedIn } from './shared';
 const imageViewer = new ImageViewer();
 const main = new Main(
   new Header({
-    name: 'András Schmelczer',
+    name: 'Andras Schmelczer',
     image: me,
     imageAltText: 'a picture of me',
     imageViewer,
