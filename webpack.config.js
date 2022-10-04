@@ -82,10 +82,17 @@ module.exports = (env, argv) => ({
         use: 'svg-inline-loader',
       },
       {
-        test: /(\/no-change\/|.pdf$)/i,
+        test: /\/no-change\//i,
         type: 'asset/resource',
         generator: {
           filename: '[name][ext]',
+        },
+      },
+      {
+        test: /.pdf$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'static/[name][ext]',
         },
       },
       {
