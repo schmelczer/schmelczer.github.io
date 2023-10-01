@@ -3,7 +3,10 @@ import { html } from '../types/html';
 export class PageElement {
   public readonly htmlRoot: HTMLElement;
 
-  public constructor(content: html, protected children: Array<PageElement> = []) {
+  public constructor(
+    content: html,
+    protected children: Array<PageElement> = []
+  ) {
     this.htmlRoot = PageElement.createElement(content);
   }
 

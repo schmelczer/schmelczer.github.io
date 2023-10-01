@@ -5,7 +5,9 @@
 
   cursor: pointer;
   box-shadow: var(--shadow);
-  transition: opacity var(--transition-time), transform var(--transition-time-long);
+  transition:
+    opacity var(--transition-time),
+    transform var(--transition-time-long);
 
   border-radius: var(--border-radius);
 

@@ -76,7 +76,7 @@ export type PlausibleOptions = PlausibleInitOptions & PlausibleEventData;
 type TrackEvent = (
   eventName: string,
   options?: EventOptions,
-  eventData?: PlausibleOptions,
+  eventData?: PlausibleOptions
 ) => void;
 
 /**
@@ -164,7 +164,7 @@ type EnableAutoPageviews = () => Cleanup;
  */
 type EnableAutoOutboundTracking = (
   targetNode?: Node & ParentNode,
-  observerInit?: MutationObserverInit,
+  observerInit?: MutationObserverInit
 ) => Cleanup;
 
 /**
@@ -267,9 +267,9 @@ export default function Plausible(defaults?: PlausibleInitOptions): {
       childList: true,
       attributes: true,
       attributeFilter: ['href'],
-    },
+    }
   ) => {
-    function trackClick(this: HTMLAnchorElement, event: MouseEvent) {
+    function trackClick(this: HTMLAnchorElement, _event: MouseEvent) {
       trackEvent('Outbound Link: Click', { props: { url: this.href } });
     }
 

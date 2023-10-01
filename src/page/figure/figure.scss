@@ -21,7 +21,9 @@
     > svg {
       border-radius: 1000px;
       @include blurred-background;
-      transition: transform var(--transition-time), box-shadow var(--transition-time);
+      transition:
+        transform var(--transition-time),
+        box-shadow var(--transition-time);
     }
 
     &.inverted > svg {

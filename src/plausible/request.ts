@@ -31,11 +31,11 @@ export type EventOptions = {
 export function sendEvent(
   eventName: string,
   data: Required<PlausibleOptions>,
-  options?: EventOptions,
+  options?: EventOptions
 ): void {
   const isLocalhost =
     /^localhost$|^127(?:\.[0-9]+){0,2}\.[0-9]+$|^(?:0*:)*?:?0*1$/.test(
-      window.location.hostname,
+      window.location.hostname
     ) || window.location.protocol === 'file:';
 
   if (!data.trackLocalhost && isLocalhost) {
@@ -45,7 +45,7 @@ export function sendEvent(
   const shouldIgnoreCurrentBrowser = localStorage.getItem('plausible_ignore') === 'true';
   if (shouldIgnoreCurrentBrowser) {
     return console.warn(
-      '[Plausible] Ignoring event because "plausible_ignore" is set to "true" in localStorage',
+      '[Plausible] Ignoring event because "plausible_ignore" is set to "true" in localStorage'
     );
   }
 

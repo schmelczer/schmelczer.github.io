@@ -3,7 +3,11 @@ import { Figure } from '../figure';
 import { generate } from './preview.html';
 
 export class Preview extends Figure {
-  public constructor(poster: ResponsiveImage, private readonly url: string, alt: string) {
+  public constructor(
+    poster: ResponsiveImage,
+    private readonly url: string,
+    alt: string
+  ) {
     super(generate({ poster, alt }), {
       hasButton: true,
     });

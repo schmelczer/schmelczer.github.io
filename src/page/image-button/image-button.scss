@@ -11,7 +11,9 @@
     @include square(var(--icon-size));
 
     > svg {
-      transition: stroke var(--transition-time), transform var(--transition-time);
+      transition:
+        stroke var(--transition-time),
+        transform var(--transition-time);
     }
   }
 

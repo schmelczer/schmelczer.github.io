@@ -86,7 +86,9 @@ $breakpoint-width: 700px !default;
 }
 
 @mixin title-font() {
-  font: 400 3rem 'Comfortaa', sans-serif;
+  font:
+    400 3rem 'Comfortaa',
+    sans-serif;
   color: var(--normal-text-color);
   line-height: 1;
 
@@ -97,20 +99,26 @@ $breakpoint-width: 700px !default;
 }
 
 @mixin sub-title-font() {
-  font: 400 1.75rem 'Comfortaa', sans-serif;
+  font:
+    400 1.75rem 'Comfortaa',
+    sans-serif;
   color: var(--normal-text-color);
   hyphens: auto;
 }
 
 @mixin main-font() {
-  font: 400 1.1rem 'Open Sans', sans-serif;
+  font:
+    400 1.1rem 'Open Sans',
+    sans-serif;
   color: var(--normal-text-color);
   line-height: 1.8;
   hyphens: auto;
 }
 
 @mixin special-text-font() {
-  font: 400 1rem 'Open Sans', sans-serif;
+  font:
+    400 1rem 'Open Sans',
+    sans-serif;
   color: var(--special-text-color);
   hyphens: auto;
   font-style: italic;
