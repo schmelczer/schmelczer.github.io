@@ -15,6 +15,16 @@ import {
 } from './helper/accessibility';
 import { scrollToFragment } from './helper/scroll-to-fragment';
 import './index.scss';
+import Plausible from './plausible/tracker';
+
+const plausible = Plausible({
+  hashMode: true,
+  trackLocalhost: true,
+  apiURI: 'https://stats.schmelczer.dev/status',
+});
+
+plausible.enableAutoPageviews();
+plausible.enableAutoOutboundTracking();
 
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();
