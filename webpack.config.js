@@ -12,6 +12,9 @@ module.exports = (env, argv) => ({
   entry: {
     index: './src/index.ts',
   },
+  devServer: {
+    allowedHosts: 'all',
+  },
   watchOptions: {
     ignored: '**/node_modules',
   },
