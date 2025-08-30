@@ -8,6 +8,7 @@ import '../static/no-change/favicons/favicon.ico';
 import '../static/no-change/favicons/site.webmanifest';
 import '../static/no-change/og-image.jpg';
 import '../static/no-change/robots.txt';
+import { init as plausibleInit } from '@plausible-analytics/tracker'
 import { portfolio } from './data/portfolio';
 import {
   addSupportForTabNavigation,
@@ -15,16 +16,17 @@ import {
 } from './helper/accessibility';
 import { scrollToFragment } from './helper/scroll-to-fragment';
 import './index.scss';
-import Plausible from './plausible/tracker';
 
-const plausible = Plausible({
-  hashMode: true,
-  trackLocalhost: true,
-  apiURI: 'https://stats.schmelczer.dev/status',
+plausibleInit({
+  domain: 'schmelczer.dev',
+  endpoint: 'https://stats.schmelczer.dev/status',
+  autoCapturePageviews: true,
+  captureOnLocalhost: true,
+  logging: true,
+  fileDownloads: true,
+  hashBasedRouting: true
 });
 
-plausible.enableAutoPageviews();
-plausible.enableAutoOutboundTracking();
 
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();

@@ -29,6 +29,7 @@
   ],
   "homepage": "https://github.com/schmelczer/schmelczer.github.io#readme",
   "devDependencies": {
+    "@plausible-analytics/tracker": "^0.4.0",
     "@trivago/prettier-plugin-sort-imports": "^4.2.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "css-loader": "^6.8.1",
