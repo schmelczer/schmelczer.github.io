@@ -8,7 +8,7 @@ import '../static/no-change/favicons/favicon.ico';
 import '../static/no-change/favicons/site.webmanifest';
 import '../static/no-change/og-image.jpg';
 import '../static/no-change/robots.txt';
-import { init as plausibleInit } from '@plausible-analytics/tracker'
+import { init as plausibleInit } from '@plausible-analytics/tracker';
 import { portfolio } from './data/portfolio';
 import {
   addSupportForTabNavigation,
@@ -24,9 +24,8 @@ plausibleInit({
   captureOnLocalhost: true,
   logging: true,
   fileDownloads: true,
-  hashBasedRouting: true
+  hashBasedRouting: true,
 });
-
 
 addSupportForTabNavigation();
 removeUnnecessaryOutlines();
